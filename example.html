@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noor Community | Education as a Practice of Freedom</title>
+    <title>Noor Community Prototype</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,42 +14,89 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-      /* Sage Forest Design System (Web) */
+      /*
+        Sage Forest Design System (Web)
+        - Fluid type + space scales
+        - Light/Dark themes (semantic tokens)
+        - A11y-first focus, reduced motion
+        - Utilities + a few components (button, card, input, nav)
+        
+        Usage:
+        - Toggle dark theme with [data-theme="dark"] on <html> or any scope.
+        - Wrap content in .container for readable line lengths.
+        - Compose utilities (e.g., .stack, .cluster, .grid) with components.
+      */
+
       @layer tokens, base, utilities, components;
 
+      /* ------------------------------
+         TOKENS
+      ------------------------------ */
       @layer tokens {
         :root {
+          /* Brand palette (from user) */
           --primary-sage: #7a8471;
           --secondary-sage: #9caf88;
+          --tertiary-sage: #b8c5a6;
           --warm-cream: #f8f6f0;
           --soft-white: #fefcf7;
+          --forest-shadow: #5a6b52;
           --ink: #2f3a2b;
+          --ink-muted: #5a6b52;
           --border-sage: rgba(122, 132, 113, 0.22);
           --hover-sage: rgba(156, 175, 136, 0.15);
           --deep-forest: #2e362a;
           --primary-forest: #3e4a3a;
+
+          /* Neutrals */
           --neutral-0: #ffffff;
+          --neutral-50: #f9f9f8;
           --neutral-100: #f1f2ee;
+          --neutral-200: #e4e6df;
+          --neutral-300: #cfd3c9;
+          --neutral-700: #394236;
+          --neutral-900: #1b201a;
+
+          /* Semantic role tokens (light theme default) */
           --bg: var(--soft-white);
           --surface: var(--warm-cream);
           --text: var(--ink);
           --muted: color-mix(in srgb, var(--ink) 70%, white);
           --border: var(--border-sage);
+
           --primary: var(--primary-sage);
           --primary-contrast: #ffffff;
           --accent: var(--secondary-sage);
-          --elev: var(--neutral-0);
+          --accent-contrast: #0e110d;
+          --elev:  var(--neutral-0);
+
+          /* Feedback (harmonized with sage) */
+          --success: #3a7a5a;
+          --warning: #b5852a;
+          --danger:  #8e3b3b;
+
+          /* Typography */
           --font-display: "Questrial", system-ui, sans-serif;
           --font-body: "Nunito", system-ui, sans-serif;
           --leading-tight: 1.2;
           --leading-normal: 1.55;
+          --leading-loose: 1.8;
+
+          /* Fluid type scale (clamp for responsive) */
+          --step--2: clamp(0.74rem, 0.67rem + 0.25vw, 0.85rem);
           --step--1: clamp(0.84rem, 0.76rem + 0.30vw, 0.95rem);
-          --step-0: clamp(1.00rem, 0.90rem + 0.40vw, 1.125rem);
-          --step-1: clamp(1.13rem, 1.02rem + 0.55vw, 1.33rem);
-          --step-2: clamp(1.27rem, 1.15rem + 0.70vw, 1.58rem);
-          --step-3: clamp(1.60rem, 1.40rem + 1.00vw, 2.00rem);
-          --step-4: clamp(2.00rem, 1.70rem + 1.60vw, 2.50rem);
-          --step-5: clamp(2.5rem, 2.1rem + 2.5vw, 3.5rem);
+          --step-0:  clamp(1.00rem, 0.90rem + 0.40vw, 1.125rem);
+          --step-1:  clamp(1.13rem, 1.02rem + 0.55vw, 1.33rem);
+          --step-2:  clamp(1.27rem, 1.15rem + 0.70vw, 1.58rem);
+          --step-3:  clamp(1.60rem, 1.40rem + 1.00vw, 2.00rem);
+          --step-4:  clamp(2.00rem, 1.70rem + 1.60vw, 2.50rem);
+          --step-5:  clamp(2.5rem, 2.1rem + 2.5vw, 3.5rem);
+
+
+          /* Space scale (8px base, with a couple of in-betweens) */
+          --space-1: 0.25rem;
+          --space-2: 0.5rem;
+          --space-3: 0.75rem;
           --space-4: 1rem;
           --space-5: 1.25rem;
           --space-6: 1.5rem;
@@ -57,98 +104,183 @@
           --space-8: 2.5rem;
           --space-9: 3rem;
           --space-10: 4rem;
-          --container-max: 72rem;
+
+          /* Layout */
+          --container-max: 72rem; /* ~1152px */
+          --radius-s: 0.375rem;
           --radius-m: 0.75rem;
           --radius-l: 1.25rem;
+          --radius-xl: 2rem;
+          --radius-full: 9999px;
+
+          /* Elevation */
           --shadow-1: 0 1px 2px rgba(0,0,0,0.05), 0 1px 1px rgba(0,0,0,0.05);
           --shadow-2: 0 4px 12px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.06);
+          --shadow-3: 0 12px 24px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.10);
+
+          /* Motion */
           --easing: cubic-bezier(.2,.7,.2,1);
           --duration-1: 120ms;
           --duration-2: 200ms;
           --duration-3: 340ms;
           --duration-slow: 600ms;
         }
-        html[data-theme="dark"] {
+
+        /* Dark Theme */
+        :root[data-theme="dark"] {
           --bg: var(--deep-forest);
           --surface: color-mix(in srgb, var(--primary-forest) 92%, black);
           --elev: color-mix(in srgb, var(--primary-forest) 85%, black);
           --text: color-mix(in srgb, white 88%, var(--primary-forest));
           --muted: color-mix(in srgb, var(--text) 60%, var(--primary-forest));
           --border: color-mix(in srgb, var(--primary-sage) 24%, black);
+
           --primary: color-mix(in srgb, var(--primary-sage) 82%, white);
           --primary-contrast: #0f120f;
           --accent: color-mix(in srgb, var(--secondary-sage) 80%, white);
+          --accent-contrast: #0b0e0b;
+
           --shadow-1: 0 1px 2px rgba(0,0,0,0.6);
           --shadow-2: 0 4px 12px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.45);
+          --shadow-3: 0 12px 32px rgba(0,0,0,0.5);
         }
       }
 
+      /* ------------------------------
+         BASE & RESET
+      ------------------------------ */
       @layer base {
         *, *::before, *::after { box-sizing: border-box; }
         * { min-width: 0; }
         html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: var(--font-body); font-size: var(--step-0); line-height: var(--leading-normal); color: var(--text); background: var(--bg); }
-        img { display: block; max-width: 100%; }
+        body { margin: 0; font-family: var(--font-body); font-size: var(--step-0); line-height: var(--leading-normal); color: var(--text); background: var(--bg); text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        img, picture, video, canvas, svg { display: block; max-width: 100%; }
+        input, button, textarea, select { font: inherit; color: inherit; }
         button { cursor: pointer; }
         :where(ul, ol) { margin: 0; padding: 0; list-style: none; }
-        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-        h1, h2, h3, h4 { font-family: var(--font-display); line-height: var(--leading-tight); margin: 0 0 var(--space-4); }
+
+        :focus-visible { outline: 2px solid color-mix(in srgb, var(--accent) 70%, white); outline-offset: 2px; border-radius: 4px; }
+
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); line-height: var(--leading-tight); margin: 0 0 var(--space-4); letter-spacing: 0.01em; }
         h1 { font-size: var(--step-5); }
         h2 { font-size: var(--step-3); }
         h3 { font-size: var(--step-2); }
-        p { margin: 0 0 var(--space-5); max-width: 65ch; }
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        
+        p { margin: 0 0 var(--space-5); color: var(--text); }
+        a { color: var(--primary); text-decoration-color: color-mix(in srgb, var(--primary) 54%, transparent); }
+        a:hover { text-decoration-color: var(--primary); }
         hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-7) 0; }
+
+        @media (prefers-reduced-motion: reduce) {
+          html { scroll-behavior: auto; }
+          * { animation: none !important; transition: none !important; }
+        }
       }
 
+      /* ------------------------------
+         UTILITIES
+      ------------------------------ */
       @layer utilities {
         .container { width: min(100% - 2rem, var(--container-max)); margin-inline: auto; }
         .stack > * + * { margin-block-start: var(--stack-space, var(--space-5)); }
         .cluster { display: flex; flex-wrap: wrap; gap: var(--cluster-gap, var(--space-4)); align-items: center; }
-        .grid { display: grid; gap: var(--grid-gap, var(--space-6)); grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
-        .section-padding { padding-block: var(--space-10); }
-        .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity var(--duration-slow) var(--easing), transform var(--duration-slow) var(--easing); }
-        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+        .grid { display: grid; gap: var(--grid-gap, var(--space-6)); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+        
+        /* Animation Utility */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity var(--duration-slow) var(--easing), transform var(--duration-slow) var(--easing);
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
       }
 
+      /* ------------------------------
+         COMPONENTS
+      ------------------------------ */
       @layer components {
-        .hero-banner { display: grid; place-content: center; text-align: center; min-height: 70vh; padding: var(--space-7); position: relative; isolation: isolate; color: var(--neutral-0); background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; }
-        .hero-banner::before { content: ''; position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.6); z-index: -1; }
-        .hero-banner h1 { text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
-        .hero-banner p { font-size: var(--step-1); color: var(--neutral-100); max-width: 55ch; margin-inline: auto; }
-
-        .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) 0; position: sticky; top: 0; background: var(--bg); z-index: 1000; border-bottom: 1px solid var(--border); }
-        .nav__brand { font-family: var(--font-display); font-size: var(--step-1); font-weight: 700; text-decoration: none; }
-        .nav__toggle { display: none; background: none; border: none; padding: 0.5rem; font-size: var(--step-1); }
-        .nav__links { display: flex; align-items: center; gap: var(--space-4); }
-        .nav__link { font-size: var(--step-0); padding: 0.4em 0.6em; border-radius: 4px; text-decoration: none; }
-        .nav__link:hover { background: var(--hover-sage); text-decoration: none; }
-        .nav__link[aria-current="page"] { font-weight: 700; }
-        .nav__dropdown { position: relative; }
-        .nav__dropdown-content { display: none; position: absolute; background-color: var(--surface); min-width: 160px; box-shadow: var(--shadow-2); z-index: 1; border-radius: var(--radius-m); padding: var(--space-2) 0; }
-        .nav__dropdown-content a { color: var(--text); padding: 12px 16px; text-decoration: none; display: block; }
-        .nav__dropdown-content a:hover { background-color: var(--hover-sage); }
-        .nav__dropdown:hover .nav__dropdown-content { display: block; }
-
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; padding: 0.65em 1.2em; border-radius: var(--radius-m); border: 1px solid var(--border); background: var(--surface); color: var(--text); font-weight: 600; text-decoration: none; transition: transform var(--duration-1) var(--easing), box-shadow var(--duration-2) var(--easing); box-shadow: var(--shadow-1); }
-        .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); text-decoration: none; }
-        .btn--primary { background: var(--primary); color: var(--primary-contrast); border-color: color-mix(in srgb, var(--primary) 78%, black); }
-        
-        .card { background: var(--elev); border: 1px solid var(--border); border-radius: var(--radius-l); box-shadow: var(--shadow-1); overflow: hidden; display: flex; flex-direction: column; }
-        .card__body { padding: var(--space-6); flex-grow: 1; display: flex; flex-direction: column; }
-        .card__body > *:last-child { margin-top: auto; }
-        .card__title { font-size: var(--step-1); margin: 0 0 var(--space-3); }
-
-        @media (max-width: 64rem) {
-            .nav__toggle { display: block; z-index: 1001; }
-            .nav__links { display: none; position: fixed; inset: 0; flex-direction: column; justify-content: center; background: var(--surface); gap: var(--space-6); }
-            .nav--open .nav__links { display: flex; }
-            .nav__link { font-size: var(--step-2); }
-            .nav__dropdown:hover .nav__dropdown-content { display: none; } /* Disable hover on mobile */
-            .nav__dropdown-content { position: static; box-shadow: none; background: transparent; padding: 0; }
-            .nav__dropdown-content a { text-align: center; }
+        /* Hero Banner */
+        .hero-banner {
+            display: grid;
+            place-content: center;
+            text-align: center;
+            min-height: 70vh;
+            padding: var(--space-7);
+            position: relative;
+            isolation: isolate;
+            color: var(--neutral-0);
+            background-image: url('https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
         }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        .hero-banner h1 {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero-banner p {
+            font-size: var(--step-2);
+            color: var(--neutral-100);
+            max-width: 50ch;
+            margin-inline: auto;
+        }
+
+        /* Responsive Navigation */
+        .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) 0; }
+        .nav__brand { font-family: var(--font-display); font-size: var(--step-1); font-weight: 700; text-decoration: none; z-index: 1001; }
+        .nav__toggle { display: block; background: none; border: none; padding: 0.5rem; z-index: 1001; }
+        .nav__links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-6);
+            position: fixed;
+            inset: 0;
+            background: var(--surface);
+            transform: translateX(100%);
+            transition: transform var(--duration-3) var(--easing);
+        }
+        .nav--open .nav__links {
+            transform: translateX(0);
+        }
+        .nav__link { font-size: var(--step-2); padding: 0.4em 0.6em; border-radius: var(--radius-s); color: var(--text); text-decoration: none; }
+        .nav__link:hover { background: var(--hover-sage); }
+        
+        /* Desktop Navigation Styles */
+        @media (min-width: 50rem) {
+            .nav__toggle { display: none; }
+            .nav__links {
+                position: static;
+                flex-direction: row;
+                transform: none;
+                background: none;
+                gap: var(--space-4);
+            }
+            .nav__link { font-size: var(--step-0); }
+        }
+
+        /* Button */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; padding: 0.65em 1em; border-radius: var(--radius-m); border: 1px solid var(--border); background: var(--surface); color: var(--text); font-weight: 600; text-decoration: none; transition: transform var(--duration-1) var(--easing), box-shadow var(--duration-2) var(--easing); box-shadow: var(--shadow-1); }
+        .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); }
+        .btn--primary { background: var(--primary); color: var(--primary-contrast); border-color: color-mix(in srgb, var(--primary) 78%, black); }
+        .btn--lg { padding: 0.85em 1.25em; font-size: var(--step-1); }
+
+        /* Card */
+        .card { background: var(--elev); border: 1px solid var(--border); border-radius: var(--radius-l); box-shadow: var(--shadow-1); overflow: clip; }
+        .card__media > img { inline-size: 100%; block-size: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+        .card__body { padding: var(--space-6); }
+        .card__title { font-size: var(--step-1); margin: 0 0 var(--space-3); }
+        .card__meta { color: var(--muted); font-size: var(--step--1); margin-block-end: var(--space-4); }
       }
     </style>
 </head>
@@ -156,23 +288,16 @@
 
     <header class="container">
       <nav class="nav" id="main-nav">
-        <a href="#home" class="nav__brand"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Noor Community</a>
+        <a href="#" class="nav__brand"><i class="fa-solid fa-leaf"></i> Noor</a>
         
-        <div class="nav__links" id="nav-links">
-          <a href="#home" class="nav__link">Home</a>
-          <a href="#about" class="nav__link">About Us</a>
-          <a href="#vision" class="nav__link">Our Vision</a>
-          <a href="#what-we-do" class="nav__link">What We Do</a>
-          <div class="nav__dropdown">
-            <a href="#join-us" class="nav__link">Join Us <i class="fa-solid fa-caret-down"></i></a>
-            <div class="nav__dropdown-content">
-              <a href="#for-students">For Students</a>
-              <a href="#volunteer">Volunteer</a>
-            </div>
-          </div>
-          <a href="#donate" class="btn btn--primary">Donate</a>
-        </div>
-        
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#" class="nav__link">Home</a></li>
+          <li><a href="#" class="nav__link">Events</a></li>
+          <li><a href="#" class="nav__link">About Us</a></li>
+          <li><a href="#" class="nav__link">Contact</a></li>
+          <li><button class="btn btn--sm" id="theme-toggle-mobile">Toggle Theme</button></li>
+        </ul>
+
         <button class="nav__toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -181,232 +306,151 @@
 
     <main>
       <!-- ===================================
-           HOME PAGE
+           HERO BANNER
       ==================================== -->
-      <section id="home">
-        <div class="hero-banner" aria-labelledby="hero-title">
-          <div class="stack" style="--stack-space: var(--space-6)">
-            <h1 id="hero-title">Education as a Practice of Freedom</h1>
-            <p>Noor Community is an international network of educators united by a shared vision of liberation through education. We create rigorous learning environments where Palestinian students cultivate the critical linguistic skills and capabilities to build the futures they envision.</p>
+      <section class="hero-banner">
+        <div class="stack" style="--stack-space: var(--space-6)">
+          <h1>Noor Community</h1>
+          <p>A welcoming place for growth, connection, and shared purpose. Discover our upcoming events and join us on a journey of inspiration.</p>
+          <div class="cluster" style="justify-content: center;">
+            <a href="#" class="btn btn--primary btn--lg">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>View Events</span>
+            </a>
           </div>
         </div>
-
-        <div class="container section-padding stack" style="--stack-space: var(--space-10);">
-          <section class="animate-on-scroll" aria-labelledby="about-summary-title">
-            <div class="stack" style="text-align: center; align-items: center;">
-              <h2 id="about-summary-title">About Us</h2>
-              <p>Our work began in 2024 when two British Council teachers established a small ELT unit to support Palestinian communities. Today, we are a community of practice where students, mentors, and teachers are co-learners in a shared enterprise, committed to dismantling the traditional hierarchies that pervade international education.</p>
-              <a href="#about" class="btn">Learn More About Us</a>
-            </div>
-          </section>
-
-          <hr>
-
-          <section class="animate-on-scroll" aria-labelledby="programmes-summary-title">
-            <div class="stack" style="text-align: center; align-items: center;">
-              <h2 id="programmes-summary-title">Our Programmes</h2>
-              <p>Our educational programmes are the practical application of our pedagogical vision. We offer academically rigorous and affirming experiences to equip learners with sophisticated linguistic and analytical tools. Our courses include General and Business English, Academic English, a professional Writing Programme, and a structured Mentoring Programme.</p>
-              <a href="#what-we-do" class="btn">See Our Programmes</a>
-            </div>
-          </section>
-          
-          <hr>
-
-          <section id="join-us" class="animate-on-scroll stack" style="--stack-space: var(--space-7);" aria-labelledby="join-us-title">
-            <h2 id="join-us-title" style="text-align: center;">Get Involved</h2>
-            <div class="grid">
-              <article class="card">
-                <div class="card__body stack">
-                  <h3 class="card__title">For Students</h3>
-                  <p>We offer high-quality online English courses to help you achieve your professional and academic goals.</p>
-                  <a href="#for-students" class="btn btn--primary" style="align-self: start;">Apply Now</a>
-                </div>
-              </article>
-              <article class="card">
-                <div class="card__body stack">
-                  <h3 class="card__title">Volunteer</h3>
-                  <p>Join a community of practice and partner with our students as a teacher, mentor, or curriculum developer.</p>
-                  <a href="#volunteer" class="btn btn--primary" style="align-self: start;">See Openings</a>
-                </div>
-              </article>
-              <article class="card">
-                <div class="card__body stack">
-                  <h3 class="card__title">Donate</h3>
-                  <p>Your financial contribution is an act of solidarity that directly enables our work.</p>
-                  <a href="#donate" class="btn btn--primary" style="align-self: start;">Donate Today</a>
-                </div>
-              </article>
-            </div>
-          </section>
-        </div>
       </section>
 
-      <!-- ===================================
-           ABOUT US PAGE
-      ==================================== -->
-      <section id="about" class="container section-padding stack animate-on-scroll" style="--stack-space: var(--space-8);" aria-labelledby="about-page-title">
-        <h2 id="about-page-title">Our Founding Conviction: Education as a Practice of Self-Determination</h2>
-        <p>Noor Community is an international network of educators united by a shared vision of liberation through education. Our work is founded on the conviction that education is a fundamental practice of human development and a vital act of cultural and intellectual preservation (Dewey, 1916). In contexts where educational systems face sustained adversity and fragmentation, the continuity of learning is essential for nurturing the conditions for a future of their own making (Abu-Lughod, 1987). We believe that emergent, grassroots organisations are key to sustaining rich intellectual traditions and fostering the critical faculties necessary for active and engaged citizenship in a complex world (Nusseibeh, 2009; Giroux, 2011). Their agility and deep community accountability allow for a pedagogy that is immediately responsive to the lived realities of learners, a critical element of any effective educational project (Bush & Saltarelli, 2000).</p>
-        <p>Our work began in 2024 when two British Council teachers, Areej Banat and Gabriel Ishmael Beckford, established a small ELT unit serving students at Al Manar Society, driven by a desire to use their skills to support Palestinian communities. From a handful of volunteers, we have expanded to offer a range of programmes that work alongside Palestinians across the region and in the diaspora. Our approach is grounded in a synthesis of critical educational theories. We see education as a practice of freedom (Freire, 2000), a means to expand the substantive freedoms, or capabilities, that enable individuals to lead lives they have reason to value (Sen, 1999; Nussbaum, 2011). Our goals are therefore to: strengthen and support Palestinian grassroots educational initiatives; support marginalised Palestinian communities in exercising narrative control; build resilient and extensive international networks with Palestinian organisations at the centre; facilitate material development through access to quality education; and to theorise and implement decolonial models of online language education which contest contemporary practices by centering the epistemologies and aspirations of the learners themselves (Smith, 2012).</p>
+      <div class="container stack" style="--stack-space: var(--space-10); margin-top: var(--space-10);">
+      
+        <!-- ===================================
+             CARD SHOWCASE
+        ==================================== -->
+        <section class="stack animate-on-scroll">
+          <h2>Upcoming Events</h2>
+          <div class="grid">
+            <article class="card">
+              <div class="card__media">
+                <img src="https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=600" alt="People gathered at a community workshop.">
+              </div>
+              <div class="card__body stack">
+                <h3 class="card__title">Community Workshop</h3>
+                <p class="card__meta"><i class="fa-regular fa-calendar-days"></i> Nov 15, 2025</p>
+                <p>Join our hands-on workshop to learn new skills and collaborate with fellow community members.</p>
+                <a href="#" class="btn btn--primary" style="align-self: start;">Learn More</a>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__media">
+                  <img src="https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg?auto=compress&cs=tinysrgb&w=600" alt="An outdoor concert at sunset.">
+              </div>
+              <div class="card__body stack">
+                <h3 class="card__title">Sunset Concert</h3>
+                <p class="card__meta"><i class="fa-regular fa-calendar-days"></i> Nov 22, 2025</p>
+                <p>Experience an evening of beautiful music in the park as the sun sets. A perfect event for all ages.</p>
+                <a href="#" class="btn btn--primary" style="align-self: start;">Get Tickets</a>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__media">
+                  <img src="https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Volunteers planting trees in a park.">
+              </div>
+              <div class="card__body stack">
+                <h3 class="card__title">Annual Park Cleanup</h3>
+                <p class="card__meta"><i class="fa-regular fa-calendar-days"></i> Dec 05, 2025</p>
+                <p>Help us make our shared spaces beautiful. Join our annual volunteer day to clean and green our local park.</p>
+                <a href="#" class="btn btn--primary" style="align-self: start;">Volunteer</a>
+              </div>
+            </article>
+          </div>
+        </section>
         
-        <h3>The Noor Classroom: Cultivating a Pedagogy of Hope</h3>
-        <p>The classroom represents a space of unique possibility where intellectual curiosity and personal growth can flourish. Acknowledging the cognitive and emotional impact of continuous traumatic stress is therefore a central pedagogical necessity that informs every aspect of our practice (Herman, 1997; Makkawi, 2003). Our commitment to creating predictable, empowering, and relationally secure classrooms is the precondition for all effective learning. This approach informs our commitment to enacting a pedagogy of hope (Freire, 1992), one that is grounded in a critical consciousness of the obstacles to be overcome. The method through which this hope is cultivated is healing-centred engagement, an approach that is politically aware, asset-driven, and focused on the collective well-being and agency required to challenge the sources of adversity (Ginwright, 2016).</p>
+        <hr class="animate-on-scroll">
 
-        <h3>A Pedagogy of Possibility: Narrative Control and Imagined Futures</h3>
-        <p>Many of our learners are university students and professionals for whom English competence is a prerequisite for continuing education or career progression. For others, fluency means achieving narrative control, the power to articulate their own experiences, histories, and aspirations on a global stage. This is the essential humanistic act of self-representation against external narratives that seek to define and confine (Said, 1978; Ngũgĩ wa Thiong'o, 1986). This involves developing the semiotic power to re-signify experience and contest dominant public transcripts (Scott, 1990). Our curriculum is designed to equip students with the sophisticated linguistic tools necessary for this vital work, enabling them to master the genres of professional and public communication (Swales, 1990).</p>
-
-        <h3>Noor: A Community of Practice</h3>
-        <p>Noor is more than a school; we are a community of practice where students, mentors, teachers, and staff are co-learners in a shared enterprise (Wenger, 1998). This horizontal structure is a conscious political choice, designed to dismantle the expert/client binaries that often characterise North-South educational encounters (Escobar, 1995). This horizontalism resists the traditional, hierarchical structures that can pervade international education initiatives (Illich, 1971). We are committed to an ethos that respects the complex, lived experiences of all our members, consciously working against the essentialising gaze that can accompany cross-cultural work (Abu-Lughod, 1991).</p>
-      </section>
-
-      <!-- ===================================
-           OUR VISION PAGE
-      ==================================== -->
-      <section id="vision" class="container section-padding stack animate-on-scroll" style="--stack-space: var(--space-8);" aria-labelledby="vision-page-title">
-        <h2 id="vision-page-title">Our Vision</h2>
-        <p>Our work is founded on the conviction that education, particularly in the field of language learning, is a fundamental practice of human development and a vital investment in a more hopeful future. In contexts marked by sustained adversity, the classroom represents a space of unique possibility; a carefully cultivated environment where intellectual curiosity, personal growth, and a durable sense of purpose can flourish. Our pedagogical vision is therefore dedicated to creating academically rigorous learning experiences that are also deeply affirming of each student's potential. We are committed to an educational practice that cultivates in learners the sophisticated linguistic and analytical tools necessary to navigate a complex world, to make a substantial contribution to their communities, and to possess the tools to build futures of their own making.</p>
-        <p>A central element of this vision involves expanding the substantive freedoms, or capabilities, that enable individuals to lead lives they have reason to value (Sen, 1999; Nussbaum, 2011). Far from being a static credential, we understand language proficiency as a dynamic capability that enhances a student’s agency and enlarges their capacity to aspire to and achieve a wider range of personal and professional goals (Appadurai, 2004). Our curriculum therefore emphasizes the active cultivation of creativity and criticality, as opposed to the passive transmission of knowledge, so they may use language to solve problems, articulate their vision with confidence, and engage productively with the challenges and opportunities that lie before them.</p>
-        <p>This entire pedagogical framework rests upon an ethical commitment to the well-being of our students, recognising that all profound learning depends upon a foundation of safety and trust. Acknowledging the cognitive and emotional impact of continuous traumatic stress is therefore a central pedagogical necessity that informs every aspect of our practice (Straker, 2001; Herman, 1997). Our commitment to creating predictable, empowering, and relationally secure classrooms is thus the precondition for all effective learning. This practice of psychosocial accompaniment, grounded in solidarity and care, ensures that the classroom remains a space for intellectual exploration and personal growth, allowing students to build the resilience and confidence they need to thrive both academically and in their lives beyond our walls (Watkins, 2011).</p>
-      </section>
-
-      <!-- ===================================
-           WHAT WE DO PAGE
-      ==================================== -->
-      <section id="what-we-do" class="container section-padding stack animate-on-scroll" style="--stack-space: var(--space-8);" aria-labelledby="what-we-do-page-title">
-        <h2 id="what-we-do-page-title">Our Educational Programmes</h2>
-        <p>Our educational programmes are the practical application of our pedagogical vision. Each programme provides an academically rigorous and affirming experience, equipping learners with sophisticated linguistic and analytical tools. Far from being a passive transmission of knowledge, our curriculum is founded on collaborative, problem-posing methodologies that cultivate creativity and criticality.</p>
-        
-        <article class="stack">
-          <h4>General and Business English: Task-Based and Project-Based Learning</h4>
-          <p>Our General and Business English courses utilise the principles of Task-Based Language Teaching (TBLT), where language is acquired through the process of solving tangible, real-world problems. By situating students in roles as entrepreneurs, artists, or community leaders, the curriculum works to expand their ‘substantive freedoms’ and their ‘capacity to aspire’.</p>
-        </article>
-        <article class="stack">
-          <h4>Writing Programme: A Genre-Based Pedagogy for Professional Communication</h4>
-          <p>Integrated within our Business English curriculum, the writing programme employs a genre-based pedagogy to support students in developing conscious control over written communication. This process equips students to take command of the writing process and narrate their own histories and capabilities effectively.</p>
-        </article>
-        <article class="stack">
-          <h4>English for Academic Purposes (EAP)</h4>
-          <p>Our EAP programme is designed to provide students with the specific linguistic and analytical competencies required for success in higher education. A key feature is the use of portfolio-based assessment, which fosters a more profound and sustained engagement with the learning process.</p>
-        </article>
-        <article class="stack">
-          <h4>Mentoring Programme: Scaffolding Professional Futures</h4>
-          <p>The mentoring programme is a three-month structured experience that guides students in the planning and execution of a self-directed project. The mentor-mentee relationship is framed as a partnership grounded in solidarity and care, designed to support the student’s own vision.</p>
-        </article>
-      </section>
-
-      <!-- ===================================
-           FOR STUDENTS PAGE
-      ==================================== -->
-      <section id="for-students" class="container section-padding stack animate-on-scroll" style="--stack-space: var(--space-7); text-align: center; align-items: center;" aria-labelledby="for-students-page-title">
-        <h2 id="for-students-page-title">Join Our Learning Community</h2>
-        <p>Welcome to Noor Community. We offer high-quality online English courses to help you achieve your professional and academic goals. Our programmes are designed for Palestinian university students, graduates, and professionals who want to build their skills and create new opportunities for their future.</p>
-        <div>
-          <h3>Our Programmes Are For You If:</h3>
-          <ul class="stack" style="--stack-space: var(--space-4); margin-top: var(--space-5);">
-            <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 8px;"></i>You are a university student or a professional.</li>
-            <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 8px;"></i>You want to improve your English for your career or your education.</li>
-            <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 8px;"></i>You are ready to participate in an active and collaborative learning community.</li>
-          </ul>
-        </div>
-        <a href="#" class="btn btn--primary">Apply to Our Programmes</a>
-      </section>
-
-      <!-- ===================================
-           VOLUNTEER PAGE
-      ==================================== -->
-      <section id="volunteer" class="container section-padding stack animate-on-scroll" style="--stack-space: var(--space-7); text-align: center; align-items: center;" aria-labelledby="volunteer-page-title">
-        <h2 id="volunteer-page-title">Volunteer: Join a Community of Practice</h2>
-        <p>We believe that the most profound education happens in community. Noor is a professional home for educators who are committed to their craft and who seek to practice it in a context of solidarity and mutual respect. Volunteering with Noor is a reciprocal partnership.</p>
-        <div class="grid" style="text-align: left; width: 100%;">
+        <!-- ===================================
+             ABOUT US SECTION
+        ==================================== -->
+        <section class="grid animate-on-scroll" style="gap: var(--space-8); align-items: center;">
             <div class="stack">
-                <h3>What We Ask of You</h3>
-                <p>We seek skilled and committed individuals for roles like:</p>
-                <ul>
-                    <li>English Language Teachers</li>
-                    <li>Professional Mentors</li>
-                    <li>Curriculum & Materials Developers</li>
-                    <li>Research Specialists</li>
-                </ul>
+                <h2>About Noor Community</h2>
+                <p>We are a diverse group dedicated to fostering a supportive and engaging environment. Through events, workshops, and volunteer efforts, we aim to strengthen bonds and empower every individual.</p>
+                <p>Our foundation is built on the principles of inclusivity, collaboration, and shared growth. We believe that a strong community is one where everyone has a voice and an opportunity to contribute.</p>
             </div>
-            <div class="stack">
-                <h3>What We Offer You</h3>
-                <ul>
-                    <li>Advanced Professional Development</li>
-                    <li>A Supportive Community</li>
-                    <li>An Ethically Grounded Professional Opportunity</li>
-                </ul>
+            <div>
+                <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600" alt="A diverse team of people putting their hands together in the middle of a table." style="border-radius: var(--radius-l); box-shadow: var(--shadow-2);">
             </div>
-        </div>
-        <a href="#" class="btn btn--primary">See Our Current Openings & Apply</a>
-      </section>
+        </section>
 
-      <!-- ===================================
-           DONATE PAGE
-      ==================================== -->
-      <section id="donate" class="container section-padding stack animate-on-scroll" style="--stack-space: var(--space-7); text-align: center; align-items: center;" aria-labelledby="donate-page-title">
-        <h2 id="donate-page-title">Donate: Invest in Educational Justice</h2>
-        <p>Your financial contribution is an act of solidarity that directly enables this work. We are a lean, grassroots organisation, and every donation is transformed into the essential tools that make our educational mission possible.</p>
-        <h3>How Your Donation Creates Impact:</h3>
-        <ul class="stack" style="--stack-space: var(--space-4);">
-            <li><i class="fa-solid fa-rocket" style="color: var(--primary); margin-right: 8px;"></i>Powering Our Digital Classrooms (Zoom, Moodle).</li>
-            <li><i class="fa-solid fa-globe" style="color: var(--primary); margin-right: 8px;"></i>Maintaining Our Global Platform.</li>
-            <li><i class="fa-solid fa-hand-holding-dollar" style="color: var(--primary); margin-right: 8px;"></i>Upholding Fair Pay for Local Leadership.</li>
-        </ul>
-        <div class="cluster" style="justify-content: center;">
-          <a href="#" class="btn">Make a One-Time Donation</a>
-          <a href="#" class="btn btn--primary">Become a Monthly Supporter</a>
-        </div>
-      </section>
-
+      </div>
     </main>
 
-    <footer class="container" style="padding-block: var(--space-8); text-align: center;">
+    <footer class="footer container">
       <p>&copy; 2025 Noor Community. All Rights Reserved.</p>
     </footer>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const navToggle = document.getElementById('nav-toggle');
-        const nav = document.getElementById('main-nav');
-        const navLinks = document.querySelectorAll('.nav__link, .nav__dropdown-content a');
+        
+        // --- THEME TOGGLE LOGIC ---
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const htmlEl = document.documentElement;
 
-        if (navToggle && nav) {
+        const toggleTheme = () => {
+          if (htmlEl.dataset.theme === 'dark') {
+            delete htmlEl.dataset.theme;
+          } else {
+            htmlEl.dataset.theme = 'dark';
+          }
+        };
+        
+        // We have two theme toggles now, one for mobile and one for the main header
+        // This example only shows the mobile one, but you could add a desktop one too.
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', toggleTheme);
+        }
+
+
+        // --- RESPONSIVE NAVIGATION LOGIC ---
+        const nav = document.getElementById('main-nav');
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        if (navToggle) {
           navToggle.addEventListener('click', () => {
-            nav.classList.toggle('nav--open');
-            const isOpen = nav.classList.contains('nav--open');
+            const isOpen = nav.classList.toggle('nav--open');
             navToggle.setAttribute('aria-expanded', isOpen);
+            
+            // Toggle icon for better UX
             const icon = navToggle.querySelector('i');
-            icon.classList.toggle('fa-bars', !isOpen);
-            icon.classList.toggle('fa-xmark', isOpen);
+            if (isOpen) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-xmark');
+            } else {
+              icon.classList.remove('fa-xmark');
+              icon.classList.add('fa-bars');
+            }
           });
         }
-        
-        // Close mobile nav when a link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (nav.classList.contains('nav--open')) {
-                    nav.classList.remove('nav--open');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navToggle.querySelector('i').classList.remove('fa-xmark');
-                    navToggle.querySelector('i').classList.add('fa-bars');
-                }
-            });
+
+        // --- SCROLL ANIMATION LOGIC ---
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              // Stop observing the element once it's visible
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1 // Trigger when 10% of the element is visible
         });
 
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('is-visible');
-                  observer.unobserve(entry.target);
-                }
-              });
-            }, { threshold: 0.1 });
-            animatedElements.forEach(el => observer.observe(el));
-        } else {
-            animatedElements.forEach(el => el.classList.add('is-visible'));
-        }
+        animatedElements.forEach(el => {
+          observer.observe(el);
+        });
+
       });
     </script>
 
