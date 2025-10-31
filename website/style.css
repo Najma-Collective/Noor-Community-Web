@@ -258,7 +258,7 @@
   .img-opacity-medium { opacity: var(--img-opacity-medium); }
   .img-grayscale { filter: grayscale(100%); transition: filter var(--duration-2) var(--easing); }
   .img-grayscale:hover { filter: grayscale(0); }
-  
+
   .img-overlay { position: relative; }
   .img-overlay::after {
     content: '';
@@ -267,6 +267,124 @@
     background-color: color-mix(in srgb, var(--primary) 60%, transparent);
     mix-blend-mode: multiply;
     pointer-events: none;
+  }
+
+  /* --- ENHANCED VISUAL UTILITIES --- */
+  .animate-fade-in {
+    animation: fadeIn var(--duration-3) var(--easing);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hover-lift {
+    transition: transform var(--duration-2) var(--easing), box-shadow var(--duration-2) var(--easing);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-3);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 40%, transparent);
+  }
+
+  .backdrop-blur {
+    backdrop-filter: blur(8px);
+    background: color-mix(in srgb, var(--surface) 85%, transparent);
+  }
+
+  .parallax-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Image container with overlay */
+  .image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-l);
+  }
+
+  .image-wrapper img {
+    transition: transform 0.6s var(--easing);
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-wrapper:hover img {
+    transform: scale(1.05);
+  }
+
+  .image-with-gradient {
+    position: relative;
+  }
+
+  .image-with-gradient::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--ink) 70%, transparent) 100%);
+    pointer-events: none;
+  }
+
+  /* Decorative elements */
+  .decorative-blob {
+    position: absolute;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: linear-gradient(135deg, var(--tertiary-sage), var(--secondary-sage));
+    opacity: 0.15;
+    filter: blur(40px);
+    z-index: -1;
+  }
+
+  /* Split layout with image */
+  .split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-9);
+    align-items: center;
+  }
+
+  @media (max-width: 60rem) {
+    .split-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+
+  .split-layout.reverse {
+    direction: rtl;
+  }
+
+  .split-layout.reverse > * {
+    direction: ltr;
+  }
+
+  /* Featured image styles */
+  .featured-image {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-3);
+    aspect-ratio: 4 / 3;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -309,8 +427,22 @@
     border-radius: var(--radius-l);
     box-shadow: var(--shadow-1);
     overflow: clip;
+    transition: transform var(--duration-2) var(--easing), box-shadow var(--duration-2) var(--easing);
   }
-  .card__media > img { inline-size: 100%; block-size: auto; aspect-ratio: var(--img-aspect-video); object-fit: cover; }
+  .card:hover {
+    box-shadow: var(--shadow-2);
+  }
+  .card__media { position: relative; overflow: hidden; }
+  .card__media > img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: var(--img-aspect-video);
+    object-fit: cover;
+    transition: transform 0.6s var(--easing);
+  }
+  .card:hover .card__media > img {
+    transform: scale(1.05);
+  }
   .card__body { padding: var(--space-6); }
   .card__title { font-size: var(--step-1); margin: 0 0 var(--space-3); }
   .card__meta { color: var(--muted); font-size: var(--step--1); margin-block-end: var(--space-4); }

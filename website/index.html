@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Questrial&display=swap" rel="stylesheet">
+    <script src="pexels.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -30,36 +31,58 @@
     <section class="container">
         <div class="hero">
             <div class="hero__content">
-                <h1>Education as a Practice of Freedom</h1>
+                <h1 class="animate-fade-in">Education as a Practice of Freedom</h1>
                 <p style="font-size: var(--step-1); line-height: var(--leading-normal); margin-bottom: var(--space-7);">
                     Noor Community is an international network of educators united by a shared vision of liberation through education. We create rigorous learning environments where Palestinian students cultivate the critical linguistic skills and capabilities to build the futures they envision.
                 </p>
+                <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+                    <a href="students.html" class="btn btn--primary btn--lg">Join as a Student</a>
+                    <a href="volunteer.html" class="btn btn--accent btn--lg">Volunteer With Us</a>
+                </div>
             </div>
             <div class="hero__image-wrapper">
-                <div style="background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage)); border-radius: var(--radius-xl); height: 400px; box-shadow: var(--shadow-3);"></div>
+                <div class="featured-image" data-pexels-query="students studying together diverse" style="height: 400px;">
+                    <!-- Image will be loaded by Pexels API -->
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Us Summary Section -->
     <section class="container" style="margin-block: var(--space-10);">
-        <div class="card" style="padding: var(--space-8);">
-            <h2>About Us</h2>
-            <p style="font-size: var(--step-1); line-height: var(--leading-normal);">
-                Our work began in 2024 when two British Council teachers established a small ELT unit to support Palestinian communities. Today, we are a community of practice where students, mentors, and teachers are co-learners in a shared enterprise, committed to dismantling the traditional hierarchies that pervade international education.
-            </p>
-            <a href="about.html" class="btn btn--primary" style="margin-top: var(--space-6);">Learn More About Us</a>
+        <div class="split-layout">
+            <div class="featured-image" data-pexels-query="community gathering collaboration education">
+                <!-- Image will be loaded by Pexels API -->
+            </div>
+            <div>
+                <h2>About Us</h2>
+                <p style="font-size: var(--step-1); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
+                    Our work began in 2024 when two British Council teachers established a small ELT unit to support Palestinian communities.
+                </p>
+                <p style="font-size: var(--step-0); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
+                    Today, we are a community of practice where students, mentors, and teachers are co-learners in a shared enterprise, committed to dismantling the traditional hierarchies that pervade international education.
+                </p>
+                <a href="about.html" class="btn btn--primary">Learn More About Us</a>
+            </div>
         </div>
     </section>
 
     <!-- What We Do Summary Section -->
     <section class="container" style="margin-block: var(--space-10);">
-        <div style="background: var(--surface); padding: var(--space-8); border-radius: var(--radius-xl); border: 1px solid var(--border);">
-            <h2>Our Programmes</h2>
-            <p style="font-size: var(--step-1); line-height: var(--leading-normal);">
-                Our educational programmes are the practical application of our pedagogical vision. We offer academically rigorous and affirming experiences to equip learners with sophisticated linguistic and analytical tools. Our courses include General and Business English, Academic English, a professional Writing Programme, and a structured Mentoring Programme.
-            </p>
-            <a href="programmes.html" class="btn btn--accent" style="margin-top: var(--space-6);">See Our Programmes</a>
+        <div class="split-layout reverse">
+            <div class="featured-image" data-pexels-query="classroom teaching learning online education">
+                <!-- Image will be loaded by Pexels API -->
+            </div>
+            <div>
+                <h2>Our Programmes</h2>
+                <p style="font-size: var(--step-1); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
+                    Our educational programmes are the practical application of our pedagogical vision.
+                </p>
+                <p style="font-size: var(--step-0); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
+                    We offer academically rigorous and affirming experiences to equip learners with sophisticated linguistic and analytical tools. Our courses include General and Business English, Academic English, a professional Writing Programme, and a structured Mentoring Programme.
+                </p>
+                <a href="programmes.html" class="btn btn--accent">See Our Programmes</a>
+            </div>
         </div>
     </section>
 
@@ -67,21 +90,36 @@
     <section class="container" style="margin-block: var(--space-10);">
         <h2 style="text-align: center; margin-bottom: var(--space-8);">Get Involved</h2>
         <div class="grid" data-cols="3">
-            <div class="card">
+            <div class="card hover-lift">
+                <div class="card__media">
+                    <div style="height: 200px;" data-pexels-query="student learning book reading">
+                        <!-- Image will be loaded by Pexels API -->
+                    </div>
+                </div>
                 <div class="card__body">
                     <h3 class="card__title">For Students</h3>
                     <p>We offer high-quality online English courses to help you achieve your professional and academic goals.</p>
                     <a href="students.html" class="btn btn--primary" style="margin-top: var(--space-5); width: 100%;">Apply Now</a>
                 </div>
             </div>
-            <div class="card">
+            <div class="card hover-lift">
+                <div class="card__media">
+                    <div style="height: 200px;" data-pexels-query="volunteers helping community teamwork">
+                        <!-- Image will be loaded by Pexels API -->
+                    </div>
+                </div>
                 <div class="card__body">
                     <h3 class="card__title">Volunteer</h3>
                     <p>Join a community of practice and partner with our students as a teacher, mentor, or curriculum developer.</p>
                     <a href="volunteer.html" class="btn btn--primary" style="margin-top: var(--space-5); width: 100%;">See Openings</a>
                 </div>
             </div>
-            <div class="card">
+            <div class="card hover-lift">
+                <div class="card__media">
+                    <div style="height: 200px;" data-pexels-query="giving hands support solidarity">
+                        <!-- Image will be loaded by Pexels API -->
+                    </div>
+                </div>
                 <div class="card__body">
                     <h3 class="card__title">Donate</h3>
                     <p>Your financial contribution is an act of solidarity that directly enables our work.</p>
