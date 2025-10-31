@@ -10,41 +10,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Questrial&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="pexels.js" defer></script>
+    <script src="navigation.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
-    <header class="container">
-        <nav class="nav">
-            <a href="index.html" class="nav__brand"><i class="fas fa-lightbulb" style="margin-right: 0.5rem; color: var(--primary);"></i>Noor Community</a>
-            <ul class="nav__links">
-                <li><a href="index.html" class="nav__link" aria-current="page"><i class="fas fa-home" style="margin-right: 0.4rem;"></i>Home</a></li>
-                <li><a href="about.html" class="nav__link"><i class="fas fa-users" style="margin-right: 0.4rem;"></i>About Us</a></li>
-                <li><a href="vision.html" class="nav__link"><i class="fas fa-eye" style="margin-right: 0.4rem;"></i>Our Vision</a></li>
-                <li><a href="programmes.html" class="nav__link"><i class="fas fa-book-open" style="margin-right: 0.4rem;"></i>What We Do</a></li>
-                <li><a href="students.html" class="nav__link"><i class="fas fa-graduation-cap" style="margin-right: 0.4rem;"></i>For Students</a></li>
-                <li><a href="volunteer.html" class="nav__link"><i class="fas fa-hands-helping" style="margin-right: 0.4rem;"></i>Volunteer</a></li>
-                <li><a href="donate.html" class="btn btn--primary btn--sm"><i class="fas fa-heart" style="margin-right: 0.4rem;"></i>Donate</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__brand">
+                <i class="fas fa-lightbulb" style="color: var(--primary);"></i>
+                Noor Community
+            </a>
+            <button class="nav__toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul class="nav__links">
+            <li><a href="index.html" class="nav__link" aria-current="page">Home</a></li>
+            <li><a href="about.html" class="nav__link">About Us</a></li>
+            <li><a href="vision.html" class="nav__link">Our Vision</a></li>
+            <li><a href="programmes.html" class="nav__link">What We Do</a></li>
+            <li><a href="students.html" class="nav__link">For Students</a></li>
+            <li><a href="volunteer.html" class="nav__link">Volunteer</a></li>
+            <li><a href="donate.html" class="nav__link btn btn--primary">Donate</a></li>
+        </ul>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="container">
-        <div class="hero">
-            <div class="hero__content">
-                <h1 class="animate-fade-in">Education as a Practice of Freedom</h1>
-                <p style="font-size: var(--step-1); line-height: var(--leading-normal); margin-bottom: var(--space-7);">
-                    Noor Community is an international network of educators united by a shared vision of liberation through education. We create rigorous learning environments where Palestinian students cultivate the critical linguistic skills and capabilities to build the futures they envision.
-                </p>
-                <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
-                    <a href="students.html" class="btn btn--primary btn--lg"><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i>Join as a Student</a>
-                    <a href="volunteer.html" class="btn btn--accent btn--lg"><i class="fas fa-hands-helping" style="margin-right: 0.5rem;"></i>Volunteer With Us</a>
-                </div>
-            </div>
-            <div class="hero__image-wrapper">
-                <div class="featured-image" data-pexels-query="students studying together diverse" style="height: 400px;">
-                    <!-- Image will be loaded by Pexels API -->
-                </div>
+    <section class="page-hero">
+        <div class="featured-image page-hero__image" data-pexels-query="students learning diverse community education hope future">
+            <!-- Hero image will be loaded by Pexels API -->
+        </div>
+        <div class="page-hero__content">
+            <h1 class="page-hero__title">Education as a Practice of Freedom</h1>
+            <p class="page-hero__subtitle">An international network creating rigorous learning environments where Palestinian students build the futures they envision</p>
+            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; margin-top: var(--space-7);">
+                <a href="students.html" class="btn btn--primary btn--lg">Join as a Student</a>
+                <a href="volunteer.html" class="btn btn--accent btn--lg">Volunteer With Us</a>
             </div>
         </div>
     </section>
@@ -56,19 +59,14 @@
                 <!-- Image will be loaded by Pexels API -->
             </div>
             <div>
-                <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5);">
-                    <div class="icon-box icon-box--subtle">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h2 style="margin: 0;">About Us</h2>
-                </div>
+                <h2>About Us</h2>
                 <p style="font-size: var(--step-1); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
                     Our work began in 2024 when two British Council teachers established a small ELT unit to support Palestinian communities.
                 </p>
                 <p style="font-size: var(--step-0); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
                     Today, we are a community of practice where students, mentors, and teachers are co-learners in a shared enterprise, committed to dismantling the traditional hierarchies that pervade international education.
                 </p>
-                <a href="about.html" class="btn btn--primary"><i class="fas fa-arrow-right" style="margin-right: 0.5rem;"></i>Learn More About Us</a>
+                <a href="about.html" class="btn btn--primary">Learn More About Us</a>
             </div>
         </div>
     </section>
@@ -80,19 +78,14 @@
                 <!-- Image will be loaded by Pexels API -->
             </div>
             <div>
-                <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5);">
-                    <div class="icon-box icon-box--subtle">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h2 style="margin: 0;">Our Programmes</h2>
-                </div>
+                <h2>Our Programmes</h2>
                 <p style="font-size: var(--step-1); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
                     Our educational programmes are the practical application of our pedagogical vision.
                 </p>
                 <p style="font-size: var(--step-0); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
                     We offer academically rigorous and affirming experiences to equip learners with sophisticated linguistic and analytical tools. Our courses include General and Business English, Academic English, a professional Writing Programme, and a structured Mentoring Programme.
                 </p>
-                <a href="programmes.html" class="btn btn--accent"><i class="fas fa-arrow-right" style="margin-right: 0.5rem;"></i>See Our Programmes</a>
+                <a href="programmes.html" class="btn btn--accent">See Our Programmes</a>
             </div>
         </div>
     </section>
@@ -108,117 +101,39 @@
         <div class="grid" data-cols="3">
             <div class="feature-card">
                 <div style="text-align: center;">
-                    <div class="icon-box icon-box--lg" style="margin: 0 auto var(--space-5);">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                </div>
-                <div style="text-align: center;">
                     <h3 class="feature-card__title">For Students</h3>
                     <p class="feature-card__text" style="margin-bottom: var(--space-5);">We offer high-quality online English courses to help you achieve your professional and academic goals.</p>
                 </div>
-                <ul class="icon-list" style="margin-bottom: var(--space-5);">
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Rigorous curriculum</p>
-                        </div>
-                    </li>
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Expert mentorship</p>
-                        </div>
-                    </li>
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Supportive community</p>
-                        </div>
-                    </li>
+                <ul class="simple-list" style="margin-bottom: var(--space-5);">
+                    <li>Rigorous curriculum</li>
+                    <li>Expert mentorship</li>
+                    <li>Supportive community</li>
                 </ul>
-                <a href="students.html" class="btn btn--primary" style="margin-top: auto; width: 100%;"><i class="fas fa-arrow-right" style="margin-right: 0.5rem;"></i>Apply Now</a>
+                <a href="students.html" class="btn btn--primary" style="margin-top: auto; width: 100%;">Apply Now</a>
             </div>
             <div class="feature-card">
-                <div style="text-align: center;">
-                    <div class="icon-box icon-box--lg" style="margin: 0 auto var(--space-5);">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                </div>
                 <div style="text-align: center;">
                     <h3 class="feature-card__title">Volunteer</h3>
                     <p class="feature-card__text" style="margin-bottom: var(--space-5);">Join a community of practice and partner with our students as a teacher, mentor, or curriculum developer.</p>
                 </div>
-                <ul class="icon-list" style="margin-bottom: var(--space-5);">
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Teaching positions</p>
-                        </div>
-                    </li>
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Mentoring roles</p>
-                        </div>
-                    </li>
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Curriculum development</p>
-                        </div>
-                    </li>
+                <ul class="simple-list" style="margin-bottom: var(--space-5);">
+                    <li>Teaching positions</li>
+                    <li>Mentoring roles</li>
+                    <li>Curriculum development</li>
                 </ul>
-                <a href="volunteer.html" class="btn btn--primary" style="margin-top: auto; width: 100%;"><i class="fas fa-arrow-right" style="margin-right: 0.5rem;"></i>See Openings</a>
+                <a href="volunteer.html" class="btn btn--primary" style="margin-top: auto; width: 100%;">See Openings</a>
             </div>
             <div class="feature-card">
-                <div style="text-align: center;">
-                    <div class="icon-box icon-box--lg" style="margin: 0 auto var(--space-5);">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                </div>
                 <div style="text-align: center;">
                     <h3 class="feature-card__title">Donate</h3>
                     <p class="feature-card__text" style="margin-bottom: var(--space-5);">Your financial contribution is an act of solidarity that directly enables our work.</p>
                 </div>
-                <ul class="icon-list" style="margin-bottom: var(--space-5);">
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Fund scholarships</p>
-                        </div>
-                    </li>
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Support operations</p>
-                        </div>
-                    </li>
-                    <li class="icon-list__item" style="padding: var(--space-2);">
-                        <div class="icon-list__icon" style="width: 2rem; height: 2rem; font-size: 0.875rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="icon-list__content">
-                            <p class="icon-list__text" style="margin: 0;">Enable growth</p>
-                        </div>
-                    </li>
+                <ul class="simple-list" style="margin-bottom: var(--space-5);">
+                    <li>Fund scholarships</li>
+                    <li>Support operations</li>
+                    <li>Enable growth</li>
                 </ul>
-                <a href="donate.html" class="btn btn--primary" style="margin-top: auto; width: 100%;"><i class="fas fa-arrow-right" style="margin-right: 0.5rem;"></i>Donate Today</a>
+                <a href="donate.html" class="btn btn--primary" style="margin-top: auto; width: 100%;">Donate Today</a>
             </div>
         </div>
     </section>
