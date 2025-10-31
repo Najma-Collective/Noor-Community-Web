@@ -188,6 +188,56 @@
       text-rendering: auto;
       line-height: 1;
   }
+
+  /* Icon utilities */
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon--xs { font-size: 0.875rem; }
+  .icon--sm { font-size: 1rem; }
+  .icon--md { font-size: 1.5rem; }
+  .icon--lg { font-size: 2rem; }
+  .icon--xl { font-size: 3rem; }
+  .icon--2xl { font-size: 4rem; }
+
+  .icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-m);
+    background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage));
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-2);
+  }
+
+  .icon-box--lg {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.5rem;
+  }
+
+  .icon-box--subtle {
+    background: var(--surface);
+    color: var(--primary);
+    border: 2px solid var(--border);
+  }
+
+  .icon-box--primary {
+    background: var(--primary);
+    color: var(--primary-contrast);
+  }
+
+  .icon-box--accent {
+    background: var(--accent);
+    color: var(--accent-contrast);
+  }
+
   /* --- END FONT AWESOME --- */
 
   :focus-visible {
@@ -385,6 +435,151 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  /* Feature cards with icons */
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: var(--elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    transition: all var(--duration-2) var(--easing);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-3);
+    border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+  }
+
+  .feature-card__icon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .feature-card__title {
+    font-size: var(--step-1);
+    margin: 0;
+  }
+
+  .feature-card__text {
+    font-size: var(--step-0);
+    line-height: var(--leading-normal);
+    margin: 0;
+    color: var(--muted);
+  }
+
+  /* Icon list */
+  .icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .icon-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    border-radius: var(--radius-m);
+    transition: background var(--duration-2) var(--easing);
+  }
+
+  .icon-list__item:hover {
+    background: var(--hover-sage);
+  }
+
+  .icon-list__icon {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-s);
+    background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage));
+    color: white;
+    font-size: 1.125rem;
+  }
+
+  .icon-list__content {
+    flex: 1;
+  }
+
+  .icon-list__title {
+    font-size: var(--step-0);
+    font-weight: 700;
+    margin: 0 0 var(--space-2);
+  }
+
+  .icon-list__text {
+    font-size: var(--step--1);
+    line-height: var(--leading-normal);
+    margin: 0;
+    color: var(--muted);
+  }
+
+  /* Section divider with icon */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-block: var(--space-8);
+    opacity: 0.3;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .section-divider__icon {
+    font-size: var(--step-0);
+    color: var(--primary);
+  }
+
+  /* Stats display */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .stat {
+    text-align: center;
+    padding: var(--space-6);
+    background: var(--surface);
+    border-radius: var(--radius-l);
+    border: 1px solid var(--border);
+  }
+
+  .stat__icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .stat__value {
+    font-size: var(--step-3);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .stat__label {
+    font-size: var(--step-0);
+    color: var(--muted);
+    margin-top: var(--space-2);
   }
 }
 
