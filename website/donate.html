@@ -10,37 +10,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Questrial&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="pexels.js" defer></script>
+    <script src="navigation.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
-    <header class="container">
-        <nav class="nav">
-            <a href="index.html" class="nav__brand"><i class="fas fa-lightbulb" style="margin-right: 0.5rem; color: var(--primary);"></i>Noor Community</a>
-            <ul class="nav__links">
-                <li><a href="index.html" class="nav__link"><i class="fas fa-home" style="margin-right: 0.4rem;"></i>Home</a></li>
-                <li><a href="about.html" class="nav__link"><i class="fas fa-users" style="margin-right: 0.4rem;"></i>About Us</a></li>
-                <li><a href="vision.html" class="nav__link"><i class="fas fa-eye" style="margin-right: 0.4rem;"></i>Our Vision</a></li>
-                <li><a href="programmes.html" class="nav__link"><i class="fas fa-book-open" style="margin-right: 0.4rem;"></i>What We Do</a></li>
-                <li><a href="students.html" class="nav__link"><i class="fas fa-graduation-cap" style="margin-right: 0.4rem;"></i>For Students</a></li>
-                <li><a href="volunteer.html" class="nav__link"><i class="fas fa-hands-helping" style="margin-right: 0.4rem;"></i>Volunteer</a></li>
-                <li><a href="donate.html" class="btn btn--primary btn--sm" aria-current="page"><i class="fas fa-heart" style="margin-right: 0.4rem;"></i>Donate</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__brand">
+                <i class="fas fa-lightbulb" style="color: var(--primary);"></i>
+                Noor Community
+            </a>
+            <button class="nav__toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul class="nav__links">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="about.html" class="nav__link">About Us</a></li>
+            <li><a href="vision.html" class="nav__link">Our Vision</a></li>
+            <li><a href="programmes.html" class="nav__link">What We Do</a></li>
+            <li><a href="students.html" class="nav__link">For Students</a></li>
+            <li><a href="volunteer.html" class="nav__link">Volunteer</a></li>
+            <li><a href="donate.html" class="nav__link btn btn--primary" aria-current="page">Donate</a></li>
+        </ul>
+    </nav>
 
-    <!-- Page Header -->
-    <section class="container" style="margin-block: var(--space-9);">
-        <div class="split-layout">
-            <div>
-                <h1 class="animate-fade-in">Invest in Educational Justice</h1>
-                <p style="font-size: var(--step-1); margin-top: var(--space-6); line-height: var(--leading-normal); margin-bottom: var(--space-7);">
-                    Education is more than instruction; it is a practice of freedom and a vital investment in a future of their own making. We create rigorous and secure learning environments where students cultivate the skills, confidence, and networks needed to expand their capabilities and pursue their aspirations.
-                </p>
-                <a href="#donate-form" class="btn btn--primary btn--lg">Donate Today</a>
-            </div>
-            <div class="featured-image" data-pexels-query="solidarity support hands together community giving">
-                <!-- Image will be loaded by Pexels API -->
-            </div>
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="featured-image page-hero__image" data-pexels-query="hands together solidarity giving community support collaboration">
+            <!-- Hero image will be loaded by Pexels API -->
+        </div>
+        <div class="page-hero__content">
+            <h1 class="page-hero__title">Donate</h1>
+            <p class="page-hero__subtitle">Invest in educational justice and support a practice of freedom</p>
         </div>
     </section>
 
