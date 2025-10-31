@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Questrial&display=swap" rel="stylesheet">
+    <script src="pexels.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -28,11 +29,17 @@
 
     <!-- Page Header -->
     <section class="container" style="margin-block: var(--space-9);">
-        <div style="text-align: center;">
-            <h1>Donate: Invest in Educational Justice</h1>
-            <p style="font-size: var(--step-1); margin-top: var(--space-6); max-width: 52rem; margin-inline: auto; line-height: var(--leading-normal);">
-                Education is more than instruction; it is a practice of freedom and a vital investment in a future of their own making. At Noor Community, we create rigorous and secure learning environments where Palestinian students cultivate the skills, confidence, and networks needed to expand their capabilities and pursue their aspirations.
-            </p>
+        <div class="split-layout">
+            <div>
+                <h1 class="animate-fade-in">Invest in Educational Justice</h1>
+                <p style="font-size: var(--step-1); margin-top: var(--space-6); line-height: var(--leading-normal); margin-bottom: var(--space-7);">
+                    Education is more than instruction; it is a practice of freedom and a vital investment in a future of their own making. We create rigorous and secure learning environments where students cultivate the skills, confidence, and networks needed to expand their capabilities and pursue their aspirations.
+                </p>
+                <a href="#donate-form" class="btn btn--primary btn--lg">Donate Today</a>
+            </div>
+            <div class="featured-image" data-pexels-query="solidarity support hands together community giving">
+                <!-- Image will be loaded by Pexels API -->
+            </div>
         </div>
     </section>
 
@@ -50,38 +57,47 @@
         <h2 style="text-align: center; margin-bottom: var(--space-8);">How Your Donation Creates Impact</h2>
 
         <div class="stack" style="--stack-space: var(--space-7);">
-            <div class="card">
-                <div class="card__body">
-                    <div style="display: flex; gap: var(--space-5); align-items: start;">
-                        <div style="flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--step-2);">1</div>
-                        <div>
-                            <h3 class="card__title">Powering Our Digital Classrooms</h3>
-                            <p>Your contribution secures the Zoom and Moodle subscriptions that function as our protected digital classrooms. These are the safe, reliable spaces where students engage in critical dialogue, collaborate on projects, and connect with a global community of educators.</p>
+            <div class="split-layout">
+                <div class="featured-image" data-pexels-query="online classroom video conference learning technology">
+                    <!-- Image will be loaded by Pexels API -->
+                </div>
+                <div style="background: var(--elev); padding: var(--space-6); border-radius: var(--radius-l); display: flex; align-items: center;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                            <div style="flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--step-2);">1</div>
+                            <h3 class="card__title" style="margin: 0;">Powering Our Digital Classrooms</h3>
                         </div>
+                        <p>Your contribution secures the Zoom and Moodle subscriptions that function as our protected digital classrooms. These are the safe, reliable spaces where students engage in critical dialogue, collaborate on projects, and connect with a global community of educators.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card__body">
-                    <div style="display: flex; gap: var(--space-5); align-items: start;">
-                        <div style="flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--step-2);">2</div>
-                        <div>
-                            <h3 class="card__title">Maintaining Our Global Platform</h3>
-                            <p>Your support maintains our online presence, a platform for our students to showcase their work and for our community to connect across borders. It is a digital assertion of our shared intellectual project.</p>
+            <div class="split-layout reverse">
+                <div class="featured-image" data-pexels-query="website platform digital connection online community">
+                    <!-- Image will be loaded by Pexels API -->
+                </div>
+                <div style="background: var(--elev); padding: var(--space-6); border-radius: var(--radius-l); display: flex; align-items: center;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                            <div style="flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--step-2);">2</div>
+                            <h3 class="card__title" style="margin: 0;">Maintaining Our Global Platform</h3>
                         </div>
+                        <p>Your support maintains our online presence, a platform for our students to showcase their work and for our community to connect across borders. It is a digital assertion of our shared intellectual project.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card__body">
-                    <div style="display: flex; gap: var(--space-5); align-items: start;">
-                        <div style="flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--step-2);">3</div>
-                        <div>
-                            <h3 class="card__title">Upholding Fair Pay for Local Leadership</h3>
-                            <p>Your donation allows us to pay our local Palestinian managers a fair, living wage. This is a non-negotiable principle of our work. It ensures our organisation is led and sustained by the community we serve, transforming a traditional aid dynamic into a partnership grounded in mutual respect and economic justice.</p>
+            <div class="split-layout">
+                <div class="featured-image" data-pexels-query="leadership community justice fairness partnership respect">
+                    <!-- Image will be loaded by Pexels API -->
+                </div>
+                <div style="background: var(--elev); padding: var(--space-6); border-radius: var(--radius-l); display: flex; align-items: center;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                            <div style="flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--step-2);">3</div>
+                            <h3 class="card__title" style="margin: 0;">Upholding Fair Pay for Local Leadership</h3>
                         </div>
+                        <p>Your donation allows us to pay our local Palestinian managers a fair, living wage. This ensures our organisation is led and sustained by the community we serve, transforming a traditional aid dynamic into a partnership grounded in mutual respect and economic justice.</p>
                     </div>
                 </div>
             </div>
@@ -97,18 +113,31 @@
         </div>
     </section>
 
-    <!-- Donation Buttons -->
-    <section class="container" style="margin-block: var(--space-10);">
-        <div style="text-align: center; padding: var(--space-9); background: linear-gradient(135deg, var(--primary-sage), var(--secondary-sage)); border-radius: var(--radius-xl); color: white;">
-            <h2 style="color: white; margin-bottom: var(--space-8);">Support Our Mission Today</h2>
-
-            <div class="cluster" style="justify-content: center; --cluster-gap: var(--space-5);">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScqXEYmL2e6kYmkRimeiehdpynlpyWZeFfK0njN4FnfZQTvjA/viewform?usp=sharing&ouid=108915403911924618667" target="_blank" class="btn btn--lg" style="background: white; color: var(--primary-sage); border: none; font-weight: 700; box-shadow: var(--shadow-3);">Make a One-Time Donation</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScqXEYmL2e6kYmkRimeiehdpynlpyWZeFfK0njN4FnfZQTvjA/viewform?usp=sharing&ouid=108915403911924618667" target="_blank" class="btn btn--lg" style="background: rgba(255,255,255,0.9); color: var(--primary-sage); border: none; font-weight: 700; box-shadow: var(--shadow-2);">Become a Monthly Supporter</a>
-            </div>
-
-            <p style="margin-top: var(--space-7); font-size: var(--step--1); color: rgba(255,255,255,0.9);">
+    <!-- Donation Form -->
+    <section id="donate-form" class="container" style="margin-block: var(--space-10);">
+        <div style="text-align: center; margin-bottom: var(--space-8);">
+            <h2>Support Our Mission Today</h2>
+            <p style="font-size: var(--step-1); margin-top: var(--space-4); color: var(--muted);">
                 Every contribution, no matter the size, makes a meaningful difference.
+            </p>
+        </div>
+
+        <div style="background: var(--elev); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-3); max-width: 56rem; margin-inline: auto;">
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLScqXEYmL2e6kYmkRimeiehdpynlpyWZeFfK0njN4FnfZQTvjA/viewform?embedded=true"
+                width="100%"
+                height="1200"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                style="border: none; border-radius: var(--radius-l);">
+                Loading…
+            </iframe>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-7);">
+            <p style="font-size: var(--step--1); color: var(--muted);">
+                Having trouble with the form? <a href="https://docs.google.com/forms/d/e/1FAIpQLScqXEYmL2e6kYmkRimeiehdpynlpyWZeFfK0njN4FnfZQTvjA/viewform" target="_blank" style="text-decoration: underline;">Open it in a new window</a>
             </p>
         </div>
     </section>
