@@ -53,12 +53,14 @@
     </section>
 
     <!-- About Us Summary Section -->
-    <section class="container" style="margin-block: var(--space-10);">
-        <div class="split-layout">
-            <div class="featured-image" data-pexels-query="community gathering collaboration education">
-                <!-- Image will be loaded by Pexels API -->
+    <section class="md3-section">
+        <div class="md3-grid md3-grid--align-center">
+            <div class="md3-grid__cell md3-grid__cell--half">
+                <div class="featured-image" data-pexels-query="community gathering collaboration education">
+                    <!-- Image will be loaded by Pexels API -->
+                </div>
             </div>
-            <div>
+            <div class="md3-grid__cell md3-grid__cell--half">
                 <h2>About Us</h2>
                 <p style="font-size: var(--step-1); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
                     Our work began in 2024 when two British Council teachers established a small ELT unit to support Palestinian communities.
@@ -72,12 +74,14 @@
     </section>
 
     <!-- What We Do Summary Section -->
-    <section class="container" style="margin-block: var(--space-10);">
-        <div class="split-layout reverse">
-            <div class="featured-image" data-pexels-query="classroom teaching learning online education">
-                <!-- Image will be loaded by Pexels API -->
+    <section class="md3-section">
+        <div class="md3-grid md3-grid--align-center md3-grid--reverse">
+            <div class="md3-grid__cell md3-grid__cell--half">
+                <div class="featured-image" data-pexels-query="classroom teaching learning online education">
+                    <!-- Image will be loaded by Pexels API -->
+                </div>
             </div>
-            <div>
+            <div class="md3-grid__cell md3-grid__cell--half">
                 <h2>Our Programmes</h2>
                 <p style="font-size: var(--step-1); line-height: var(--leading-normal); margin-bottom: var(--space-6);">
                     Our educational programmes are the practical application of our pedagogical vision.
@@ -91,49 +95,57 @@
     </section>
 
     <!-- Join Us Call-to-Action Section -->
-    <section class="container" style="margin-block: var(--space-10);">
-        <div style="text-align: center; margin-bottom: var(--space-9);">
-            <h2 style="margin-bottom: var(--space-4);">Get Involved</h2>
-            <p style="font-size: var(--step-1); color: var(--muted); max-width: 42rem; margin-inline: auto;">
-                Join our community and be part of education as a practice of freedom
-            </p>
+    <section class="md3-section">
+        <div class="md3-grid">
+            <div class="md3-grid__cell md3-grid__cell--centered">
+                <h2 style="margin-bottom: var(--space-4);">Get Involved</h2>
+                <p style="font-size: var(--step-1); color: var(--muted); max-width: 42rem; margin-inline: auto;">
+                    Join our community and be part of education as a practice of freedom
+                </p>
+            </div>
         </div>
-        <div class="grid" data-cols="3">
-            <div class="feature-card">
-                <div style="text-align: center;">
-                    <h3 class="feature-card__title">For Students</h3>
-                    <p class="feature-card__text" style="margin-bottom: var(--space-5);">We offer high-quality online English courses to help you achieve your professional and academic goals.</p>
-                </div>
-                <ul class="simple-list" style="margin-bottom: var(--space-5);">
-                    <li>Rigorous curriculum</li>
-                    <li>Expert mentorship</li>
-                    <li>Supportive community</li>
-                </ul>
-                <a href="students.html" class="md-button md-filled-button md-button--full-width" style="margin-top: auto;">Apply Now</a>
+        <div class="md3-grid md3-grid--cards">
+            <div class="md3-grid__cell md3-grid__cell--third">
+                <article class="md3-card md3-card--elevated">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: var(--step-1); margin: 0;">For Students</h3>
+                        <p style="font-size: var(--step-0); line-height: var(--leading-normal); margin-bottom: var(--space-5); color: var(--muted);">We offer high-quality online English courses to help you achieve your professional and academic goals.</p>
+                    </div>
+                    <ul class="simple-list" style="margin-bottom: var(--space-5);">
+                        <li>Rigorous curriculum</li>
+                        <li>Expert mentorship</li>
+                        <li>Supportive community</li>
+                    </ul>
+                    <a href="students.html" class="md-button md-filled-button md-button--full-width" style="margin-top: auto;">Apply Now</a>
+                </article>
             </div>
-            <div class="feature-card">
-                <div style="text-align: center;">
-                    <h3 class="feature-card__title">Volunteer</h3>
-                    <p class="feature-card__text" style="margin-bottom: var(--space-5);">Join a community of practice and partner with our students as a teacher, mentor, or curriculum developer.</p>
-                </div>
-                <ul class="simple-list" style="margin-bottom: var(--space-5);">
-                    <li>Teaching positions</li>
-                    <li>Mentoring roles</li>
-                    <li>Curriculum development</li>
-                </ul>
-                <a href="volunteer.html" class="md-button md-filled-button md-button--full-width" style="margin-top: auto;">See Openings</a>
+            <div class="md3-grid__cell md3-grid__cell--third">
+                <article class="md3-card md3-card--outlined">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: var(--step-1); margin: 0;">Volunteer</h3>
+                        <p style="font-size: var(--step-0); line-height: var(--leading-normal); margin-bottom: var(--space-5); color: var(--muted);">Join a community of practice and partner with our students as a teacher, mentor, or curriculum developer.</p>
+                    </div>
+                    <ul class="simple-list" style="margin-bottom: var(--space-5);">
+                        <li>Teaching positions</li>
+                        <li>Mentoring roles</li>
+                        <li>Curriculum development</li>
+                    </ul>
+                    <a href="volunteer.html" class="md-button md-filled-button md-button--full-width" style="margin-top: auto;">See Openings</a>
+                </article>
             </div>
-            <div class="feature-card">
-                <div style="text-align: center;">
-                    <h3 class="feature-card__title">Donate</h3>
-                    <p class="feature-card__text" style="margin-bottom: var(--space-5);">Your financial contribution is an act of solidarity that directly enables our work.</p>
-                </div>
-                <ul class="simple-list" style="margin-bottom: var(--space-5);">
-                    <li>Fund scholarships</li>
-                    <li>Support operations</li>
-                    <li>Enable growth</li>
-                </ul>
-                <a href="donate.html" class="md-button md-filled-button md-button--full-width" style="margin-top: auto;">Donate Today</a>
+            <div class="md3-grid__cell md3-grid__cell--third">
+                <article class="md3-card md3-card--filled">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: var(--step-1); margin: 0;">Donate</h3>
+                        <p style="font-size: var(--step-0); line-height: var(--leading-normal); margin-bottom: var(--space-5); color: var(--accent-contrast);">Your financial contribution is an act of solidarity that directly enables our work.</p>
+                    </div>
+                    <ul class="simple-list" style="margin-bottom: var(--space-5);">
+                        <li>Fund scholarships</li>
+                        <li>Support operations</li>
+                        <li>Enable growth</li>
+                    </ul>
+                    <a href="donate.html" class="md-button md-filled-button md-button--full-width" style="margin-top: auto;">Donate Today</a>
+                </article>
             </div>
         </div>
     </section>
