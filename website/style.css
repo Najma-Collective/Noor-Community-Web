@@ -1083,13 +1083,24 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .nav__container {
+  .md3-top-app-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background: color-mix(in srgb, var(--bg) 95%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--md-sys-elevation-level1);
+  }
+
+  .md3-top-app-bar__container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: var(--space-3);
     padding: var(--space-4);
     max-width: var(--container-max);
     margin-inline: auto;
+    min-height: 64px;
   }
 
   .nav__brand {
@@ -1098,131 +1109,164 @@
     font-weight: 700;
     letter-spacing: 0.02em;
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: var(--space-2);
+    color: inherit;
   }
 
-  .nav__toggle {
+  .material-symbols-rounded {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .md3-icon-button {
+    --icon-button-size: 2.75rem;
+    appearance: none;
+    border: none;
+    background: none;
+    border-radius: var(--radius-full);
+    width: var(--icon-button-size);
+    height: var(--icon-button-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface);
+    transition:
+      background var(--motion-duration-short2) var(--motion-easing-standard),
+      box-shadow var(--motion-duration-short2) var(--motion-easing-standard);
+  }
+
+  .md3-icon-button:hover,
+  .md3-icon-button:focus-visible {
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    box-shadow: var(--md-sys-elevation-level1);
+  }
+
+  .md3-icon-button:active {
+    background: color-mix(in srgb, var(--primary) 18%, transparent);
+  }
+
+  .md3-icon-button:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--primary) 65%, transparent);
+    outline-offset: 2px;
+  }
+
+  .md3-drawer-scrim {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, black 38%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--motion-duration-medium2) var(--motion-easing-standard);
+    z-index: 1090;
+  }
+
+  .md3-drawer-scrim.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .md3-modal-drawer {
+    --md3-drawer-duration: var(--motion-duration-medium2);
+    --md3-drawer-easing: var(--motion-easing-emphasized-accelerate);
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(320px, 86vw);
+    background: var(--md-sys-color-surface);
+    box-shadow: var(--md-sys-elevation-level2);
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--space-2);
-    z-index: 1001;
+    gap: var(--space-6);
+    padding: var(--space-6) var(--space-5);
+    transform: translateX(-108%);
+    transition: transform var(--md3-drawer-duration) var(--md3-drawer-easing);
+    z-index: 1110;
+    border-radius: 0 var(--radius-l) var(--radius-l) 0;
+    color: var(--md-sys-color-on-surface);
+    pointer-events: none;
+    outline: none;
   }
 
-  .nav__toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text);
-    transition:
-      transform var(--motion-duration-medium2) var(--motion-easing-emphasized),
-      opacity var(--motion-duration-short2) var(--motion-easing-standard);
+  .md3-modal-drawer.is-open {
+    --md3-drawer-duration: var(--motion-duration-long1);
+    --md3-drawer-easing: var(--motion-easing-emphasized-decelerate);
+    transform: translateX(0);
+    pointer-events: auto;
   }
 
-  .nav__toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+  .md3-modal-drawer__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
   }
 
-  .nav__toggle.active span:nth-child(2) {
-    opacity: 0;
+  .md3-modal-drawer__brand {
+    font-size: var(--step-1);
   }
 
-  .nav__toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-  }
-
-  .nav__links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: min(320px, 80vw);
-    height: 100vh;
-    background: var(--surface);
-    border-left: 1px solid var(--border);
-    padding: var(--space-10) var(--space-6);
+  .md3-modal-drawer__content {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    box-shadow: var(--shadow-3);
-    transform: translateX(100%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    --nav-transform-duration: var(--motion-duration-medium2);
-    --nav-opacity-duration: var(--motion-duration-short2);
-    --nav-easing: var(--motion-easing-emphasized-accelerate);
-    transition:
-      transform var(--nav-transform-duration) var(--nav-easing),
-      opacity var(--nav-opacity-duration) var(--nav-easing),
-      visibility 0s linear var(--nav-transform-duration);
   }
 
-  .nav__links.active {
-    --nav-transform-duration: var(--motion-duration-long1);
-    --nav-opacity-duration: var(--motion-duration-medium1);
-    --nav-easing: var(--motion-easing-emphasized-decelerate);
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transition-delay: 0s, 0s, 0s;
-  }
-
-  .nav__link {
+  .md3-modal-drawer__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
     padding: var(--space-3) var(--space-4);
     border-radius: var(--radius-m);
-    color: var(--text);
+    font-size: var(--step-0);
+    font-weight: 600;
     text-decoration: none;
-    transition: background var(--motion-duration-medium1) var(--motion-easing-standard);
-    font-size: var(--step-0);
+    color: var(--md-sys-color-on-surface);
+    transition: background var(--motion-duration-medium1) var(--motion-easing-standard),
+      color var(--motion-duration-medium1) var(--motion-easing-standard);
+    cursor: pointer;
   }
 
-  .nav__link[aria-current="page"], .nav__link:hover {
-    background: var(--hover-sage);
+  .md3-modal-drawer__link:hover,
+  .md3-modal-drawer__link:focus-visible {
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
   }
 
-  .nav__link.md-button {
-    padding: 0;
-    background: transparent;
-    border-radius: var(--md-comp-button-shape);
-    font-size: var(--step-0);
-    letter-spacing: 0;
+  .md3-modal-drawer__link:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--primary) 65%, transparent);
+    outline-offset: 2px;
   }
 
-  .nav__link.md-button:hover,
-  .nav__link.md-button[aria-current="page"] {
-    background: transparent;
+  .md3-modal-drawer__link[aria-current="page"] {
+    background: color-mix(in srgb, var(--primary) 16%, transparent);
+    color: var(--primary);
   }
 
-  /* Backdrop overlay */
-  .nav__backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    --nav-backdrop-duration: var(--motion-duration-medium2);
-    --nav-backdrop-easing: var(--motion-easing-emphasized-accelerate);
-    transition:
-      opacity var(--nav-backdrop-duration) var(--nav-backdrop-easing),
-      visibility 0s linear var(--nav-backdrop-duration);
-    z-index: 999;
+  .md3-modal-drawer__link--cta {
+    margin-top: var(--space-4);
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    justify-content: center;
+    box-shadow: var(--md-sys-elevation-level1);
   }
 
-  .nav__backdrop.active {
-    --nav-backdrop-duration: var(--motion-duration-extra-long1);
-    --nav-backdrop-easing: var(--motion-easing-emphasized-decelerate);
-    opacity: 1;
-    visibility: visible;
-    transition-delay: 0s, 0s;
+  .md3-modal-drawer__link--cta:hover,
+  .md3-modal-drawer__link--cta:focus-visible {
+    background: color-mix(in srgb, var(--md-sys-color-primary) 92%, white 8%);
+  }
+
+  body.md3-drawer-open {
+    overflow: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .md3-drawer-scrim,
+    .md3-modal-drawer {
+      transition: none;
+    }
   }
 
   /* Page hero image */
