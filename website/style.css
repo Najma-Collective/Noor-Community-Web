@@ -101,10 +101,22 @@
     --shadow-3: 0 12px 24px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.10);
 
     /* Motion */
-    --easing: cubic-bezier(.2,.7,.2,1);
-    --duration-1: 120ms;
-    --duration-2: 200ms;
-    --duration-3: 340ms;
+    --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+    --motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+    --motion-easing-emphasized: cubic-bezier(0.3, 0, 0, 1);
+    --motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+    --motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    --motion-duration-short1: 50ms;
+    --motion-duration-short2: 100ms;
+    --motion-duration-medium1: 150ms;
+    --motion-duration-medium2: 200ms;
+    --motion-duration-long1: 250ms;
+    --motion-duration-long2: 300ms;
+    --motion-duration-extra-long1: 350ms;
+    --motion-duration-extra-long2: 400ms;
+    --motion-duration-extra-long3: 450ms;
+    --motion-duration-extra-long4: 500ms;
     
     /* Image treatments */
     --img-radius-m: var(--radius-l);
@@ -368,7 +380,7 @@
   .img-radius-m { border-radius: var(--img-radius-m); }
   .img-radius-full { border-radius: var(--img-radius-full); }
   .img-opacity-medium { opacity: var(--img-opacity-medium); }
-  .img-grayscale { filter: grayscale(100%); transition: filter var(--duration-2) var(--easing); }
+  .img-grayscale { filter: grayscale(100%); transition: filter var(--motion-duration-medium2) var(--motion-easing-standard); }
   .img-grayscale:hover { filter: grayscale(0); }
 
   .img-overlay { position: relative; }
@@ -383,16 +395,144 @@
 
   /* --- ENHANCED VISUAL UTILITIES --- */
   .animate-fade-in {
-    animation: fadeIn var(--duration-3) var(--easing);
+    animation: fadeThroughIn var(--motion-duration-long1) var(--motion-easing-emphasized-decelerate) both;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  .motion-enabled [data-motion] {
+    opacity: 0;
+    transform-origin: center;
+  }
+
+  .motion-enabled [data-motion="shared-axis-y"] {
+    transform: translateY(24px);
+  }
+
+  .motion-enabled [data-motion="shared-axis-x"] {
+    transform: translateX(56px);
+  }
+
+  .motion-enabled [data-motion="fade-through"] {
+    transform: scale(0.98);
+  }
+
+  .motion-enabled [data-motion].is-visible {
+    opacity: 1;
+  }
+
+  .motion-enabled [data-motion="shared-axis-y"].is-visible {
+    animation: sharedAxisYIn var(--motion-duration-long2) var(--motion-easing-emphasized-decelerate) both;
+  }
+
+  .motion-enabled [data-motion="shared-axis-y"].is-exiting {
+    animation: sharedAxisYOut var(--motion-duration-medium2) var(--motion-easing-emphasized-accelerate) both;
+  }
+
+  .motion-enabled [data-motion="shared-axis-x"].is-visible {
+    animation: sharedAxisXIn var(--motion-duration-long1) var(--motion-easing-emphasized-decelerate) both;
+  }
+
+  .motion-enabled [data-motion="shared-axis-x"].is-exiting {
+    animation: sharedAxisXOut var(--motion-duration-medium2) var(--motion-easing-emphasized-accelerate) both;
+  }
+
+  .motion-enabled [data-motion="fade-through"].is-visible {
+    animation: fadeThroughIn var(--motion-duration-long1) var(--motion-easing-emphasized-decelerate) both;
+  }
+
+  .motion-enabled [data-motion="fade-through"].is-exiting {
+    animation: fadeThroughOut var(--motion-duration-medium1) var(--motion-easing-emphasized-accelerate) both;
+  }
+
+  .motion-enabled .page-hero,
+  .motion-enabled .page-hero__content {
+    opacity: 0;
+  }
+
+  .motion-enabled .page-hero {
+    transform: translateY(32px);
+  }
+
+  .motion-enabled .page-hero.is-visible {
+    animation: sharedAxisYIn var(--motion-duration-extra-long1) var(--motion-easing-emphasized-decelerate) both;
+  }
+
+  .motion-enabled .page-hero__content.is-visible {
+    animation: fadeThroughIn var(--motion-duration-long1) var(--motion-easing-emphasized-decelerate) both;
   }
 
   .hover-lift {
-    transition: transform var(--duration-2) var(--easing), box-shadow var(--duration-2) var(--easing);
+    transition: transform var(--motion-duration-medium2) var(--motion-easing-emphasized),
+      box-shadow var(--motion-duration-medium2) var(--motion-easing-emphasized);
+  }
+
+  @keyframes fadeThroughIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeThroughOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes sharedAxisYIn {
+    0% {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sharedAxisYOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+  }
+
+  @keyframes sharedAxisXIn {
+    0% {
+      opacity: 0;
+      transform: translateX(56px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sharedAxisXOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(32px);
+    }
   }
   .hover-lift:hover {
     transform: translateY(-4px);
@@ -428,7 +568,7 @@
   }
 
   .image-wrapper img {
-    transition: transform 0.6s var(--easing);
+    transition: transform var(--motion-duration-extra-long2) var(--motion-easing-emphasized);
     display: block;
     width: 100%;
     height: 100%;
@@ -580,8 +720,8 @@
     color: var(--md-card-color);
     border: var(--md-card-border);
     box-shadow: var(--md-card-elevation);
-    transition: box-shadow var(--duration-2) var(--easing),
-      transform var(--duration-2) var(--easing);
+    transition: box-shadow var(--motion-duration-medium2) var(--motion-easing-emphasized),
+      transform var(--motion-duration-medium2) var(--motion-easing-emphasized);
   }
 
   .md3-card::after {
@@ -592,7 +732,7 @@
     background: var(--md-card-state-layer);
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--duration-1) var(--easing);
+    transition: opacity var(--motion-duration-short2) var(--motion-easing-emphasized);
   }
 
   .md3-card:hover {
@@ -647,7 +787,7 @@
     gap: var(--space-4);
     padding: var(--space-4);
     border-radius: var(--radius-m);
-    transition: background var(--duration-2) var(--easing);
+    transition: background var(--motion-duration-medium1) var(--motion-easing-standard);
   }
 
   .icon-list__item:hover {
@@ -771,7 +911,12 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: box-shadow var(--duration-2) var(--easing), background-color var(--duration-2) var(--easing), color var(--duration-2) var(--easing), border-color var(--duration-2) var(--easing);
+    transition:
+      box-shadow var(--motion-duration-medium2) var(--motion-easing-emphasized),
+      background-color var(--motion-duration-medium2) var(--motion-easing-standard),
+      color var(--motion-duration-medium2) var(--motion-easing-standard),
+      border-color var(--motion-duration-medium2) var(--motion-easing-standard),
+      transform var(--motion-duration-medium2) var(--motion-easing-emphasized);
     box-shadow: var(--md-button-shadow, var(--md-sys-elevation-level0));
     isolation: isolate;
   }
@@ -783,7 +928,7 @@
     border-radius: inherit;
     background-color: var(--md-state-layer-color, currentColor);
     opacity: var(--md-state-layer-opacity);
-    transition: opacity var(--duration-1) var(--easing);
+    transition: opacity var(--motion-duration-short2) var(--motion-easing-emphasized);
     pointer-events: none;
   }
 
@@ -883,7 +1028,8 @@
     border-radius: var(--radius-l);
     box-shadow: var(--shadow-1);
     overflow: clip;
-    transition: transform var(--duration-2) var(--easing), box-shadow var(--duration-2) var(--easing);
+    transition: transform var(--motion-duration-medium2) var(--motion-easing-emphasized),
+      box-shadow var(--motion-duration-medium2) var(--motion-easing-emphasized);
   }
   .card:hover {
     box-shadow: var(--shadow-2);
@@ -894,7 +1040,7 @@
     block-size: auto;
     aspect-ratio: var(--img-aspect-video);
     object-fit: cover;
-    transition: transform 0.6s var(--easing);
+    transition: transform var(--motion-duration-extra-long2) var(--motion-easing-emphasized);
   }
   .card:hover .card__media > img {
     transform: scale(1.05);
@@ -913,7 +1059,10 @@
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: var(--radius-m);
-    transition: border-color var(--duration-1) var(--easing), box-shadow var(--duration-1) var(--easing), background var(--duration-1) var(--easing);
+    transition:
+      border-color var(--motion-duration-short2) var(--motion-easing-standard),
+      box-shadow var(--motion-duration-short2) var(--motion-easing-emphasized),
+      background var(--motion-duration-short2) var(--motion-easing-standard);
   }
   .input::placeholder, .textarea::placeholder { color: color-mix(in srgb, var(--muted) 80%, transparent); }
   .input:focus-visible, .select:focus-visible, .textarea:focus-visible {
@@ -970,7 +1119,9 @@
     width: 24px;
     height: 2px;
     background: var(--text);
-    transition: all var(--duration-2) var(--easing);
+    transition:
+      transform var(--motion-duration-medium2) var(--motion-easing-emphasized),
+      opacity var(--motion-duration-short2) var(--motion-easing-standard);
   }
 
   .nav__toggle.active span:nth-child(1) {
@@ -988,7 +1139,7 @@
   .nav__links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: min(320px, 80vw);
     height: 100vh;
     background: var(--surface);
@@ -997,12 +1148,29 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    transition: right var(--duration-3) var(--easing);
     box-shadow: var(--shadow-3);
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    --nav-transform-duration: var(--motion-duration-medium2);
+    --nav-opacity-duration: var(--motion-duration-short2);
+    --nav-easing: var(--motion-easing-emphasized-accelerate);
+    transition:
+      transform var(--nav-transform-duration) var(--nav-easing),
+      opacity var(--nav-opacity-duration) var(--nav-easing),
+      visibility 0s linear var(--nav-transform-duration);
   }
 
   .nav__links.active {
-    right: 0;
+    --nav-transform-duration: var(--motion-duration-long1);
+    --nav-opacity-duration: var(--motion-duration-medium1);
+    --nav-easing: var(--motion-easing-emphasized-decelerate);
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s, 0s, 0s;
   }
 
   .nav__link {
@@ -1010,7 +1178,7 @@
     border-radius: var(--radius-m);
     color: var(--text);
     text-decoration: none;
-    transition: background var(--duration-2) ease;
+    transition: background var(--motion-duration-medium1) var(--motion-easing-standard);
     font-size: var(--step-0);
   }
 
@@ -1041,13 +1209,20 @@
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--duration-3) var(--easing), visibility var(--duration-3) var(--easing);
+    --nav-backdrop-duration: var(--motion-duration-medium2);
+    --nav-backdrop-easing: var(--motion-easing-emphasized-accelerate);
+    transition:
+      opacity var(--nav-backdrop-duration) var(--nav-backdrop-easing),
+      visibility 0s linear var(--nav-backdrop-duration);
     z-index: 999;
   }
 
   .nav__backdrop.active {
+    --nav-backdrop-duration: var(--motion-duration-extra-long1);
+    --nav-backdrop-easing: var(--motion-easing-emphasized-decelerate);
     opacity: 1;
     visibility: visible;
+    transition-delay: 0s, 0s;
   }
 
   /* Page hero image */
