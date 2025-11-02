@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -234,39 +235,170 @@
             margin-inline: auto;
         }
 
-        /* Responsive Navigation */
-        .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) 0; }
-        .nav__brand { font-family: var(--font-display); font-size: var(--step-1); font-weight: 700; text-decoration: none; z-index: 1001; }
-        .nav__toggle { display: block; background: none; border: none; padding: 0.5rem; z-index: 1001; }
-        .nav__links {
+        /* Navigation */
+        .md3-top-app-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: color-mix(in srgb, var(--bg) 94%, transparent);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-1);
+        }
+
+        .md3-top-app-bar__container {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            gap: var(--space-6);
+            justify-content: space-between;
+            gap: var(--space-3);
+            min-height: 64px;
+            padding-block: var(--space-3);
+        }
+
+        .nav__brand {
+            font-family: var(--font-display);
+            font-size: var(--step-1);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: inherit;
+        }
+
+        .material-symbols-rounded {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .md3-icon-button {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: var(--radius-full);
+            border: none;
+            background: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            transition: background var(--duration-2) var(--easing), box-shadow var(--duration-2) var(--easing);
+        }
+
+        .md3-icon-button:hover,
+        .md3-icon-button:focus-visible {
+            background: color-mix(in srgb, var(--primary) 12%, transparent);
+            box-shadow: var(--shadow-1);
+        }
+
+        .md3-icon-button:active {
+            background: color-mix(in srgb, var(--primary) 18%, transparent);
+        }
+
+        .md3-drawer-scrim {
             position: fixed;
             inset: 0;
+            background: color-mix(in srgb, black 38%, transparent);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--duration-2) var(--easing);
+            z-index: 950;
+        }
+
+        .md3-drawer-scrim.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .md3-modal-drawer {
+            --drawer-duration: var(--duration-2);
+            --drawer-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+            position: fixed;
+            inset: 0 auto 0 0;
+            width: min(320px, 86vw);
             background: var(--surface);
-            transform: translateX(100%);
-            transition: transform var(--duration-3) var(--easing);
+            box-shadow: var(--shadow-3);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+            padding: var(--space-6) var(--space-5);
+            transform: translateX(-108%);
+            transition: transform var(--drawer-duration) var(--drawer-easing);
+            z-index: 1000;
+            border-radius: 0 var(--radius-l) var(--radius-l) 0;
+            color: var(--text);
+            pointer-events: none;
+            outline: none;
         }
-        .nav--open .nav__links {
+
+        .md3-modal-drawer.is-open {
+            --drawer-duration: var(--duration-3);
+            --drawer-easing: cubic-bezier(0.05, 0.7, 0.1, 1);
             transform: translateX(0);
+            pointer-events: auto;
         }
-        .nav__link { font-size: var(--step-2); padding: 0.4em 0.6em; border-radius: var(--radius-s); color: var(--text); text-decoration: none; }
-        .nav__link:hover { background: var(--hover-sage); }
-        
-        /* Desktop Navigation Styles */
-        @media (min-width: 50rem) {
-            .nav__toggle { display: none; }
-            .nav__links {
-                position: static;
-                flex-direction: row;
-                transform: none;
-                background: none;
-                gap: var(--space-4);
-            }
-            .nav__link { font-size: var(--step-0); }
+
+        .md3-modal-drawer__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-3);
+        }
+
+        .md3-modal-drawer__brand {
+            font-size: var(--step-1);
+        }
+
+        .md3-modal-drawer__content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .md3-modal-drawer__link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-m);
+            font-size: var(--step-0);
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text);
+            transition: background var(--duration-2) var(--easing), color var(--duration-2) var(--easing);
+            border: none;
+            background: none;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .md3-modal-drawer__link:hover,
+        .md3-modal-drawer__link:focus-visible {
+            background: color-mix(in srgb, var(--primary) 12%, transparent);
+        }
+
+        .md3-modal-drawer__link[aria-current="page"] {
+            background: color-mix(in srgb, var(--primary) 18%, transparent);
+            color: var(--primary);
+        }
+
+        .md3-modal-drawer__link--cta {
+            margin-top: var(--space-4);
+            background: var(--primary);
+            color: var(--primary-contrast);
+            justify-content: center;
+            box-shadow: var(--shadow-1);
+        }
+
+        .md3-modal-drawer__link--cta:hover,
+        .md3-modal-drawer__link--cta:focus-visible {
+            background: color-mix(in srgb, var(--primary) 92%, white 8%);
+        }
+
+        body.md3-drawer-open {
+            overflow: hidden;
         }
 
         /* Button */
@@ -283,26 +415,36 @@
         .card__meta { color: var(--muted); font-size: var(--step--1); margin-block-end: var(--space-4); }
       }
     </style>
+
+    <script src="website/navigation.js" defer></script>
 </head>
 <body>
 
-    <header class="container">
-      <nav class="nav" id="main-nav">
-        <a href="#" class="nav__brand"><i class="fa-solid fa-leaf"></i> Noor</a>
-        
-        <ul class="nav__links" id="nav-links">
-          <li><a href="#" class="nav__link">Home</a></li>
-          <li><a href="#" class="nav__link">Events</a></li>
-          <li><a href="#" class="nav__link">About Us</a></li>
-          <li><a href="#" class="nav__link">Contact</a></li>
-          <li><button class="btn btn--sm" id="theme-toggle-mobile">Toggle Theme</button></li>
-        </ul>
-
-        <button class="nav__toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
-          <i class="fa-solid fa-bars"></i>
+    <header class="md3-top-app-bar">
+      <div class="container md3-top-app-bar__container">
+        <button class="md3-icon-button" type="button" aria-label="Toggle navigation" data-drawer-trigger>
+          <span class="material-symbols-rounded" aria-hidden="true">menu</span>
         </button>
-      </nav>
+        <a href="#" class="nav__brand"><i class="fa-solid fa-leaf"></i> Noor</a>
+      </div>
     </header>
+
+    <div class="md3-drawer-scrim" data-drawer-scrim hidden></div>
+    <aside class="md3-modal-drawer" role="dialog" aria-modal="true" aria-label="Primary navigation" data-drawer aria-hidden="true" tabindex="-1">
+      <div class="md3-modal-drawer__header">
+        <a href="#" class="nav__brand md3-modal-drawer__brand"><i class="fa-solid fa-leaf"></i> Noor</a>
+        <button class="md3-icon-button" type="button" aria-label="Close navigation" data-drawer-close data-drawer-initial-focus>
+          <span class="material-symbols-rounded" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <nav class="md3-modal-drawer__content" aria-label="Primary">
+        <a href="#" class="md3-modal-drawer__link" aria-current="page" data-drawer-close>Home</a>
+        <a href="#" class="md3-modal-drawer__link" data-drawer-close>Events</a>
+        <a href="#" class="md3-modal-drawer__link" data-drawer-close>About Us</a>
+        <a href="#" class="md3-modal-drawer__link" data-drawer-close>Contact</a>
+        <button class="md3-modal-drawer__link md3-modal-drawer__link--cta" type="button" id="theme-toggle-mobile">Toggle Theme</button>
+      </nav>
+    </aside>
 
     <main>
       <!-- ===================================
@@ -409,28 +551,6 @@
             themeToggleMobile.addEventListener('click', toggleTheme);
         }
 
-
-        // --- RESPONSIVE NAVIGATION LOGIC ---
-        const nav = document.getElementById('main-nav');
-        const navToggle = document.getElementById('nav-toggle');
-        const navLinks = document.getElementById('nav-links');
-
-        if (navToggle) {
-          navToggle.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('nav--open');
-            navToggle.setAttribute('aria-expanded', isOpen);
-            
-            // Toggle icon for better UX
-            const icon = navToggle.querySelector('i');
-            if (isOpen) {
-              icon.classList.remove('fa-bars');
-              icon.classList.add('fa-xmark');
-            } else {
-              icon.classList.remove('fa-xmark');
-              icon.classList.add('fa-bars');
-            }
-          });
-        }
 
         // --- SCROLL ANIMATION LOGIC ---
         const animatedElements = document.querySelectorAll('.animate-on-scroll');
