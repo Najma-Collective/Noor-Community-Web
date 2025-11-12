@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support educational justice. Your donation powers tuition-free English education for refugees and displaced learners worldwide.">
+  <title>Donate - Invest in Educational Justice | Noor Community</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav class="utility-nav" aria-label="Utility navigation">
+        <a href="contact.html">Contact Us</a>
+      </nav>
+      <div class="header-container">
+        <a href="index.html" class="site-logo">
+          <span class="logo-icon">N</span>
+          <span>Noor Community</span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <div class="nav-item">
+            <a href="about/index.html" class="nav-link">About Us</a>
+          </div>
+          <div class="nav-item">
+            <a href="programmes/index.html" class="nav-link">Our Programmes</a>
+          </div>
+          <div class="nav-item">
+            <a href="impact/index.html" class="nav-link">Our Impact</a>
+          </div>
+          <a href="stories/index.html" class="nav-link">Stories</a>
+          <div class="nav-item">
+            <a href="join-us/index.html" class="nav-link">Join Us</a>
+          </div>
+        </nav>
+        <a href="donate.html" class="btn-donate" aria-current="page">Donate</a>
+        <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay"></div>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="about/index.html">About Us</a>
+      <a href="programmes/index.html">Our Programmes</a>
+      <a href="impact/index.html">Our Impact</a>
+      <a href="stories/index.html">Stories</a>
+      <a href="join-us/students.html">Apply as Student</a>
+      <a href="join-us/volunteers.html">Volunteer</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="hero" style="padding: var(--space-10) 0;">
+      <div class="container">
+        <div class="hero-content text-center" style="max-width: 800px; margin: 0 auto;">
+          <h1>Invest in Educational Justice</h1>
+          <p class="text-large">
+            Your donation directly powers tuition-free English education for refugees and displaced learners worldwide.
+            Transform lives. Build futures. Create opportunity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 1100px;">
+
+        <div class="grid grid-2" style="gap: var(--space-10); align-items: start;">
+
+          <!-- LEFT COLUMN: Donation Form -->
+          <div data-animate>
+            <div class="card" style="position: sticky; top: 100px;">
+              <div class="card-body" style="padding: var(--space-8);">
+                <h2 style="margin-bottom: var(--space-6);">Make Your Donation</h2>
+
+                <form id="donation-form" data-validate>
+
+                  <!-- Donation Type -->
+                  <div class="form-group">
+                    <label class="form-label">Donation Type</label>
+                    <div style="display: flex; gap: var(--space-4); margin-bottom: var(--space-4);">
+                      <label style="flex: 1; cursor: pointer;">
+                        <input type="radio" name="donation-type" value="one-time" checked style="margin-right: var(--space-2);">
+                        <strong>One-Time</strong>
+                      </label>
+                      <label style="flex: 1; cursor: pointer; background: var(--color-background-pale); padding: var(--space-3); border-radius: var(--radius-md); border: 2px solid var(--color-brand-accent);">
+                        <input type="radio" name="donation-type" value="monthly" style="margin-right: var(--space-2);">
+                        <strong>Monthly</strong> <span class="badge badge-accent" style="margin-left: var(--space-2); font-size: var(--text-xs);">BIGGEST IMPACT</span>
+                      </label>
+                    </div>
+                    <p class="form-help">💡 Monthly donors give 42% more annually and provide stable funding for our programmes.</p>
+                  </div>
+
+                  <!-- Amount Selection -->
+                  <div class="form-group">
+                    <label class="form-label required">Donation Amount</label>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin-bottom: var(--space-4);">
+                      <button type="button" class="btn btn-secondary amount-btn" data-amount="50">$50</button>
+                      <button type="button" class="btn btn-secondary amount-btn" data-amount="100">$100</button>
+                      <button type="button" class="btn btn-secondary amount-btn" data-amount="250">$250</button>
+                      <button type="button" class="btn btn-secondary amount-btn" data-amount="500">$500</button>
+                      <button type="button" class="btn btn-secondary amount-btn" data-amount="1000">$1,000</button>
+                      <button type="button" class="btn btn-secondary amount-btn" data-amount="custom">Custom</button>
+                    </div>
+                    <div id="custom-amount-input" style="display: none;">
+                      <label for="custom-amount" class="form-label">Custom Amount</label>
+                      <div style="position: relative;">
+                        <span style="position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); font-weight: 700; color: var(--color-muted);">$</span>
+                        <input type="number" id="custom-amount" class="form-input" placeholder="0.00" min="5" step="0.01" style="padding-left: var(--space-7);">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Personal Information -->
+                  <div class="form-group">
+                    <label for="donor-name" class="form-label required">Full Name</label>
+                    <input type="text" id="donor-name" class="form-input" required placeholder="Jane Doe">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="donor-email" class="form-label required">Email Address</label>
+                    <input type="email" id="donor-email" class="form-input" required placeholder="jane@example.com">
+                    <span class="form-help">We'll send your tax receipt here.</span>
+                  </div>
+
+                  <!-- Payment Methods -->
+                  <div class="form-group">
+                    <label class="form-label">Payment Method</label>
+                    <div style="display: grid; gap: var(--space-3);">
+
+                      <!-- Credit Card -->
+                      <label class="payment-method-option" style="display: flex; align-items: center; padding: var(--space-4); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all var(--transition-fast);">
+                        <input type="radio" name="payment-method" value="card" checked style="margin-right: var(--space-3);">
+                        <span style="flex: 1; font-weight: 600;">💳 Credit/Debit Card</span>
+                        <span style="font-size: var(--text-xs); color: var(--color-muted);">Visa, Mastercard, Amex</span>
+                      </label>
+
+                      <!-- PayPal -->
+                      <label class="payment-method-option" style="display: flex; align-items: center; padding: var(--space-4); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer;">
+                        <input type="radio" name="payment-method" value="paypal" style="margin-right: var(--space-3);">
+                        <span style="flex: 1; font-weight: 600;">💙 PayPal</span>
+                      </label>
+
+                      <!-- Apple Pay -->
+                      <label class="payment-method-option" style="display: flex; align-items: center; padding: var(--space-4); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer;">
+                        <input type="radio" name="payment-method" value="apple-pay" style="margin-right: var(--space-3);">
+                        <span style="flex: 1; font-weight: 600;"> Apple Pay</span>
+                        <span class="badge" style="font-size: var(--text-xs);">Mobile</span>
+                      </label>
+
+                      <!-- Google Pay -->
+                      <label class="payment-method-option" style="display: flex; align-items: center; padding: var(--space-4); border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer;">
+                        <input type="radio" name="payment-method" value="google-pay" style="margin-right: var(--space-3);">
+                        <span style="flex: 1; font-weight: 600;">🔵 Google Pay</span>
+                        <span class="badge" style="font-size: var(--text-xs);">Mobile</span>
+                      </label>
+
+                    </div>
+                  </div>
+
+                  <!-- Newsletter Opt-in -->
+                  <div class="form-group">
+                    <label style="display: flex; align-items: start; gap: var(--space-3); cursor: pointer;">
+                      <input type="checkbox" name="newsletter" checked style="margin-top: 4px;">
+                      <span>Yes, keep me updated on Noor Community's impact and stories via email (you can unsubscribe anytime).</span>
+                    </label>
+                  </div>
+
+                  <!-- Trust Badges -->
+                  <div style="background: var(--color-background-cream); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6);">
+                    <p style="font-size: var(--text-sm); margin: 0; display: flex; align-items: center; gap: var(--space-3);">
+                      <span style="font-size: var(--text-xl);">🔒</span>
+                      <span><strong>Secure Donation</strong> – Your information is encrypted and protected. Noor Community is a registered 501(c)(3) nonprofit (EIN: 12-3456789). Your donation is tax-deductible.</span>
+                    </p>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <button type="submit" class="btn btn-large btn-primary" style="width: 100%; background: var(--color-brand-accent); border-color: var(--color-brand-accent); font-size: var(--text-xl); padding: var(--space-6);">
+                    Complete Donation →
+                  </button>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Why Donate / Impact -->
+          <div data-animate>
+
+            <h2 class="mb-6">Why Your Donation Matters</h2>
+
+            <div class="testimonial mb-8">
+              <p class="testimonial-quote" style="font-size: var(--text-base);">
+                "I couldn't afford English classes. Noor was my only option—and it changed everything.
+                Because of donors like you, I'm now in my first year at university studying engineering."
+              </p>
+              <div class="testimonial-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
+                     alt="Omar"
+                     class="testimonial-avatar">
+                <div>
+                  <div class="testimonial-name">Omar K.</div>
+                  <div class="testimonial-role">Noor EAP Graduate, Syria</div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="mb-4">Your Impact, In Numbers</h3>
+            <div class="card mb-6">
+              <div class="card-body">
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: var(--space-4) 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+                    <span><strong>$50</strong></span>
+                    <span class="text-muted">Covers 10 hours of live instruction for one student</span>
+                  </li>
+                  <li style="padding: var(--space-4) 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+                    <span><strong>$100</strong></span>
+                    <span class="text-muted">Provides full curriculum materials for one student</span>
+                  </li>
+                  <li style="padding: var(--space-4) 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+                    <span><strong>$250</strong></span>
+                    <span class="text-muted">Funds one student's complete 12-week course</span>
+                  </li>
+                  <li style="padding: var(--space-4) 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+                    <span><strong>$500</strong></span>
+                    <span class="text-muted">Supports IELTS exam fees for two students</span>
+                  </li>
+                  <li style="padding: var(--space-4) 0; display: flex; justify-content: space-between; align-items: center;">
+                    <span><strong>$1,000</strong></span>
+                    <span class="text-muted">Powers our technology platform for one month</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 class="mb-4">Where Your Money Goes</h3>
+            <div class="card mb-6">
+              <div class="card-body">
+                <div style="margin-bottom: var(--space-4);">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+                    <span><strong>Programme Delivery</strong></span>
+                    <span class="text-muted">75%</span>
+                  </div>
+                  <div style="height: 12px; background: var(--color-border); border-radius: var(--radius-full); overflow: hidden;">
+                    <div style="width: 75%; height: 100%; background: var(--color-brand-accent);"></div>
+                  </div>
+                </div>
+                <div style="margin-bottom: var(--space-4);">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+                    <span><strong>Technology & Platform</strong></span>
+                    <span class="text-muted">15%</span>
+                  </div>
+                  <div style="height: 12px; background: var(--color-border); border-radius: var(--radius-full); overflow: hidden;">
+                    <div style="width: 15%; height: 100%; background: var(--color-brand-primary);"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+                    <span><strong>Operations & Admin</strong></span>
+                    <span class="text-muted">10%</span>
+                  </div>
+                  <div style="height: 12px; background: var(--color-border); border-radius: var(--radius-full); overflow: hidden;">
+                    <div style="width: 10%; height: 100%; background: var(--olive-green);"></div>
+                  </div>
+                </div>
+                <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-muted);">
+                  We publish full financial statements annually. <a href="financials.html" style="color: var(--color-brand-primary); text-decoration: underline;">View our financials →</a>
+                </p>
+              </div>
+            </div>
+
+            <h3 class="mb-4">Other Ways to Give</h3>
+            <div class="card">
+              <div class="card-body">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                  <li style="padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border);">
+                    <strong>Employer Matching:</strong> Double your impact! Many employers match charitable donations. <a href="contact.html" style="color: var(--color-brand-primary);">Contact us</a> for assistance.
+                  </li>
+                  <li style="padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border);">
+                    <strong>Stock/Securities:</strong> Donate appreciated stock for tax benefits. Email <a href="mailto:donate@noorcommunity.org" style="color: var(--color-brand-primary);">donate@noorcommunity.org</a>
+                  </li>
+                  <li style="padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border);">
+                    <strong>Legacy Giving:</strong> Include Noor in your will or estate planning.
+                  </li>
+                  <li style="padding: var(--space-3) 0;">
+                    <strong>DAF (Donor-Advised Fund):</strong> Recommend a grant from your DAF to EIN 12-3456789.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section-pale">
+      <div class="container container-narrow text-center">
+        <h2>Questions About Donating?</h2>
+        <p class="text-large text-muted mb-6">
+          We're here to help. Contact our donor support team or read our FAQ.
+        </p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+          <a href="faq.html" class="btn btn-secondary">Read FAQ</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>Our Mission</h4>
+          <p class="footer-mission">
+            Noor Community empowers refugees and displaced learners worldwide through
+            tuition-free, world-class English education.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="about/our-story.html">About Us</a></li>
+            <li><a href="programmes/index.html">Our Programmes</a></li>
+            <li><a href="impact/index.html">Our Impact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Take Action</h4>
+          <ul>
+            <li><a href="join-us/students.html">Apply as Student</a></li>
+            <li><a href="join-us/volunteers.html">Volunteer</a></li>
+            <li><a href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Trust & Transparency</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="financials.html">Financials</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Noor Community. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Donation form interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      const amountBtns = document.querySelectorAll('.amount-btn');
+      const customInput = document.getElementById('custom-amount-input');
+
+      amountBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          amountBtns.forEach(b => b.classList.remove('btn-primary'));
+          amountBtns.forEach(b => b.classList.add('btn-secondary'));
+          this.classList.remove('btn-secondary');
+          this.classList.add('btn-primary');
+
+          if (this.dataset.amount === 'custom') {
+            customInput.style.display = 'block';
+          } else {
+            customInput.style.display = 'none';
+          }
+        });
+      });
+
+      // Select first amount by default
+      if (amountBtns.length > 0) {
+        amountBtns[0].click();
+      }
+    });
+  </script>
+
+</body>
+</html>
