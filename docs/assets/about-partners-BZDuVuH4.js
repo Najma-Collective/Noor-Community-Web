@@ -1,4 +1,4 @@
-import{c as a,a as s,b as i,r as o}from"./heroImage-C6ilu6mO.js";import{r as c}from"./storyBlocks-DSitioSz.js";function d(e){document.title="About Noor Community | Our Partners";const n=a({title:"Partnerships rooted in reciprocity",body:"We collaborate with grassroots organisations, universities, and funders who share power with learners."});e.append(n),s(n,"community partnership handshake");const t=document.createElement("section");t.classList.add("section"),t.innerHTML=`
+import{c as a,a as s,b as i,r as o}from"./heroImage-CFuz-Y39.js";import{r as c}from"./storyBlocks-CTpwkMXs.js";function d(e){document.title="About Noor Community | Our Partners";const n=a({title:"Partnerships rooted in reciprocity",body:"We collaborate with grassroots organisations, universities, and funders who share power with learners."});e.append(n),s(n,"community partnership handshake");const t=document.createElement("section");t.classList.add("section"),t.innerHTML=`
     <header>
       <h2>Partnership ecosystem</h2>
       <p>We co-design learning hubs, scholarship pathways, and wellbeing support with trusted organisations.</p>

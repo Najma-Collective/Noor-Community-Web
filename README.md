@@ -36,7 +36,10 @@ GitHub Pages can serve the static output generated in `docs/`. Two deployment pa
 1. **Automated** – Run `npm run deploy` to push the latest `docs/` contents to the `gh-pages` branch via the [`gh-pages`](https://github.com/tschaub/gh-pages) CLI.
 2. **Manual** – Run `npm run build`, commit the `docs/` directory on the default branch, and enable GitHub Pages with the `docs/` folder as the publish source (Settings → Pages → Build and deployment → Deploy from a branch → `main` + `/docs`).
 
-A `.nojekyll` file is included so GitHub Pages serves the pre-built assets without Jekyll processing.
+A `.nojekyll` file is included so GitHub Pages serves the pre-built assets without Jekyll processing. When GitHub Pages publishes
+the repository as a project site it is mounted at `https://<org>.github.io/Noor-Community-Web/`, so the production pages live at
+`https://<org>.github.io/Noor-Community-Web/<page>.html` (for example `about-approach.html`). For legacy links that still point to
+`/src/pages/*.html`, the build preserves that folder structure so those URLs continue to resolve after deployment.
 
 ## Architecture highlights
 
