@@ -14,7 +14,9 @@ async function flattenPages() {
           const filePath = path.join(pagesDir, file);
           const outputPath = path.join(docsDir, file);
           let content = await readFile(filePath, 'utf8');
-          content = content.replaceAll('../../assets/', './assets/');
+          // Using replace with a global regex keeps the script compatible with
+          // Node.js versions that do not yet implement String.prototype.replaceAll.
+          content = content.replace(/\.\.\/\.\.\/assets\//g, './assets/');
           await writeFile(outputPath, content);
         })
     );
@@ -31,10 +33,12 @@ async function cleanupSourceDir() {
   await rm(path.join(docsDir, 'src'), { recursive: true, force: true });
 }
 
-try {
-  await flattenPages();
-  await cleanupSourceDir();
-} catch (error) {
-  console.error('Failed to finalize docs output:', error);
-  process.exitCode = 1;
-}
+(async () => {
+  try {
+    await flattenPages();
+    await cleanupSourceDir();
+  } catch (error) {
+    console.error('Failed to finalize docs output:', error);
+    process.exitCode = 1;
+  }
+})();
