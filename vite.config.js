@@ -33,6 +33,11 @@ const input = Object.fromEntries(
 export default defineConfig({
   base: './',
   publicDir: 'public',
+  resolve: {
+    alias: {
+      '@material/web/theme/app-theme.js': resolve(__dirname, 'src/theme/app-theme.js')
+    }
+  },
   build: {
     outDir: 'docs',
     emptyOutDir: true,
