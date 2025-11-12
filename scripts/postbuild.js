@@ -1,4 +1,4 @@
-import { readdir, readFile, writeFile, rm } from 'fs/promises';
+import { readdir, readFile, writeFile } from 'fs/promises';
 import path from 'path';
 
 const docsDir = path.resolve('docs');
@@ -29,14 +29,9 @@ async function flattenPages() {
   }
 }
 
-async function cleanupSourceDir() {
-  await rm(path.join(docsDir, 'src'), { recursive: true, force: true });
-}
-
 (async () => {
   try {
     await flattenPages();
-    await cleanupSourceDir();
   } catch (error) {
     console.error('Failed to finalize docs output:', error);
     process.exitCode = 1;

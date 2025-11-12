@@ -1,4 +1,4 @@
-import{c as d,a as p,d as l,r as m}from"./heroImage-C6ilu6mO.js";import{i as h,t as u,a as y}from"./impact-H8d1dACO.js";import{r as g}from"./storyBlocks-DSitioSz.js";function v(e){document.title="Our Impact | Noor Community";const c=d({title:"Impact & Theory of Change",body:"We measure more than test scores. Our data honours learner agency and informs strategic decisions."});e.append(c),p(c,"impact presentation classroom");const r=document.createElement("section");r.classList.add("section"),r.innerHTML=`
+import{c as d,a as p,d as l,r as m}from"./heroImage-CFuz-Y39.js";import{i as h,t as u,a as y}from"./impact-H8d1dACO.js";import{r as g}from"./storyBlocks-CTpwkMXs.js";function v(e){document.title="Our Impact | Noor Community";const c=d({title:"Impact & Theory of Change",body:"We measure more than test scores. Our data honours learner agency and informs strategic decisions."});e.append(c),p(c,"impact presentation classroom");const r=document.createElement("section");r.classList.add("section"),r.innerHTML=`
     <header>
       <h2>Key indicators</h2>
       <p>We track participation, progression, and wellbeing across every cohort.</p>

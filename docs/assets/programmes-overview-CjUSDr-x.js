@@ -1,4 +1,4 @@
-import{c as a,a as o,b as n,r as l}from"./heroImage-C6ilu6mO.js";import{a as e,p as m}from"./programmes-CLQhGAcm.js";import{r as d}from"./storyBlocks-DSitioSz.js";function c(t){document.title="Noor Community Programmes | Overview";const s=a({title:e.overview.title,body:e.overview.description,actions:m});t.append(s),o(s,e.overview.heroQuery);const i=document.createElement("section");i.classList.add("section"),i.innerHTML=`
+import{c as a,a as o,b as n,r as l}from"./heroImage-CFuz-Y39.js";import{a as e,p as m}from"./programmes-CLQhGAcm.js";import{r as d}from"./storyBlocks-CTpwkMXs.js";function c(t){document.title="Noor Community Programmes | Overview";const s=a({title:e.overview.title,body:e.overview.description,actions:m});t.append(s),o(s,e.overview.heroQuery);const i=document.createElement("section");i.classList.add("section"),i.innerHTML=`
     <header>
       <h2>Three core pathways</h2>
       <p>All pathways combine live instruction, asynchronous labs, wellbeing coaching, and storytelling.</p>

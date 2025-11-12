@@ -1,4 +1,4 @@
-import{f as l,h as m}from"./heroImage-C6ilu6mO.js";function n(e){const r=document.createElement("md-elevated-card");return r.classList.add("story-card"),r.innerHTML=`
+import{f as l,h as m}from"./heroImage-CFuz-Y39.js";function n(e){const r=document.createElement("md-elevated-card");return r.classList.add("story-card"),r.innerHTML=`
     <div class="card-content">
       <h3>${e.title}</h3>
       <p>${e.summary}</p>

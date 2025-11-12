@@ -1,4 +1,4 @@
-import{c as n,a as i,s as c,r as d}from"./heroImage-C6ilu6mO.js";function m(a){document.title="Impact Stories | Noor Community";const s=n({title:"Stories that make data human",body:"Learners, volunteers, and partners share milestones that bring our metrics to life."});a.append(s),i(s,"student success story");const e=document.createElement("section");e.classList.add("section"),e.innerHTML=`
+import{c as n,a as i,s as c,r as d}from"./heroImage-CFuz-Y39.js";function m(a){document.title="Impact Stories | Noor Community";const s=n({title:"Stories that make data human",body:"Learners, volunteers, and partners share milestones that bring our metrics to life."});a.append(s),i(s,"student success story");const e=document.createElement("section");e.classList.add("section"),e.innerHTML=`
     <header>
       <h2>Story library</h2>
       <p>Browse narratives connected to programmes, impact, and volunteering.</p>
