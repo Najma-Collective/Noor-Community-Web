@@ -1,5 +1,6 @@
 import './styles/main.scss';
 
+import '@material/web/theme/app-theme.js';
 import '@material/web/button/filled-button.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
