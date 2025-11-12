@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noor Community — Programme Overview</title>
+    <script type="module" src="../main.js"></script>
+  </head>
+  <body>
+    <script type="module">
+      import { renderLayout } from '../components/layout.js';
+      import { initProgrammesOverview } from './programmes-overview.js';
+
+      const { main } = renderLayout({ activeId: 'programmes', headline: 'Our Programmes' });
+      initProgrammesOverview(main);
+    </script>
+  </body>
+</html>
