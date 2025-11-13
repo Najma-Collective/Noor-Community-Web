@@ -42,17 +42,25 @@
   </header>
 
   <main>
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/4260477/pexels-photo-4260477.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/4260477/pexels-photo-4260477.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+      <div class="hero-ornament hero-ornament-left"></div>
+      <div class="hero-ornament hero-ornament-right"></div>
       <div class="hero-content">
-        <p class="chip">Join Us: For Students</p>
-        <h1>Join Our Learning Community.</h1>
-        <p>Welcome. We are an international group of educators and students offering high-quality online English courses to help you achieve your professional and academic goals.</p>
+        <p class="chip chip-premium">Join Us: For Students</p>
+        <h1 class="hero-title">Join Our Learning Community.</h1>
+        <p class="hero-description">Welcome. We are an international group of educators and students offering high-quality online English courses to help you achieve your professional and academic goals.</p>
       </div>
     </section>
 
     <section class="section page-surface">
-      <div class="material-surface">
-        <h2 class="section-title">Our Programmes Are for You If...</h2>
+      <div class="material-surface" data-scroll-animate>
+        <div class="section-header section-header-centered">
+          <div class="section-label section-label-centered">
+            <span class="material-symbols-rounded">how_to_reg</span>
+            <span>Eligibility</span>
+          </div>
+          <h2 class="section-title section-title-xl">Our Programmes Are <span class="text-gradient">for You If...</span></h2>
+        </div>
         <ul class="checklist">
           <li><span class="material-symbols-rounded">check_circle</span>You are a Palestinian university student, graduate, or professional.</li>
           <li><span class="material-symbols-rounded">check_circle</span>You want to build your skills for your career or education.</li>
@@ -63,20 +71,39 @@
     </section>
 
     <section class="section page-surface">
-      <div class="section-header">
-        <h2 class="section-title">How We Learn Together</h2>
+      <div class="section-header section-header-centered">
+        <div class="section-label section-label-centered">
+          <span class="material-symbols-rounded">diversity_3</span>
+          <span>What We Offer</span>
+        </div>
+        <h2 class="section-title section-title-xl">How We Learn <span class="text-gradient">Together</span></h2>
       </div>
       <div class="grid-2">
-        <article class="card">
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">business_center</span>
+          </div>
           <h3>Professional English Courses</h3>
+          <p>Build practical skills for your career and professional development.</p>
         </article>
-        <article class="card">
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">menu_book</span>
+          </div>
           <h3>Academic English Courses</h3>
+          <p>Prepare for university success with critical thinking and academic skills.</p>
         </article>
-        <article class="card">
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">psychology</span>
+          </div>
           <h3>Soft Skills Training</h3>
+          <p>Develop leadership and communication skills for personal growth.</p>
         </article>
-        <article class="card">
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">public</span>
+          </div>
           <h3>An International Network</h3>
           <p>Connect with teachers and peers from around the world.</p>
         </article>
@@ -85,31 +112,46 @@
 
     <section class="section page-surface">
       <div class="material-surface">
-        <h2 class="section-title">Your Next Step</h2>
+        <div class="section-header section-header-centered">
+          <div class="section-label section-label-centered">
+            <span class="material-symbols-rounded">map</span>
+            <span>Application Process</span>
+          </div>
+          <h2 class="section-title section-title-xl">Your Next <span class="text-gradient">Step</span></h2>
+        </div>
         <div class="grid-3">
-          <article>
+          <article class="card card-premium" data-card-animate>
+            <div class="card-number">01</div>
             <h3>Step 1: Initial Application</h3>
             <p>Complete and submit the online application form with your personal details, academic history, and programme preference.</p>
           </article>
-          <article>
+          <article class="card card-premium" data-card-animate>
+            <div class="card-number">02</div>
             <h3>Step 2: Placement Interview</h3>
             <p>If eligible, you will be invited to a 30-minute virtual interview with a programme coordinator to assess your goals and skill level for accurate placement.</p>
           </article>
-          <article>
+          <article class="card card-premium" data-card-animate>
+            <div class="card-number">03</div>
             <h3>Step 3: Programme Onboarding</h3>
             <p>Successful applicants will receive an acceptance notification and be given access to our online learning platform and all course materials.</p>
           </article>
         </div>
         <div class="hero-actions" style="margin-top: var(--space-6);">
-          <a class="activity-btn" href="#apply">Apply to Our Programmes</a>
+          <a class="activity-btn activity-btn-large" href="#apply">
+            <span>Apply to Our Programmes</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="apply" class="section page-surface">
-      <div class="material-surface">
-        <h2 class="section-title">Still Have Questions?</h2>
-        <div class="accordion" data-accordion>
+    <section id="apply" class="section page-surface material-surface section-cta">
+      <div class="section-cta-content">
+        <div class="section-cta-badge">
+          <span class="material-symbols-rounded">help</span>
+        </div>
+        <h2 class="section-title section-title-xl">Still Have <span class="text-gradient">Questions?</span></h2>
+        <div class="accordion" data-accordion style="margin-top: var(--space-6);">
           <div class="accordion-item">
             <button class="accordion-trigger" aria-expanded="false">Is there a cost for the programmes?<span class="material-symbols-rounded">add</span></button>
             <div class="accordion-panel">
@@ -124,8 +166,14 @@
           </div>
         </div>
         <div class="hero-actions" style="margin-top: var(--space-6);">
-          <a class="activity-btn" href="https://example.com/apply" target="_blank" rel="noreferrer">Apply to Our Programmes</a>
-          <a class="activity-btn secondary" href="faq.html">See Full FAQ</a>
+          <a class="activity-btn activity-btn-large" href="https://example.com/apply" target="_blank" rel="noreferrer">
+            <span>Apply to Our Programmes</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
+          <a class="activity-btn secondary" href="faq.html">
+            <span>See Full FAQ</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
         </div>
       </div>
     </section>

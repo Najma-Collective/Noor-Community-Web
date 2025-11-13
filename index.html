@@ -42,119 +42,237 @@
   </header>
 
   <main>
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+      <div class="hero-ornament hero-ornament-left"></div>
+      <div class="hero-ornament hero-ornament-right"></div>
       <div class="hero-content">
-        <p class="chip">Education and Liberation</p>
-        <h1>Education as a Practice of Freedom.</h1>
-        <p>We are Noor Community, a global network of educators. We create rigorous, compassionate learning environments where Palestinian students cultivate the critical skills to build the futures they envision.</p>
+        <p class="chip chip-premium">Education and Liberation</p>
+        <h1 class="hero-title">Education as a Practice of Freedom.</h1>
+        <p class="hero-description">We are Noor Community, a global network of educators. We create rigorous, compassionate learning environments where Palestinian students cultivate the critical skills to build the futures they envision.</p>
         <div class="hero-actions">
-          <a class="activity-btn" href="about.html">Explore Our Mission</a>
-          <a class="activity-btn secondary" href="#audience-funnels">Find Your Path</a>
+          <a class="activity-btn activity-btn-primary" href="about.html">
+            <span>Explore Our Mission</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
+          <a class="activity-btn secondary" href="#audience-funnels">
+            <span>Find Your Path</span>
+            <span class="material-symbols-rounded btn-icon">expand_more</span>
+          </a>
         </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span class="material-symbols-rounded">keyboard_arrow_down</span>
       </div>
     </section>
 
-    <section id="audience-funnels" class="section page-surface">
-      <div class="section-header">
-        <p class="section-title">Serve Every Learner</p>
+    <section id="audience-funnels" class="section page-surface section-premium">
+      <div class="section-header section-header-enhanced">
+        <div class="section-label">
+          <span class="material-symbols-rounded">groups</span>
+          <span>Our Community</span>
+        </div>
+        <h2 class="section-title section-title-large">Serve Every Learner</h2>
         <p class="section-subtitle">This is the primary sorting mechanism for our three co-equal audiences.</p>
       </div>
-      <div class="grid-3">
-        <article class="card">
-          <h3>For Students</h3>
-          <p>We offer high-quality, online English programmes to help you achieve your academic and professional goals.</p>
-          <a class="activity-btn secondary" href="programmes.html">See Our Programmes</a>
+      <div class="grid-3 grid-enhanced">
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">school</span>
+          </div>
+          <h3 class="card-title">For Students</h3>
+          <p class="card-description">We offer high-quality, online English programmes to help you achieve your academic and professional goals.</p>
+          <a class="activity-btn secondary card-action" href="programmes.html">
+            <span>See Our Programmes</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
         </article>
-        <article class="card">
-          <h3>For Supporters</h3>
-          <p>Your solidarity invests in educational justice and provides the tools for a community-led, resilient model of learning.</p>
-          <a class="activity-btn secondary" href="impact.html">See Your Impact</a>
+        <article class="card card-premium card-featured" data-card-animate>
+          <div class="card-badge">Featured</div>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">favorite</span>
+          </div>
+          <h3 class="card-title">For Supporters</h3>
+          <p class="card-description">Your solidarity invests in educational justice and provides the tools for a community-led, resilient model of learning.</p>
+          <a class="activity-btn secondary card-action" href="impact.html">
+            <span>See Your Impact</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
         </article>
-        <article class="card">
-          <h3>For Volunteers</h3>
-          <p>Join our community of practice, partner with students, and grow professionally in a project of solidarity.</p>
-          <a class="activity-btn secondary" href="join-volunteers.html">Join Our Team</a>
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">volunteer_activism</span>
+          </div>
+          <h3 class="card-title">For Volunteers</h3>
+          <p class="card-description">Join our community of practice, partner with students, and grow professionally in a project of solidarity.</p>
+          <a class="activity-btn secondary card-action" href="join-volunteers.html">
+            <span>Join Our Team</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
         </article>
       </div>
     </section>
 
-    <section class="section page-surface">
-      <div class="grid-2">
-        <div>
-          <p class="chip">Our Story</p>
-          <h2 class="section-title">More Than a School. A Community of Practice.</h2>
-          <p>Our work began in 2024, founded by two British Council teachers, Areej Banat and Gabriel Ishmael Beckford, to support Palestinian communities. Today, we are a global community where students and teachers are co-learners in a shared enterprise, committed to dismantling the traditional hierarchies that pervade international education.</p>
-          <a class="activity-btn" href="about.html">Learn More About Us</a>
+    <section class="section page-surface section-split-content">
+      <div class="grid-2 grid-2-enhanced">
+        <div class="content-block" data-scroll-animate>
+          <p class="chip chip-accent">Our Story</p>
+          <h2 class="section-title">More Than a School. <span class="text-gradient">A Community of Practice.</span></h2>
+          <p class="lead-text">Our work began in 2024, founded by two British Council teachers, Areej Banat and Gabriel Ishmael Beckford, to support Palestinian communities.</p>
+          <p>Today, we are a global community where students and teachers are co-learners in a shared enterprise, committed to dismantling the traditional hierarchies that pervade international education.</p>
+          <div class="stats-inline">
+            <div class="stat-inline-item">
+              <span class="stat-number">2024</span>
+              <span class="stat-label">Founded</span>
+            </div>
+            <div class="stat-inline-item">
+              <span class="stat-number">Global</span>
+              <span class="stat-label">Reach</span>
+            </div>
+          </div>
+          <a class="activity-btn" href="about.html">
+            <span>Learn More About Us</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
         </div>
-        <div class="material-surface">
+        <div class="material-surface image-frame" data-scroll-animate>
+          <div class="image-ornament"></div>
           <img src="https://images.pexels.com/photos/6457575/pexels-photo-6457575.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Community of practice" />
         </div>
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
-      <div class="section-header">
-        <h2 class="section-title">Education that Expands Futures</h2>
+    <section class="section page-surface material-surface section-impact">
+      <div class="section-header section-header-centered">
+        <div class="section-label section-label-centered">
+          <span class="material-symbols-rounded">trending_up</span>
+          <span>Our Impact</span>
+        </div>
+        <h2 class="section-title section-title-xl">Education that <span class="text-gradient">Expands Futures</span></h2>
         <p class="section-subtitle">Immediate social proof and data-driven impact.</p>
       </div>
-      <div class="stat-grid">
-        <div class="stat-card">
-          <span>[Number]</span>
-          <p>Students Enrolled</p>
+      <div class="stat-grid stat-grid-enhanced">
+        <div class="stat-card stat-card-premium" data-scroll-animate>
+          <div class="stat-icon">
+            <span class="material-symbols-rounded">groups</span>
+          </div>
+          <span class="stat-value">[Number]</span>
+          <p class="stat-label">Students Enrolled</p>
+          <div class="stat-decoration"></div>
         </div>
-        <div class="stat-card">
-          <span>[Number]</span>
-          <p>Volunteer Educators</p>
+        <div class="stat-card stat-card-premium" data-scroll-animate>
+          <div class="stat-icon">
+            <span class="material-symbols-rounded">volunteer_activism</span>
+          </div>
+          <span class="stat-value">[Number]</span>
+          <p class="stat-label">Volunteer Educators</p>
+          <div class="stat-decoration"></div>
         </div>
-        <div class="stat-card">
-          <span>[Number]</span>
-          <p>Countries in Our Network</p>
+        <div class="stat-card stat-card-premium" data-scroll-animate>
+          <div class="stat-icon">
+            <span class="material-symbols-rounded">public</span>
+          </div>
+          <span class="stat-value">[Number]</span>
+          <p class="stat-label">Countries in Our Network</p>
+          <div class="stat-decoration"></div>
         </div>
       </div>
-      <blockquote class="testimonial">
-        “The Business English course didn't just teach me vocabulary—it taught me how to strategize and articulate a winning proposal. I feel ready to make a real difference in my community.”
+      <blockquote class="testimonial testimonial-premium" data-scroll-animate>
+        <div class="testimonial-icon">
+          <span class="material-symbols-rounded">format_quote</span>
+        </div>
+        <p class="testimonial-text">"The Business English course didn't just teach me vocabulary—it taught me how to strategize and articulate a winning proposal. I feel ready to make a real difference in my community."</p>
+        <cite class="testimonial-author">
+          <span class="author-name">Fatima</span>
+          <span class="author-title">Business English Graduate</span>
+        </cite>
       </blockquote>
       <div class="hero-actions">
-        <a class="activity-btn" href="student-stories.html">Read Fatima's Story</a>
+        <a class="activity-btn" href="student-stories.html">
+          <span>Read Fatima's Story</span>
+          <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+        </a>
       </div>
     </section>
 
-    <section class="section page-surface">
-      <div class="section-header">
-        <h2 class="section-title">Pathways to Your Future</h2>
+    <section class="section page-surface section-programmes">
+      <div class="section-header section-header-centered">
+        <div class="section-label section-label-centered">
+          <span class="material-symbols-rounded">school</span>
+          <span>Our Programmes</span>
+        </div>
+        <h2 class="section-title section-title-xl">Pathways to <span class="text-gradient">Your Future</span></h2>
         <p class="section-subtitle">Our programmes are the practical application of our vision.</p>
       </div>
-      <div class="grid-2">
-        <article class="card">
-          <h3>General &amp; Business English</h3>
-          <p>Learn practical, real-world English for your career through project-based work.</p>
+      <div class="grid-2 grid-programmes">
+        <article class="card card-programme" data-scroll-animate>
+          <div class="card-number">01</div>
+          <div class="card-icon-large">
+            <span class="material-symbols-rounded">business_center</span>
+          </div>
+          <h3 class="card-title">General &amp; Business English</h3>
+          <p class="card-description">Learn practical, real-world English for your career through project-based work.</p>
+          <a href="programme-general-business.html" class="card-link">
+            <span>Learn More</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
         </article>
-        <article class="card">
-          <h3>English for Academic Purposes (EAP)</h3>
-          <p>Prepare for success at university with critical thinking and scholarly reading skills.</p>
+        <article class="card card-programme" data-scroll-animate>
+          <div class="card-number">02</div>
+          <div class="card-icon-large">
+            <span class="material-symbols-rounded">menu_book</span>
+          </div>
+          <h3 class="card-title">English for Academic Purposes (EAP)</h3>
+          <p class="card-description">Prepare for success at university with critical thinking and scholarly reading skills.</p>
+          <a href="programme-eap.html" class="card-link">
+            <span>Learn More</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
         </article>
-        <article class="card">
-          <h3>Soft Skills Training</h3>
-          <p>Develop interpersonal and leadership skills that complement language learning.</p>
+        <article class="card card-programme" data-scroll-animate>
+          <div class="card-number">03</div>
+          <div class="card-icon-large">
+            <span class="material-symbols-rounded">psychology</span>
+          </div>
+          <h3 class="card-title">Soft Skills Training</h3>
+          <p class="card-description">Develop interpersonal and leadership skills that complement language learning.</p>
+          <a href="programmes.html#soft-skills" class="card-link">
+            <span>Learn More</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
         </article>
-        <article class="card">
-          <h3>1-1 Exam Practice</h3>
-          <p>Targeted lessons to master exam strategies, time management, and complex prompts.</p>
+        <article class="card card-programme" data-scroll-animate>
+          <div class="card-number">04</div>
+          <div class="card-icon-large">
+            <span class="material-symbols-rounded">edit_note</span>
+          </div>
+          <h3 class="card-title">1-1 Exam Practice</h3>
+          <p class="card-description">Targeted lessons to master exam strategies, time management, and complex prompts.</p>
+          <a href="programme-skills-exam.html" class="card-link">
+            <span>Learn More</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
         </article>
       </div>
-      <div class="hero-actions" style="margin-top: var(--space-6);">
-        <a class="activity-btn" href="programmes.html">Explore All Programmes</a>
+      <div class="hero-actions" style="margin-top: var(--space-8);">
+        <a class="activity-btn activity-btn-large" href="programmes.html">
+          <span>Explore All Programmes</span>
+          <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+        </a>
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
-      <div class="grid-2">
-        <div>
-          <h2 class="section-title">Stories from Our Community</h2>
-          <p>Read the latest news, student spotlights, and pedagogical insights from our global network.</p>
+    <section class="section page-surface material-surface section-cta">
+      <div class="section-cta-content">
+        <div class="section-cta-badge">
+          <span class="material-symbols-rounded">auto_stories</span>
         </div>
-        <div class="hero-actions" style="align-items: flex-end;">
-          <a class="activity-btn" href="stories.html">Read Our Stories</a>
+        <h2 class="section-title section-title-xl">Stories from <span class="text-gradient">Our Community</span></h2>
+        <p class="section-subtitle-large">Read the latest news, student spotlights, and pedagogical insights from our global network.</p>
+        <div class="hero-actions">
+          <a class="activity-btn activity-btn-large" href="stories.html">
+            <span>Read Our Stories</span>
+            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+          </a>
         </div>
       </div>
     </section>
