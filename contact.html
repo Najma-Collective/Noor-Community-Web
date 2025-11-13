@@ -42,18 +42,26 @@
   </header>
 
   <main>
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+      <div class="hero-ornament hero-ornament-left"></div>
+      <div class="hero-ornament hero-ornament-right"></div>
       <div class="hero-content">
-        <p class="chip">Contact Us</p>
-        <h1>Let's Continue the Conversation.</h1>
-        <p>Reach out to learn more about our programmes, partnerships, or volunteer opportunities.</p>
+        <p class="chip chip-premium">Contact Us</p>
+        <h1 class="hero-title">Let's Continue the Conversation.</h1>
+        <p class="hero-description">Reach out to learn more about our programmes, partnerships, or volunteer opportunities.</p>
       </div>
     </section>
 
     <section class="section page-surface">
       <div class="grid-2">
-        <div class="material-surface">
-          <h2 class="section-title">Send a Message</h2>
+        <div class="material-surface card-premium" data-scroll-animate>
+          <div class="section-header">
+            <div class="section-label">
+              <span class="material-symbols-rounded">mail</span>
+              <span>Get in Touch</span>
+            </div>
+            <h2 class="section-title section-title-xl">Send a <span class="text-gradient">Message</span></h2>
+          </div>
           <form class="material-form">
             <div class="form-row">
               <label>Name
@@ -74,13 +82,46 @@
             <label>Message
               <textarea rows="5" placeholder="Share details"></textarea>
             </label>
-            <button class="activity-btn" type="submit">Submit</button>
+            <button class="activity-btn activity-btn-large" type="submit">
+              <span>Submit</span>
+              <span class="material-symbols-rounded btn-icon">send</span>
+            </button>
           </form>
         </div>
-        <div class="material-surface">
-          <h2 class="section-title">Stay Connected</h2>
-          <p>Email: <a href="mailto:hello@noorcommunity.org">hello@noorcommunity.org</a></p>
-          <p>Follow us on Instagram and LinkedIn for programme updates.</p>
+        <div class="material-surface card-premium" data-scroll-animate>
+          <div class="section-header">
+            <div class="section-label">
+              <span class="material-symbols-rounded">connect_without_contact</span>
+              <span>Connect</span>
+            </div>
+            <h2 class="section-title section-title-xl">Stay <span class="text-gradient">Connected</span></h2>
+          </div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="material-symbols-rounded">email</span>
+              <div>
+                <h3>Email</h3>
+                <p><a href="mailto:hello@noorcommunity.org">hello@noorcommunity.org</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="material-symbols-rounded">share</span>
+              <div>
+                <h3>Social Media</h3>
+                <p>Follow us on Instagram and LinkedIn for programme updates.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-actions" style="margin-top: var(--space-6);">
+            <a class="activity-btn secondary" href="https://instagram.com" target="_blank" rel="noreferrer">
+              <span>Instagram</span>
+              <span class="material-symbols-rounded btn-icon">arrow_outward</span>
+            </a>
+            <a class="activity-btn secondary" href="https://linkedin.com" target="_blank" rel="noreferrer">
+              <span>LinkedIn</span>
+              <span class="material-symbols-rounded btn-icon">arrow_outward</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -42,43 +42,80 @@
   </header>
 
   <main>
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+      <div class="hero-ornament hero-ornament-left"></div>
+      <div class="hero-ornament hero-ornament-right"></div>
       <div class="hero-content">
-        <p class="chip">Stories</p>
-        <h1>Stories from Our Community.</h1>
-        <p>Community spotlights, pedagogical insights, and organizational news.</p>
+        <p class="chip chip-premium">Stories</p>
+        <h1 class="hero-title">Stories from Our Community.</h1>
+        <p class="hero-description">Community spotlights, pedagogical insights, and organizational news.</p>
       </div>
     </section>
 
     <section class="section page-surface">
-      <div class="section-header">
-        <h2 class="section-title">Featured Post: Pedagogical Insights</h2>
+      <div class="section-header section-header-centered">
+        <div class="section-label section-label-centered">
+          <span class="material-symbols-rounded">star</span>
+          <span>Featured Post</span>
+        </div>
+        <h2 class="section-title section-title-xl">Featured: <span class="text-gradient">Pedagogical Insights</span></h2>
       </div>
-      <article class="material-surface">
-        <h3>More Than Just Words: Why 'Psychological Safety' is Our Core Value</h3>
-        <p>At the heart of any transformative educational experience lies a single, indispensable element: psychological safety. It's more than a buzzword or a box to tick; it is the vital, invisible architecture that supports deep, meaningful learning.</p>
-        <p>Our approach is built on the belief that when learners feel safe, they stop spending mental energy on self-protection and start focusing on growth. Psychological safety is the shared belief that the environment is safe for interpersonal risk-taking. In a classroom context, this means feeling comfortable enough to ask a "silly" question, offer an incomplete idea, or openly admit a mistake without fear of embarrassment or punishment. This is the foundation upon which trust is built.</p>
-        <p>This sense of security directly impacts a learner's attitude towards learning. A psychologically safe space successfully lowers anxiety and unlocks a powerful growth mindset. Environments where learners are encouraged to be vulnerable are also the environments where they are most engaged, innovative, and resilient. Errors transform from sources of shame into valuable data points for collective improvement.</p>
-        <p>Psychological safety is not a passive state; it’s an active, daily practice for everyone in our community. It requires us to model curiosity, value diverse perspectives, and normalize imperfection. By embedding this core value into everything we do, we commit to fostering a learning community where every voice is heard, every perspective is valued, and every individual is empowered to reach their highest potential.</p>
+      <article class="material-surface card-premium" data-scroll-animate>
+        <div class="post-header">
+          <div class="post-category chip chip-accent">Pedagogical Insights</div>
+          <h3 class="post-title">More Than Just Words: Why 'Psychological Safety' is Our Core Value</h3>
+        </div>
+        <div class="post-content">
+          <p>At the heart of any transformative educational experience lies a single, indispensable element: psychological safety. It's more than a buzzword or a box to tick; it is the vital, invisible architecture that supports deep, meaningful learning.</p>
+          <p>Our approach is built on the belief that when learners feel safe, they stop spending mental energy on self-protection and start focusing on growth. Psychological safety is the shared belief that the environment is safe for interpersonal risk-taking. In a classroom context, this means feeling comfortable enough to ask a "silly" question, offer an incomplete idea, or openly admit a mistake without fear of embarrassment or punishment. This is the foundation upon which trust is built.</p>
+          <p>This sense of security directly impacts a learner's attitude towards learning. A psychologically safe space successfully lowers anxiety and unlocks a powerful growth mindset. Environments where learners are encouraged to be vulnerable are also the environments where they are most engaged, innovative, and resilient. Errors transform from sources of shame into valuable data points for collective improvement.</p>
+          <p>Psychological safety is not a passive state; it's an active, daily practice for everyone in our community. It requires us to model curiosity, value diverse perspectives, and normalize imperfection. By embedding this core value into everything we do, we commit to fostering a learning community where every voice is heard, every perspective is valued, and every individual is empowered to reach their highest potential.</p>
+        </div>
       </article>
     </section>
 
-    <section class="section page-surface">
-      <div class="section-header">
-        <h2 class="section-title">Browse Categories</h2>
+    <section class="section page-surface material-surface">
+      <div class="section-header section-header-centered">
+        <div class="section-label section-label-centered">
+          <span class="material-symbols-rounded">category</span>
+          <span>Explore</span>
+        </div>
+        <h2 class="section-title section-title-xl">Browse <span class="text-gradient">Categories</span></h2>
+        <p class="section-subtitle">Discover stories from across our community.</p>
       </div>
       <div class="grid-3">
-        <article class="card">
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">groups</span>
+          </div>
           <h3>Community Spotlight</h3>
           <p>Interviews with students, volunteers, and team members.</p>
+          <a class="card-link" href="#community">
+            <span>View Stories</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
         </article>
-        <article class="card">
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">lightbulb</span>
+          </div>
           <h3>Pedagogical Insights</h3>
           <p>Short, accessible articles about healing-centred engagement, rooted cosmopolitanism, and more.</p>
+          <a class="card-link" href="#insights">
+            <span>View Stories</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
         </article>
-        <article class="card">
+        <article class="card card-premium" data-card-animate>
+          <div class="card-icon">
+            <span class="material-symbols-rounded">campaign</span>
+          </div>
           <h3>Organization News</h3>
           <p>Updates on new partnerships, programme milestones, and annual reports.</p>
+          <a class="card-link" href="#news">
+            <span>View Stories</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
         </article>
       </div>
     </section>
