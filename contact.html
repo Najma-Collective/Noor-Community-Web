@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Noor Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="module">
+    import 'https://unpkg.com/@material/web@latest/all.js';
+  </script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body class="site-shell">
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Noor Community logo" />
+        <span>Noor Community</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+      <nav>
+        <ul class="nav-links" data-nav-links>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programmes.html">Our Programmes</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="join-students.html">Join Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="donate-btn" href="donate.html">Donate</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+      <div class="hero-content">
+        <p class="chip">Contact Us</p>
+        <h1>Let's Continue the Conversation.</h1>
+        <p>Reach out to learn more about our programmes, partnerships, or volunteer opportunities.</p>
+      </div>
+    </section>
+
+    <section class="section page-surface">
+      <div class="grid-2">
+        <div class="material-surface">
+          <h2 class="section-title">Send a Message</h2>
+          <form class="material-form">
+            <div class="form-row">
+              <label>Name
+                <input type="text" placeholder="Your full name" required />
+              </label>
+              <label>Email
+                <input type="text" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <label>How can we help?
+              <select>
+                <option>Programme Inquiry</option>
+                <option>Volunteer Interest</option>
+                <option>Partnership</option>
+                <option>Media &amp; Press</option>
+              </select>
+            </label>
+            <label>Message
+              <textarea rows="5" placeholder="Share details"></textarea>
+            </label>
+            <button class="activity-btn" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="material-surface">
+          <h2 class="section-title">Stay Connected</h2>
+          <p>Email: <a href="mailto:hello@noorcommunity.org">hello@noorcommunity.org</a></p>
+          <p>Follow us on Instagram and LinkedIn for programme updates.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Mission</h4>
+        <p>Noor Community: Education and Liberation. A global network creating pathways to self-determination through rigorous, compassionate education.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <a href="about.html">About Us</a>
+        <a href="programmes.html">Our Programmes</a>
+        <a href="impact.html">Our Impact</a>
+      </div>
+      <div class="footer-column">
+        <h4>Act</h4>
+        <a href="join-students.html">Apply</a>
+        <a href="join-volunteers.html">Volunteer</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-column">
+        <h4>Trust</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="financials.html">Financials &amp; Transparency</a>
+        <div class="hero-actions">
+          <a class="activity-btn secondary" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="activity-btn secondary" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="sub-footer">
+      <p>&copy; <span id="year"></span> Noor Community. All rights reserved.</p>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

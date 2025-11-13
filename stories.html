@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stories | Noor Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="module">
+    import 'https://unpkg.com/@material/web@latest/all.js';
+  </script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body class="site-shell">
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Noor Community logo" />
+        <span>Noor Community</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+      <nav>
+        <ul class="nav-links" data-nav-links>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programmes.html">Our Programmes</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="join-students.html">Join Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="donate-btn" href="donate.html">Donate</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+      <div class="hero-content">
+        <p class="chip">Stories</p>
+        <h1>Stories from Our Community.</h1>
+        <p>Community spotlights, pedagogical insights, and organizational news.</p>
+      </div>
+    </section>
+
+    <section class="section page-surface">
+      <div class="section-header">
+        <h2 class="section-title">Featured Post: Pedagogical Insights</h2>
+      </div>
+      <article class="material-surface">
+        <h3>More Than Just Words: Why 'Psychological Safety' is Our Core Value</h3>
+        <p>At the heart of any transformative educational experience lies a single, indispensable element: psychological safety. It's more than a buzzword or a box to tick; it is the vital, invisible architecture that supports deep, meaningful learning.</p>
+        <p>Our approach is built on the belief that when learners feel safe, they stop spending mental energy on self-protection and start focusing on growth. Psychological safety is the shared belief that the environment is safe for interpersonal risk-taking. In a classroom context, this means feeling comfortable enough to ask a "silly" question, offer an incomplete idea, or openly admit a mistake without fear of embarrassment or punishment. This is the foundation upon which trust is built.</p>
+        <p>This sense of security directly impacts a learner's attitude towards learning. A psychologically safe space successfully lowers anxiety and unlocks a powerful growth mindset. Environments where learners are encouraged to be vulnerable are also the environments where they are most engaged, innovative, and resilient. Errors transform from sources of shame into valuable data points for collective improvement.</p>
+        <p>Psychological safety is not a passive state; it’s an active, daily practice for everyone in our community. It requires us to model curiosity, value diverse perspectives, and normalize imperfection. By embedding this core value into everything we do, we commit to fostering a learning community where every voice is heard, every perspective is valued, and every individual is empowered to reach their highest potential.</p>
+      </article>
+    </section>
+
+    <section class="section page-surface">
+      <div class="section-header">
+        <h2 class="section-title">Browse Categories</h2>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Community Spotlight</h3>
+          <p>Interviews with students, volunteers, and team members.</p>
+        </article>
+        <article class="card">
+          <h3>Pedagogical Insights</h3>
+          <p>Short, accessible articles about healing-centred engagement, rooted cosmopolitanism, and more.</p>
+        </article>
+        <article class="card">
+          <h3>Organization News</h3>
+          <p>Updates on new partnerships, programme milestones, and annual reports.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Mission</h4>
+        <p>Noor Community: Education and Liberation. A global network creating pathways to self-determination through rigorous, compassionate education.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <a href="about.html">About Us</a>
+        <a href="programmes.html">Our Programmes</a>
+        <a href="impact.html">Our Impact</a>
+      </div>
+      <div class="footer-column">
+        <h4>Act</h4>
+        <a href="join-students.html">Apply</a>
+        <a href="join-volunteers.html">Volunteer</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-column">
+        <h4>Trust</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="financials.html">Financials &amp; Transparency</a>
+        <div class="hero-actions">
+          <a class="activity-btn secondary" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="activity-btn secondary" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="sub-footer">
+      <p>&copy; <span id="year"></span> Noor Community. All rights reserved.</p>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
