@@ -58,12 +58,12 @@
   --deep-forest: var(--forest-green);
   --moss: color-mix(in srgb, var(--olive-green) 55%, var(--dark-olive) 45%);
   --amber: var(--marigold);
-  --sunset-veil: linear-gradient(135deg, color-mix(in srgb, var(--marigold) 78%, #fff 22%), var(--dark-olive));
+  --sunset-veil: linear-gradient(135deg, var(--sage-600), var(--sage-700));
   --twilight-canopy: linear-gradient(120deg, color-mix(in srgb, var(--deep-green) 90%, #000 10%), color-mix(in srgb, var(--forest-green) 55%, var(--olive-green) 45%));
-  --golden-hour: linear-gradient(135deg, var(--amber-400), var(--amber-600), var(--sage-700));
+  --golden-hour: linear-gradient(135deg, var(--sage-600), var(--sage-700), var(--deep-forest));
   --verdant-glow: radial-gradient(ellipse at top, var(--sage-200), var(--sage-100), transparent);
-  --warm-ambient: radial-gradient(circle at 50% 0%, var(--amber-100), transparent 70%);
-  --aurora-sage: linear-gradient(135deg, var(--sage-200), var(--amber-200), var(--sage-300));
+  --warm-ambient: radial-gradient(circle at 50% 0%, var(--sage-100), transparent 70%);
+  --aurora-sage: linear-gradient(135deg, var(--sage-200), var(--sage-300), var(--sage-200));
   --premium-glass: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
 
   /* Typography — Enhanced Scale */
@@ -170,7 +170,7 @@ body {
   color: var(--ink);
   background:
     radial-gradient(1200px 1200px at 15% 0%, color-mix(in srgb, var(--sage-200) 35%, transparent), transparent 65%),
-    radial-gradient(1400px 900px at 85% 15%, color-mix(in srgb, var(--amber-200) 25%, transparent), transparent 70%),
+    radial-gradient(1400px 900px at 85% 15%, color-mix(in srgb, var(--sage-300) 20%, transparent), transparent 70%),
     radial-gradient(800px 800px at 50% 100%, color-mix(in srgb, var(--sage-100) 20%, transparent), transparent 65%),
     linear-gradient(150deg, var(--cream), var(--light-cream), var(--sage-50));
   -webkit-font-smoothing: antialiased;
@@ -219,7 +219,7 @@ a::after {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--amber-400), var(--amber-600));
+  background: linear-gradient(90deg, var(--sage-500), var(--sage-700));
   transform: scaleX(0);
   transform-origin: right;
   transition: transform var(--transition-std);
@@ -275,7 +275,7 @@ a:focus-visible {
   inset: 2rem 3rem auto;
   height: 280px;
   border-radius: 50%;
-  background: radial-gradient(ellipse, var(--amber-200), transparent 65%);
+  background: radial-gradient(ellipse, var(--sage-200), transparent 65%);
   filter: blur(90px);
   opacity: 0.5;
   pointer-events: none;
@@ -344,7 +344,7 @@ a:focus-visible {
   border-radius: inherit;
   background:
     radial-gradient(1200px 200px at 50% -5%, color-mix(in srgb, var(--sage-200) 45%, transparent), transparent 65%),
-    radial-gradient(800px 300px at 95% 0%, color-mix(in srgb, var(--amber-200) 35%, transparent), transparent 70%);
+    radial-gradient(800px 300px at 95% 0%, color-mix(in srgb, var(--sage-300) 25%, transparent), transparent 70%);
   z-index: -1;
   pointer-events: none;
 }
@@ -373,7 +373,7 @@ h1 {
   text-shadow:
     0 1px 0 rgba(255, 255, 255, 0.8),
     0 12px 28px rgba(36, 61, 22, 0.2);
-  background: linear-gradient(135deg, var(--deep-green), var(--sage-600), var(--amber-700));
+  background: linear-gradient(135deg, var(--deep-green), var(--sage-600), var(--sage-700));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -404,7 +404,7 @@ h2.rubric::after {
   display: block;
   width: 60px;
   height: 3px;
-  background: var(--golden-hour);
+  background: linear-gradient(90deg, var(--sage-500), var(--sage-700));
   margin: var(--space-3) auto 0;
   border-radius: var(--radius-full);
   animation: rubric-grow 2s ease-in-out infinite;
@@ -1166,11 +1166,11 @@ body.site-shell {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 900;
-  background: var(--golden-hour);
+  background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
   color: #fff;
   box-shadow:
     var(--shadow-2),
-    var(--shadow-glow),
+    0 0 20px rgba(235, 160, 60, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -1194,8 +1194,8 @@ body.site-shell {
 .donate-btn:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow:
-    0 16px 40px rgba(235, 160, 60, 0.35),
-    var(--shadow-glow-lg),
+    0 16px 40px rgba(235, 160, 60, 0.3),
+    0 0 30px rgba(235, 160, 60, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
@@ -1682,6 +1682,20 @@ body.site-shell {
   gap: var(--space-3);
 }
 
+.footer-column li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.footer-column li::before {
+  content: "•";
+  color: var(--amber-400);
+  font-size: var(--step-1);
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
 .footer-column a {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
@@ -1708,6 +1722,16 @@ body.site-shell {
 .footer-column a:hover::after {
   opacity: 1;
   transform: translateX(0);
+}
+
+.footer-column .social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-column .social-link .material-symbols-rounded {
+  font-size: 1.2rem;
 }
 
 .sub-footer {
@@ -1827,11 +1851,11 @@ body.site-shell {
   gap: 0.35rem;
   padding: 0.45rem 1.1rem;
   border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--sage-100), var(--amber-100));
+  background: rgba(255, 255, 255, 0.95);
   color: var(--deep-forest);
-  font-weight: 700;
+  font-weight: 800;
   font-size: var(--step--1);
-  border: 1px solid color-mix(in srgb, var(--sage-400) 30%, transparent);
+  border: 2px solid var(--sage-600);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
 }
@@ -1839,7 +1863,7 @@ body.site-shell {
 .chip:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-1);
-  background: linear-gradient(135deg, var(--sage-200), var(--amber-200));
+  background: rgba(255, 255, 255, 1);
 }
 
 .icon-bullet {
@@ -2186,39 +2210,37 @@ form.material-form {
    Chip & Badge Components
 ----------------------------------*/
 .chip-premium {
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.95),
-    rgba(245, 241, 230, 0.9));
-  border: 2px solid rgba(235, 160, 60, 0.3);
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid var(--sage-600);
   padding: 0.5rem 1.25rem;
   border-radius: var(--radius-full);
-  font-weight: 700;
+  font-weight: 800;
   font-size: var(--step--1);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sage-700);
+  color: var(--deep-forest);
   box-shadow:
     0 4px 12px rgba(36, 61, 22, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  animation: chip-pulse 3s ease-in-out infinite;
 }
 
 .chip-accent {
-  background: linear-gradient(135deg, var(--amber-100), var(--amber-200));
-  border: 2px solid var(--amber-400);
-  color: var(--amber-800);
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid var(--sage-600);
+  color: var(--deep-forest);
+  font-weight: 800;
 }
 
 @keyframes chip-pulse {
   0%, 100% { box-shadow: 0 4px 12px rgba(36, 61, 22, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8); }
-  50% { box-shadow: 0 6px 16px rgba(235, 160, 60, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+  50% { box-shadow: 0 6px 16px rgba(36, 61, 22, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
 }
 
 .card-badge {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: var(--golden-hour);
+  background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
   color: #fff;
   padding: 0.4rem 0.9rem;
   border-radius: var(--radius-full);
