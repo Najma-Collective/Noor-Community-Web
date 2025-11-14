@@ -2413,13 +2413,11 @@ form.material-form {
   margin: 0 auto var(--space-7);
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, var(--sage-600), var(--sage-700), var(--deep-green));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-highlight {
+  color: var(--deep-forest);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   position: relative;
-  display: inline-block;
 }
 
 /* -------------------------------
