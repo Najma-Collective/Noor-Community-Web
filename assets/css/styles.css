@@ -92,6 +92,7 @@
   --space-10: 4rem;
   --space-11: 5rem;
   --space-12: 6rem;
+  --section-padding-block: clamp(1.5rem, 4vw, 3rem);
 
   /* Shape & Elevation — Premium Shadows */
   --radius-xs: 6px;
@@ -1006,9 +1007,12 @@ body.site-shell {
 }
 
 .site-shell main {
-  min-height: calc(100vh - 320px);
   position: relative;
   z-index: 1;
+}
+
+.layout-fill main {
+  min-height: clamp(420px, 75vh, 960px);
 }
 
 .page-surface {
@@ -1407,7 +1411,7 @@ body.site-shell {
    Section Primitives — Enhanced
 ----------------------------------*/
 .section {
-  padding-block: clamp(1rem, 3vw, 2.25rem);
+  padding-block: var(--section-padding-block);
   position: relative;
   isolation: isolate;
 }
