@@ -18,7 +18,7 @@
   <header class="site-header">
     <div class="navbar">
       <a class="brand" href="index.html">
-        <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
       <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation">
@@ -41,14 +41,25 @@
     </div>
   </header>
 
-  <main class="page-surface">
-    <section class="section material-surface">
-      <h1>Privacy Policy</h1>
-      <p>This website is committed to protecting the privacy of visitors, students, volunteers, and supporters. We collect only the information needed to operate our programmes and communications. Data is stored securely, not shared with third parties without explicit consent, and can be removed upon request. For any privacy-related questions, contact <a href="mailto:hello@noorcommunity.org">hello@noorcommunity.org</a>.</p>
+  <main>
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/5125241/pexels-photo-5125241.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+      <div class="hero-content">
+        <p class="chip">Legal</p>
+        <h1 class="hero-title" style="-webkit-text-fill-color: unset; color: var(--deep-forest); text-shadow: 0 2px 8px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.6);">Privacy Policy</h1>
+      </div>
+    </section>
+
+    <section class="section page-surface">
+      <div class="material-surface">
+        <h2 class="section-title">Our Commitment to Privacy</h2>
+        <p class="lead-text">This website is committed to protecting the privacy of visitors, students, volunteers, and supporters.</p>
+        <p>We collect only the information needed to operate our programmes and communications. Data is stored securely, not shared with third parties without explicit consent, and can be removed upon request.</p>
+        <p>For any privacy-related questions, contact <a href="mailto:hello@noorcommunity.org">hello@noorcommunity.org</a>.</p>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+    <footer class="site-footer">
     <div class="footer-columns">
       <div class="footer-column">
         <h4>Mission</h4>
@@ -56,24 +67,32 @@
       </div>
       <div class="footer-column">
         <h4>Explore</h4>
-        <a href="about.html">About Us</a>
-        <a href="programmes.html">Our Programmes</a>
-        <a href="impact.html">Our Impact</a>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programmes.html">Our Programmes</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+        </ul>
       </div>
       <div class="footer-column">
         <h4>Act</h4>
-        <a href="join-students.html">Apply</a>
-        <a href="join-volunteers.html">Volunteer</a>
-        <a href="contact.html">Contact Us</a>
+        <ul>
+          <li><a href="join-students.html">Apply</a></li>
+          <li><a href="join-volunteers.html">Volunteer</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
       </div>
       <div class="footer-column">
-        <h4>Trust</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="financials.html">Financials &amp; Transparency</a>
-        <div class="hero-actions">
-          <a class="activity-btn secondary" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-          <a class="activity-btn secondary" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
+        <h4>Trust & Connect</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="financials.html">Financials &amp; Transparency</a></li>
+          <li>
+            <a class="social-link" href="https://www.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">
+              <span class="material-symbols-rounded">link</span>
+              LinkedIn
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="sub-footer">
@@ -84,5 +103,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
