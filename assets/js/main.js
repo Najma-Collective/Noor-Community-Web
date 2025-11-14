@@ -461,33 +461,123 @@ const initCardEffects = () => {
 
 // Story filters for Stories page
 const initStoryFilters = () => {
-  const filterButtons = document.querySelectorAll('[data-story-filter]');
-  const storyCards = document.querySelectorAll('[data-story-card]');
-  if (!filterButtons.length || !storyCards.length) return;
+  const cards = Array.from(document.querySelectorAll('[data-story-card]'));
+  if (!cards.length) return;
 
-  const setFilter = (category) => {
-    storyCards.forEach((card) => {
-      const cardCategory = card.dataset.storyCategory;
-      const isVisible = category === 'all' || cardCategory === category;
-      card.hidden = !isVisible;
+  const categoryContainer = document.querySelector('[data-dynamic-categories]');
+  const startInput = document.querySelector('[data-filter-start]');
+  const endInput = document.querySelector('[data-filter-end]');
+  const clearButton = document.querySelector('[data-clear-filters]');
+  const emptyState = document.querySelector('[data-story-empty]');
+
+  const normalizeTag = (tag) => tag.trim().toLowerCase();
+
+  const cardData = cards.map((card) => {
+    const tags = (card.dataset.storyTags || '')
+      .split(',')
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+    const tagKeys = tags.map(normalizeTag);
+    const dateValue = card.dataset.storyDate ? new Date(card.dataset.storyDate) : null;
+
+    return {
+      element: card,
+      tags,
+      tagKeys,
+      date: dateValue
+    };
+  });
+
+  const uniqueTags = new Map();
+  cardData.forEach(({ tags }) => {
+    tags.forEach((tag) => {
+      const key = normalizeTag(tag);
+      if (!uniqueTags.has(key)) {
+        uniqueTags.set(key, tag);
+      }
     });
+  });
 
-    filterButtons.forEach((button) => {
-      const isActive = button.dataset.storyFilter === category;
+  let activeCategory = 'all';
+  const categoryButtons = [];
+
+  const updateButtonState = () => {
+    categoryButtons.forEach((button) => {
+      const isActive = button.dataset.filterKey === activeCategory;
       button.classList.toggle('is-active', isActive);
       button.setAttribute('aria-pressed', String(isActive));
     });
   };
 
-  filterButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const targetCategory = button.dataset.storyFilter;
-      if (!targetCategory) return;
-      setFilter(targetCategory);
+  const applyFilters = () => {
+    const startDate = startInput?.value ? new Date(startInput.value) : null;
+    if (startDate) startDate.setHours(0, 0, 0, 0);
+    const endDate = endInput?.value ? new Date(endInput.value) : null;
+    if (endDate) endDate.setHours(23, 59, 59, 999);
+
+    let visibleCount = 0;
+
+    cardData.forEach(({ element, tagKeys, date }) => {
+      const matchesCategory = activeCategory === 'all' || tagKeys.includes(activeCategory);
+      const hasValidDate = date instanceof Date && !Number.isNaN(date?.getTime());
+      const matchesStart = !startDate || (hasValidDate && date >= startDate);
+      const matchesEnd = !endDate || (hasValidDate && date <= endDate);
+      const isVisible = matchesCategory && matchesStart && matchesEnd;
+      element.hidden = !isVisible;
+      if (isVisible) {
+        visibleCount += 1;
+      }
     });
+
+    if (emptyState) {
+      emptyState.hidden = visibleCount !== 0;
+      emptyState.setAttribute('aria-hidden', visibleCount === 0 ? 'false' : 'true');
+    }
+  };
+
+  if (categoryContainer) {
+    categoryContainer.innerHTML = '';
+
+    const createButton = (label, key) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'filter-btn';
+      button.textContent = label;
+      button.dataset.filterKey = key;
+      button.setAttribute('aria-pressed', String(key === activeCategory));
+      button.addEventListener('click', () => {
+        if (activeCategory === key) return;
+        activeCategory = key;
+        updateButtonState();
+        applyFilters();
+      });
+      categoryContainer.appendChild(button);
+      categoryButtons.push(button);
+    };
+
+    createButton('All', 'all');
+
+    Array.from(uniqueTags.entries())
+      .sort((a, b) => a[1].localeCompare(b[1]))
+      .forEach(([key, label]) => {
+        createButton(label, key);
+      });
+
+    updateButtonState();
+  }
+
+  startInput?.addEventListener('change', applyFilters);
+  endInput?.addEventListener('change', applyFilters);
+
+  clearButton?.addEventListener('click', () => {
+    activeCategory = 'all';
+    if (startInput) startInput.value = '';
+    if (endInput) endInput.value = '';
+    updateButtonState();
+    applyFilters();
   });
 
-  setFilter('all');
+  applyFilters();
 };
 
 // Performance: Debounce function

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedagogical Insights | Noor Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="module">
+    import 'https://unpkg.com/@material/web@latest/all.js';
+  </script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body class="site-shell">
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <span>Noor Community</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+      <nav>
+        <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programmes.html">Our Programmes</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="partners.html">Our Partners</a></li>
+          <li><a href="join-students.html">Join Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="donate-btn" href="donate.html">Donate</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/5212326/pexels-photo-5212326.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+      <div class="hero-ornament hero-ornament-left"></div>
+      <div class="hero-ornament hero-ornament-right"></div>
+      <div class="hero-content">
+        <p class="chip chip-premium">Pedagogical Insights</p>
+        <h1 class="hero-title">Field notes for facilitators everywhere.</h1>
+        <p class="hero-description">Healing-centered practices, assessment rituals, and design prompts straight from our educator network.</p>
+      </div>
+    </section>
+
+    <section class="section page-surface material-surface story-control-panel">
+      <div class="section-header">
+        <div>
+          <div class="section-label">
+            <span class="material-symbols-rounded">equalizer</span>
+            <span>Filters</span>
+          </div>
+          <h2 class="section-title">Search the insight library</h2>
+          <p class="section-subtitle">Use live hashtag categories or date filters to find the protocol, ritual, or template you need.</p>
+        </div>
+        <a class="activity-btn" href="stories.html">
+          <span>Back to Student Voices</span>
+          <span class="material-symbols-rounded btn-icon">arrow_back</span>
+        </a>
+      </div>
+      <div class="story-filter-bar">
+        <div class="filter-group">
+          <p class="filter-label">Hashtag categories</p>
+          <div class="filter-chip-row" data-dynamic-categories></div>
+        </div>
+        <div class="filter-group filter-group-dates">
+          <p class="filter-label">Filter by date</p>
+          <div class="date-inputs">
+            <label>
+              <span>From</span>
+              <input type="date" data-filter-start />
+            </label>
+            <label>
+              <span>To</span>
+              <input type="date" data-filter-end />
+            </label>
+            <button type="button" class="activity-btn tertiary" data-clear-filters>
+              <span>Reset filters</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section page-surface story-feed" aria-label="Pedagogical Insights feed">
+      <div class="story-feed-grid">
+        <article class="story-feed-card" data-story-card data-story-tags="#Transitions,#SomaticPractice,#AudioLearning" data-story-date="2024-05-14">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/8422106/pexels-photo-8422106.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Facilitator mixing sound on a laptop" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Digital Studio · Healing toolkit</p>
+            <h3>Sensorial playlists calm chaotic transitions</h3>
+            <p>Layer ambient field recordings with multilingual affirmations to reset nervous systems between rotations.</p>
+            <ul class="story-hashtags">
+              <li>#Transitions</li>
+              <li>#SomaticPractice</li>
+              <li>#AudioLearning</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">May 14, 2024</span>
+              <a class="story-card-link" href="story-insight-playlists.html">Read the guide</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#Assessment,#Ritual,#MathLove" data-story-date="2024-05-06">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students gathered in a circle with candles" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Dakar, Senegal · Math rites</p>
+            <h3>Milestone circles replace quizzes</h3>
+            <p>We borrow from griot traditions so math assessments feel like ceremonies witnessed by family and ancestors.</p>
+            <ul class="story-hashtags">
+              <li>#Assessment</li>
+              <li>#Ritual</li>
+              <li>#MathLove</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">May 6, 2024</span>
+              <a class="story-card-link" href="story-insight-rites.html">Explore the ritual</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#Grounding,#TraumaInformed,#LandBack" data-story-date="2024-04-30">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/5905447/pexels-photo-5905447.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students drawing maps on tracing paper" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Beirut, Lebanon · Arrival ritual</p>
+            <h3>Land maps steady anxious arrivals</h3>
+            <p>Tracing the ground beneath our feet invites belonging, sensory detail, and honest land acknowledgments.</p>
+            <ul class="story-hashtags">
+              <li>#Grounding</li>
+              <li>#TraumaInformed</li>
+              <li>#LandBack</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 30, 2024</span>
+              <a class="story-card-link" href="story-insight-landmaps.html">Map the ritual</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#Feedback,#CareMaps,#Consent" data-story-date="2024-04-26">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/6457579/pexels-photo-6457579.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Wall filled with sticky notes and student preferences" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Johannesburg, South Africa · Critique protocol</p>
+            <h3>Cohort care maps guide every critique</h3>
+            <p>Students document how they like to receive feedback so every session feels consensual and supported.</p>
+            <ul class="story-hashtags">
+              <li>#Feedback</li>
+              <li>#CareMaps</li>
+              <li>#Consent</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 26, 2024</span>
+              <a class="story-card-link" href="story-insight-cohort.html">See the map</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#MathAteliers,#TactileLearning,#ShortBursts" data-story-date="2024-04-22">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/4496098/pexels-photo-4496098.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hands shaping clay on a math worksheet" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Tunis, Tunisia · Micro atelier</p>
+            <h3>Craft-based algebra studios</h3>
+            <p>Break equations into 20-minute ateliers that end with artifacts students can display and narrate.</p>
+            <ul class="story-hashtags">
+              <li>#MathAteliers</li>
+              <li>#TactileLearning</li>
+              <li>#ShortBursts</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 22, 2024</span>
+              <a class="story-card-link" href="story-insight-atelier.html">Tour the atelier</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#CoRegulation,#SensoryDesign,#StudentLed" data-story-date="2024-04-18">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/5212335/pexels-photo-5212335.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Close-up of a student holding illustrated cards" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Colombo, Sri Lanka · Wellness deck</p>
+            <h3>Pocket sensory cards cue co-regulation</h3>
+            <p>Student-made icons signal when to dim lights, stretch, or swap in audio prompts without disrupting lessons.</p>
+            <ul class="story-hashtags">
+              <li>#CoRegulation</li>
+              <li>#SensoryDesign</li>
+              <li>#StudentLed</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 18, 2024</span>
+              <a class="story-card-link" href="story-insight-sensorycards.html">Print the deck</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#ExamCare,#Scheduling,#NervousSystem" data-story-date="2024-04-12">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/8500304/pexels-photo-8500304.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students stretching on yoga mats" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Global Network · Transition week</p>
+            <h3>Bridge weeks between exams and Noor pods</h3>
+            <p>Dedicated transition weeks prioritize nervous system repair, paperwork help, and slow scheduling.</p>
+            <ul class="story-hashtags">
+              <li>#ExamCare</li>
+              <li>#Scheduling</li>
+              <li>#NervousSystem</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 12, 2024</span>
+              <a class="story-card-link" href="story-insight-bridgeweeks.html">Steal the template</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#Microcurricula,#Portability,#MutualAid" data-story-date="2024-02-15">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/5427651/pexels-photo-5427651.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hands folding small booklets" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Global Learning Lab · Portable lessons</p>
+            <h3>Microcurricula behave like mutual aid kits</h3>
+            <p>Two-page lessons fit inside backpacks so displaced learners can keep STEM pathways alive.</p>
+            <ul class="story-hashtags">
+              <li>#Microcurricula</li>
+              <li>#Portability</li>
+              <li>#MutualAid</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">February 15, 2024</span>
+              <a class="story-card-link" href="story-insight-microcurricula.html">Download the kit</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#FeedbackRituals,#CircleWork,#PeerLearning" data-story-date="2024-01-30">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/5553050/pexels-photo-5553050.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students sitting in a circle taking notes" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Virtual Studio · Feedback ritual</p>
+            <h3>Three-part gifting circles for feedback</h3>
+            <p>Arrival, inquiry, and gifting rounds ensure critiques travel like offerings rather than judgments.</p>
+            <ul class="story-hashtags">
+              <li>#FeedbackRituals</li>
+              <li>#CircleWork</li>
+              <li>#PeerLearning</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">January 30, 2024</span>
+              <a class="story-card-link" href="story-insight-feedback.html">Facilitate the circle</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="story-empty-state" data-story-empty hidden>No insights match those filters yet. Adjust the hashtags or pick a new date range.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Mission</h4>
+        <p>Noor Community: Education and Liberation. A global network creating pathways to self-determination through rigorous, compassionate education.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programmes.html">Our Programmes</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Act</h4>
+        <ul>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">Apply</a></li>
+          <li><a href="join-volunteers.html">Volunteer</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Trust & Connect</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="financials.html">Financials &amp; Transparency</a></li>
+          <li>
+            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">
+              <img src="assets/linkeidn.png" alt="LinkedIn" class="social-icon" />
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="sub-footer">
+      <p>&copy; <span id="year"></span> Noor Community. All rights reserved.</p>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
