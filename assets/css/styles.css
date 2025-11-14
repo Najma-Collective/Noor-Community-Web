@@ -2151,8 +2151,10 @@ body.site-shell {
   gap: 0.4rem;
 }
 
-.footer-column .social-link .material-symbols-rounded {
-  font-size: 1.2rem;
+.footer-column .social-link img {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
 }
 
 .sub-footer {
