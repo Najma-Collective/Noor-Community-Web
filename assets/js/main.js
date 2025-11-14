@@ -17,9 +17,6 @@ const initNavigation = () => {
     toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
     nav.setAttribute('aria-hidden', String(!isOpen));
 
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-
     if (focusTarget === 'menu' && isOpen) {
       firstNavLink()?.focus();
     }
