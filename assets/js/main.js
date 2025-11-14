@@ -459,6 +459,37 @@ const initCardEffects = () => {
   });
 };
 
+// Story filters for Stories page
+const initStoryFilters = () => {
+  const filterButtons = document.querySelectorAll('[data-story-filter]');
+  const storyCards = document.querySelectorAll('[data-story-card]');
+  if (!filterButtons.length || !storyCards.length) return;
+
+  const setFilter = (category) => {
+    storyCards.forEach((card) => {
+      const cardCategory = card.dataset.storyCategory;
+      const isVisible = category === 'all' || cardCategory === category;
+      card.hidden = !isVisible;
+    });
+
+    filterButtons.forEach((button) => {
+      const isActive = button.dataset.storyFilter === category;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', String(isActive));
+    });
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const targetCategory = button.dataset.storyFilter;
+      if (!targetCategory) return;
+      setFilter(targetCategory);
+    });
+  });
+
+  setFilter('all');
+};
+
 // Performance: Debounce function
 function debounce(func, wait = 100) {
   let timeout;
@@ -560,6 +591,7 @@ const init = () => {
   initScrollHeader();
   initParallax();
   initCardEffects();
+  initStoryFilters();
   initTeamCarousels();
 
   // Performance
@@ -603,6 +635,7 @@ if (typeof module !== 'undefined' && module.exports) {
     initScrollAnimations,
     initSmoothScroll,
     initScrollProgress,
-    initParallax
+    initParallax,
+    initStoryFilters
   };
 }
