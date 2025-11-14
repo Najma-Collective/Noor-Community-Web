@@ -133,6 +133,7 @@
   --target-min: 44px;
   --container-max: clamp(320px, 92vw, 940px);
   --container-padding: clamp(1.25rem, 5vw, 3rem);
+  --header-height: 84px;
 }
 
 /* -------------------------------
@@ -1032,6 +1033,7 @@ body.site-shell {
   position: sticky;
   top: 0;
   width: 100%;
+  min-height: var(--header-height);
   z-index: 999;
   backdrop-filter: blur(24px) saturate(1.2);
   background: color-mix(in srgb, var(--soft-white) 92%, transparent);
@@ -1053,8 +1055,9 @@ body.site-shell {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-5);
+  justify-content: flex-start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
   padding: 0.85rem clamp(1rem, 4vw, 2.5rem);
 }
 
@@ -1100,26 +1103,64 @@ body.site-shell {
   transform: scale(1.08) rotate(-3deg);
 }
 
-.nav-links {
+.navbar nav {
+  order: 3;
+  flex: 1 0 auto;
+}
+
+.nav-actions {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  margin-left: auto;
+  order: 4;
+}
+
+.nav-links {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3rem) clamp(3rem, 10vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: color-mix(in srgb, var(--soft-white) 96%, rgba(255, 255, 255, 0.8));
+  backdrop-filter: blur(28px) saturate(1.1);
+  box-shadow: 0 25px 60px rgba(36, 61, 22, 0.15);
+  border-bottom: 1px solid color-mix(in srgb, var(--sage-300) 45%, transparent);
+  transform: translateY(-120%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow-y: auto;
+  transition:
+    transform var(--transition-std),
+    opacity var(--transition-fast),
+    visibility var(--transition-fast);
+  z-index: 1000;
+}
+
+.nav-links li {
+  width: 100%;
 }
 
 .nav-links a {
   text-decoration: none;
   font-weight: 700;
-  font-size: var(--step--1);
+  font-size: var(--step-0);
   color: var(--sage-700);
-  padding: 0.65rem 1.1rem;
-  border-radius: var(--radius-full);
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius);
   transition: all var(--transition-fast);
   position: relative;
   overflow: hidden;
+  width: 100%;
+  display: block;
+  text-align: left;
 }
 
 .nav-links a::before {
@@ -1133,7 +1174,18 @@ body.site-shell {
 }
 
 .nav-links a::after {
-  content: none;
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  bottom: 0.65rem;
+  width: clamp(1.75rem, 20%, 4rem);
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--amber-400), var(--sage-500));
+  opacity: 0.9;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-std);
 }
 
 .nav-links a:hover,
@@ -1143,19 +1195,23 @@ body.site-shell {
 }
 
 .nav-links a:hover::before,
-.nav-links a[aria-current="page"]::before {
+.nav-links a:focus-visible::before {
   opacity: 1;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
 }
 
 .nav-links a[aria-current="page"] {
   font-weight: 800;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
+.nav-links a[aria-current="page"]::before {
+  opacity: 0;
 }
 
 .donate-btn {
@@ -1204,15 +1260,20 @@ body.site-shell {
 }
 
 .nav-toggle {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: 2px solid var(--sage-400);
   font-size: 1.5rem;
   color: var(--deep-forest);
-  padding: 0.5rem;
+  padding: 0.35rem;
   border-radius: var(--radius);
   cursor: pointer;
   transition: all var(--transition-fast);
+  width: var(--target-min);
+  height: var(--target-min);
+  order: 2;
 }
 
 .nav-toggle:hover {
@@ -1220,24 +1281,11 @@ body.site-shell {
   border-color: var(--sage-500);
 }
 
-@media (max-width: 980px) {
-  .nav-links {
-    position: fixed;
-    inset: 0 0 auto 0;
-    top: 70px;
-    flex-direction: column;
-    background: color-mix(in srgb, var(--soft-white) 98%, transparent);
-    backdrop-filter: blur(24px);
-    padding: 2rem;
-    transform: translateY(-120%);
-    transition: transform var(--transition-std);
-    box-shadow: 0 16px 48px rgba(36, 61, 22, 0.15);
-  }
-  .nav-links.open {
-    transform: translateY(0);
-    border-bottom: 2px solid var(--sage-300);
-  }
-  .nav-toggle { display: inline-flex; }
+.nav-links.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* -------------------------------

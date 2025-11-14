@@ -9,30 +9,50 @@ const initNavigation = () => {
   const nav = document.querySelector('[data-nav-links]');
   if (!toggle || !nav) return;
 
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
+  const firstNavLink = () => nav.querySelector('a');
+
+  const setMenuState = (isOpen, { focusTarget } = {}) => {
+    nav.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    nav.setAttribute('aria-hidden', String(!isOpen));
 
     // Prevent body scroll when menu is open
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+
+    if (focusTarget === 'menu' && isOpen) {
+      firstNavLink()?.focus();
+    }
+
+    if (focusTarget === 'toggle' && !isOpen) {
+      toggle.focus();
+    }
+  };
+
+  setMenuState(false);
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.contains('open');
+    setMenuState(!isOpen, { focusTarget: isOpen ? 'toggle' : 'menu' });
   });
 
   // Close menu when clicking nav links
   nav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      setMenuState(false);
     });
   });
 
   // Close menu when clicking outside
   document.addEventListener('click', (event) => {
-    if (!nav.contains(event.target) && !toggle.contains(event.target)) {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+    if (nav.classList.contains('open') && !nav.contains(event.target) && !toggle.contains(event.target)) {
+      setMenuState(false, { focusTarget: 'toggle' });
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && nav.classList.contains('open')) {
+      setMenuState(false, { focusTarget: 'toggle' });
     }
   });
 
