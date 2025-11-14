@@ -68,6 +68,83 @@ const initNavigation = () => {
   });
 };
 
+// Accessible carousel for team profiles
+const initTeamCarousels = () => {
+  const carousels = document.querySelectorAll('[data-carousel]');
+  if (!carousels.length) return;
+
+  const getGap = (track) => {
+    const styles = window.getComputedStyle(track);
+    const gapValue = parseFloat(styles.columnGap || styles.gap || '0');
+    return Number.isNaN(gapValue) ? 0 : gapValue;
+  };
+
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector('[data-carousel-track]');
+    const prev = carousel.querySelector('[data-carousel-prev]');
+    const next = carousel.querySelector('[data-carousel-next]');
+    const status = carousel.querySelector('[data-carousel-status]');
+    if (!track) return;
+
+    const items = track.querySelectorAll('[data-carousel-item]');
+    if (!items.length) return;
+
+    const scrollByStep = (direction) => {
+      const cardWidth = items[0].getBoundingClientRect().width;
+      const step = cardWidth + getGap(track);
+      track.scrollBy({
+        left: step * direction,
+        behavior: 'smooth'
+      });
+    };
+
+    prev?.addEventListener('click', () => scrollByStep(-1));
+    next?.addEventListener('click', () => scrollByStep(1));
+
+    track.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        scrollByStep(1);
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        scrollByStep(-1);
+      }
+    });
+
+    const updateControls = () => {
+      const maxScrollLeft = Math.max(track.scrollWidth - track.clientWidth, 0);
+      const threshold = 8;
+      if (prev) {
+        prev.disabled = track.scrollLeft <= threshold;
+      }
+      if (next) {
+        next.disabled = track.scrollLeft >= maxScrollLeft - threshold;
+      }
+
+      if (status) {
+        const trackRect = track.getBoundingClientRect();
+        let closestIndex = 0;
+        let minDelta = Number.POSITIVE_INFINITY;
+        items.forEach((item, index) => {
+          const rect = item.getBoundingClientRect();
+          const delta = Math.abs(rect.left - trackRect.left);
+          if (delta < minDelta) {
+            minDelta = delta;
+            closestIndex = index;
+          }
+        });
+        status.textContent = `${closestIndex + 1} / ${items.length}`;
+      }
+    };
+
+    const debouncedUpdate = debounce(updateControls, 80);
+    track.addEventListener('scroll', debouncedUpdate, { passive: true });
+    window.addEventListener('resize', debouncedUpdate);
+
+    updateControls();
+  });
+};
+
 // Enhanced accordion functionality with smooth animations
 const initAccordions = () => {
   document.querySelectorAll('[data-accordion] .accordion-trigger').forEach((trigger) => {
@@ -486,6 +563,7 @@ const init = () => {
   initScrollHeader();
   initParallax();
   initCardEffects();
+  initTeamCarousels();
 
   // Performance
   initLazyLoading();
@@ -522,6 +600,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     init,
     initNavigation,
+    initTeamCarousels,
     initAccordions,
     initTabs,
     initScrollAnimations,
