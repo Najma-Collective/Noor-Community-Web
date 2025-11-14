@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stories | Noor Community</title>
+  <title>Student Voices | Noor Community</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
@@ -43,208 +43,242 @@
   </header>
 
   <main>
-    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/23496638/pexels-photo-23496638.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/2423166/pexels-photo-2423166.jpeg?auto=compress&cs=tinysrgb&w=1600');">
       <div class="hero-ornament hero-ornament-left"></div>
       <div class="hero-ornament hero-ornament-right"></div>
       <div class="hero-content">
-        <p class="chip chip-premium">Stories</p>
-        <h1 class="hero-title">Stories from Our Community.</h1>
-        <p class="hero-description">Community spotlights, pedagogical insights, and organizational news.</p>
+        <p class="chip chip-premium">Student Voices</p>
+        <h1 class="hero-title">Dispatches from Noor learners everywhere.</h1>
+        <p class="hero-description">Follow the rituals, experiments, and community care strategies our students are inventing every week.</p>
       </div>
     </section>
 
-    <section class="section page-surface">
-      <div class="section-header section-header-centered">
-        <div class="section-label section-label-centered">
-          <span class="material-symbols-rounded">star</span>
-          <span>Featured Post</span>
+    <section class="section page-surface material-surface story-control-panel">
+      <div class="section-header">
+        <div>
+          <div class="section-label">
+            <span class="material-symbols-rounded">equalizer</span>
+            <span>Filters</span>
+          </div>
+          <h2 class="section-title">Browse every student voice</h2>
+          <p class="section-subtitle">Filter by hashtag categories that update automatically from the stories below or narrow the feed by publication date.</p>
         </div>
-        <h2 class="section-title section-title-xl">Featured: <span class="text-highlight">Pedagogical Insights</span></h2>
+        <a class="activity-btn" href="pedagogical-insights.html">
+          <span>Visit Pedagogical Insights</span>
+          <span class="material-symbols-rounded btn-icon">arrow_outward</span>
+        </a>
       </div>
-      <article class="material-surface card-premium" data-scroll-animate>
-        <div class="post-header">
-          <div class="post-category chip chip-accent">Pedagogical Insights</div>
-          <h3 class="post-title">More Than Just Words: Why 'Psychological Safety' is Our Core Value</h3>
+      <div class="story-filter-bar">
+        <div class="filter-group">
+          <p class="filter-label">Hashtag categories</p>
+          <div class="filter-chip-row" data-dynamic-categories></div>
         </div>
-        <div class="post-content">
-          <p>At the heart of any transformative educational experience lies a single, indispensable element: psychological safety. It's more than a buzzword or a box to tick; it is the vital, invisible architecture that supports deep, meaningful learning.</p>
-          <p>Our approach is built on the belief that when learners feel safe, they stop spending mental energy on self-protection and start focusing on growth. Psychological safety is the shared belief that the environment is safe for interpersonal risk-taking. In a classroom context, this means feeling comfortable enough to ask a "silly" question, offer an incomplete idea, or openly admit a mistake without fear of embarrassment or punishment. This is the foundation upon which trust is built.</p>
-          <p>This sense of security directly impacts a learner's attitude towards learning. A psychologically safe space successfully lowers anxiety and unlocks a powerful growth mindset. Environments where learners are encouraged to be vulnerable are also the environments where they are most engaged, innovative, and resilient. Errors transform from sources of shame into valuable data points for collective improvement.</p>
-          <p>Psychological safety is not a passive state; it's an active, daily practice for everyone in our community. It requires us to model curiosity, value diverse perspectives, and normalize imperfection. By embedding this core value into everything we do, we commit to fostering a learning community where every voice is heard, every perspective is valued, and every individual is empowered to reach their highest potential.</p>
+        <div class="filter-group filter-group-dates">
+          <p class="filter-label">Filter by date</p>
+          <div class="date-inputs">
+            <label>
+              <span>From</span>
+              <input type="date" data-filter-start />
+            </label>
+            <label>
+              <span>To</span>
+              <input type="date" data-filter-end />
+            </label>
+            <button type="button" class="activity-btn tertiary" data-clear-filters>
+              <span>Reset filters</span>
+            </button>
+          </div>
         </div>
-      </article>
-    </section>
-
-    <section class="section page-surface material-surface">
-      <div class="section-header section-header-centered">
-        <div class="section-label section-label-centered">
-          <span class="material-symbols-rounded">category</span>
-          <span>Explore</span>
-        </div>
-        <h2 class="section-title section-title-xl">Browse <span class="text-highlight">Categories</span></h2>
-        <p class="section-subtitle">Discover stories from across our community.</p>
-      </div>
-      <div class="grid-3">
-        <article class="card card-premium" data-card-animate>
-          <div class="card-icon">
-            <span class="material-symbols-rounded">groups</span>
-          </div>
-          <h3>Community Spotlight</h3>
-          <p>Interviews with students, volunteers, and team members.</p>
-          <a class="card-link" href="#community">
-            <span>View Stories</span>
-            <span class="material-symbols-rounded">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-premium" data-card-animate>
-          <div class="card-icon">
-            <span class="material-symbols-rounded">lightbulb</span>
-          </div>
-          <h3>Pedagogical Insights</h3>
-          <p>Short, accessible articles about healing-centred engagement, rooted cosmopolitanism, and more.</p>
-          <a class="card-link" href="#insights">
-            <span>View Stories</span>
-            <span class="material-symbols-rounded">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-premium" data-card-animate>
-          <div class="card-icon">
-            <span class="material-symbols-rounded">campaign</span>
-          </div>
-          <h3>Organization News</h3>
-          <p>Updates on new partnerships, programme milestones, and annual reports.</p>
-          <a class="card-link" href="#news">
-            <span>View Stories</span>
-            <span class="material-symbols-rounded">arrow_forward</span>
-          </a>
-        </article>
       </div>
     </section>
 
-    <section class="section page-surface" id="stories-feed">
-      <div class="section-header section-header-centered">
-        <div class="section-label section-label-centered">
-          <span class="material-symbols-rounded">view_list</span>
-          <span>Latest Stories</span>
-        </div>
-        <h2 class="section-title section-title-xl">Fresh voices from <span class="text-highlight">all categories</span></h2>
-        <p class="section-subtitle">Use the filters to surface the updates that matter most to you.</p>
+    <section class="section page-surface story-feed" aria-label="Student Voices feed">
+      <div class="story-feed-grid">
+        <article class="story-feed-card" data-story-card data-story-tags="#Belonging,#LanguageJustice,#StreetArt" data-story-date="2024-05-12">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/3817391/pexels-photo-3817391.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Student painting a mural on a storefront shutter" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Marseille, France · Creative Writing Lab</p>
+            <h3>Nadia's mural studio doubles as a language lab</h3>
+            <p>Metal shutters become trilingual vocabulary walls as Nadia pairs brush strokes with audio lessons recorded by aunties.</p>
+            <ul class="story-hashtags">
+              <li>#Belonging</li>
+              <li>#LanguageJustice</li>
+              <li>#StreetArt</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">May 12, 2024</span>
+              <a class="story-card-link" href="stories/story-student-nadia.html">Read Nadia's story</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#AudioJournals,#OralHistory,#ExamPrep" data-story-date="2024-05-08">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/6953730/pexels-photo-6953730.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Teenager speaking into a microphone with a notebook" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Amman, Jordan · Evening Studio</p>
+            <h3>Elias keeps his rooftop radio diary rolling</h3>
+            <p>Late-night broadcasts mix Arabic idioms with English essays so exam prep feels like a neighborhood storytelling circle.</p>
+            <ul class="story-hashtags">
+              <li>#AudioJournals</li>
+              <li>#OralHistory</li>
+              <li>#ExamPrep</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">May 8, 2024</span>
+              <a class="story-card-link" href="stories/story-student-elias.html">Read Elias's story</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#Agroecology,#STEMSovereignty,#SistersInSTEM" data-story-date="2024-05-03">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/5200717/pexels-photo-5200717.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Student checking plants beside a DIY irrigation system" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Kenitra, Morocco · Climate Pod</p>
+            <h3>Layla codes irrigation sensors between care shifts</h3>
+            <p>She and her cousins built solar-powered soil probes that text moisture alerts so community gardens survive rationed water.</p>
+            <ul class="story-hashtags">
+              <li>#Agroecology</li>
+              <li>#STEMSovereignty</li>
+              <li>#SistersInSTEM</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">May 3, 2024</span>
+              <a class="story-card-link" href="stories/story-student-layla.html">Read Layla's story</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#CircularEconomy,#RepairCulture,#YouthApprenticeship" data-story-date="2024-04-28">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/9092561/pexels-photo-9092561.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students repairing a bicycle together" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Nairobi, Kenya · Mobile Tech Lab</p>
+            <h3>Abdi's repair bus teaches torque and tenderness</h3>
+            <p>A rotating crew of teens fixes radios, bikes, and sewing machines for neighbors while logging every repair as a physics lesson.</p>
+            <ul class="story-hashtags">
+              <li>#CircularEconomy</li>
+              <li>#RepairCulture</li>
+              <li>#YouthApprenticeship</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 28, 2024</span>
+              <a class="story-card-link" href="stories/story-student-abdi.html">Read Abdi's story</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#Printmaking,#CivicImagination,#MutualAid" data-story-date="2024-04-24">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/6204381/pexels-photo-6204381.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Teen pulling prints from a press" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Buenos Aires, Argentina · Rooftop Studio</p>
+            <h3>Rosario inks justice posters on her rooftop</h3>
+            <p>Neighborhood aunties climb six flights to co-design screen printed posters that double as civics lessons for kids below.</p>
+            <ul class="story-hashtags">
+              <li>#Printmaking</li>
+              <li>#CivicImagination</li>
+              <li>#MutualAid</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 24, 2024</span>
+              <a class="story-card-link" href="stories/story-student-rosario.html">Read Rosario's story</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#Soundwalks,#Accessibility,#IntergenerationalLearning" data-story-date="2024-04-21">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/5935250/pexels-photo-5935250.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Student guiding elders on a walk" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Tripoli, Lebanon · Wellness Route</p>
+            <h3>Yara maps soundwalks for littles and elders</h3>
+            <p>Every route layers oral histories, landmarks, and rest stops so families can learn geography through breathwork and listening.</p>
+            <ul class="story-hashtags">
+              <li>#Soundwalks</li>
+              <li>#Accessibility</li>
+              <li>#IntergenerationalLearning</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 21, 2024</span>
+              <a class="story-card-link" href="stories/story-student-yara.html">Read Yara's story</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#RestorativeJustice,#ZineClub,#StudySkills" data-story-date="2024-04-18">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/4861358/pexels-photo-4861358.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students making zines with markers and glue" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Toronto, Canada · Justice Lab</p>
+            <h3>Iman's zine club doubles as a study hall</h3>
+            <p>The crew co-writes accountability plans inside handbound zines, then tuck study tips and exam schedules inside each issue.</p>
+            <ul class="story-hashtags">
+              <li>#RestorativeJustice</li>
+              <li>#ZineClub</li>
+              <li>#StudySkills</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 18, 2024</span>
+              <a class="story-card-link" href="stories/story-student-iman.html">Read Iman's story</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#SolarCooking,#MathInMotion,#GirlLed" data-story-date="2024-04-14">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/775032/pexels-photo-775032.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Young people preparing food outdoors" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Cairo, Egypt · Solar Kitchen Lab</p>
+            <h3>Safiya's solar kitchen bakes math lessons</h3>
+            <p>Teams prototype parabolic cookers, calculate surface area in chalk, then share date cakes while tracking the sun's arc.</p>
+            <ul class="story-hashtags">
+              <li>#SolarCooking</li>
+              <li>#MathInMotion</li>
+              <li>#GirlLed</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 14, 2024</span>
+              <a class="story-card-link" href="stories/story-student-safiya.html">Read Safiya's story</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-feed-card" data-story-card data-story-tags="#SportsTech,#DataLiteracy,#CommunityScoreboards" data-story-date="2024-04-10">
+          <div class="story-feed-media">
+            <img src="https://images.pexels.com/photos/3660202/pexels-photo-3660202.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students playing basketball at dusk" loading="lazy" />
+          </div>
+          <div class="story-feed-content">
+            <p class="story-feed-eyebrow">Tunis, Tunisia · Night Gym</p>
+            <h3>Hassan engineers neighborhood scoreboards</h3>
+            <p>He refurbishes e-waste screens into solar-powered scoreboards so pickup games double as live data lessons.</p>
+            <ul class="story-hashtags">
+              <li>#SportsTech</li>
+              <li>#DataLiteracy</li>
+              <li>#CommunityScoreboards</li>
+            </ul>
+            <div class="story-feed-footer">
+              <span class="story-card-date">April 10, 2024</span>
+              <a class="story-card-link" href="stories/story-student-hassan.html">Read Hassan's story</a>
+            </div>
+          </div>
+        </article>
       </div>
-
-      <div class="story-filters" role="toolbar" aria-label="Filter stories by category">
-        <button class="filter-btn is-active" type="button" data-story-filter="all" aria-pressed="true">All stories</button>
-        <button class="filter-btn" type="button" data-story-filter="community" aria-pressed="false">Community Spotlight</button>
-        <button class="filter-btn" type="button" data-story-filter="insights" aria-pressed="false">Pedagogical Insights</button>
-        <button class="filter-btn" type="button" data-story-filter="news" aria-pressed="false">Organization News</button>
-      </div>
-
-      <div class="story-grid">
-        <article class="story-card" data-story-card data-story-category="community">
-          <a class="story-card-link" href="story-community-samira.html">
-            <div class="story-card-media">
-              <img src="https://images.pexels.com/photos/8472421/pexels-photo-8472421.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Volunteer Samira smiling with a learner at a study circle" loading="lazy" />
-            </div>
-            <div class="story-card-body">
-              <p class="story-card-eyebrow">Community Spotlight • 5 min read</p>
-              <h3 class="story-card-title">Samira's Listening Labs Changed How We Welcome Newcomers</h3>
-              <p class="story-card-excerpt">Why a volunteer mentor transformed intake interviews into restorative listening circles—and how students responded.</p>
-              <div class="story-card-meta">
-                <span class="story-card-date">April 9, 2024</span>
-                <span class="story-card-location">Toronto, Canada</span>
-              </div>
-            </div>
-          </a>
-        </article>
-
-        <article class="story-card" data-story-card data-story-category="community">
-          <a class="story-card-link" href="story-community-kinetiq.html">
-            <div class="story-card-media">
-              <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students standing in front of sticky notes during a planning session" loading="lazy" />
-            </div>
-            <div class="story-card-body">
-              <p class="story-card-eyebrow">Community Spotlight • 4 min read</p>
-              <h3 class="story-card-title">Mapping Futures with the KinetiQ Youth Fellows</h3>
-              <p class="story-card-excerpt">A cohort of 13 secondary school learners co-designed their own civic capstones after spending a week with Noor facilitators.</p>
-              <div class="story-card-meta">
-                <span class="story-card-date">March 21, 2024</span>
-                <span class="story-card-location">Nairobi, Kenya</span>
-              </div>
-            </div>
-          </a>
-        </article>
-
-        <article class="story-card" data-story-card data-story-category="insights">
-          <a class="story-card-link" href="story-insight-microcurricula.html">
-            <div class="story-card-media">
-              <img src="https://images.pexels.com/photos/5427651/pexels-photo-5427651.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Teacher writing reflection prompts on a chalkboard" loading="lazy" />
-            </div>
-            <div class="story-card-body">
-              <p class="story-card-eyebrow">Pedagogical Insights • 6 min read</p>
-              <h3 class="story-card-title">Microcurricula as Mutual Aid</h3>
-              <p class="story-card-excerpt">How modular lessons that fit inside a backpack keep displaced students connected to STEM pathways without overwhelming them.</p>
-              <div class="story-card-meta">
-                <span class="story-card-date">February 15, 2024</span>
-                <span class="story-card-location">Virtual Studio</span>
-              </div>
-            </div>
-          </a>
-        </article>
-
-        <article class="story-card" data-story-card data-story-category="insights">
-          <a class="story-card-link" href="story-insight-feedback.html">
-            <div class="story-card-media">
-              <img src="https://images.pexels.com/photos/5256817/pexels-photo-5256817.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Facilitator leading a restorative circle" loading="lazy" />
-            </div>
-            <div class="story-card-body">
-              <p class="story-card-eyebrow">Pedagogical Insights • 7 min read</p>
-              <h3 class="story-card-title">Restorative Feedback Loops in Hybrid Classrooms</h3>
-              <p class="story-card-excerpt">What happens when feedback is treated as a gift economy—and the prompts we use to make that tangible for multilingual learners.</p>
-              <div class="story-card-meta">
-                <span class="story-card-date">January 30, 2024</span>
-                <span class="story-card-location">Global Classrooms</span>
-              </div>
-            </div>
-          </a>
-        </article>
-
-        <article class="story-card" data-story-card data-story-category="news">
-          <a class="story-card-link" href="story-news-learning-lab.html">
-            <div class="story-card-media">
-              <img src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Educators meeting at a large table covered with laptops and notebooks" loading="lazy" />
-            </div>
-            <div class="story-card-body">
-              <p class="story-card-eyebrow">Organization News • 3 min read</p>
-              <h3 class="story-card-title">Launching the Noor Learning Lab Network</h3>
-              <p class="story-card-excerpt">Five partner schools from three continents commit to testing trauma-informed math and literacy studios with our team.</p>
-              <div class="story-card-meta">
-                <span class="story-card-date">May 2, 2024</span>
-                <span class="story-card-location">Global Network</span>
-              </div>
-            </div>
-          </a>
-        </article>
-
-        <article class="story-card" data-story-card data-story-category="news">
-          <a class="story-card-link" href="story-news-annual-update.html">
-            <div class="story-card-media">
-              <img src="https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Two colleagues reviewing charts and annual report highlights" loading="lazy" />
-            </div>
-            <div class="story-card-body">
-              <p class="story-card-eyebrow">Organization News • 4 min read</p>
-              <h3 class="story-card-title">Quarterly Update: Funding Momentum &amp; Student Stipends</h3>
-              <p class="story-card-excerpt">New philanthropic commitments unlock direct stipends for 60 students while we streamline compliance for global partners.</p>
-              <div class="story-card-meta">
-                <span class="story-card-date">April 25, 2024</span>
-                <span class="story-card-location">London, UK</span>
-              </div>
-            </div>
-          </a>
-        </article>
-      </div>
+      <p class="story-empty-state" data-story-empty hidden>No stories match those filters yet. Try selecting “All” or adjusting the date range.</p>
     </section>
   </main>
 
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="footer-columns">
       <div class="footer-column">
         <h4>Mission</h4>
@@ -288,6 +322,5 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
