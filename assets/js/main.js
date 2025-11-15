@@ -598,7 +598,8 @@ const initStoryFilters = () => {
 // ---------------------------------------------------------------------
 // Impact metrics — Google Sheets sync
 // ---------------------------------------------------------------------
-const IMPACT_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQGq8wRez2oJ6TP2PzefRg2fzGEGZm4G6dkprdFMnG-tBC0bYKT1eZq9VHt-Pl-vY/pub?gid=0&single=true&output=csv';
+const IMPACT_SHEET_URL =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vR6IKHRc11k-2FhnGlyhMI4pfAeNuZ0SLuO3NMjMsc-43wnzsCaCBwCDm-jO7CA_UwYqg6M2v79ayTW/pub?gid=0&single=true&output=csv';
 
 const FALLBACK_IMPACT_SNAPSHOT = `Metric,Value,Progress
 students_served,420,
