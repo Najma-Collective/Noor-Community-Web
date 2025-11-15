@@ -2709,6 +2709,38 @@ body.site-shell {
   z-index: 1;
 }
 
+.stat-progress {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: center;
+}
+
+.stat-progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sage-200) 40%, transparent);
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background: linear-gradient(90deg, var(--amber-400), var(--amber-600));
+  border-radius: inherit;
+  transition: width var(--transition-slow);
+}
+
+.stat-progress .progress-value {
+  font-size: var(--step-0);
+  font-weight: 700;
+  color: var(--sage-800);
+}
+
 .testimonial {
   padding: var(--space-7) var(--space-6);
   border-left: 5px solid var(--amber-500);
