@@ -4,8 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Team | Noor Community</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Meet the Noor Community team: a global network of dedicated educators, researchers, and managers committed to education as a practice of freedom." />
+  <meta name="keywords" content="Noor team, volunteer educators, global teachers, community of practice, educational leadership, teaching collective" />
+  <meta name="author" content="Noor Community" />
+  <link rel="canonical" href="https://www.noorcommunity.org/team.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.noorcommunity.org/team.html" />
+  <meta property="og:title" content="Our Team | Noor Community" />
+  <meta property="og:description" content="Meet our community of practice: educators united by a common purpose of supporting Palestinian learners worldwide." />
+  <meta property="og:image" content="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.noorcommunity.org/team.html" />
+  <meta name="twitter:title" content="Our Team | Noor Community" />
+  <meta name="twitter:description" content="Meet our community of practice: educators united by a common purpose of supporting Palestinian learners worldwide." />
+  <meta name="twitter:image" content="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+
+  <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" />
+  <link rel="dns-prefetch" href="https://unpkg.com" />
+
+  <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -13,8 +42,38 @@
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
   <script defer src="assets/js/main.js"></script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Noor Community",
+    "description": "A global network of dedicated educators, researchers, and managers united by a common purpose.",
+    "url": "https://www.noorcommunity.org",
+    "logo": "https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png",
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Manar Qaraqe",
+        "jobTitle": "Director"
+      },
+      {
+        "@type": "Person",
+        "name": "Gabriel Beckford",
+        "jobTitle": "Academic Director"
+      }
+    ],
+    "sameAs": [
+      "https://uk.linkedin.com/company/noor-community"
+    ]
+  }
+  </script>
 </head>
 <body class="site-shell">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
   <header class="site-header">
     <div class="navbar">
       <a class="brand" href="index.html">
@@ -46,8 +105,8 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/7594420/pexels-photo-7594420.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+  <main id="main-content">
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/7594420/pexels-photo-7594420.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Our Team hero section">
       <div class="hero-content">
         <p class="chip">Our Team</p>
         <h1>Meet Our Community of Practice.</h1>
@@ -296,18 +355,23 @@
       <div class="footer-column">
         <h4>Trust & Connect</h4>
         <ul>
-          <li><a href="faq.html">FAQ</a></li>
-          <li>
-            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-          </li>
+          <li><a href="faq.html">Frequently Asked Questions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
+        <div class="social-links-footer" style="margin-top: var(--space-4); display: flex; gap: var(--space-3);">
+          <a href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" class="social-icon-link">
+            <img src="assets/linkeidn.png" alt="" class="social-icon" width="24" height="24" />
+          </a>
+        </div>
       </div>
     </div>
     <div class="sub-footer">
-      <p>&copy; <span id="year"></span> Noor Community. All rights reserved.</p>
-      <a href="privacy.html">Privacy Policy</a>
+      <p>&copy; <span id="year"></span> Noor Community. All rights reserved. | Education as a Practice of Freedom</p>
+      <div class="sub-footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true">•</span>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </footer>
   <script>

@@ -4,8 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Student Stories | Noor Community</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Read inspiring stories from Noor Community students like Fatima and Noor. Discover how education creates narrative control, professional skills, and cultural preservation." />
+  <meta name="keywords" content="student testimonials, success stories, Palestinian student stories, educational impact, narrative control, student experiences, real outcomes" />
+  <meta name="author" content="Noor Community" />
+  <link rel="canonical" href="https://www.noorcommunity.org/student-stories.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.noorcommunity.org/student-stories.html" />
+  <meta property="og:title" content="Student Stories | Noor Community" />
+  <meta property="og:description" content="Read inspiring stories from students who exercise agency, cultivate professional skills, and protect culture through learning." />
+  <meta property="og:image" content="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Noor Community" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.noorcommunity.org/student-stories.html" />
+  <meta name="twitter:title" content="Student Stories | Noor Community" />
+  <meta name="twitter:description" content="Read inspiring stories from students who exercise agency, cultivate professional skills, and protect culture through learning." />
+  <meta name="twitter:image" content="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+
+  <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" />
+  <link rel="dns-prefetch" href="https://unpkg.com" />
+
+  <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -13,8 +44,27 @@
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
   <script defer src="assets/js/main.js"></script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Student Stories",
+    "description": "Inspiring case studies of how Noor Community students exercise agency, cultivate professional skills, and protect culture through learning.",
+    "url": "https://www.noorcommunity.org/student-stories.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Noor Community",
+      "url": "https://www.noorcommunity.org"
+    }
+  }
+  </script>
 </head>
 <body class="site-shell">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
   <header class="site-header">
     <div class="navbar">
       <a class="brand" href="index.html">
@@ -46,8 +96,8 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/8303328/pexels-photo-8303328.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+  <main id="main-content">
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/8303328/pexels-photo-8303328.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Hero section">
       <div class="hero-content">
         <p class="chip">Student Stories</p>
         <h1>Voices of Narrative Control.</h1>
@@ -102,18 +152,23 @@
       <div class="footer-column">
         <h4>Trust & Connect</h4>
         <ul>
-          <li><a href="faq.html">FAQ</a></li>
-          <li>
-            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-          </li>
+          <li><a href="faq.html">Frequently Asked Questions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
+        <div class="social-links-footer" style="margin-top: var(--space-4); display: flex; gap: var(--space-3);">
+          <a href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" class="social-icon-link">
+            <img src="assets/linkeidn.png" alt="" class="social-icon" width="24" height="24" />
+          </a>
+        </div>
       </div>
     </div>
     <div class="sub-footer">
-      <p>&copy; <span id="year"></span> Noor Community. All rights reserved.</p>
-      <a href="privacy.html">Privacy Policy</a>
+      <p>&copy; <span id="year"></span> Noor Community. All rights reserved. | Education as a Practice of Freedom</p>
+      <div class="sub-footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true">•</span>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </footer>
   <script>

@@ -1,0 +1,11 @@
+# robots.txt for Noor Community
+# https://www.noorcommunity.org
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.noorcommunity.org/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
