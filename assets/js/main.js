@@ -251,9 +251,24 @@ const initScrollAnimations = () => {
     });
   }, observerOptions);
 
-  // Observe all scroll-animated elements
-  const animatedElements = document.querySelectorAll('.fade-in, .scale-in, .slide-in-left, .slide-in-right, .stagger-children');
-  animatedElements.forEach((el) => observer.observe(el));
+  // Observe all scroll-animated elements, including custom data-triggered animations
+  const animatedElements = document.querySelectorAll(
+    '.fade-in, .scale-in, .slide-in-left, .slide-in-right, .stagger-children, [data-scroll-animate], [data-card-animate]'
+  );
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  animatedElements.forEach((el) => {
+    if (prefersReducedMotion) {
+      // Ensure content remains visible when reduced motion is requested
+      el.classList.add('is-visible');
+      el.style.removeProperty('opacity');
+      el.style.removeProperty('transform');
+      return;
+    }
+
+    observer.observe(el);
+  });
 };
 
 // Smooth scroll for anchor links
