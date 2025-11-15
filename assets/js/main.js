@@ -580,6 +580,236 @@ const initStoryFilters = () => {
   applyFilters();
 };
 
+// ---------------------------------------------------------------------
+// Impact metrics — Google Sheets sync
+// ---------------------------------------------------------------------
+const IMPACT_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQGq8wRez2oJ6TP2PzefRg2fzGEGZm4G6dkprdFMnG-tBC0bYKT1eZq9VHt-Pl-vY/pub?gid=0&single=true&output=csv';
+
+const FALLBACK_IMPACT_SNAPSHOT = `Metric,Value,Progress
+students_served,420,
+volunteer_educators,68,
+countries_represented,17,
+scholarship_completion_rate,93%,93
+employment_progress,64%,64
+student_projects_launched,38,
+`;
+
+const IMPACT_ALIAS_MAP = new Map([
+  ['students_served', ['students_served', 'students served per year', 'students served', 'students']],
+  ['volunteer_educators', ['volunteer educators', 'educators', 'volunteers']],
+  ['countries_represented', ['countries', 'country count', 'regions']],
+  ['scholarship_completion_rate', ['completion rate', 'course completion', 'program completion']],
+  ['employment_progress', ['employment rate', 'employment', 'jobs']],
+  ['student_projects_launched', ['projects launched', 'projects', 'capstone projects']]
+]);
+
+const normalizeMetricKey = (value = '') => value.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+
+const resolveMetricKey = (rawKey = '') => {
+  const normalized = normalizeMetricKey(rawKey);
+  if (!normalized) return '';
+
+  for (const [canonical, aliases] of IMPACT_ALIAS_MAP.entries()) {
+    if (canonical === normalized) return canonical;
+    if (aliases.some((alias) => normalizeMetricKey(alias) === normalized)) {
+      return canonical;
+    }
+  }
+  return normalized;
+};
+
+const parseCsvRows = (text) => {
+  const rows = [];
+  let current = '';
+  let row = [];
+  let inQuotes = false;
+
+  const pushCell = () => {
+    row.push(current.trim());
+    current = '';
+  };
+
+  const pushRow = () => {
+    if (!row.length) return;
+    rows.push(row);
+    row = [];
+  };
+
+  for (let i = 0; i < text.length; i += 1) {
+    const char = text[i];
+    if (char === '"') {
+      if (inQuotes && text[i + 1] === '"') {
+        current += '"';
+        i += 1;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === ',' && !inQuotes) {
+      pushCell();
+    } else if ((char === '\n' || char === '\r') && !inQuotes) {
+      if (char === '\r' && text[i + 1] === '\n') {
+        i += 1;
+      }
+      pushCell();
+      pushRow();
+    } else {
+      current += char;
+    }
+  }
+
+  if (current || row.length) {
+    pushCell();
+    pushRow();
+  }
+
+  return rows.filter((cols) => cols.some((value) => value.trim().length));
+};
+
+const buildMetricsMap = (records = []) => {
+  const metrics = new Map();
+  records.forEach(({ key, value, progress, display }) => {
+    if (!key || value == null) return;
+    metrics.set(key, {
+      value,
+      progress,
+      display: display || value
+    });
+  });
+  return metrics;
+};
+
+const parseCsvImpactSheet = (text) => {
+  const rows = parseCsvRows(text);
+  if (!rows.length) return new Map();
+  const header = rows[0].map(normalizeMetricKey);
+  const keyIndex = header.findIndex((cell) => /metric|indicator|stat|name/.test(cell));
+  const valueIndex = header.findIndex((cell) => /value|number|total|count/.test(cell));
+  const progressIndex = header.findIndex((cell) => /progress|percent|percentage/.test(cell));
+
+  const records = rows.slice(1).map((cells) => {
+    const key = resolveMetricKey(cells[keyIndex] || cells[0]);
+    const value = cells[valueIndex >= 0 ? valueIndex : 1] || '';
+    const progress = cells[progressIndex] || '';
+    return { key, value: value.trim(), progress: progress.trim() };
+  });
+
+  return buildMetricsMap(records);
+};
+
+const parseHtmlImpactSheet = (text) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, 'text/html');
+  const rows = Array.from(doc.querySelectorAll('table tr'));
+  if (!rows.length) return new Map();
+
+  const headerCells = rows[0].querySelectorAll('th, td');
+  const header = Array.from(headerCells).map((cell) => normalizeMetricKey(cell.textContent));
+  const keyIndex = header.findIndex((cell) => /metric|indicator|stat|name/.test(cell));
+  const valueIndex = header.findIndex((cell) => /value|number|total|count/.test(cell));
+  const progressIndex = header.findIndex((cell) => /progress|percent|percentage/.test(cell));
+
+  const records = rows.slice(1).map((row) => {
+    const cells = row.querySelectorAll('td');
+    const getCellText = (index, fallbackIndex) => {
+      const cell = cells[index >= 0 ? index : fallbackIndex];
+      return cell ? cell.textContent.trim() : '';
+    };
+    const key = resolveMetricKey(getCellText(keyIndex, 0));
+    const value = getCellText(valueIndex, 1);
+    const progress = getCellText(progressIndex, 2);
+    return { key, value, progress };
+  });
+
+  return buildMetricsMap(records);
+};
+
+const parseImpactSheet = (text) => {
+  const trimmed = (text || '').trim();
+  if (!trimmed) return buildMetricsMap();
+  if (trimmed.startsWith('<')) {
+    return parseHtmlImpactSheet(trimmed);
+  }
+  return parseCsvImpactSheet(trimmed);
+};
+
+const fetchImpactMetrics = async () => {
+  try {
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeout = controller ? setTimeout(() => controller.abort(), 8000) : null;
+    const response = await fetch(IMPACT_SHEET_URL, {
+      headers: { 'Accept': 'text/csv, text/html;q=0.9, */*;q=0.1' },
+      cache: 'no-store',
+      ...(controller ? { signal: controller.signal } : {})
+    });
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    if (!response.ok) {
+      throw new Error(`Impact sheet responded with ${response.status}`);
+    }
+    const text = await response.text();
+    const metrics = parseImpactSheet(text);
+    if (metrics.size) {
+      return metrics;
+    }
+    throw new Error('Impact sheet returned no rows');
+  } catch (error) {
+    console.warn('Falling back to snapshot impact metrics', error);
+    return parseImpactSheet(FALLBACK_IMPACT_SNAPSHOT);
+  }
+};
+
+const extractNumericValue = (value) => {
+  if (value == null) return null;
+  const match = String(value).match(/-?\d+(?:\.\d+)?/);
+  if (!match) return null;
+  return parseFloat(match[0]);
+};
+
+const initImpactMetrics = async () => {
+  const statNodes = document.querySelectorAll('[data-stat]');
+  const progressBars = document.querySelectorAll('[data-progress-bar]');
+  if (!statNodes.length && !progressBars.length) return;
+
+  const metrics = await fetchImpactMetrics();
+  if (!metrics.size) return;
+
+  statNodes.forEach((node) => {
+    const key = resolveMetricKey(node.dataset.stat);
+    const metric = metrics.get(key);
+    if (!metric) return;
+    const suffix = node.dataset.statSuffix || '';
+    node.textContent = `${metric.display || metric.value || ''}${suffix}`.trim();
+  });
+
+  progressBars.forEach((bar) => {
+    const key = resolveMetricKey(bar.dataset.progressBar);
+    const metric = metrics.get(key);
+    if (!metric) return;
+    const numeric = extractNumericValue(metric.progress || metric.value);
+    if (typeof numeric !== 'number' || Number.isNaN(numeric)) return;
+    const clamped = Math.max(0, Math.min(100, numeric));
+    let scope = bar.parentElement || bar;
+    if (bar.dataset.progressScope) {
+      const scopedParent = bar.closest(bar.dataset.progressScope);
+      if (scopedParent) {
+        scope = scopedParent;
+      }
+    }
+    const widthTarget = bar.dataset.progressTarget ? scope.querySelector(bar.dataset.progressTarget) : null;
+
+    if (bar.tagName === 'PROGRESS') {
+      bar.value = clamped;
+    } else {
+      bar.style.width = `${clamped}%`;
+    }
+
+    if (widthTarget) {
+      widthTarget.textContent = `${clamped}%`;
+    }
+  });
+};
+
 // Performance: Debounce function
 function debounce(func, wait = 100) {
   let timeout;
@@ -682,6 +912,7 @@ const init = () => {
   initParallax();
   initCardEffects();
   initStoryFilters();
+  initImpactMetrics();
   initTeamCarousels();
 
   // Performance
