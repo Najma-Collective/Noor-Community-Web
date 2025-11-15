@@ -602,13 +602,90 @@ const IMPACT_SHEET_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vR6IKHRc11k-2FhnGlyhMI4pfAeNuZ0SLuO3NMjMsc-43wnzsCaCBwCDm-jO7CA_UwYqg6M2v79ayTW/pub?gid=0&single=true&output=csv';
 
 const IMPACT_ALIAS_MAP = new Map([
-  ['students_served', ['students_served', 'students served per year', 'students served', 'students']],
-  ['volunteer_educators', ['volunteer educators', 'educators', 'volunteers']],
-  ['countries_represented', ['countries', 'country count', 'regions']],
-  ['scholarship_completion_rate', ['completion rate', 'course completion', 'program completion']],
-  ['employment_progress', ['employment rate', 'employment', 'jobs']],
-  ['student_projects_launched', ['projects launched', 'projects', 'capstone projects']]
+  ['number_of_students', ['students_served', 'students served per year', 'students', 'learners']],
+  ['pass_rate', ['pass_rate', 'pass percentage', 'exam pass rate', 'completion rate', 'scholarship_completion_rate']],
+  ['student_satisfaction', ['student satisfaction', 'satisfaction score', 'learner satisfaction']],
+  ['number_of_programmes', ['programmes', 'programs', 'number of programs', 'courses offered']],
+  ['number_of_teachers', ['volunteer_educators', 'educators', 'volunteers', 'teachers']],
+  ['number_of_partnerships', ['partnerships', 'partners', 'community partners']]
 ]);
+
+const HEADER_KEY_TOKENS = new Set(['metric', 'metrics', 'indicator', 'indicators', 'stat', 'stats', 'name', 'names', 'title', 'titles', 'label', 'labels']);
+const HEADER_VALUE_TOKENS = new Set(['value', 'values', 'total', 'totals', 'number', 'numbers', 'count', 'counts', 'amount', 'amounts', 'figure', 'figures']);
+const HEADER_PROGRESS_TOKENS = new Set(['progress', 'progresses', 'percentage', 'percent', 'percentages', 'rate', 'rates', 'completion', 'completion_rate']);
+
+const classifyHeaderCell = (text = '') => {
+  const normalized = normalizeMetricKey(text);
+  if (!normalized) return null;
+  const tokens = normalized.split('_').filter(Boolean);
+  if (!tokens.length) return null;
+  const matches = (allowedTokens) => tokens.every((token) => allowedTokens.has(token));
+  if (matches(HEADER_KEY_TOKENS)) return 'key';
+  if (matches(HEADER_VALUE_TOKENS)) return 'value';
+  if (matches(HEADER_PROGRESS_TOKENS)) return 'progress';
+  return null;
+};
+
+const rowLooksLikeHeader = (row = []) => {
+  if (!row.length) return false;
+  const classifications = row.map((cell) => classifyHeaderCell(cell));
+  const hasHeaderTokens = classifications.some(Boolean);
+  if (!hasHeaderTokens) return false;
+  return row.every((cell, index) => {
+    const value = String(cell || '').trim();
+    return !value || Boolean(classifications[index]);
+  });
+};
+
+const normalizeRowCells = (cells = []) => cells.map((cell) => (cell || '').trim());
+
+const buildMetricsFromRows = (rows = []) => {
+  if (!rows.length) return new Map();
+  const normalizedRows = rows.map(normalizeRowCells).filter((row) => row.some((cell) => cell));
+  if (!normalizedRows.length) return new Map();
+
+  let dataRows = normalizedRows;
+  let keyIndex = 0;
+  let valueIndex = 1;
+  let progressIndex = 2;
+
+  if (rowLooksLikeHeader(normalizedRows[0])) {
+    const headerClasses = normalizedRows[0].map((cell) => classifyHeaderCell(cell));
+    keyIndex = headerClasses.indexOf('key');
+    valueIndex = headerClasses.indexOf('value');
+    progressIndex = headerClasses.indexOf('progress');
+    dataRows = normalizedRows.slice(1);
+  }
+
+  const fallbackValueIndex = valueIndex >= 0 ? valueIndex : keyIndex === 0 ? 1 : 0;
+  const fallbackProgressIndex = progressIndex >= 0 ? progressIndex : fallbackValueIndex === 1 ? 2 : 1;
+
+  const getCellValue = (cells, index, fallback) => {
+    const tryIndex = (idx) => (idx != null && idx >= 0 && idx < cells.length ? cells[idx] : '');
+    const primary = tryIndex(index);
+    if (primary) return primary;
+    return tryIndex(fallback);
+  };
+
+  const records = dataRows
+    .map((cells) => {
+      const keyValue = getCellValue(cells, keyIndex, 0);
+      const valueValue = getCellValue(cells, valueIndex, fallbackValueIndex);
+      const progressValue = getCellValue(cells, progressIndex, fallbackProgressIndex);
+      return {
+        key: resolveMetricKey(keyValue),
+        value: valueValue,
+        progress: progressValue
+      };
+    })
+    .filter(({ key, value }, rowIndex) => {
+      if (!key || !value) return false;
+      if (rowLooksLikeHeader(dataRows[rowIndex])) return false;
+      return true;
+    });
+
+  return buildMetricsMap(records);
+};
 
 const normalizeMetricKey = (value = '') => value.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
 
@@ -685,49 +762,15 @@ const buildMetricsMap = (records = []) => {
   return metrics;
 };
 
-const parseCsvImpactSheet = (text) => {
-  const rows = parseCsvRows(text);
-  if (!rows.length) return new Map();
-  const header = rows[0].map(normalizeMetricKey);
-  const keyIndex = header.findIndex((cell) => /metric|indicator|stat|name/.test(cell));
-  const valueIndex = header.findIndex((cell) => /value|number|total|count/.test(cell));
-  const progressIndex = header.findIndex((cell) => /progress|percent|percentage/.test(cell));
-
-  const records = rows.slice(1).map((cells) => {
-    const key = resolveMetricKey(cells[keyIndex] || cells[0]);
-    const value = cells[valueIndex >= 0 ? valueIndex : 1] || '';
-    const progress = cells[progressIndex] || '';
-    return { key, value: value.trim(), progress: progress.trim() };
-  });
-
-  return buildMetricsMap(records);
-};
+const parseCsvImpactSheet = (text) => buildMetricsFromRows(parseCsvRows(text));
 
 const parseHtmlImpactSheet = (text) => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(text, 'text/html');
-  const rows = Array.from(doc.querySelectorAll('table tr'));
-  if (!rows.length) return new Map();
-
-  const headerCells = rows[0].querySelectorAll('th, td');
-  const header = Array.from(headerCells).map((cell) => normalizeMetricKey(cell.textContent));
-  const keyIndex = header.findIndex((cell) => /metric|indicator|stat|name/.test(cell));
-  const valueIndex = header.findIndex((cell) => /value|number|total|count/.test(cell));
-  const progressIndex = header.findIndex((cell) => /progress|percent|percentage/.test(cell));
-
-  const records = rows.slice(1).map((row) => {
-    const cells = row.querySelectorAll('td');
-    const getCellText = (index, fallbackIndex) => {
-      const cell = cells[index >= 0 ? index : fallbackIndex];
-      return cell ? cell.textContent.trim() : '';
-    };
-    const key = resolveMetricKey(getCellText(keyIndex, 0));
-    const value = getCellText(valueIndex, 1);
-    const progress = getCellText(progressIndex, 2);
-    return { key, value, progress };
-  });
-
-  return buildMetricsMap(records);
+  const rows = Array.from(doc.querySelectorAll('table tr')).map((row) =>
+    Array.from(row.querySelectorAll('th, td')).map((cell) => cell.textContent.trim())
+  );
+  return buildMetricsFromRows(rows);
 };
 
 const parseImpactSheet = (text) => {
