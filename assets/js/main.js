@@ -601,15 +601,6 @@ const initStoryFilters = () => {
 const IMPACT_SHEET_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vR6IKHRc11k-2FhnGlyhMI4pfAeNuZ0SLuO3NMjMsc-43wnzsCaCBwCDm-jO7CA_UwYqg6M2v79ayTW/pub?gid=0&single=true&output=csv';
 
-const FALLBACK_IMPACT_SNAPSHOT = `Metric,Value,Progress
-students_served,420,
-volunteer_educators,68,
-countries_represented,17,
-scholarship_completion_rate,93%,93
-employment_progress,64%,64
-student_projects_launched,38,
-`;
-
 const IMPACT_ALIAS_MAP = new Map([
   ['students_served', ['students_served', 'students served per year', 'students served', 'students']],
   ['volunteer_educators', ['volunteer educators', 'educators', 'volunteers']],
@@ -770,8 +761,8 @@ const fetchImpactMetrics = async () => {
     }
     throw new Error('Impact sheet returned no rows');
   } catch (error) {
-    console.warn('Falling back to snapshot impact metrics', error);
-    return parseImpactSheet(FALLBACK_IMPACT_SNAPSHOT);
+    console.error('Failed to load impact metrics', error);
+    return buildMetricsMap();
   }
 };
 
@@ -787,8 +778,46 @@ const initImpactMetrics = async () => {
   const progressBars = document.querySelectorAll('[data-progress-bar]');
   if (!statNodes.length && !progressBars.length) return;
 
+  const setUnavailableState = () => {
+    const unavailableMessage = 'Data unavailable';
+    statNodes.forEach((node) => {
+      const message = node.dataset.statUnavailable || unavailableMessage;
+      node.textContent = message;
+      node.classList.add('stat-unavailable');
+    });
+
+    progressBars.forEach((bar) => {
+      let scope = bar.parentElement || bar;
+      if (bar.dataset.progressScope) {
+        const scopedParent = bar.closest(bar.dataset.progressScope);
+        if (scopedParent) {
+          scope = scopedParent;
+        }
+      }
+      const target = bar.dataset.progressTarget ? scope.querySelector(bar.dataset.progressTarget) : null;
+      const message = bar.dataset.progressUnavailable || unavailableMessage;
+      if (target) {
+        target.textContent = message;
+      } else {
+        const messageNode = document.createElement('span');
+        messageNode.className = 'progress-unavailable';
+        messageNode.textContent = message;
+        bar.insertAdjacentElement('afterend', messageNode);
+      }
+      if (bar.tagName === 'PROGRESS') {
+        bar.value = 0;
+      } else {
+        bar.style.width = '0%';
+      }
+      bar.classList.add('progress-unavailable');
+    });
+  };
+
   const metrics = await fetchImpactMetrics();
-  if (!metrics.size) return;
+  if (!metrics.size) {
+    setUnavailableState();
+    return;
+  }
 
   statNodes.forEach((node) => {
     const key = resolveMetricKey(node.dataset.stat);
