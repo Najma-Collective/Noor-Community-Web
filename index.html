@@ -96,14 +96,14 @@
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
         <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -118,12 +118,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
         <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="assets/linkeidn.png" alt="LinkedIn" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -135,14 +135,14 @@
         <h1 class="hero-title">Education as a Practice of Freedom.</h1>
         <p class="hero-description">We are Noor Community, a global network of educators. We create rigorous, compassionate learning environments where Palestinian students cultivate the critical skills to build the futures they envision.</p>
         <div class="hero-actions">
-          <a class="activity-btn activity-btn-primary" href="about.html">
+          <md-filled-button class="activity-btn activity-btn-primary" href="about.html">
             <span>Explore Our Mission</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
-          <a class="activity-btn secondary" href="#audience-funnels">
+          </md-filled-button>
+          <md-outlined-button class="activity-btn secondary" href="#audience-funnels">
             <span>Find Your Path</span>
             <span class="material-symbols-rounded btn-icon">expand_more</span>
-          </a>
+          </md-outlined-button>
         </div>
       </div>
       <div class="hero-scroll-indicator">
@@ -160,40 +160,40 @@
         <p class="section-subtitle">This is the primary sorting mechanism for our three co-equal audiences.</p>
       </div>
       <div class="grid-3 grid-enhanced">
-        <article class="card card-premium" data-card-animate>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-icon">
             <span class="material-symbols-rounded">school</span>
           </div>
           <h3 class="card-title">For Students</h3>
           <p class="card-description">We offer high-quality, online English programmes to help you achieve your academic and professional goals.</p>
-          <a class="activity-btn secondary card-action" href="programmes.html">
+          <md-outlined-button class="activity-btn secondary card-action" href="programmes.html">
             <span>See Our Programmes</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-premium card-featured" data-card-animate>
+          </md-outlined-button>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium card-featured" data-card-animate role="article">
           <div class="card-badge">Featured</div>
           <div class="card-icon">
             <span class="material-symbols-rounded">favorite</span>
           </div>
           <h3 class="card-title">For Supporters</h3>
           <p class="card-description">Your solidarity invests in educational justice and provides the tools for a community-led, resilient model of learning.</p>
-          <a class="activity-btn secondary card-action" href="impact.html">
+          <md-outlined-button class="activity-btn secondary card-action" href="impact.html">
             <span>See Your Impact</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-premium" data-card-animate>
+          </md-outlined-button>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-icon">
             <span class="material-symbols-rounded">volunteer_activism</span>
           </div>
           <h3 class="card-title">For Volunteers</h3>
           <p class="card-description">Join our community of practice, partner with students, and grow professionally in a project of solidarity.</p>
-          <a class="activity-btn secondary card-action" href="join-volunteers.html">
+          <md-outlined-button class="activity-btn secondary card-action" href="join-volunteers.html">
             <span>Join Our Team</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
-        </article>
+          </md-outlined-button>
+        </md-outlined-card>
       </div>
     </section>
 
@@ -214,19 +214,19 @@
               <span class="stat-label">Reach</span>
             </div>
           </div>
-          <a class="activity-btn" href="about.html">
+          <md-filled-button class="activity-btn" href="about.html">
             <span>Learn More About Us</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
+          </md-filled-button>
         </div>
-        <div class="material-surface image-frame" data-scroll-animate>
+        <md-elevated-card class="material-surface image-frame" data-scroll-animate>
           <div class="image-ornament" aria-hidden="true"></div>
           <img src="https://images.pexels.com/photos/23496606/pexels-photo-23496606.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students and teachers collaborating in a supportive learning community" loading="lazy" width="1200" height="800" />
-        </div>
+        </md-elevated-card>
       </div>
     </section>
 
-    <section class="section page-surface material-surface section-impact">
+    <md-elevated-card class="section page-surface material-surface section-impact">
       <div class="section-header section-header-centered">
         <div class="section-label section-label-centered">
           <span class="material-symbols-rounded">trending_up</span>
@@ -272,12 +272,12 @@
         </cite>
       </blockquote>
       <div class="hero-actions">
-        <a class="activity-btn" href="student-stories.html">
+        <md-filled-button class="activity-btn" href="student-stories.html">
           <span>Read Fatima's Story</span>
           <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-        </a>
+        </md-filled-button>
       </div>
-    </section>
+    </md-elevated-card>
 
     <section class="section page-surface section-programmes">
       <div class="section-header section-header-centered">
@@ -289,64 +289,64 @@
         <p class="section-subtitle">Our programmes are the practical application of our vision.</p>
       </div>
       <div class="grid-2 grid-programmes">
-        <article class="card card-programme" data-scroll-animate>
+        <md-outlined-card class="card card-programme" data-scroll-animate role="article">
           <div class="card-number">01</div>
           <div class="card-icon-large">
             <span class="material-symbols-rounded">business_center</span>
           </div>
           <h3 class="card-title">General &amp; Business English</h3>
           <p class="card-description">Learn practical, real-world English for your career through project-based work.</p>
-          <a href="programme-general-business.html" class="card-link">
+          <md-text-button href="programme-general-business.html" class="card-link">
             <span>Learn More</span>
             <span class="material-symbols-rounded">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-programme" data-scroll-animate>
+          </md-text-button>
+        </md-outlined-card>
+        <md-outlined-card class="card card-programme" data-scroll-animate role="article">
           <div class="card-number">02</div>
           <div class="card-icon-large">
             <span class="material-symbols-rounded">menu_book</span>
           </div>
           <h3 class="card-title">English for Academic Purposes (EAP)</h3>
           <p class="card-description">Prepare for success at university with critical thinking and scholarly reading skills.</p>
-          <a href="programme-eap.html" class="card-link">
+          <md-text-button href="programme-eap.html" class="card-link">
             <span>Learn More</span>
             <span class="material-symbols-rounded">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-programme" data-scroll-animate>
+          </md-text-button>
+        </md-outlined-card>
+        <md-outlined-card class="card card-programme" data-scroll-animate role="article">
           <div class="card-number">03</div>
           <div class="card-icon-large">
             <span class="material-symbols-rounded">psychology</span>
           </div>
           <h3 class="card-title">Soft Skills Training</h3>
           <p class="card-description">Develop interpersonal and leadership skills that complement language learning.</p>
-          <a href="programmes.html#soft-skills" class="card-link">
+          <md-text-button href="programmes.html#soft-skills" class="card-link">
             <span>Learn More</span>
             <span class="material-symbols-rounded">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-programme" data-scroll-animate>
+          </md-text-button>
+        </md-outlined-card>
+        <md-outlined-card class="card card-programme" data-scroll-animate role="article">
           <div class="card-number">04</div>
           <div class="card-icon-large">
             <span class="material-symbols-rounded">edit_note</span>
           </div>
           <h3 class="card-title">1-1 Exam Practice</h3>
           <p class="card-description">Targeted lessons to master exam strategies, time management, and complex prompts.</p>
-          <a href="programme-skills-exam.html" class="card-link">
+          <md-text-button href="programme-skills-exam.html" class="card-link">
             <span>Learn More</span>
             <span class="material-symbols-rounded">arrow_forward</span>
-          </a>
-        </article>
+          </md-text-button>
+        </md-outlined-card>
       </div>
       <div class="hero-actions" style="margin-top: var(--space-8);">
-        <a class="activity-btn activity-btn-large" href="programmes.html">
+        <md-filled-button class="activity-btn activity-btn-large" href="programmes.html">
           <span>Explore All Programmes</span>
           <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-        </a>
+        </md-filled-button>
       </div>
     </section>
 
-    <section class="section page-surface material-surface section-cta">
+    <md-elevated-card class="section page-surface material-surface section-cta">
       <div class="section-cta-content">
         <div class="section-cta-badge">
           <span class="material-symbols-rounded">auto_stories</span>
@@ -354,13 +354,13 @@
         <h2 class="section-title section-title-xl">Stories from <span class="text-highlight">Our Community</span></h2>
         <p class="section-subtitle-large">Read the latest news, student spotlights, and pedagogical insights from our global network.</p>
         <div class="hero-actions">
-          <a class="activity-btn activity-btn-large" href="stories.html">
+          <md-filled-button class="activity-btn activity-btn-large" href="stories.html">
             <span>Read Our Stories</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
+          </md-filled-button>
         </div>
       </div>
-    </section>
+    </md-elevated-card>
   </main>
 
     <footer class="site-footer">

@@ -64,14 +64,14 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
         <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -86,12 +86,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
         <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="assets/linkeidn.png" alt="LinkedIn" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -107,7 +107,7 @@
 
     <section class="section page-surface">
       <div class="grid-2">
-        <div class="material-surface card-premium" data-scroll-animate>
+        <md-elevated-card class="material-surface card-premium" data-scroll-animate>
           <div class="section-header">
             <div class="section-label">
               <span class="material-symbols-rounded">mail</span>
@@ -131,8 +131,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="material-surface card-premium" data-scroll-animate>
+        </md-elevated-card>
+        <md-elevated-card class="material-surface card-premium" data-scroll-animate>
           <div class="section-header">
             <div class="section-label">
               <span class="material-symbols-rounded">account_balance</span>
@@ -151,16 +151,16 @@
             </div>
           </div>
           <div class="hero-actions" style="margin-top: var(--space-6); gap: var(--space-4); flex-wrap: wrap;">
-            <a class="activity-btn secondary" href="https://www.facebook.com/almanarsociety" target="_blank" rel="noreferrer">
+            <md-outlined-button class="activity-btn secondary" href="https://www.facebook.com/almanarsociety" target="_blank" rel="noreferrer">
               <img src="https://najma-collective.github.io/Noor-Community-Web/assets/Facebook_Logo_Primary.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;" />
               <span>Facebook</span>
-            </a>
-            <a class="activity-btn secondary" href="https://www.instagram.com/almanarsociety/" target="_blank" rel="noreferrer">
+            </md-outlined-button>
+            <md-outlined-button class="activity-btn secondary" href="https://www.instagram.com/almanarsociety/" target="_blank" rel="noreferrer">
               <img src="https://najma-collective.github.io/Noor-Community-Web/assets/Instagram_Glyph_Gradient.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;" />
               <span>Instagram</span>
-            </a>
+            </md-outlined-button>
           </div>
-        </div>
+        </md-elevated-card>
       </div>
     </section>
   </main>

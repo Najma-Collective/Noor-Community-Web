@@ -66,14 +66,14 @@
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
         <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -88,12 +88,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
         <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="assets/linkeidn.png" alt="LinkedIn" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -107,7 +107,7 @@
       </div>
     </section>
 
-    <section class="section page-surface material-surface story-control-panel">
+    <md-elevated-card class="section page-surface material-surface story-control-panel">
       <div class="section-header">
         <div>
           <div class="section-label">
@@ -117,10 +117,10 @@
           <h2 class="section-title">Search the insight library</h2>
           <p class="section-subtitle">Use live hashtag categories or date filters to find the protocol, ritual, or template you need.</p>
         </div>
-        <a class="activity-btn" href="stories.html">
+        <md-filled-button class="activity-btn" href="stories.html">
           <span>Back to Student Voices</span>
           <span class="material-symbols-rounded btn-icon">arrow_back</span>
-        </a>
+        </md-filled-button>
       </div>
       <div class="story-filter-bar">
         <div class="filter-group">
@@ -138,13 +138,13 @@
               <span>To</span>
               <input type="date" data-filter-end />
             </label>
-            <button type="button" class="activity-btn tertiary" data-clear-filters>
+            <md-text-button type="button" class="activity-btn tertiary" data-clear-filters>
               <span>Reset filters</span>
-            </button>
+            </md-text-button>
           </div>
         </div>
       </div>
-    </section>
+    </md-elevated-card>
 
     <section class="section page-surface story-feed" aria-label="Pedagogical Insights feed">
       <div class="story-feed-grid">
@@ -163,7 +163,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">May 14, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-playlists.html">Read the guide</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-playlists.html">Read the guide</md-text-button>
             </div>
           </div>
         </article>
@@ -183,7 +183,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">May 6, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-rites.html">Explore the ritual</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-rites.html">Explore the ritual</md-text-button>
             </div>
           </div>
         </article>
@@ -203,7 +203,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 30, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-landmaps.html">Map the ritual</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-landmaps.html">Map the ritual</md-text-button>
             </div>
           </div>
         </article>
@@ -223,7 +223,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 26, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-cohort.html">See the map</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-cohort.html">See the map</md-text-button>
             </div>
           </div>
         </article>
@@ -243,7 +243,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 22, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-atelier.html">Tour the atelier</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-atelier.html">Tour the atelier</md-text-button>
             </div>
           </div>
         </article>
@@ -263,7 +263,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 18, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-sensorycards.html">Print the deck</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-sensorycards.html">Print the deck</md-text-button>
             </div>
           </div>
         </article>
@@ -283,7 +283,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 12, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-bridgeweeks.html">Steal the template</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-bridgeweeks.html">Steal the template</md-text-button>
             </div>
           </div>
         </article>
@@ -303,7 +303,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">February 15, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-microcurricula.html">Download the kit</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-microcurricula.html">Download the kit</md-text-button>
             </div>
           </div>
         </article>
@@ -323,7 +323,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">January 30, 2024</span>
-              <a class="story-card-link" href="stories/story-insight-feedback.html">Facilitate the circle</a>
+              <md-text-button class="story-card-link" href="stories/story-insight-feedback.html">Facilitate the circle</md-text-button>
             </div>
           </div>
         </article>

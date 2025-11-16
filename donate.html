@@ -64,14 +64,14 @@
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
         <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -86,12 +86,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
         <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="assets/linkeidn.png" alt="LinkedIn" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -104,7 +104,7 @@
     </section>
 
     <section class="section page-surface">
-      <div class="grid-2 material-surface">
+      <md-elevated-card class="grid-2 material-surface">
         <div>
           <h2 class="section-title">How Your Solidarity Creates Impact</h2>
           <p class="lead-text">We are a lean, grassroots organization. Every donation is transformed into the essential tools that make our mission possible.</p>
@@ -119,21 +119,21 @@
           <h2 class="section-title" style="text-align: center;">Support Our Work</h2>
           <p style="text-align: center;">We accept donations through JustGiving, a trusted platform that ensures your contribution reaches us securely.</p>
           <div class="hero-actions">
-            <a class="activity-btn activity-btn-large" href="https://www.justgiving.com/crowdfunding/noor-community?utm_medium=CR&utm_source=CL" target="_blank" rel="noreferrer">
+            <md-filled-button class="activity-btn activity-btn-large" href="https://www.justgiving.com/crowdfunding/noor-community?utm_medium=CR&utm_source=CL" target="_blank" rel="noreferrer">
               <span>Donate via JustGiving</span>
               <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-            </a>
+            </md-filled-button>
           </div>
           <p style="font-size: var(--step--1); color: var(--ink-muted); text-align: center;">JustGiving is a secure, widely-trusted fundraising platform.</p>
         </div>
-      </div>
+      </md-elevated-card>
     </section>
 
     <section class="section page-surface">
-      <div class="material-surface" style="text-align: center;">
+      <md-elevated-card class="material-surface" style="text-align: center;">
         <h3 class="section-title">Other Ways to Support</h3>
         <p>If you'd like to discuss corporate partnerships, grant opportunities, or other forms of support, please <a href="contact.html">get in touch with us</a>.</p>
-      </div>
+      </md-elevated-card>
     </section>
   </main>
 
