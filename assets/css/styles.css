@@ -1388,6 +1388,7 @@ md-icon-button.nav-toggle::part(container) {
   border-radius: var(--radius);
   border: 2px solid var(--sage-400);
   background: transparent;
+  transition: all var(--transition-std);
 }
 
 md-icon-button.nav-toggle .material-symbols-rounded {
@@ -1399,9 +1400,15 @@ md-icon-button.nav-toggle[aria-expanded="true"] .material-symbols-rounded {
   transform: rotate(90deg);
 }
 
+md-icon-button.nav-toggle.is-active .material-symbols-rounded {
+  transform: rotate(180deg) scale(1.05);
+}
+
+md-icon-button.nav-toggle.is-active::part(container),
 md-icon-button.nav-toggle:hover::part(container) {
   background: var(--sage-100);
   border-color: var(--sage-500);
+  box-shadow: 0 10px 30px rgba(73, 88, 40, 0.2);
 }
 
 .nav-links.open {
@@ -1409,6 +1416,37 @@ md-icon-button.nav-toggle:hover::part(container) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+@media (min-width: 960px) {
+  md-icon-button.nav-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    flex-direction: row;
+    gap: clamp(1.25rem, 2vw, 1.75rem);
+    padding: 0;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    align-items: center;
+  }
+
+  .nav-links li {
+    width: auto;
+  }
+
+  .nav-links a {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+  }
 }
 
 /* -------------------------------
