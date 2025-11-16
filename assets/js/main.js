@@ -1039,7 +1039,6 @@ const init = () => {
   initFocusVisible();
   initSkipLink();
 
-  console.log('🌿 Noor Community — Premium UI initialized');
 };
 
 // Initialize when DOM is ready
