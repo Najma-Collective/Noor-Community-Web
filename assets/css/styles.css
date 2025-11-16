@@ -457,7 +457,7 @@ h3 {
 md-filled-button.activity-btn,
 md-outlined-button.activity-btn,
 md-text-button.activity-btn {
-  min-height: max(38px, calc(var(--target-min) - 6px));
+  min-height: var(--target-min);
   border-radius: var(--radius-full);
   font-weight: 800;
   font-size: var(--step--1);
@@ -465,6 +465,7 @@ md-text-button.activity-btn {
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem;
   text-decoration: none;
   position: relative;
@@ -476,7 +477,11 @@ md-filled-button.activity-btn::part(container),
 md-outlined-button.activity-btn::part(container),
 md-text-button.activity-btn::part(container) {
   border-radius: inherit;
-  padding: 0.35rem 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--target-min);
+  padding: 0.65rem 1.25rem;
 }
 
 md-filled-button.activity-btn {
@@ -590,6 +595,7 @@ md-text-button.activity-btn {
 }
 
 md-text-button.activity-btn::part(container) {
+  padding-block: 0.65rem;
   padding-inline: 0;
   background: transparent;
 }
