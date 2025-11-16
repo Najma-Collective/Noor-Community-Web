@@ -49,44 +49,75 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "Noor Community",
-    "description": "A global network of educators creating rigorous, compassionate learning environments where Palestinian students cultivate critical skills to build the futures they envision.",
-    "url": "https://www.noorcommunity.org",
-    "logo": "https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png",
-    "sameAs": [
-      "https://uk.linkedin.com/company/noor-community"
-    ],
-    "foundingDate": "2024",
-    "founder": [
+    "@graph": [
       {
-        "@type": "Person",
-        "name": "Areej Banat"
+        "@type": [
+          "Organization",
+          "EducationalOrganization"
+        ],
+        "@id": "https://www.noorcommunity.org/#organization",
+        "name": "Noor Community",
+        "description": "A global network of educators creating rigorous, compassionate learning environments where Palestinian students cultivate critical skills to build the futures they envision.",
+        "url": "https://www.noorcommunity.org/",
+        "logo": "https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png",
+        "sameAs": [
+          "https://uk.linkedin.com/company/noor-community"
+        ],
+        "foundingDate": "2024",
+        "founder": [
+          {
+            "@type": "Person",
+            "name": "Areej Banat"
+          },
+          {
+            "@type": "Person",
+            "name": "Gabriel Ishmael Beckford"
+          }
+        ],
+        "areaServed": {
+          "@type": "Place",
+          "name": "Global"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Educational Programmes",
+          "itemListElement": [
+            {
+              "@type": "Course",
+              "name": "English for Academic Purposes (EAP)",
+              "description": "Prepare for success at university with critical thinking and scholarly reading skills"
+            },
+            {
+              "@type": "Course",
+              "name": "General & Business English",
+              "description": "Learn practical, real-world English for your career through project-based work"
+            }
+          ]
+        }
       },
       {
-        "@type": "Person",
-        "name": "Gabriel Ishmael Beckford"
-      }
-    ],
-    "areaServed": {
-      "@type": "Place",
-      "name": "Global"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Educational Programmes",
-      "itemListElement": [
-        {
-          "@type": "Course",
-          "name": "English for Academic Purposes (EAP)",
-          "description": "Prepare for success at university with critical thinking and scholarly reading skills"
+        "@type": "WebSite",
+        "@id": "https://www.noorcommunity.org/#website",
+        "url": "https://www.noorcommunity.org/",
+        "name": "Noor Community",
+        "publisher": {
+          "@id": "https://www.noorcommunity.org/#organization"
         },
-        {
-          "@type": "Course",
-          "name": "General & Business English",
-          "description": "Learn practical, real-world English for your career through project-based work"
-        }
-      ]
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.noorcommunity.org/#webpage",
+    "name": "Noor Community | Education as a Practice of Freedom",
+    "description": "Noor Community: A global network of educators creating rigorous, compassionate learning environments where Palestinian students cultivate critical skills to build the futures they envision.",
+    "url": "https://www.noorcommunity.org/",
+    "isPartOf": {
+      "@id": "https://www.noorcommunity.org/#website"
     }
   }
   </script>
