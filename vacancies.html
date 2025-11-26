@@ -821,11 +821,127 @@
       background: var(--sage-600);
       color: white;
     }
+
+    /* Navigation */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      color: var(--sage-900);
+      font-weight: 700;
+      font-size: 1.125rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      opacity: 0.8;
+    }
+
+    .nav-logo img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--sage-700);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--sage-600), var(--sage-700));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--sage-900);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    body {
+      padding-top: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: var(--space-4);
+      }
+
+      .nav-links a {
+        font-size: 0.9375rem;
+      }
+
+      .nav-logo span {
+        display: none;
+      }
+
+      body {
+        padding-top: 70px;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Skip to main content for accessibility -->
   <a href="#main-content" style="position: absolute; left: -9999px; z-index: 999;">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <span>Noor Community</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="vision.html">Vision</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="vacancies.html">Join Us</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <main id="main-content">
     <section class="hero" style="background-image: url('https://images.pexels.com/photos/5206277/pexels-photo-5206277.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Hero section">
@@ -836,6 +952,19 @@
       </div>
       <div class="hero-scroll-indicator">
         <span class="material-symbols-rounded">keyboard_arrow_down</span>
+      </div>
+    </section>
+
+    <!-- Logo Banner -->
+    <section class="section" style="padding: var(--space-12) var(--space-4); background: white;">
+      <div style="max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: var(--space-12); flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; justify-content: center; padding: var(--space-4);">
+          <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" style="max-width: 180px; height: auto; filter: drop-shadow(0 4px 12px rgba(36, 61, 22, 0.15));" />
+        </div>
+        <div style="width: 2px; height: 80px; background: linear-gradient(180deg, var(--sage-300), var(--sage-400), var(--sage-300)); border-radius: 1px;"></div>
+        <div style="display: flex; align-items: center; justify-content: center; padding: var(--space-4);">
+          <img src="https://najma-collective.github.io/Noor-Community-Web/assets/almanar-logo.png" alt="Al Manar Society logo" style="max-width: 220px; height: auto; filter: drop-shadow(0 4px 12px rgba(36, 61, 22, 0.15));" />
+        </div>
       </div>
     </section>
 
@@ -875,6 +1004,39 @@
     </section>
 
     <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="material-symbols-rounded">account_balance</span>
+          <span>Our Parent Organisation</span>
+        </div>
+        <h2 class="section-title">Al Manar Society</h2>
+      </div>
+      <div class="material-surface content-wrapper">
+        <p>Noor Community is the English department of Al Manar Society, a pioneering organisation dedicated to empowering Palestinian communities through education, culture, and social development. Founded on principles of empowerment and self-determination, Al Manar Society works to create opportunities for Palestinians to thrive despite challenging circumstances.</p>
+        <p>Al Manar Society provides the foundation and infrastructure that makes Noor Community's English language programmes possible. Through comprehensive educational initiatives, community development projects, cultural preservation efforts, and advocacy work, they champion Palestinian culture and heritage whilst creating supportive networks that help Palestinian families navigate challenges and access essential resources.</p>
+        <div style="margin-top: var(--space-8); padding: var(--space-6); background: linear-gradient(135deg, var(--sage-50), var(--sage-100)); border-radius: 16px; border-left: 5px solid var(--sage-600); box-shadow: 0 4px 20px rgba(84, 107, 84, 0.15);">
+          <h4 style="color: var(--sage-700); font-size: 1.125rem; font-weight: 700; margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-3);">
+            <span class="material-symbols-rounded" style="color: var(--sage-600); font-size: 1.5rem;">link</span>
+            Learn More
+          </h4>
+          <p style="margin-bottom: var(--space-4); color: var(--neutral-700);">Visit Al Manar Society to learn more about their comprehensive programmes and initiatives:</p>
+          <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center;">
+            <a href="https://almanar-society.org/" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6); background: linear-gradient(135deg, var(--sage-600), var(--sage-700)); color: white; font-weight: 700; text-decoration: none; border-radius: 50px; box-shadow: 0 4px 12px rgba(84, 107, 84, 0.3); transition: all 0.3s ease; font-size: 0.9375rem;">
+              <span class="material-symbols-rounded" style="font-size: 1.25rem;">language</span>
+              <span>Visit Website</span>
+            </a>
+            <a href="https://www.facebook.com/almanarsociety" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6); background: white; color: var(--sage-700); font-weight: 700; text-decoration: none; border-radius: 50px; box-shadow: 0 2px 8px rgba(84, 107, 84, 0.15); transition: all 0.3s ease; font-size: 0.9375rem; border: 2px solid var(--sage-300);">
+              <span>Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/almanarsociety/" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6); background: white; color: var(--sage-700); font-weight: 700; text-decoration: none; border-radius: 50px; box-shadow: 0 2px 8px rgba(84, 107, 84, 0.15); transition: all 0.3s ease; font-size: 0.9375rem; border: 2px solid var(--sage-300);">
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: rgba(246, 247, 246, 0.5);">
       <div class="section-header">
         <div class="section-label">
           <span class="material-symbols-rounded">announcement</span>
