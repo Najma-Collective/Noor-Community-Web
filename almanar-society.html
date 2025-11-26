@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Al Manar Society | Noor Community</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Learn about Al Manar Society, the parent organisation of Noor Community. Discover their mission to empower Palestinian communities through education, culture, and social development." />
+  <meta name="keywords" content="Al Manar Society, Palestinian community organisation, cultural preservation, educational programmes, community development" />
+  <meta name="author" content="Noor Community" />
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    :root {
+      --sage-50: #f6f7f6;
+      --sage-100: #e8ebe8;
+      --sage-200: #d4dbd4;
+      --sage-300: #b0bfb0;
+      --sage-400: #8aa08a;
+      --sage-500: #6b856b;
+      --sage-600: #546b54;
+      --sage-700: #435743;
+      --sage-800: #374637;
+      --sage-900: #2d3a2d;
+
+      --gold-50: #fefce8;
+      --gold-100: #fef9c3;
+      --gold-200: #fef08a;
+      --gold-300: #fde047;
+      --gold-400: #facc15;
+      --gold-500: #eab308;
+      --gold-600: #ca8a04;
+      --gold-700: #a16207;
+
+      --neutral-50: #fafafa;
+      --neutral-100: #f5f5f5;
+      --neutral-200: #e5e5e5;
+      --neutral-300: #d4d4d4;
+      --neutral-400: #a3a3a3;
+      --neutral-500: #737373;
+      --neutral-600: #525252;
+      --neutral-700: #404040;
+      --neutral-800: #262626;
+      --neutral-900: #171717;
+
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-7: 2rem;
+      --space-8: 2.5rem;
+      --space-10: 4rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: var(--neutral-800);
+      background: linear-gradient(135deg, var(--sage-50) 0%, var(--neutral-50) 50%, #fef9ec 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--sage-800);
+      text-decoration: none;
+      padding: var(--space-3) var(--space-6);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
+      color: var(--sage-900);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(84, 107, 84, 0.2);
+    }
+
+    .nav-link.active {
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      color: white;
+      box-shadow: 0 4px 16px rgba(84, 107, 84, 0.3);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(80px + var(--space-20)) var(--space-4) var(--space-20);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(67, 87, 67, 0.92) 0%,
+        rgba(107, 133, 107, 0.88) 40%,
+        rgba(138, 160, 138, 0.84) 70%,
+        rgba(176, 191, 176, 0.8) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 20% 50%,
+        rgba(254, 249, 195, 0.12) 0%,
+        transparent 50%
+      );
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: var(--space-6);
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-description {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      color: var(--sage-100);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Main Content */
+    main {
+      position: relative;
+      z-index: 10;
+    }
+
+    .section {
+      padding: var(--space-20) var(--space-4);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--sage-900);
+      margin-bottom: var(--space-6);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .text-highlight {
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      display: inline-block;
+    }
+
+    .text-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-400), var(--gold-500));
+      border-radius: 2px;
+      box-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: var(--neutral-600);
+      max-width: 800px;
+      margin: 0 auto var(--space-8);
+      line-height: 1.8;
+    }
+
+    .material-surface {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
+                  0 2px 10px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .material-surface:hover {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12),
+                  0 4px 20px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .content-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: var(--space-8);
+    }
+
+    .content-wrapper p {
+      margin-bottom: var(--space-6);
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: var(--neutral-700);
+    }
+
+    /* Logo Section */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-10);
+      background: linear-gradient(135deg, var(--sage-50), var(--sage-100));
+      border-radius: 20px;
+      margin-bottom: var(--space-8);
+    }
+
+    .logo-section img {
+      max-width: 320px;
+      height: auto;
+      filter: drop-shadow(0 6px 16px rgba(84, 107, 84, 0.25));
+    }
+
+    /* Grid Layout */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: white;
+      padding: var(--space-8);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--sage-500);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      border-left-color: var(--sage-700);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--sage-500), var(--sage-600));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+      box-shadow: 0 4px 12px rgba(84, 107, 84, 0.2);
+    }
+
+    .feature-icon .material-symbols-rounded {
+      color: white;
+      font-size: 2rem;
+      font-variation-settings: 'FILL' 1, 'wght' 600;
+    }
+
+    .feature-card h3 {
+      font-size: 1.375rem;
+      color: var(--sage-900);
+      margin-bottom: var(--space-3);
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      font-size: 1.0625rem;
+      color: var(--neutral-700);
+      line-height: 1.7;
+    }
+
+    /* Links Section */
+    .links-section {
+      text-align: center;
+      padding: var(--space-10);
+      background: linear-gradient(135deg, var(--sage-700), var(--sage-800));
+      border-radius: 20px;
+      max-width: 900px;
+      margin: var(--space-12) auto;
+      color: white;
+    }
+
+    .links-section h2 {
+      color: white;
+      margin-bottom: var(--space-6);
+    }
+
+    .links-section p {
+      font-size: 1.125rem;
+      color: var(--sage-100);
+      margin-bottom: var(--space-8);
+    }
+
+    .links-grid {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-7);
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      color: var(--neutral-900);
+      font-size: 1.125rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 6px 24px rgba(234, 179, 8, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .link-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(234, 179, 8, 0.6);
+    }
+
+    .link-button .material-symbols-rounded {
+      font-size: 1.5rem;
+    }
+
+    .link-button.secondary {
+      background: white;
+      color: var(--sage-800);
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+    }
+
+    .link-button.secondary:hover {
+      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: var(--space-3) var(--space-4);
+      }
+
+      .nav-content {
+        gap: var(--space-3);
+      }
+
+      .nav-link {
+        font-size: 1rem;
+        padding: var(--space-2) var(--space-4);
+      }
+
+      .hero {
+        min-height: 60vh;
+        padding: calc(80px + var(--space-12)) var(--space-4) var(--space-12);
+      }
+
+      .section {
+        padding: var(--space-12) var(--space-4);
+      }
+
+      .logo-section img {
+        max-width: 240px;
+      }
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--sage-600);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="vision.html" class="nav-link">Vision</a>
+      <a href="almanar-society.html" class="nav-link active">Al Manar Society</a>
+      <a href="vacancies.html" class="nav-link">Join Us</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/23496638/pexels-photo-23496638.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Hero section">
+      <div class="hero-content">
+        <h1 class="hero-title">Al Manar Society</h1>
+        <p class="hero-description">Noor Community is the English department of Al Manar Society, a pioneering organisation dedicated to empowering Palestinian communities through education, culture, and social development.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="material-surface content-wrapper">
+        <div class="logo-section">
+          <img src="https://najma-collective.github.io/Noor-Community-Web/assets/almanar-logo.png" alt="Al Manar Society logo" />
+        </div>
+
+        <div class="section-header">
+          <h2 class="section-title">Who <span class="text-highlight">They Are</span></h2>
+        </div>
+
+        <p>Al Manar Society is a community-based organisation committed to supporting Palestinian communities through comprehensive educational, cultural, and social programmes. Founded on principles of empowerment and self-determination, they work to create opportunities for Palestinians to thrive despite challenging circumstances.</p>
+        <p>As our parent organisation, Al Manar Society provides the foundation and infrastructure that makes Noor Community's English language programmes possible.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background: rgba(246, 247, 246, 0.5);">
+      <div class="section-header">
+        <h2 class="section-title">What <span class="text-highlight">They Do</span></h2>
+        <p class="section-subtitle">Al Manar Society develops comprehensive programmes that empower Palestinian communities across multiple dimensions.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">school</span>
+          </div>
+          <h3>Educational Programmes</h3>
+          <p>Al Manar Society develops and delivers educational programmes designed to empower Palestinian youth and adults with the knowledge and skills needed to pursue their goals and contribute to their communities.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">diversity_3</span>
+          </div>
+          <h3>Community Development</h3>
+          <p>Through various social initiatives, Al Manar Society strengthens community bonds and creates supportive networks that help Palestinian families navigate challenges and access essential resources.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">palette</span>
+          </div>
+          <h3>Cultural Preservation</h3>
+          <p>They champion Palestinian culture and heritage through programmes that celebrate traditions, arts, and collective memory, ensuring that cultural identity remains strong across generations.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">volunteer_activism</span>
+          </div>
+          <h3>Advocacy & Support</h3>
+          <p>Al Manar Society advocates for Palestinian rights and provides direct support to individuals and families, addressing immediate needs while working toward long-term systemic change.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="links-section">
+        <h2>Learn More About Al Manar Society</h2>
+        <p>Visit their website and follow them on social media to stay updated on their programmes and initiatives.</p>
+        <div class="links-grid">
+          <a class="link-button" href="https://almanar-society.org/" target="_blank" rel="noreferrer">
+            <span class="material-symbols-rounded">language</span>
+            <span>Visit Website</span>
+          </a>
+          <a class="link-button secondary" href="https://www.facebook.com/almanarsociety" target="_blank" rel="noreferrer">
+            <span>Facebook</span>
+          </a>
+          <a class="link-button secondary" href="https://www.instagram.com/almanarsociety/" target="_blank" rel="noreferrer">
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
