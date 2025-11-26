@@ -88,9 +88,10 @@
       right: 0;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: var(--md-elevation-2);
       z-index: 1000;
       padding: var(--space-4) var(--space-6);
+      transition: box-shadow var(--md-motion-duration-short) var(--md-motion-easing-standard);
     }
 
     .nav-content {
@@ -110,21 +111,39 @@
       text-decoration: none;
       padding: var(--space-3) var(--space-6);
       border-radius: 50px;
-      transition: all 0.3s ease;
+      transition: all var(--md-motion-duration-short) var(--md-motion-easing-standard);
       position: relative;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: currentColor;
+      opacity: 0;
+      transition: opacity var(--md-motion-duration-short) var(--md-motion-easing-standard);
+    }
+
+    .nav-link:hover::before {
+      opacity: var(--md-state-hover-opacity);
+    }
+
+    .nav-link:focus-visible::before {
+      opacity: var(--md-state-focus-opacity);
     }
 
     .nav-link:hover {
       background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
       color: var(--sage-900);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(84, 107, 84, 0.2);
+      box-shadow: var(--md-elevation-2);
     }
 
     .nav-link.active {
       background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
       color: white;
-      box-shadow: 0 4px 16px rgba(84, 107, 84, 0.3);
+      box-shadow: var(--md-elevation-3);
     }
 
     /* Hero Section */
@@ -241,9 +260,8 @@
     .material-surface {
       background: white;
       border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
-                  0 2px 10px rgba(0, 0, 0, 0.04);
-      transition: all 0.3s ease;
+      box-shadow: var(--md-elevation-2);
+      transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
       position: relative;
       overflow: hidden;
     }
@@ -319,8 +337,13 @@
       border-radius: 16px;
       border-left: 6px solid var(--sage-600);
       margin: var(--space-10) 0;
-      box-shadow: 0 8px 24px rgba(84, 107, 84, 0.15);
+      box-shadow: var(--md-elevation-3);
       position: relative;
+      transition: box-shadow var(--md-motion-duration-medium) var(--md-motion-easing-standard);
+    }
+
+    .pullquote:hover {
+      box-shadow: var(--md-elevation-4);
     }
 
     .pullquote::before {
@@ -358,7 +381,36 @@
       margin: var(--space-10) auto;
     }
 
-    /* Loading Screen */
+    /* Material Design 3 Motion Tokens */
+    :root {
+      --md-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+      --md-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+      --md-motion-easing-decelerate: cubic-bezier(0, 0, 0, 1);
+      --md-motion-easing-accelerate: cubic-bezier(0.3, 0, 1, 1);
+      --md-motion-duration-short: 200ms;
+      --md-motion-duration-medium: 400ms;
+      --md-motion-duration-long: 600ms;
+    }
+
+    /* Material Design 3 Elevation Tokens */
+    :root {
+      --md-elevation-0: none;
+      --md-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+      --md-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.05), 0 3px 8px rgba(0, 0, 0, 0.08);
+      --md-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.06), 0 6px 12px rgba(0, 0, 0, 0.1);
+      --md-elevation-4: 0 6px 12px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.12);
+      --md-elevation-6: 0 10px 20px rgba(0, 0, 0, 0.1), 0 12px 24px rgba(0, 0, 0, 0.14);
+      --md-elevation-8: 0 12px 24px rgba(0, 0, 0, 0.12), 0 16px 32px rgba(0, 0, 0, 0.16);
+    }
+
+    /* Material Design 3 State Layer Tokens */
+    :root {
+      --md-state-hover-opacity: 0.08;
+      --md-state-focus-opacity: 0.12;
+      --md-state-pressed-opacity: 0.16;
+    }
+
+    /* Loading Screen with Material Design 3 */
     #loading-screen {
       position: fixed;
       top: 0;
@@ -371,7 +423,8 @@
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
+      transition: opacity var(--md-motion-duration-long) var(--md-motion-easing-emphasized),
+                  visibility var(--md-motion-duration-long) var(--md-motion-easing-emphasized);
     }
 
     #loading-screen.hidden {
@@ -379,46 +432,52 @@
       visibility: hidden;
     }
 
-    .loader {
-      width: 80px;
-      height: 80px;
-      position: relative;
+    /* Material Design 3 Circular Progress Indicator */
+    .md-circular-progress {
+      width: 48px;
+      height: 48px;
       margin-bottom: var(--space-6);
+      animation: md-circular-progress-rotate 1.568s linear infinite;
     }
 
-    .loader-circle {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 4px solid var(--sage-200);
-      border-top-color: var(--sage-600);
-      animation: spin 1s linear infinite;
+    .md-circular-progress-circle {
+      fill: none;
+      stroke: var(--sage-600);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: md-circular-progress-dash 1.568s var(--md-motion-easing-emphasized) infinite;
+      transform-origin: center;
     }
 
-    .loader-inner {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 4px solid var(--gold-200);
-      border-top-color: var(--gold-500);
-      animation: spin 0.7s linear infinite reverse;
-    }
-
-    @keyframes spin {
-      to {
+    @keyframes md-circular-progress-rotate {
+      100% {
         transform: rotate(360deg);
       }
     }
 
+    @keyframes md-circular-progress-dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 100, 200;
+        stroke-dashoffset: -15;
+      }
+      100% {
+        stroke-dasharray: 100, 200;
+        stroke-dashoffset: -125;
+      }
+    }
+
     .loader-text {
-      font-size: 1.125rem;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 500;
       color: var(--sage-700);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
+      font-family: 'Nunito', sans-serif;
     }
 
     /* Enhanced aesthetics */
@@ -514,13 +573,12 @@
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div id="loading-screen">
-    <div class="loader">
-      <div class="loader-circle"></div>
-      <div class="loader-inner"></div>
-    </div>
-    <p class="loader-text">Loading...</p>
+  <!-- Loading Screen with Material Design 3 -->
+  <div id="loading-screen" role="progressbar" aria-label="Loading page content" aria-busy="true">
+    <svg class="md-circular-progress" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <circle class="md-circular-progress-circle" cx="24" cy="24" r="20"></circle>
+    </svg>
+    <p class="loader-text" aria-live="polite">Loading...</p>
   </div>
 
   <!-- Navigation Bar -->
