@@ -305,13 +305,11 @@
       line-height: 1;
       float: left;
       margin: 0.1em 0.15em 0 0;
-      color: var(--sage-700);
-    }
-
-    .reference {
-      color: var(--sage-600);
-      font-style: italic;
-      font-size: 1rem;
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-800));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 4px 12px rgba(84, 107, 84, 0.2);
     }
 
     /* Pull Quote */
@@ -331,9 +329,13 @@
       top: -20px;
       left: 20px;
       font-size: 6rem;
-      color: var(--sage-300);
+      background: linear-gradient(135deg, var(--sage-300), var(--sage-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       font-family: Georgia, serif;
       line-height: 1;
+      opacity: 0.6;
     }
 
     .pullquote p {
@@ -356,32 +358,90 @@
       margin: var(--space-10) auto;
     }
 
-    /* References Section */
-    .references {
-      background: linear-gradient(135deg, var(--sage-800), var(--sage-900));
-      padding: var(--space-8);
-      border-radius: 16px;
-      margin-top: var(--space-10);
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--sage-50) 0%, var(--neutral-50) 50%, #fef9ec 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
 
-    .references h3 {
-      color: white;
-      font-size: 1.25rem;
-      margin-bottom: var(--space-4);
-      font-weight: 700;
-      letter-spacing: 0.02em;
+    #loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
     }
 
-    .references p {
-      color: var(--sage-100);
-      font-size: 0.9375rem;
-      line-height: 1.8;
-      margin-bottom: var(--space-3);
-      text-align: left;
+    .loader {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      margin-bottom: var(--space-6);
     }
 
-    .references p:last-child {
-      margin-bottom: 0;
+    .loader-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid var(--sage-200);
+      border-top-color: var(--sage-600);
+      animation: spin 1s linear infinite;
+    }
+
+    .loader-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 4px solid var(--gold-200);
+      border-top-color: var(--gold-500);
+      animation: spin 0.7s linear infinite reverse;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loader-text {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--sage-700);
+      letter-spacing: 0.05em;
+    }
+
+    /* Enhanced aesthetics */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(254, 220, 71, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      animation: ambientFloat 20s ease-in-out infinite;
+    }
+
+    @keyframes ambientFloat {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(-20px, 20px) scale(1.1);
+      }
     }
 
     /* Responsive */
@@ -454,6 +514,15 @@
   </style>
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader">
+      <div class="loader-circle"></div>
+      <div class="loader-inner"></div>
+    </div>
+    <p class="loader-text">Loading...</p>
+  </div>
+
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-content">
@@ -482,45 +551,55 @@
           <p>Language proficiency is a dynamic capability that enhances a student's agency and enlarges their capacity to aspire to and achieve a wider range of personal and professional goals.</p>
         </div>
 
-        <p>A central element of this vision involves expanding the substantive freedoms, or capabilities, that enable individuals to lead lives they have reason to value <span class="reference">(Sen, 1999; Nussbaum, 2011)</span>. Far from being a static credential, we understand language proficiency as a dynamic capability that enhances a student's agency and enlarges their capacity to aspire to and achieve a wider range of personal and professional goals <span class="reference">(Appadurai, 2004)</span>. Our curriculum therefore emphasises the active cultivation of students as critical and creative agents, as opposed to the passive transmission of knowledge, so they may use language to solve problems, articulate their vision with confidence, and engage productively with the challenges and opportunities that lie before them.</p>
+        <p>A central element of this vision involves expanding the substantive freedoms, or capabilities, that enable individuals to lead lives they have reason to value. Far from being a static credential, we understand language proficiency as a dynamic capability that enhances a student's agency and enlarges their capacity to aspire to and achieve a wider range of personal and professional goals. Our curriculum therefore emphasises the active cultivation of students as critical and creative agents, as opposed to the passive transmission of knowledge, so they may use language to solve problems, articulate their vision with confidence, and engage productively with the challenges and opportunities that lie before them.</p>
 
         <div class="section-divider"></div>
 
-        <p>The cultivation of individual agency is an inherently social process, nurtured within supportive communities of practice where learning is understood as a collective and interactive endeavour <span class="reference">(Wenger, 1998)</span>. Our classrooms are structured as horizontal, collaborative spaces where knowledge is co-constructed through respectful dialogue and mutual inquiry, fostering an engaged pedagogy of shared responsibility <span class="reference">(hooks, 1994; Freire, 2000)</span>. It is this ethos of mutual respect and collective effort that creates the conditions for intellectual risk-taking, allowing students to develop a meaningful investment in their own learning and that of their peers <span class="reference">(Norton, 2013)</span>.</p>
+        <p>The cultivation of individual agency is an inherently social process, nurtured within supportive communities of practice where learning is understood as a collective and interactive endeavour. Our classrooms are structured as horizontal, collaborative spaces where knowledge is co-constructed through respectful dialogue and mutual inquiry, fostering an engaged pedagogy of shared responsibility. It is this ethos of mutual respect and collective effort that creates the conditions for intellectual risk-taking, allowing students to develop a meaningful investment in their own learning and that of their peers.</p>
 
-        <p>From this secure foundation of a collaborative learning community, our pedagogy extends outward to engage with the wider world. We aim to cultivate a form of rooted cosmopolitanism, wherein a strong and confident sense of local identity becomes the very basis for ethical and effective global engagement <span class="reference">(Appiah, 2006)</span>. Our approach is designed to develop a sophisticated intercultural communicative competence, equipping students with the skills and critical awareness to participate in a global dialogue as active contributors who can represent their own perspectives, rather than as passive recipients of information <span class="reference">(Byram, 1997; Kramsch, 1993)</span>. English is thus framed as a language of connection, a vital tool for building bridges of understanding in a pluralistic world.</p>
+        <p>From this secure foundation of a collaborative learning community, our pedagogy extends outward to engage with the wider world. We aim to cultivate a form of rooted cosmopolitanism, wherein a strong and confident sense of local identity becomes the very basis for ethical and effective global engagement. Our approach is designed to develop a sophisticated intercultural communicative competence, equipping students with the skills and critical awareness to participate in a global dialogue as active contributors who can represent their own perspectives, rather than as passive recipients of information. English is thus framed as a language of connection, a vital tool for building bridges of understanding in a pluralistic world.</p>
 
         <div class="section-divider"></div>
 
-        <p>Achieving these aims requires a pedagogy that integrates the cognitive, emotional, and social dimensions of learning. We incorporate arts-based and creative methodologies to engage the whole person, fostering the positive affective states of curiosity, confidence, and intellectual joy that are essential for motivation and the emergent complexities of language acquisition <span class="reference">(Larsen-Freeman & Cameron, 2008)</span>. This process is designed to foster a mature learner autonomy, which we define as the capacity for students to take conscious ownership of their educational journeys through metacognitive awareness, strategic planning, and critical self-reflection <span class="reference">(Benson, 2011)</span>.</p>
+        <p>Achieving these aims requires a pedagogy that integrates the cognitive, emotional, and social dimensions of learning. We incorporate arts-based and creative methodologies to engage the whole person, fostering the positive affective states of curiosity, confidence, and intellectual joy that are essential for motivation and the emergent complexities of language acquisition. This process is designed to foster a mature learner autonomy, which we define as the capacity for students to take conscious ownership of their educational journeys through metacognitive awareness, strategic planning, and critical self-reflection.</p>
 
         <div class="pullquote">
           <p>Our commitment to creating predictable, empowering, and relationally secure classrooms is the precondition for all effective learning.</p>
         </div>
 
-        <p>This entire pedagogical framework rests upon an ethical commitment to the wellbeing of our students, recognising that all meaningful learning depends upon a foundation of safety and trust. Acknowledging the cognitive and emotional impact of continuous traumatic stress is therefore a central pedagogical necessity that informs every aspect of our practice <span class="reference">(Straker, 2001; Herman, 1997)</span>. Our commitment to creating predictable, empowering, and relationally secure classrooms is thus the precondition for all effective learning. This practice of psychosocial accompaniment, grounded in solidarity and care, ensures that the classroom remains a space for intellectual exploration and personal growth, allowing students to build the resilience and confidence they need to thrive both academically and in their lives beyond our walls <span class="reference">(Watkins, 2011)</span>.</p>
-
-        <div class="references">
-          <h3>References</h3>
-          <p>Appadurai, A. (2004). The capacity to aspire: Culture and the terms of recognition. In V. Rao & M. Walton (Eds.), <em>Culture and public action</em> (pp. 59-84). Stanford University Press.</p>
-          <p>Appiah, K. A. (2006). <em>Cosmopolitanism: Ethics in a world of strangers</em>. W. W. Norton & Company.</p>
-          <p>Benson, P. (2011). <em>Teaching and researching autonomy in language learning</em> (2nd ed.). Routledge.</p>
-          <p>Byram, M. (1997). <em>Teaching and assessing intercultural communicative competence</em>. Multilingual Matters.</p>
-          <p>Freire, P. (2000). <em>Pedagogy of the oppressed</em> (30th anniversary ed.). Continuum.</p>
-          <p>Herman, J. L. (1997). <em>Trauma and recovery: The aftermath of violence</em>. Basic Books.</p>
-          <p>hooks, b. (1994). <em>Teaching to transgress: Education as the practice of freedom</em>. Routledge.</p>
-          <p>Kramsch, C. (1993). <em>Context and culture in language teaching</em>. Oxford University Press.</p>
-          <p>Larsen-Freeman, D., & Cameron, L. (2008). <em>Complex systems and applied linguistics</em>. Oxford University Press.</p>
-          <p>Norton, B. (2013). <em>Identity and language learning: Extending the conversation</em> (2nd ed.). Multilingual Matters.</p>
-          <p>Nussbaum, M. C. (2011). <em>Creating capabilities: The human development approach</em>. Harvard University Press.</p>
-          <p>Sen, A. (1999). <em>Development as freedom</em>. Oxford University Press.</p>
-          <p>Straker, G. (2001). <em>Continuous traumatic stress: Personal reflections 25 years later</em>. Peace and Conflict: Journal of Peace Psychology, 7(3), 209-219.</p>
-          <p>Watkins, M. (2011). Disciplinary concerns and psychosocial accompaniment. <em>Social Sciences Research Council</em>.</p>
-          <p>Wenger, E. (1998). <em>Communities of practice: Learning, meaning, and identity</em>. Cambridge University Press.</p>
-        </div>
+        <p>This entire pedagogical framework rests upon an ethical commitment to the wellbeing of our students, recognising that all meaningful learning depends upon a foundation of safety and trust. Acknowledging the cognitive and emotional impact of continuous traumatic stress is therefore a central pedagogical necessity that informs every aspect of our practice. Our commitment to creating predictable, empowering, and relationally secure classrooms is thus the precondition for all effective learning. This practice of psychosocial accompaniment, grounded in solidarity and care, ensures that the classroom remains a space for intellectual exploration and personal growth, allowing students to build the resilience and confidence they need to thrive both academically and in their lives beyond our walls.</p>
       </div>
     </section>
   </main>
 
+  <script>
+    // Loading screen management
+    window.addEventListener('load', function() {
+      // Wait for fonts and icons to load
+      Promise.all([
+        document.fonts.ready,
+        // Wait a brief moment for Material Symbols to render
+        new Promise(resolve => setTimeout(resolve, 300))
+      ]).then(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.classList.add('hidden');
+        // Remove from DOM after transition
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 600);
+      });
+    });
+
+    // Fallback: hide loading screen after 5 seconds regardless
+    setTimeout(() => {
+      const loadingScreen = document.getElementById('loading-screen');
+      if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
+        loadingScreen.classList.add('hidden');
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 600);
+      }
+    }, 5000);
+  </script>
 </body>
 </html>
