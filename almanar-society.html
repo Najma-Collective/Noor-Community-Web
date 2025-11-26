@@ -265,9 +265,20 @@
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
                   0 2px 10px rgba(0, 0, 0, 0.04);
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+    }
+
+    .material-surface::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--sage-300), transparent);
+      opacity: 0.5;
     }
 
     .material-surface:hover {
@@ -462,6 +473,21 @@
     ::selection {
       background: var(--sage-600);
       color: white;
+    }
+
+    /* Focus Styles for Accessibility */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--gold-400);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Page Transitions */
+    @media (prefers-reduced-motion: no-preference) {
+      * {
+        scroll-behavior: smooth;
+      }
     }
   </style>
 </head>

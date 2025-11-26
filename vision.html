@@ -130,7 +130,7 @@
     /* Hero Section */
     .hero {
       position: relative;
-      min-height: 70vh;
+      min-height: 75vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -435,6 +435,21 @@
     ::selection {
       background: var(--sage-600);
       color: white;
+    }
+
+    /* Focus Styles for Accessibility */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--gold-400);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Page Transitions */
+    @media (prefers-reduced-motion: no-preference) {
+      * {
+        scroll-behavior: smooth;
+      }
     }
   </style>
 </head>
