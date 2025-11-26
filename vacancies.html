@@ -408,6 +408,46 @@
       margin-bottom: var(--space-6);
     }
 
+    .deadline-notice {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-6);
+      margin: 0 auto var(--space-8);
+      max-width: 960px;
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.16), rgba(255, 247, 200, 0.8));
+      border: 1px solid rgba(234, 179, 8, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(113, 63, 18, 0.08);
+      color: var(--sage-900);
+    }
+
+    .deadline-icon {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(84, 107, 84, 0.15), rgba(84, 107, 84, 0.05));
+      color: var(--sage-800);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+    }
+
+    .deadline-title {
+      font-size: 1.125rem;
+      font-weight: 800;
+      margin-bottom: var(--space-2);
+      letter-spacing: -0.01em;
+    }
+
+    .deadline-subtitle {
+      color: var(--neutral-700);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
     .material-surface {
       background: white;
       border-radius: 20px;
@@ -1160,6 +1200,15 @@
         </div>
         <h2 class="section-title section-title-xl">Join Our <span class="text-highlight">Team</span></h2>
         <p class="section-subtitle">We are seeking dedicated professionals to help build liberatory educational infrastructure.</p>
+      </div>
+
+      <div class="deadline-notice" role="status" aria-live="polite">
+        <div class="deadline-icon">
+          <span class="material-symbols-rounded" aria-hidden="true">schedule</span>
+        </div>
+        <div>
+          <p class="deadline-title">Applications close 07th December.</p>
+        </div>
       </div>
 
       <!-- Position 1: Operations Coordinator -->
