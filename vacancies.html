@@ -34,16 +34,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.pexels.com" />
-  <link rel="dns-prefetch" href="https://unpkg.com" />
 
-  <!-- Fonts with font-display swap for better performance -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <script type="module">
-    import 'https://unpkg.com/@material/web@latest/all.js';
-  </script>
-  <script defer src="assets/js/main.js"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -60,48 +54,783 @@
     }
   }
   </script>
-</head>
-<body class="site-shell">
-  <!-- Skip to main content for accessibility -->
-  <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="navbar">
-      <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
-        <span>Noor Community</span>
-      </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="material-symbols-rounded">menu</span>
-      </button>
-      <nav>
-        <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="team.html">Meet the Teachers</a></li>
-          <li><a href="programmes.html">Our Programmes</a></li>
-          <li><a href="impact.html">Our Impact</a></li>
-          <li><a href="stories.html">Stories</a></li>
-          <li><a href="partners.html">Al Manar Society</a></li>
-          <li><a href="join-students.html">Join Us</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
-        </a>
-      </div>
-    </div>
-  </header>
+  <style>
+    :root {
+      --sage-50: #f6f7f6;
+      --sage-100: #e8ebe8;
+      --sage-200: #d4dbd4;
+      --sage-300: #b0bfb0;
+      --sage-400: #8aa08a;
+      --sage-500: #6b856b;
+      --sage-600: #546b54;
+      --sage-700: #435743;
+      --sage-800: #374637;
+      --sage-900: #2d3a2d;
+
+      --gold-50: #fefce8;
+      --gold-100: #fef9c3;
+      --gold-200: #fef08a;
+      --gold-300: #fde047;
+      --gold-400: #facc15;
+      --gold-500: #eab308;
+      --gold-600: #ca8a04;
+      --gold-700: #a16207;
+      --gold-800: #854d0e;
+      --gold-900: #713f12;
+
+      --neutral-50: #fafafa;
+      --neutral-100: #f5f5f5;
+      --neutral-200: #e5e5e5;
+      --neutral-300: #d4d4d4;
+      --neutral-400: #a3a3a3;
+      --neutral-500: #737373;
+      --neutral-600: #525252;
+      --neutral-700: #404040;
+      --neutral-800: #262626;
+      --neutral-900: #171717;
+
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: var(--neutral-800);
+      background: linear-gradient(135deg, var(--sage-50) 0%, var(--neutral-50) 50%, #fef9ec 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-20) var(--space-4);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(67, 87, 67, 0.95) 0%,
+        rgba(107, 133, 107, 0.9) 40%,
+        rgba(138, 160, 138, 0.85) 70%,
+        rgba(176, 191, 176, 0.8) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 20% 50%,
+        rgba(254, 249, 195, 0.15) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 50%,
+        rgba(234, 179, 8, 0.1) 0%,
+        transparent 50%
+      );
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-6);
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      color: var(--neutral-900);
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      margin-bottom: var(--space-6);
+      box-shadow: 0 4px 20px rgba(234, 179, 8, 0.4),
+                  0 0 40px rgba(254, 220, 71, 0.3);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 4px 20px rgba(234, 179, 8, 0.4),
+                    0 0 40px rgba(254, 220, 71, 0.3);
+      }
+      50% {
+        box-shadow: 0 4px 30px rgba(234, 179, 8, 0.6),
+                    0 0 60px rgba(254, 220, 71, 0.5);
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: var(--space-6);
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+                   0 0 40px rgba(254, 249, 195, 0.2);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-description {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      color: var(--sage-100);
+      max-width: 700px;
+      margin: 0 auto var(--space-8);
+      line-height: 1.8;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    .hero-scroll-indicator .material-symbols-rounded {
+      color: white;
+      font-size: 3rem;
+      opacity: 0.8;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Main Content */
+    main {
+      position: relative;
+      z-index: 10;
+    }
+
+    .section {
+      padding: var(--space-20) var(--space-4);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--sage-700);
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-4);
+      padding: var(--space-2) var(--space-4);
+      background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
+      border-radius: 50px;
+      box-shadow: 0 2px 10px rgba(84, 107, 84, 0.15);
+    }
+
+    .section-label .material-symbols-rounded {
+      font-size: 1.25rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--sage-900);
+      margin-bottom: var(--space-4);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title-xl {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .text-highlight {
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      display: inline-block;
+    }
+
+    .text-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-400), var(--gold-500));
+      border-radius: 2px;
+      box-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: var(--neutral-600);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .section-subtitle-large {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      line-height: 1.9;
+      margin-bottom: var(--space-6);
+    }
+
+    .material-surface {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
+                  0 2px 10px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .material-surface::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--sage-300), transparent);
+      opacity: 0.5;
+    }
+
+    .material-surface:hover {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12),
+                  0 4px 20px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .content-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: var(--space-8);
+    }
+
+    .content-wrapper p {
+      margin-bottom: var(--space-6);
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--neutral-700);
+    }
+
+    .testimonial {
+      background: linear-gradient(135deg, var(--sage-50), var(--sage-100));
+      padding: var(--space-8);
+      border-radius: 16px;
+      border-left: 5px solid var(--sage-600);
+      margin: var(--space-8) 0;
+      box-shadow: 0 4px 20px rgba(84, 107, 84, 0.15);
+      position: relative;
+    }
+
+    .testimonial-icon {
+      position: absolute;
+      top: -15px;
+      left: var(--space-6);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(84, 107, 84, 0.3);
+    }
+
+    .testimonial-icon .material-symbols-rounded {
+      color: white;
+      font-size: 1.75rem;
+    }
+
+    .testimonial-text {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--sage-900);
+      line-height: 1.8;
+      margin-top: var(--space-4);
+      font-weight: 600;
+    }
+
+    /* Job Cards */
+    .job-card {
+      max-width: 960px;
+      margin: var(--space-8) auto;
+      padding: var(--space-8);
+      background: white;
+      border-radius: 20px;
+      border-left: 6px solid var(--sage-600);
+      box-shadow: 0 10px 40px rgba(84, 107, 84, 0.12),
+                  0 2px 10px rgba(84, 107, 84, 0.06);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .job-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle at top right,
+        rgba(176, 191, 176, 0.05) 0%,
+        transparent 60%
+      );
+      pointer-events: none;
+    }
+
+    .job-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(
+        circle,
+        rgba(254, 220, 71, 0.1) 0%,
+        transparent 70%
+      );
+      pointer-events: none;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(84, 107, 84, 0.2),
+                  0 4px 20px rgba(84, 107, 84, 0.1);
+      border-left-color: var(--sage-700);
+    }
+
+    .job-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+      position: relative;
+      z-index: 1;
+    }
+
+    .job-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(84, 107, 84, 0.2),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .job-card:hover .job-icon {
+      transform: scale(1.05) rotate(-5deg);
+      box-shadow: 0 12px 32px rgba(84, 107, 84, 0.3),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .job-icon .material-symbols-rounded {
+      color: var(--sage-700);
+      font-size: 2.5rem;
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 48;
+    }
+
+    .job-number {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      color: var(--neutral-900);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.875rem;
+      box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4);
+    }
+
+    .job-title {
+      flex: 1;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--sage-900);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .job-section-title {
+      color: var(--sage-700);
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .job-section-title::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(180deg, var(--sage-600), var(--sage-700));
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(84, 107, 84, 0.3);
+    }
+
+    .job-section-title .material-symbols-rounded {
+      color: var(--sage-600);
+      font-size: 1.5rem;
+    }
+
+    .job-content p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--neutral-700);
+      margin-bottom: var(--space-6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .job-content ul {
+      list-style: none;
+      margin: var(--space-6) 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .job-content ul li {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--neutral-700);
+      margin-bottom: var(--space-4);
+      padding-left: var(--space-8);
+      position: relative;
+    }
+
+    .job-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(135deg, var(--sage-500), var(--sage-600));
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(84, 107, 84, 0.4),
+                  0 2px 4px rgba(84, 107, 84, 0.2);
+    }
+
+    .job-content ul li::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: calc(0.65em + 4px);
+      width: 2px;
+      height: calc(100% - 0.65em);
+      background: linear-gradient(180deg, var(--sage-300), transparent);
+      opacity: 0.3;
+    }
+
+    .job-content ul li:last-child::after {
+      display: none;
+    }
+
+    /* CTA Section */
+    .section-cta {
+      background: linear-gradient(135deg, var(--sage-700), var(--sage-800));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(254, 220, 71, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(176, 191, 176, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .section-cta-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .section-cta-badge {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-6);
+      box-shadow: 0 8px 32px rgba(234, 179, 8, 0.4),
+                  0 0 60px rgba(254, 220, 71, 0.3);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .section-cta-badge .material-symbols-rounded {
+      color: var(--neutral-900);
+      font-size: 2.5rem;
+      font-variation-settings: 'FILL' 1, 'wght' 600;
+    }
+
+    .section-cta .section-title {
+      color: white;
+      margin-bottom: var(--space-6);
+    }
+
+    .section-cta .text-highlight {
+      background: linear-gradient(135deg, var(--gold-300), var(--gold-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-cta .text-highlight::after {
+      background: linear-gradient(90deg, var(--gold-300), var(--gold-400));
+    }
+
+    .section-cta .section-subtitle-large {
+      color: var(--sage-100);
+      font-size: 1.125rem;
+      line-height: 1.9;
+      margin-bottom: var(--space-6);
+    }
+
+    /* Apply Button */
+    .apply-button-wrapper {
+      margin-top: var(--space-12);
+    }
+
+    .apply-button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-6) var(--space-12);
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      color: var(--neutral-900);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(234, 179, 8, 0.4),
+                  0 0 60px rgba(254, 220, 71, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .apply-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      z-index: -1;
+      border-radius: 50%;
+    }
+
+    .apply-button:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .apply-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 48px rgba(234, 179, 8, 0.6),
+                  0 0 80px rgba(254, 220, 71, 0.5);
+    }
+
+    .apply-button:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .apply-button .material-symbols-rounded {
+      font-size: 1.75rem;
+      transition: transform 0.3s ease;
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+
+    .apply-button:hover .material-symbols-rounded {
+      transform: translateX(5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 70vh;
+        padding: var(--space-12) var(--space-4);
+      }
+
+      .section {
+        padding: var(--space-12) var(--space-4);
+      }
+
+      .job-card {
+        padding: var(--space-6);
+        margin: var(--space-6) auto;
+      }
+
+      .job-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .job-icon {
+        width: 70px;
+        height: 70px;
+      }
+
+      .job-icon .material-symbols-rounded {
+        font-size: 2rem;
+      }
+
+      .content-wrapper {
+        padding: var(--space-6);
+      }
+
+      .apply-button {
+        padding: var(--space-4) var(--space-8);
+        font-size: 1.125rem;
+      }
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--sage-600);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" style="position: absolute; left: -9999px; z-index: 999;">Skip to main content</a>
 
   <main id="main-content">
-    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/5206277/pexels-photo-5206277.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Hero section">
-      <div class="hero-ornament hero-ornament-left" aria-hidden="true"></div>
-      <div class="hero-ornament hero-ornament-right" aria-hidden="true"></div>
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/5206277/pexels-photo-5206277.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Hero section">
       <div class="hero-content">
-        <p class="chip chip-premium">Vacancies</p>
+        <p class="chip">Vacancies</p>
         <h1 class="hero-title">Building the Infrastructure for Liberation Through Education</h1>
         <p class="hero-description">Join our team as we create liberatory educational infrastructure for Palestinian communities worldwide.</p>
       </div>
@@ -110,18 +839,18 @@
       </div>
     </section>
 
-    <section class="section page-surface">
-      <div class="section-header section-header-centered">
-        <div class="section-label section-label-centered">
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
           <span class="material-symbols-rounded">info</span>
           <span>About Noor Community</span>
         </div>
-        <h2 class="section-title section-title-large">Who We Are</h2>
+        <h2 class="section-title">Who We Are</h2>
       </div>
-      <div class="material-surface" style="max-width: 960px; margin: 0 auto; padding: var(--space-8);">
+      <div class="material-surface content-wrapper">
         <p>Noor Community is an international network of educators and activists united by a conviction that education, particularly language education, functions as a primary practice of human liberation. We work alongside Palestinian grassroots organisations to provide high-level English language training, professional skills development, and academic mentoring to students from Gaza, the West Bank, and the diaspora.</p>
         <p>Our work is grounded in the understanding that in contexts of sustained adversity, the classroom must function as a space of stability, possibility, and care. We recognise that intellectual rigour and emotional safety are mutually reinforcing, that the cognitive and affective dimensions of learning cannot be separated, particularly when students navigate continuous traumatic stress.</p>
-        <blockquote class="testimonial testimonial-premium" data-scroll-animate style="margin-top: var(--space-8);">
+        <blockquote class="testimonial">
           <div class="testimonial-icon">
             <span class="material-symbols-rounded">format_quote</span>
           </div>
@@ -130,37 +859,37 @@
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
-      <div class="section-header section-header-centered">
-        <div class="section-label section-label-centered">
+    <section class="section" style="background: rgba(246, 247, 246, 0.5);">
+      <div class="section-header">
+        <div class="section-label">
           <span class="material-symbols-rounded">school</span>
           <span>Our Approach</span>
         </div>
-        <h2 class="section-title section-title-large">Our Pedagogical Vision</h2>
+        <h2 class="section-title">Our Pedagogical Vision</h2>
       </div>
-      <div class="material-surface" style="max-width: 960px; margin: 0 auto; padding: var(--space-8);">
+      <div class="material-surface content-wrapper">
         <p>We understand language proficiency as a dynamic capability that expands the substantive freedoms enabling individuals to lead lives they have reason to value. Our curriculum emphasises the cultivation of students as critical and creative agents, rather than passive recipients of knowledge, so they may use language to solve problems, articulate their vision with confidence, and engage productively with the challenges and opportunities before them.</p>
         <p>The cultivation of individual agency is an inherently social process. Our classrooms are structured as horizontal, collaborative spaces where knowledge is co-constructed through dialogue and mutual inquiry—an engaged pedagogy of shared responsibility. From this foundation, we aim to create a space where our students' sense of local identity becomes the very basis for ethical and effective global engagement.</p>
         <p>This entire framework rests upon an ethical commitment to student wellbeing. Our practice, grounded in solidarity and care, ensures that the classroom remains a space for intellectual exploration and personal growth, allowing students to build the confidence they need to thrive both academically and professionally.</p>
       </div>
     </section>
 
-    <section class="section page-surface">
-      <div class="section-header section-header-centered">
-        <div class="section-label section-label-centered">
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
           <span class="material-symbols-rounded">announcement</span>
           <span>Important Information</span>
         </div>
-        <h2 class="section-title section-title-large">A Note on Conditions</h2>
+        <h2 class="section-title">A Note on Conditions</h2>
       </div>
-      <div class="material-surface" style="max-width: 960px; margin: 0 auto; padding: var(--space-8);">
+      <div class="material-surface content-wrapper">
         <p>These positions represent a critical investment in the organisation's future. While designed as paid professional appointments, remuneration is contingent upon the successful closure of upcoming funding cycles. Selected candidates will participate directly in the operationalisation of the systems required to secure and manage this capital. We are seeking people who understand that building liberatory infrastructure is itself a form of solidarity work.</p>
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
-      <div class="section-header section-header-centered">
-        <div class="section-label section-label-centered">
+    <section class="section" style="background: rgba(246, 247, 246, 0.5);">
+      <div class="section-header">
+        <div class="section-label">
           <span class="material-symbols-rounded">work</span>
           <span>Open Positions</span>
         </div>
@@ -169,128 +898,188 @@
       </div>
 
       <!-- Position 1: Operations Coordinator -->
-      <div class="material-surface" style="max-width: 960px; margin: var(--space-8) auto; padding: var(--space-8); border-left: 4px solid var(--sage-600);">
-        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
-          <div class="card-icon" style="background: var(--sage-100);">
-            <span class="material-symbols-rounded" style="color: var(--sage-700);">admin_panel_settings</span>
+      <div class="job-card">
+        <div class="job-header">
+          <div class="job-icon">
+            <span class="material-symbols-rounded">admin_panel_settings</span>
+            <div class="job-number">1</div>
           </div>
-          <h3 class="section-title" style="margin: 0;">1. Operations Coordinator</h3>
+          <h3 class="job-title">Operations Coordinator</h3>
         </div>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">The Role</h4>
-        <p>The Operations Coordinator serves as the logistical anchor for Noor Community during this phase of structural implementation. This role demands someone capable of managing the precise execution of recruitment, enrolment, and assessment protocols, maintaining the integrity of our day-to-day procedures while leveraging automation to ensure the organisation remains agile and responsive to the needs of our community.</p>
+        <div class="job-content">
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">description</span>
+            The Role
+          </h4>
+          <p>The Operations Coordinator serves as the logistical anchor for Noor Community during this phase of structural implementation. This role demands someone capable of managing the precise execution of recruitment, enrolment, and assessment protocols, maintaining the integrity of our day-to-day procedures while leveraging automation to ensure the organisation remains agile and responsive to the needs of our community.</p>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Core Responsibilities</h4>
-        <ul style="line-height: 1.8;">
-          <li>Oversee end-to-end administration of the recruitment lifecycle: candidate screening, reference verification, and availability mapping</li>
-          <li>Manage the integration of new educators and students into the Noor ecosystem, ensuring all participants are equipped with necessary resources and methodological briefings</li>
-          <li>Monitor bi-weekly assessment cadence and coordinate quarterly certification processes</li>
-          <li>Utilise AI-driven tools and prompt engineering to synthesise administrative data, draft communications, and optimise workflows</li>
-          <li>Maintain accuracy of the central database, ensuring applicant data flows seamlessly into scheduling and resource allocation systems</li>
-        </ul>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">checklist</span>
+            Core Responsibilities
+          </h4>
+          <ul>
+            <li>Oversee end-to-end administration of the recruitment lifecycle: candidate screening, reference verification, and availability mapping</li>
+            <li>Manage the integration of new educators and students into the Noor ecosystem, ensuring all participants are equipped with necessary resources and methodological briefings</li>
+            <li>Monitor bi-weekly assessment cadence and coordinate quarterly certification processes</li>
+            <li>Utilise AI-driven tools and prompt engineering to synthesise administrative data, draft communications, and optimise workflows</li>
+            <li>Maintain accuracy of the central database, ensuring applicant data flows seamlessly into scheduling and resource allocation systems</li>
+          </ul>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Who You Are</h4>
-        <p>You have demonstrated experience in operational coordination or administrative management. You are proficient with AI-assisted productivity tools and comfortable working within the Google Workspace ecosystem. You bring strong organisational capabilities with attention to procedural clarity, and you understand that reliable systems are themselves a form of care for the communities they serve.</p>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">person</span>
+            Who You Are
+          </h4>
+          <p>You have demonstrated experience in operational coordination or administrative management. You are proficient with AI-assisted productivity tools and comfortable working within the Google Workspace ecosystem. You bring strong organisational capabilities with attention to procedural clarity, and you understand that reliable systems are themselves a form of care for the communities they serve.</p>
+        </div>
       </div>
 
       <!-- Position 2: Systems Architect -->
-      <div class="material-surface" style="max-width: 960px; margin: var(--space-8) auto; padding: var(--space-8); border-left: 4px solid var(--sage-600);">
-        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
-          <div class="card-icon" style="background: var(--sage-100);">
-            <span class="material-symbols-rounded" style="color: var(--sage-700);">cloud_sync</span>
+      <div class="job-card">
+        <div class="job-header">
+          <div class="job-icon">
+            <span class="material-symbols-rounded">cloud_sync</span>
+            <div class="job-number">2</div>
           </div>
-          <h3 class="section-title" style="margin: 0;">2. Systems Architect (Google Ecosystem)</h3>
+          <h3 class="job-title">Systems Architect (Google Ecosystem)</h3>
         </div>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">The Role</h4>
-        <p>We seek a developer to assume responsibility for the maturation of Noor Community's digital backbone. As our operations rely heavily on the Google Workspace ecosystem, this role focuses on architecting bespoke backend solutions that ensure data reliability, security, and accessibility. The Systems Architect will transform current data handling processes into a unified, automated system capable of supporting scaled operations, building the technical infrastructure that makes our pedagogical vision materially possible.</p>
+        <div class="job-content">
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">description</span>
+            The Role
+          </h4>
+          <p>We seek a developer to assume responsibility for the maturation of Noor Community's digital backbone. As our operations rely heavily on the Google Workspace ecosystem, this role focuses on architecting bespoke backend solutions that ensure data reliability, security, and accessibility. The Systems Architect will transform current data handling processes into a unified, automated system capable of supporting scaled operations, building the technical infrastructure that makes our pedagogical vision materially possible.</p>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Core Responsibilities</h4>
-        <ul style="line-height: 1.8;">
-          <li>Architect and maintain backend automations using Google Apps Script and JavaScript to synchronise data across Forms, Sheets, and Drive</li>
-          <li>Develop and implement protocols for efficient processing, storage, and visualisation of educational data</li>
-          <li>Construct accessible, intuitive front-end dashboards enabling non-technical staff to query databases and generate reports</li>
-          <li>Continuously evaluate and refine database structure to support longitudinal tracking of student attendance and assessment</li>
-        </ul>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">checklist</span>
+            Core Responsibilities
+          </h4>
+          <ul>
+            <li>Architect and maintain backend automations using Google Apps Script and JavaScript to synchronise data across Forms, Sheets, and Drive</li>
+            <li>Develop and implement protocols for efficient processing, storage, and visualisation of educational data</li>
+            <li>Construct accessible, intuitive front-end dashboards enabling non-technical staff to query databases and generate reports</li>
+            <li>Continuously evaluate and refine database structure to support longitudinal tracking of student attendance and assessment</li>
+          </ul>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Who You Are</h4>
-        <p>You have a strong command of JavaScript and backend development principles. Specialised expertise in Google Apps Script and Google Cloud Platform is preferred, though general software engineering experience with capacity for rapid adaptation is valued. You can translate complex technical architectures into user-friendly operational tools, and you recognise that democratising access to data is itself a liberatory practice.</p>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">person</span>
+            Who You Are
+          </h4>
+          <p>You have a strong command of JavaScript and backend development principles. Specialised expertise in Google Apps Script and Google Cloud Platform is preferred, though general software engineering experience with capacity for rapid adaptation is valued. You can translate complex technical architectures into user-friendly operational tools, and you recognise that democratising access to data is itself a liberatory practice.</p>
+        </div>
       </div>
 
       <!-- Position 3: Web Developer -->
-      <div class="material-surface" style="max-width: 960px; margin: var(--space-8) auto; padding: var(--space-8); border-left: 4px solid var(--sage-600);">
-        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
-          <div class="card-icon" style="background: var(--sage-100);">
-            <span class="material-symbols-rounded" style="color: var(--sage-700);">code</span>
+      <div class="job-card">
+        <div class="job-header">
+          <div class="job-icon">
+            <span class="material-symbols-rounded">code</span>
+            <div class="job-number">3</div>
           </div>
-          <h3 class="section-title" style="margin: 0;">3. Web Developer</h3>
+          <h3 class="job-title">Web Developer</h3>
         </div>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">The Role</h4>
-        <p>The Web Developer is charged with professionalising Noor Community's public-facing digital presence. Currently hosted via GitHub repositories, our website requires comprehensive audit and migration to a dedicated hosting environment. You will execute a full technical refactor to ensure the site serves as a sophisticated hub for stakeholder engagement, fundraising, and narrative dissemination, amplifying Palestinian voices and enabling our students and partners to tell their own stories on the global stage.</p>
+        <div class="job-content">
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">description</span>
+            The Role
+          </h4>
+          <p>The Web Developer is charged with professionalising Noor Community's public-facing digital presence. Currently hosted via GitHub repositories, our website requires comprehensive audit and migration to a dedicated hosting environment. You will execute a full technical refactor to ensure the site serves as a sophisticated hub for stakeholder engagement, fundraising, and narrative dissemination, amplifying Palestinian voices and enabling our students and partners to tell their own stories on the global stage.</p>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Core Responsibilities</h4>
-        <ul style="line-height: 1.8;">
-          <li>Systematically debug and refine existing HTML, CSS, and JavaScript for industry-standard performance and cross-browser compatibility</li>
-          <li>Execute migration from static repository to scalable hosting architecture</li>
-          <li>Architect and deploy critical features: secure donation pipelines, dynamic content modules, interactive contact forms</li>
-          <li>Implement rigorous technical SEO strategy to maximise the organisation's digital footprint and discoverability</li>
-        </ul>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">checklist</span>
+            Core Responsibilities
+          </h4>
+          <ul>
+            <li>Systematically debug and refine existing HTML, CSS, and JavaScript for industry-standard performance and cross-browser compatibility</li>
+            <li>Execute migration from static repository to scalable hosting architecture</li>
+            <li>Architect and deploy critical features: secure donation pipelines, dynamic content modules, interactive contact forms</li>
+            <li>Implement rigorous technical SEO strategy to maximise the organisation's digital footprint and discoverability</li>
+          </ul>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Who You Are</h4>
-        <p>You are highly proficient in HTML, CSS, and JavaScript. You have experience with version control systems (GitHub) and web hosting transitions. You can integrate third-party payment gateways and dynamic content systems. You understand that our digital presence is not merely promotional, it is how we build resilient international networks with Palestinian organisations at the centre.</p>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">person</span>
+            Who You Are
+          </h4>
+          <p>You are highly proficient in HTML, CSS, and JavaScript. You have experience with version control systems (GitHub) and web hosting transitions. You can integrate third-party payment gateways and dynamic content systems. You understand that our digital presence is not merely promotional, it is how we build resilient international networks with Palestinian organisations at the centre.</p>
+        </div>
       </div>
 
       <!-- Position 4: Student Support -->
-      <div class="material-surface" style="max-width: 960px; margin: var(--space-8) auto; padding: var(--space-8); border-left: 4px solid var(--sage-600);">
-        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
-          <div class="card-icon" style="background: var(--sage-100);">
-            <span class="material-symbols-rounded" style="color: var(--sage-700);">favorite</span>
+      <div class="job-card">
+        <div class="job-header">
+          <div class="job-icon">
+            <span class="material-symbols-rounded">favorite</span>
+            <div class="job-number">4</div>
           </div>
-          <h3 class="section-title" style="margin: 0;">4. Student Support</h3>
+          <h3 class="job-title">Student Support</h3>
         </div>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">The Role</h4>
-        <p>This role is integral to our pedagogical commitment to holistic education. The Student Wellbeing &amp; Support Officer ensures that our delivery models remain congruent with our trauma-informed framework, recognising that acknowledging the cognitive and emotional impact of continuous traumatic stress is a central pedagogical necessity. This position focuses on creating the conditions of safety, trustworthiness, and empowerment that make all meaningful learning possible.</p>
+        <div class="job-content">
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">description</span>
+            The Role
+          </h4>
+          <p>This role is integral to our pedagogical commitment to holistic education. The Student Wellbeing &amp; Support Officer ensures that our delivery models remain congruent with our trauma-informed framework, recognising that acknowledging the cognitive and emotional impact of continuous traumatic stress is a central pedagogical necessity. This position focuses on creating the conditions of safety, trustworthiness, and empowerment that make all meaningful learning possible.</p>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Core Responsibilities</h4>
-        <ul style="line-height: 1.8;">
-          <li>Analyse attendance and participation data to identify early indicators of disengagement and initiate supportive interventions</li>
-          <li>Design and facilitate workshops for students and staff that enhance resilience and promote mental health awareness within the academic context</li>
-          <li>Conduct regular audits of classroom practices and administrative interactions to ensure alignment with principles of safety and empowerment</li>
-          <li>Synthesise qualitative feedback from the student body to drive continuous improvement in pastoral care methodologies</li>
-        </ul>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">checklist</span>
+            Core Responsibilities
+          </h4>
+          <ul>
+            <li>Analyse attendance and participation data to identify early indicators of disengagement and initiate supportive interventions</li>
+            <li>Design and facilitate workshops for students and staff that enhance resilience and promote mental health awareness within the academic context</li>
+            <li>Conduct regular audits of classroom practices and administrative interactions to ensure alignment with principles of safety and empowerment</li>
+            <li>Synthesise qualitative feedback from the student body to drive continuous improvement in pastoral care methodologies</li>
+          </ul>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Who You Are</h4>
-        <p>You have an academic or professional background in psychology, counselling, social work, or student services. You possess comprehensive understanding of psychosocial support frameworks in educational settings and advanced interpersonal communication skills. You understand that the practice of psychosocial accompaniment, grounded in solidarity and care, is not ancillary to education but its very foundation.</p>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">person</span>
+            Who You Are
+          </h4>
+          <p>You have an academic or professional background in psychology, counselling, social work, or student services. You possess comprehensive understanding of psychosocial support frameworks in educational settings and advanced interpersonal communication skills. You understand that the practice of psychosocial accompaniment, grounded in solidarity and care, is not ancillary to education but its very foundation.</p>
+        </div>
       </div>
 
       <!-- Position 5: Quality Assurance Officer -->
-      <div class="material-surface" style="max-width: 960px; margin: var(--space-8) auto; padding: var(--space-8); border-left: 4px solid var(--sage-600);">
-        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
-          <div class="card-icon" style="background: var(--sage-100);">
-            <span class="material-symbols-rounded" style="color: var(--sage-700);">verified</span>
+      <div class="job-card">
+        <div class="job-header">
+          <div class="job-icon">
+            <span class="material-symbols-rounded">verified</span>
+            <div class="job-number">5</div>
           </div>
-          <h3 class="section-title" style="margin: 0;">5. Quality Assurance Officer</h3>
+          <h3 class="job-title">Quality Assurance Officer</h3>
         </div>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">The Role</h4>
-        <p>Operating in support of the Academic Manager, this officer is responsible for maintaining the rigour and coherence of our educational programmes. The role focuses on systematic evaluation of instructional quality and assessment reliability, ensuring that our curriculum consistently delivers on its promise of high-level linguistic acquisition while remaining pedagogically effective and culturally responsive.</p>
+        <div class="job-content">
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">description</span>
+            The Role
+          </h4>
+          <p>Operating in support of the Academic Manager, this officer is responsible for maintaining the rigour and coherence of our educational programmes. The role focuses on systematic evaluation of instructional quality and assessment reliability, ensuring that our curriculum consistently delivers on its promise of high-level linguistic acquisition while remaining pedagogically effective and culturally responsive.</p>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Core Responsibilities</h4>
-        <ul style="line-height: 1.8;">
-          <li>Audit lesson plans and teaching materials to verify alignment with the organisation's standards of critical pedagogy and academic excellence</li>
-          <li>Conduct statistical and qualitative analyses of assessment results to ensure reliability; identify trends requiring curricular intervention</li>
-          <li>Facilitate training sessions designed to standardise grading criteria and instructional delivery across the teaching cohort</li>
-          <li>Collaborate on refinement of curricular assets to ensure they cultivate learner autonomy, metacognitive awareness, and critical self-reflection</li>
-        </ul>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">checklist</span>
+            Core Responsibilities
+          </h4>
+          <ul>
+            <li>Audit lesson plans and teaching materials to verify alignment with the organisation's standards of critical pedagogy and academic excellence</li>
+            <li>Conduct statistical and qualitative analyses of assessment results to ensure reliability; identify trends requiring curricular intervention</li>
+            <li>Facilitate training sessions designed to standardise grading criteria and instructional delivery across the teaching cohort</li>
+            <li>Collaborate on refinement of curricular assets to ensure they cultivate learner autonomy, metacognitive awareness, and critical self-reflection</li>
+          </ul>
 
-        <h4 style="color: var(--sage-700); margin-top: var(--space-6); margin-bottom: var(--space-3);">Who You Are</h4>
-        <p>You have a background in TESOL, Applied Linguistics, or Instructional Design. You bring experience in academic quality assurance, teacher training, or assessment design, along with strong analytical skills regarding educational data and performance metrics. You are committed to an educational practice that equips learners with sophisticated linguistic and analytical tools, understanding language as a vital means for building bridges of understanding in a pluralistic world.</p>
+          <h4 class="job-section-title">
+            <span class="material-symbols-rounded">person</span>
+            Who You Are
+          </h4>
+          <p>You have a background in TESOL, Applied Linguistics, or Instructional Design. You bring experience in academic quality assurance, teacher training, or assessment design, along with strong analytical skills regarding educational data and performance metrics. You are committed to an educational practice that equips learners with sophisticated linguistic and analytical tools, understanding language as a vital means for building bridges of understanding in a pluralistic world.</p>
+        </div>
       </div>
     </section>
 
-    <section class="section page-surface material-surface section-cta">
+    <section class="section section-cta">
       <div class="section-cta-content">
         <div class="section-cta-badge">
           <span class="material-symbols-rounded">send</span>
@@ -298,64 +1087,15 @@
         <h2 class="section-title section-title-xl">How to <span class="text-highlight">Apply</span></h2>
         <p class="section-subtitle-large">If you share our conviction that education can effect social transformation, we would welcome the opportunity to work with you. Please submit a CV alongside a brief statement (no more than 500 words) addressing how your experience and commitments align with Noor Community's pedagogical vision.</p>
         <p class="section-subtitle-large">We are looking for people who understand that building liberatory educational infrastructure is itself an act of solidarity, who see in this work not merely a position but a contribution to a larger movement for Palestinian self-determination through knowledge, capability, and voice.</p>
-        <div class="hero-actions">
-          <a class="activity-btn activity-btn-large activity-btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeLDysPYrJVDWICAu3UDeQZCzgy_I57LtTAzoL4PZS5g7LooA/viewform?usp=header" target="_blank" rel="noreferrer">
+        <div class="apply-button-wrapper">
+          <a class="apply-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeLDysPYrJVDWICAu3UDeQZCzgy_I57LtTAzoL4PZS5g7LooA/viewform?usp=header" target="_blank" rel="noreferrer">
             <span>Apply Now</span>
-            <span class="material-symbols-rounded btn-icon">arrow_forward</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
           </a>
         </div>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="footer-columns">
-      <div class="footer-column">
-        <h4>Mission</h4>
-        <p>Noor Community: Education and Liberation. A global network creating pathways to self-determination through rigorous, compassionate education.</p>
-      </div>
-      <div class="footer-column">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="team.html">Meet the Teachers</a></li>
-          <li><a href="programmes.html">Our Programmes</a></li>
-          <li><a href="impact.html">Our Impact</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Act</h4>
-        <ul>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">Apply</a></li>
-          <li><a href="join-volunteers.html">Volunteer</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Trust & Connect</h4>
-        <ul>
-          <li><a href="faq.html">Frequently Asked Questions</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
-        <div class="social-links-footer" style="margin-top: var(--space-4); display: flex; gap: var(--space-3);">
-          <a href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" class="social-icon-link">
-            <img src="assets/linkeidn.png" alt="" class="social-icon" width="24" height="24" />
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="sub-footer">
-      <p>&copy; <span id="year"></span> Noor Community. All rights reserved. | Education as a Practice of Freedom</p>
-      <div class="sub-footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <span aria-hidden="true">•</span>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 
 </body>
 </html>
