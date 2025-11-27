@@ -250,28 +250,55 @@
       display: inline-flex;
       align-items: center;
       gap: var(--space-2);
-      padding: var(--space-2) var(--space-6);
+      padding: var(--space-3) var(--space-8);
       background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
       color: var(--neutral-900);
-      font-weight: 700;
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
+      font-weight: 800;
+      font-size: 0.9375rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       border-radius: 50px;
       margin-bottom: var(--space-6);
-      box-shadow: 0 4px 20px rgba(234, 179, 8, 0.4),
-                  0 0 40px rgba(254, 220, 71, 0.3);
-      animation: pulse 2s ease-in-out infinite;
+      box-shadow: 0 8px 32px rgba(234, 179, 8, 0.5),
+                  0 0 60px rgba(254, 220, 71, 0.4),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      animation: chipPulse 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
     }
 
-    @keyframes pulse {
+    .chip::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes chipPulse {
       0%, 100% {
-        box-shadow: 0 4px 20px rgba(234, 179, 8, 0.4),
-                    0 0 40px rgba(254, 220, 71, 0.3);
+        box-shadow: 0 8px 32px rgba(234, 179, 8, 0.5),
+                    0 0 60px rgba(254, 220, 71, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        transform: scale(1);
       }
       50% {
-        box-shadow: 0 4px 30px rgba(234, 179, 8, 0.6),
-                    0 0 60px rgba(254, 220, 71, 0.5);
+        box-shadow: 0 12px 40px rgba(234, 179, 8, 0.6),
+                    0 0 80px rgba(254, 220, 71, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
       }
     }
 
@@ -343,16 +370,24 @@
       display: inline-flex;
       align-items: center;
       gap: var(--space-2);
-      color: var(--sage-700);
+      color: white;
       font-weight: 700;
       font-size: 0.875rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: var(--space-4);
-      padding: var(--space-2) var(--space-4);
-      background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
+      padding: var(--space-3) var(--space-6);
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
       border-radius: 50px;
-      box-shadow: 0 2px 10px rgba(84, 107, 84, 0.15);
+      box-shadow: 0 4px 16px rgba(84, 107, 84, 0.25),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .section-label:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(84, 107, 84, 0.3),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
 
     .section-label .material-symbols-rounded {
@@ -412,33 +447,75 @@
       display: flex;
       align-items: center;
       gap: var(--space-4);
-      padding: var(--space-4) var(--space-6);
-      margin: 0 auto var(--space-8);
+      padding: var(--space-6) var(--space-8);
+      margin: 0 auto var(--space-12);
       max-width: 960px;
-      background: linear-gradient(135deg, rgba(234, 179, 8, 0.16), rgba(255, 247, 200, 0.8));
-      border: 1px solid rgba(234, 179, 8, 0.4);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(113, 63, 18, 0.08);
+      background: linear-gradient(135deg, rgba(254, 249, 195, 0.95), rgba(255, 255, 255, 0.9));
+      border: 2px solid var(--gold-400);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(234, 179, 8, 0.15),
+                  0 0 0 1px rgba(255, 255, 255, 0.8) inset;
       color: var(--sage-900);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .deadline-notice::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .deadline-notice:hover::before {
+      left: 100%;
+    }
+
+    .deadline-notice:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 50px rgba(234, 179, 8, 0.2),
+                  0 0 0 1px rgba(255, 255, 255, 0.8) inset;
     }
 
     .deadline-icon {
       display: grid;
       place-items: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(84, 107, 84, 0.15), rgba(84, 107, 84, 0.05));
-      color: var(--sage-800);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      color: white;
+      box-shadow: 0 8px 20px rgba(84, 107, 84, 0.3),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
       flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .deadline-notice:hover .deadline-icon {
+      transform: scale(1.05) rotate(-5deg);
+      box-shadow: 0 12px 28px rgba(84, 107, 84, 0.4),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .deadline-icon .material-symbols-rounded {
+      font-size: 2rem;
+      font-variation-settings: 'FILL' 1, 'wght' 600;
     }
 
     .deadline-title {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       font-weight: 800;
-      margin-bottom: var(--space-2);
+      margin-bottom: 0;
       letter-spacing: -0.01em;
+      background: linear-gradient(135deg, var(--sage-800), var(--sage-900));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .deadline-subtitle {
@@ -1176,19 +1253,6 @@
       </div>
       <div class="hero-scroll-indicator">
         <span class="material-symbols-rounded">keyboard_arrow_down</span>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <div class="section-label">
-          <span class="material-symbols-rounded">announcement</span>
-          <span>Important Information</span>
-        </div>
-        <h2 class="section-title">A Note on Conditions</h2>
-      </div>
-      <div class="material-surface content-wrapper">
-        <p>These positions represent a critical investment in the organisation's future. While designed as paid professional appointments, remuneration is contingent upon the successful closure of upcoming funding cycles. Selected candidates will participate directly in the operationalisation of the systems required to secure and manage this capital. We are seeking people who understand that building liberatory infrastructure is itself a form of solidarity work.</p>
       </div>
     </section>
 
