@@ -142,4 +142,19 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- ELT Materials -->
+  <url>
+    <loc>https://www.noorcommunity.org/elt-materials.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.noorcommunity.org/elt-materials-showcase.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELT Materials | Noor Community</title>
+  <meta name="description" content="Join Noor Community as an ELT Materials Developer and help design trauma-aware, agency-building English language resources." />
+  <meta name="keywords" content="ELT materials developer, trauma-aware pedagogy, task-based learning, Noor Community" />
+  <meta name="author" content="Noor Community" />
+  <link rel="icon" type="image/png" href="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    :root {
+      --sage-50: #f6f7f6;
+      --sage-100: #e8ebe8;
+      --sage-200: #d4dbd4;
+      --sage-300: #b0bfb0;
+      --sage-400: #8aa08a;
+      --sage-500: #6b856b;
+      --sage-600: #546b54;
+      --sage-700: #435743;
+      --sage-800: #374637;
+      --sage-900: #2d3a2d;
+
+      --gold-50: #fefce8;
+      --gold-300: #fde047;
+      --gold-400: #facc15;
+      --gold-500: #eab308;
+      --gold-600: #ca8a04;
+      --gold-700: #a16207;
+
+      --neutral-50: #fafafa;
+      --neutral-200: #e5e5e5;
+      --neutral-300: #d4d4d4;
+      --neutral-500: #737373;
+      --neutral-600: #525252;
+      --neutral-700: #404040;
+      --neutral-800: #262626;
+      --neutral-900: #171717;
+
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: var(--neutral-800);
+      background: linear-gradient(135deg, var(--sage-50) 0%, var(--neutral-50) 50%, #fef9ec 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--sage-800);
+      text-decoration: none;
+      padding: var(--space-3) var(--space-6);
+      border-radius: 50px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
+      color: var(--sage-900);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(84, 107, 84, 0.2);
+    }
+
+    .nav-link.active {
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(84, 107, 84, 0.3);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(80px + var(--space-20)) var(--space-4) var(--space-20);
+      background-image: url('https://images.pexels.com/photos/5151697/pexels-photo-5151697.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(67, 87, 67, 0.92), rgba(107, 133, 107, 0.75));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      color: #fff;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: var(--space-3) var(--space-6);
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      color: var(--neutral-900);
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      margin-bottom: var(--space-6);
+      box-shadow: 0 4px 20px rgba(234, 179, 8, 0.3);
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-description {
+      font-size: 1.25rem;
+      max-width: 720px;
+      margin: 0 auto var(--space-8);
+      color: #f8fafc;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: all 0.2s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+      color: #1a1a1a;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(201, 138, 4, 0.35);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .button-secondary:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(255, 255, 255, 0.25);
+    }
+
+    .section {
+      padding: var(--space-16) var(--space-4);
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      margin-bottom: var(--space-4);
+      color: var(--sage-800);
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--neutral-600);
+      margin-bottom: var(--space-8);
+      max-width: 920px;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .grid.two-columns {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: var(--space-6);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--neutral-200);
+      height: 100%;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-3);
+      color: var(--sage-800);
+    }
+
+    .card p {
+      color: var(--neutral-700);
+      margin-bottom: var(--space-4);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.9rem;
+      background: var(--sage-100);
+      color: var(--sage-800);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .list {
+      margin-top: var(--space-4);
+      padding-left: 1.25rem;
+      color: var(--neutral-700);
+    }
+
+    .list li {
+      margin-bottom: var(--space-3);
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-5);
+    }
+
+    .principle {
+      background: linear-gradient(180deg, #fff, var(--sage-50));
+      border: 1px solid var(--neutral-200);
+      border-radius: 16px;
+      padding: var(--space-5);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .principle h4 {
+      margin-bottom: var(--space-3);
+      color: var(--sage-800);
+    }
+
+    .highlight {
+      color: var(--gold-700);
+      font-weight: 800;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--sage-700), var(--sage-600));
+      color: #fff;
+      border-radius: 20px;
+      padding: var(--space-12) var(--space-8);
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(67, 87, 67, 0.35);
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: var(--space-3);
+    }
+
+    .cta p {
+      font-size: 1.1rem;
+      color: #e8f2e8;
+      margin-bottom: var(--space-6);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 2.25rem;
+      }
+      .hero-description {
+        font-size: 1.05rem;
+      }
+      .section {
+        padding: var(--space-12) var(--space-4);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" aria-label="Primary">
+    <div class="nav-content">
+      <a href="ethos.html" class="nav-link">Ethos</a>
+      <a href="vacancies.html" class="nav-link">Join Us</a>
+      <a href="elt-materials.html" class="nav-link active" aria-current="page">ELT Materials</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="hero-label">Design for Agency</p>
+        <h1 class="hero-title" id="hero-title">ELT Materials Developer</h1>
+        <p class="hero-description">Help us build trauma-aware, culturally sustaining English language materials that expand human capability and voice.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="elt-materials-showcase.html">View Showcase</a>
+          <a class="button button-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSeLDysPYrJVDWICAu3UDeQZCzgy_I57LtTAzoL4PZS5g7LooA/viewform?usp=header" target="_blank" rel="noreferrer">Apply to Collaborate</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="context-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="context-title">Context and Pedagogical Vision</h2>
+        <p class="section-subtitle">Your work will be grounded in the same ethos that guides our community: education as liberation, language as capability, and trauma-aware care for learners navigating chronic stress.</p>
+        <div class="principles" role="list">
+          <article class="principle" role="listitem">
+            <h4>A Trauma-Aware Pedagogical Framework</h4>
+            <p>Design experiences that create predictable, low-stress pathways for learning, intentionally managing cognitive load to foster neuroceptive safety.</p>
+          </article>
+          <article class="principle" role="listitem">
+            <h4>Centering Identity and Representation</h4>
+            <p>Craft narratives that reflect Palestinian learners as innovators and cultural producers, moving past stereotype to affirm presence and capability.</p>
+          </article>
+          <article class="principle" role="listitem">
+            <h4>Language as Global Engagement</h4>
+            <p>Position learners as competent interlocutors, using English to articulate perspective and join global communities of practice.</p>
+          </article>
+          <article class="principle" role="listitem">
+            <h4>Arts-Based &amp; Critical Pedagogies</h4>
+            <p>Integrate media-rich, arts-based tasks that invite identity work, meaning-making, and critical perspectives in every unit.</p>
+          </article>
+          <article class="principle" role="listitem">
+            <h4>A Focus on Human Capability</h4>
+            <p>Prioritise materials that expand real-world options for learners, equipping them to pursue opportunities they value with confidence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="responsibilities-title">
+      <div class="section-inner grid two-columns">
+        <div>
+          <div class="pill" aria-hidden="true"><span class="material-symbols-rounded">assignment</span>Role Snapshot</div>
+          <h2 class="section-title" id="responsibilities-title">Key Responsibilities</h2>
+          <p class="section-subtitle">Work closely with our Academic Director and interdisciplinary team to evolve a structurally sound, responsive curriculum.</p>
+          <ul class="list">
+            <li>Author high-quality learning materials for a modular, online curriculum that pairs rigour with care.</li>
+            <li>Design task-based learning sequences that are linguistically effective and culturally sustaining.</li>
+            <li>Develop teacher support assets, from lesson plans to training guides, that keep pedagogy coherent.</li>
+            <li>Collaborate with software developers on interactive digital components that extend learner agency.</li>
+            <li>Audit and refine existing materials to align with our core principles and student feedback.</li>
+            <li>Incorporate insights from focus groups and classroom observations into each iteration.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pill" aria-hidden="true"><span class="material-symbols-rounded">workspace_premium</span>Qualifications</div>
+          <h2 class="section-title">Experience We Value</h2>
+          <p class="section-subtitle">We welcome collaborators who are technically sharp, reflective practitioners committed to justice-driven education.</p>
+          <div class="card">
+            <h3>Essential</h3>
+            <ul class="list">
+              <li>Proven track record writing engaging ELT materials for online, blended, or face-to-face delivery.</li>
+              <li>Deep expertise in Task-Based Learning and its practical application in materials design.</li>
+              <li>Experience integrating AI into ELT for content creation and personalised learning.</li>
+              <li>Substantial classroom ELT experience and comfort working remotely in a collaborative team.</li>
+            </ul>
+            <h3>Desirable</h3>
+            <ul class="list">
+              <li>Experience working with students in crisis or low-resource contexts.</li>
+              <li>Background in curriculum design that promotes learner agency.</li>
+              <li>Experience developing materials across proficiency levels and for specific purposes.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta-title">
+      <div class="section-inner">
+        <div class="cta">
+          <p class="pill" aria-hidden="true"><span class="material-symbols-rounded">diversity_3</span>Collaborate with Noor</p>
+          <h2 id="cta-title">Ready to design with us?</h2>
+          <p>Share your portfolio, a brief statement on how you align with our ethos, and links to materials you have authored. We prioritise work that embodies care, representation, and critical engagement.</p>
+          <div class="hero-actions" style="justify-content: center; margin-top: var(--space-4);">
+            <a class="button button-primary" href="elt-materials-showcase.html">Explore Showcase</a>
+            <a class="button button-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSeLDysPYrJVDWICAu3UDeQZCzgy_I57LtTAzoL4PZS5g7LooA/viewform?usp=header" target="_blank" rel="noreferrer">Submit Application</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

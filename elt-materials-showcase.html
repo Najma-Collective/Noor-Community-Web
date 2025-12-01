@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELT Materials Showcase | Noor Community</title>
+  <meta name="description" content="Browse Noor Community's ELT materials showcase featuring trauma-aware, agency-building tasks and digital activities." />
+  <meta name="author" content="Noor Community" />
+  <link rel="icon" type="image/png" href="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    :root {
+      --sage-50: #f6f7f6;
+      --sage-100: #e8ebe8;
+      --sage-200: #d4dbd4;
+      --sage-500: #6b856b;
+      --sage-600: #546b54;
+      --sage-700: #435743;
+      --sage-800: #374637;
+      --gold-400: #facc15;
+      --gold-500: #eab308;
+      --gold-600: #ca8a04;
+      --neutral-100: #f5f5f5;
+      --neutral-200: #e5e5e5;
+      --neutral-700: #404040;
+      --neutral-800: #262626;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--neutral-800);
+      background: linear-gradient(135deg, var(--sage-50), #fff, #fef9ec);
+      min-height: 100vh;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      z-index: 1000;
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-weight: 800;
+      color: var(--sage-700);
+      text-decoration: none;
+      padding: var(--space-3) var(--space-5);
+      border-radius: 50px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: var(--sage-100);
+      color: var(--sage-800);
+    }
+
+    .nav-link.active {
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(67, 87, 67, 0.25);
+    }
+
+    header {
+      padding: calc(90px + var(--space-12)) var(--space-4) var(--space-12);
+      text-align: center;
+      background: radial-gradient(circle at 20% 30%, rgba(234, 179, 8, 0.15), transparent 40%),
+                  radial-gradient(circle at 80% 20%, rgba(107, 133, 107, 0.15), transparent 40%),
+                  linear-gradient(135deg, rgba(84, 107, 84, 0.08), rgba(255,255,255,0.85));
+    }
+
+    header h1 { font-size: clamp(2.3rem, 5vw, 3.5rem); color: var(--sage-800); margin-bottom: var(--space-4); }
+    header p { max-width: 850px; margin: 0 auto; font-size: 1.1rem; color: var(--neutral-700); line-height: 1.75; }
+
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--space-4) var(--space-12);
+    }
+
+    .carousel {
+      position: relative;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+      padding: var(--space-10) var(--space-6);
+      border: 1px solid var(--neutral-200);
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .slide.active { display: block; }
+
+    .slide h2 {
+      font-size: 1.6rem;
+      color: var(--sage-800);
+      margin-bottom: var(--space-3);
+    }
+
+    .slide p { color: var(--neutral-700); margin-bottom: var(--space-5); line-height: 1.7; }
+
+    .slide a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+      color: #1a1a1a;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(202, 138, 4, 0.3);
+    }
+
+    .slide a:hover { transform: translateY(-2px); }
+
+    .pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; background: var(--sage-100); color: var(--sage-700); border-radius: 999px; font-weight: 700; margin-bottom: var(--space-3); }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .control-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.75rem 1.2rem;
+      border-radius: 12px;
+      border: 1px solid var(--neutral-200);
+      background: #fff;
+      color: var(--sage-700);
+      cursor: pointer;
+      font-weight: 800;
+      transition: all 0.2s ease;
+    }
+
+    .control-button:hover { background: var(--sage-50); box-shadow: 0 8px 18px rgba(0,0,0,0.06); }
+
+    .dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--sage-500);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+
+    .carousel-dot.active { background: var(--sage-600); transform: scale(1.05); }
+
+    .cta {
+      margin-top: var(--space-12);
+      background: linear-gradient(135deg, var(--sage-700), var(--sage-600));
+      color: #fff;
+      border-radius: 18px;
+      padding: var(--space-10) var(--space-6);
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(67,87,67,0.35);
+    }
+
+    .cta h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: var(--space-3); }
+    .cta p { color: #e5efe5; margin-bottom: var(--space-5); }
+
+    .cta .button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.4rem; border-radius: 999px; background: #fff; color: var(--sage-700); text-decoration: none; font-weight: 800; box-shadow: 0 10px 24px rgba(255,255,255,0.2); }
+
+    .cta .button:hover { transform: translateY(-2px); }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 720px) {
+      header { padding-top: calc(90px + var(--space-8)); }
+      .carousel { padding: var(--space-8) var(--space-4); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" aria-label="Primary">
+    <div class="nav-content">
+      <a class="nav-link" href="ethos.html">Ethos</a>
+      <a class="nav-link active" href="elt-materials-showcase.html" aria-current="page">Showcase</a>
+      <a class="nav-link" href="elt-materials.html">ELT Materials</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>ELT Materials Showcase</h1>
+    <p>Explore a selection of materials and prototypes that demonstrate how we translate our trauma-aware, justice-focused ethos into concrete tasks, assessments, and interactive activities.</p>
+  </header>
+
+  <div class="main">
+    <section class="carousel" aria-label="Showcase carousel">
+      <div class="carousel-track">
+        <article class="slide active" data-index="0">
+          <div class="pill"><span class="material-symbols-rounded">favorite</span>Pedagogical Frame</div>
+          <h2>Trauma Awareness Module</h2>
+          <p>A primer that grounds learners and teachers in trauma-aware practice, outlining routines that protect neuroceptive safety while inviting rigorous inquiry.</p>
+          <a href="https://sites.google.com/najmacollective.org/9999/trauma-awareness" target="_blank" rel="noreferrer">Open module<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="1">
+          <div class="pill"><span class="material-symbols-rounded">group</span>Community Tasks</div>
+          <h2>C1: Getting to know you</h2>
+          <p>Conversation-led opener that builds trust through identity-affirming prompts, centering learners' voices from the first session.</p>
+          <a href="https://najma-collective.github.io/Noor-Community-/C1/Getting%20to%20know%20you/Getting-to-know-you.html" target="_blank" rel="noreferrer">View activity<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="2">
+          <div class="pill"><span class="material-symbols-rounded">insights</span>Assessment</div>
+          <h2>B2 Exam Simulation</h2>
+          <p>A modular mock exam environment that blends receptive and productive skills with reflective checkpoints to reduce test anxiety.</p>
+          <a href="https://najma-collective.github.io/Noor-Community-B2/exam.html" target="_blank" rel="noreferrer">Launch exam<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="3">
+          <div class="pill"><span class="material-symbols-rounded">palette</span>Creative Practice</div>
+          <h2>Mosaic</h2>
+          <p>Layered media prompts that encourage learners to synthesise visual and audio cues while narrating community stories.</p>
+          <a href="assets/elt-showcase/mosaic.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="4">
+          <div class="pill"><span class="material-symbols-rounded">headphones</span>Listening</div>
+          <h2>Advanced Listening</h2>
+          <p>Scaffolded listening journey with reflective prompts that connect texts to learners' lived realities.</p>
+          <a href="assets/elt-showcase/advanced-listening.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="5">
+          <div class="pill"><span class="material-symbols-rounded">quiz</span>Language Focus</div>
+          <h2>Dropdown Gapfill</h2>
+          <p>Choice-based gapfill that foregrounds meaning before form, easing cognitive load while reinforcing collocations.</p>
+          <a href="assets/elt-showcase/dropdown-gapfill.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="6">
+          <div class="pill"><span class="material-symbols-rounded">self_improve</span>Grounding</div>
+          <h2>Grounding: education</h2>
+          <p>Short somatic check-ins paired with affirmations that prepare learners for cognitively demanding dialogue.</p>
+          <a href="assets/elt-showcase/grounding-education.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="7">
+          <div class="pill"><span class="material-symbols-rounded">category</span>Concept Work</div>
+          <h2>Grouping</h2>
+          <p>Collaborative classification task that surfaces prior knowledge and co-constructs new lexical sets.</p>
+          <a href="assets/elt-showcase/grouping.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="8">
+          <div class="pill"><span class="material-symbols-rounded">image</span>Multimodal</div>
+          <h2>Image labelling</h2>
+          <p>Learners annotate community-sourced images to practise descriptive language and foreground representation.</p>
+          <a href="assets/elt-showcase/image-labelling.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="9">
+          <div class="pill"><span class="material-symbols-rounded">link</span>Critical Reading</div>
+          <h2>Linking</h2>
+          <p>Evidence-mapping exercise that supports reasoning, cohesion, and argumentation across paired texts.</p>
+          <a href="assets/elt-showcase/linking.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="10">
+          <div class="pill"><span class="material-symbols-rounded">grid_on</span>Assessment</div>
+          <h2>Multiple Choice Grid</h2>
+          <p>A grid-format retrieval practice tool balancing accuracy checks with contextually grounded stems.</p>
+          <a href="assets/elt-showcase/multiple-choice-grid.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="11">
+          <div class="pill"><span class="material-symbols-rounded">smart_display</span>Assessment</div>
+          <h2>Multiple Choice Multi-Screen</h2>
+          <p>Sequenced micro-questions that keep cognitive load low while sustaining learner flow across screens.</p>
+          <a href="assets/elt-showcase/multiple-choice-multi-screen.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="12">
+          <div class="pill"><span class="material-symbols-rounded">fact_check</span>Assessment</div>
+          <h2>Multiple Choice</h2>
+          <p>Single-screen multiple choice set with distractors crafted to test nuance and pragmatic judgement.</p>
+          <a href="assets/elt-showcase/multiple-choice.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="13">
+          <div class="pill"><span class="material-symbols-rounded">casino</span>Game-Based Learning</div>
+          <h2>Pelmanism</h2>
+          <p>A memory pairs activity that recycles lexis, encourages peer teaching, and keeps affective filters low.</p>
+          <a href="assets/elt-showcase/pelmanism.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+
+        <article class="slide" data-index="14">
+          <div class="pill"><span class="material-symbols-rounded">swap_vert</span>Reasoning</div>
+          <h2>Sequential drag and drop ranking</h2>
+          <p>Negotiated ranking task that prompts learners to justify choices, rehearse sequencing language, and reflect on values.</p>
+          <a href="assets/elt-showcase/sequential-drag-and-drop-ranking.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        </article>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="control-button" type="button" id="prev-slide" aria-label="Previous showcase item">
+          <span class="material-symbols-rounded">chevron_left</span>Previous
+        </button>
+        <div class="dots" role="tablist" aria-label="Showcase navigation">
+          <button class="carousel-dot active" aria-label="Go to item 1" role="tab" aria-selected="true" data-index="0"></button>
+          <button class="carousel-dot" aria-label="Go to item 2" role="tab" aria-selected="false" data-index="1"></button>
+          <button class="carousel-dot" aria-label="Go to item 3" role="tab" aria-selected="false" data-index="2"></button>
+          <button class="carousel-dot" aria-label="Go to item 4" role="tab" aria-selected="false" data-index="3"></button>
+          <button class="carousel-dot" aria-label="Go to item 5" role="tab" aria-selected="false" data-index="4"></button>
+          <button class="carousel-dot" aria-label="Go to item 6" role="tab" aria-selected="false" data-index="5"></button>
+          <button class="carousel-dot" aria-label="Go to item 7" role="tab" aria-selected="false" data-index="6"></button>
+          <button class="carousel-dot" aria-label="Go to item 8" role="tab" aria-selected="false" data-index="7"></button>
+          <button class="carousel-dot" aria-label="Go to item 9" role="tab" aria-selected="false" data-index="8"></button>
+          <button class="carousel-dot" aria-label="Go to item 10" role="tab" aria-selected="false" data-index="9"></button>
+          <button class="carousel-dot" aria-label="Go to item 11" role="tab" aria-selected="false" data-index="10"></button>
+          <button class="carousel-dot" aria-label="Go to item 12" role="tab" aria-selected="false" data-index="11"></button>
+          <button class="carousel-dot" aria-label="Go to item 13" role="tab" aria-selected="false" data-index="12"></button>
+          <button class="carousel-dot" aria-label="Go to item 14" role="tab" aria-selected="false" data-index="13"></button>
+          <button class="carousel-dot" aria-label="Go to item 15" role="tab" aria-selected="false" data-index="14"></button>
+        </div>
+        <button class="control-button" type="button" id="next-slide" aria-label="Next showcase item">
+          Next<span class="material-symbols-rounded">chevron_right</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <h2 id="cta-title">Want to create the next addition?</h2>
+      <p>We are actively inviting designers to contribute materials that embody our ethos. Share prototypes, co-design ideas, or request a walkthrough of any item in this carousel.</p>
+      <a class="button" href="elt-materials.html">Return to ELT Materials</a>
+    </section>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      const total = slides.length;
+      slides[currentIndex].classList.remove('active');
+      dots[currentIndex].classList.remove('active');
+      dots[currentIndex].setAttribute('aria-selected', 'false');
+      currentIndex = (index + total) % total;
+      slides[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+      dots[currentIndex].setAttribute('aria-selected', 'true');
+      dots[currentIndex].focus({ preventScroll: true });
+    }
+
+    prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => showSlide(Number(dot.dataset.index)));
+      dot.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          showSlide(Number(dot.dataset.index) + 1);
+        }
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          showSlide(Number(dot.dataset.index) - 1);
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
+      if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
+    });
+  </script>
+</body>
+</html>
