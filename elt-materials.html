@@ -315,13 +315,20 @@
       font-weight: 800;
     }
 
+    .responsibilities-grid {
+      margin-bottom: var(--space-12);
+    }
+
     .cta {
+      position: relative;
+      z-index: 1;
       background: linear-gradient(135deg, var(--sage-700), var(--sage-600));
       color: #fff;
       border-radius: 20px;
       padding: var(--space-12) var(--space-8);
       text-align: center;
       box-shadow: 0 20px 50px rgba(67, 87, 67, 0.35);
+      margin-top: var(--space-10);
     }
 
     .cta h2 {
@@ -411,7 +418,7 @@
     </section>
 
     <section class="section" aria-labelledby="responsibilities-title">
-      <div class="section-inner grid two-columns">
+      <div class="section-inner grid two-columns responsibilities-grid">
         <div>
           <div class="pill" aria-hidden="true"><span class="material-symbols-rounded">assignment</span>Role Snapshot</div>
           <h2 class="section-title" id="responsibilities-title">Key Responsibilities</h2>
