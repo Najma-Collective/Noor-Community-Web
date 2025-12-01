@@ -36,6 +36,8 @@
       --space-8: 2rem;
       --space-10: 2.5rem;
       --space-12: 3rem;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.08);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -104,104 +106,166 @@
       padding: 0 var(--space-4) var(--space-12);
     }
 
-    .carousel {
-      position: relative;
+    .section-card {
       background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
-      padding: var(--space-10) var(--space-6);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
       border: 1px solid var(--neutral-200);
-      overflow: hidden;
+      padding: var(--space-10) var(--space-6);
+      margin-bottom: var(--space-8);
     }
 
-    .carousel-track {
-      position: relative;
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+      flex-wrap: wrap;
     }
 
-    .slide {
-      display: none;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .slide.active { display: block; }
-
-    .slide h2 {
+    .section-header h2 {
       font-size: 1.6rem;
       color: var(--sage-800);
-      margin-bottom: var(--space-3);
     }
 
-    .slide p { color: var(--neutral-700); margin-bottom: var(--space-5); line-height: 1.7; }
-
-    .slide a {
+    .pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.25rem;
+      gap: 0.4rem;
+      padding: 0.45rem 0.95rem;
+      background: var(--sage-100);
+      color: var(--sage-700);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-6);
+      align-items: stretch;
+    }
+
+    .item-card {
+      border: 1px solid var(--neutral-200);
+      border-radius: 14px;
+      padding: var(--space-5);
+      background: #fff;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      height: 100%;
+    }
+
+    .item-card h3 {
+      font-size: 1.25rem;
+      color: var(--sage-800);
+    }
+
+    .item-card p { color: var(--neutral-700); line-height: 1.6; }
+
+    .item-card a {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.15rem;
       background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
       color: #1a1a1a;
-      border-radius: 999px;
+      border-radius: 12px;
       font-weight: 800;
       text-decoration: none;
-      box-shadow: 0 12px 30px rgba(202, 138, 4, 0.3);
+      box-shadow: 0 12px 30px rgba(202, 138, 4, 0.26);
     }
 
-    .slide a:hover { transform: translateY(-2px); }
+    .item-card a:hover { transform: translateY(-1px); }
 
-    .pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; background: var(--sage-100); color: var(--sage-700); border-radius: 999px; font-weight: 700; margin-bottom: var(--space-3); }
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+      align-items: start;
+    }
 
-    .carousel-controls {
+    .list { list-style: none; display: grid; gap: var(--space-4); }
+
+    .list-item {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-      margin-top: var(--space-6);
-      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: flex-start;
+      padding: var(--space-4);
+      border: 1px solid var(--neutral-200);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.04);
     }
 
-    .control-button {
+    .list-item .icon {
+      width: 42px;
+      height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.35rem;
-      padding: 0.75rem 1.2rem;
       border-radius: 12px;
-      border: 1px solid var(--neutral-200);
-      background: #fff;
+      background: var(--sage-100);
       color: var(--sage-700);
-      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .list-item a { color: var(--sage-700); font-weight: 800; text-decoration: none; }
+    .list-item a:hover { text-decoration: underline; }
+    .list-item p { color: var(--neutral-700); line-height: 1.6; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(250, 204, 21, 0.15);
+      color: var(--gold-600);
+      border-radius: 999px;
       font-weight: 800;
-      transition: all 0.2s ease;
+      font-size: 0.95rem;
     }
 
-    .control-button:hover { background: var(--sage-50); box-shadow: 0 8px 18px rgba(0,0,0,0.06); }
-
-    .dots {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      flex: 1;
-      justify-content: center;
+    .tooltip {
+      position: relative;
+      cursor: help;
+      color: var(--sage-700);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 700;
     }
 
-    .carousel-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      border: 2px solid var(--sage-500);
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      padding: 0;
+    .tooltip-text {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      bottom: 125%;
+      background: #1f2937;
+      color: #fff;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      width: 260px;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+      transition: opacity 0.2s ease;
+      z-index: 5;
     }
 
-    .carousel-dot.active { background: var(--sage-600); transform: scale(1.05); }
+    .tooltip:hover .tooltip-text,
+    .tooltip:focus-within .tooltip-text { visibility: visible; opacity: 1; }
 
     .cta {
       margin-top: var(--space-12);
       background: linear-gradient(135deg, var(--sage-700), var(--sage-600));
       color: #fff;
-      border-radius: 18px;
+      border-radius: var(--radius-lg);
       padding: var(--space-10) var(--space-6);
       text-align: center;
       box-shadow: 0 20px 40px rgba(67,87,67,0.35);
@@ -218,7 +282,8 @@
 
     @media (max-width: 720px) {
       header { padding-top: calc(90px + var(--space-8)); }
-      .carousel { padding: var(--space-8) var(--space-4); }
+      .section-card { padding: var(--space-8) var(--space-4); }
+      .tooltip-text { width: 240px; }
     }
   </style>
 </head>
@@ -237,188 +302,102 @@
   </header>
 
   <div class="main">
-    <section class="carousel" aria-label="Showcase carousel">
-      <div class="carousel-track">
-        <article class="slide active" data-index="0">
-          <div class="pill"><span class="material-symbols-rounded">favorite</span>Pedagogical Frame</div>
-          <h2>Trauma Awareness Module</h2>
-          <p>A primer that grounds learners and teachers in trauma-aware practice, outlining routines that protect neuroceptive safety while inviting rigorous inquiry.</p>
+    <section class="section-card" aria-labelledby="teachers-heading">
+      <div class="section-header">
+        <div class="pill"><span class="material-symbols-rounded">favorite</span>For teachers</div>
+        <h2 id="teachers-heading">Trauma-aware classroom support</h2>
+      </div>
+      <div class="grid">
+        <article class="item-card">
+          <span class="badge"><span class="material-symbols-rounded">lightbulb</span>Featured</span>
+          <h3>Trauma informed teaching</h3>
+          <p>Ground educators in routines that protect neuroceptive safety, scaffold discussion, and cultivate learner agency.</p>
           <a href="https://sites.google.com/najmacollective.org/9999/trauma-awareness" target="_blank" rel="noreferrer">Open module<span class="material-symbols-rounded">north_east</span></a>
         </article>
-
-        <article class="slide" data-index="1">
-          <div class="pill"><span class="material-symbols-rounded">group</span>Community Tasks</div>
-          <h2>C1: Getting to know you</h2>
-          <p>Conversation-led opener that builds trust through identity-affirming prompts, centering learners' voices from the first session.</p>
+        <article class="item-card">
+          <div class="pill"><span class="material-symbols-rounded">group</span>Community tasks</div>
+          <h3>C1: Getting to know you</h3>
+          <p>Trust-building opener with identity-affirming prompts that centre learner voices from the very first session.</p>
           <a href="https://najma-collective.github.io/Noor-Community-/C1/Getting%20to%20know%20you/Getting-to-know-you.html" target="_blank" rel="noreferrer">View activity<span class="material-symbols-rounded">north_east</span></a>
         </article>
+      </div>
+    </section>
 
-        <article class="slide" data-index="2">
-          <div class="pill"><span class="material-symbols-rounded">insights</span>Assessment</div>
-          <h2>B2 Exam Simulation</h2>
-          <p>A modular mock exam environment that blends receptive and productive skills with reflective checkpoints to reduce test anxiety.</p>
-          <a href="https://najma-collective.github.io/Noor-Community-B2/exam.html" target="_blank" rel="noreferrer">Launch exam<span class="material-symbols-rounded">north_east</span></a>
+    <section class="section-card" aria-labelledby="ai-prompts-heading">
+      <div class="section-header">
+        <div class="pill"><span class="material-symbols-rounded">smart_toy</span>AI prompts</div>
+        <h2 id="ai-prompts-heading">On-screen guidance for facilitators</h2>
+      </div>
+      <div class="two-column">
+        <article class="item-card">
+          <h3 class="tooltip" tabindex="0">Reflection check-ins<span class="material-symbols-rounded">info</span>
+            <span class="tooltip-text">Use these to lower affective filters before complex tasks. Keep tone invitational and respect silence.</span>
+          </h3>
+          <p>“What energy are you bringing into the room today?”<br />“Name a support you need to feel ready for this discussion.”</p>
         </article>
-
-        <article class="slide" data-index="3">
-          <div class="pill"><span class="material-symbols-rounded">palette</span>Creative Practice</div>
-          <h2>Mosaic</h2>
-          <p>Layered media prompts that encourage learners to synthesise visual and audio cues while narrating community stories.</p>
-          <a href="assets/elt-showcase/mosaic.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="4">
-          <div class="pill"><span class="material-symbols-rounded">headphones</span>Listening</div>
-          <h2>Advanced Listening</h2>
-          <p>Scaffolded listening journey with reflective prompts that connect texts to learners' lived realities.</p>
-          <a href="assets/elt-showcase/advanced-listening.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="5">
-          <div class="pill"><span class="material-symbols-rounded">quiz</span>Language Focus</div>
-          <h2>Dropdown Gapfill</h2>
-          <p>Choice-based gapfill that foregrounds meaning before form, easing cognitive load while reinforcing collocations.</p>
-          <a href="assets/elt-showcase/dropdown-gapfill.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="6">
-          <div class="pill"><span class="material-symbols-rounded">self_improve</span>Grounding</div>
-          <h2>Grounding: education</h2>
-          <p>Short somatic check-ins paired with affirmations that prepare learners for cognitively demanding dialogue.</p>
-          <a href="assets/elt-showcase/grounding-education.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="7">
-          <div class="pill"><span class="material-symbols-rounded">category</span>Concept Work</div>
-          <h2>Grouping</h2>
-          <p>Collaborative classification task that surfaces prior knowledge and co-constructs new lexical sets.</p>
-          <a href="assets/elt-showcase/grouping.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="8">
-          <div class="pill"><span class="material-symbols-rounded">image</span>Multimodal</div>
-          <h2>Image labelling</h2>
-          <p>Learners annotate community-sourced images to practise descriptive language and foreground representation.</p>
-          <a href="assets/elt-showcase/image-labelling.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="9">
-          <div class="pill"><span class="material-symbols-rounded">link</span>Critical Reading</div>
-          <h2>Linking</h2>
-          <p>Evidence-mapping exercise that supports reasoning, cohesion, and argumentation across paired texts.</p>
-          <a href="assets/elt-showcase/linking.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="10">
-          <div class="pill"><span class="material-symbols-rounded">grid_on</span>Assessment</div>
-          <h2>Multiple Choice Grid</h2>
-          <p>A grid-format retrieval practice tool balancing accuracy checks with contextually grounded stems.</p>
-          <a href="assets/elt-showcase/multiple-choice-grid.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="11">
-          <div class="pill"><span class="material-symbols-rounded">smart_display</span>Assessment</div>
-          <h2>Multiple Choice Multi-Screen</h2>
-          <p>Sequenced micro-questions that keep cognitive load low while sustaining learner flow across screens.</p>
-          <a href="assets/elt-showcase/multiple-choice-multi-screen.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="12">
-          <div class="pill"><span class="material-symbols-rounded">fact_check</span>Assessment</div>
-          <h2>Multiple Choice</h2>
-          <p>Single-screen multiple choice set with distractors crafted to test nuance and pragmatic judgement.</p>
-          <a href="assets/elt-showcase/multiple-choice.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="13">
-          <div class="pill"><span class="material-symbols-rounded">casino</span>Game-Based Learning</div>
-          <h2>Pelmanism</h2>
-          <p>A memory pairs activity that recycles lexis, encourages peer teaching, and keeps affective filters low.</p>
-          <a href="assets/elt-showcase/pelmanism.html">Open file<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-
-        <article class="slide" data-index="14">
-          <div class="pill"><span class="material-symbols-rounded">swap_vert</span>Reasoning</div>
-          <h2>Sequential drag and drop ranking</h2>
-          <p>Negotiated ranking task that prompts learners to justify choices, rehearse sequencing language, and reflect on values.</p>
-          <a href="assets/elt-showcase/sequential-drag-and-drop-ranking.html">Open file<span class="material-symbols-rounded">north_east</span></a>
+        <article class="item-card">
+          <h3 class="tooltip" tabindex="0">Generative follow-ups<span class="material-symbols-rounded">info</span>
+            <span class="tooltip-text">Prompts crafted to elicit depth without overwhelming. Pair with wait time and optional writing first.</span>
+          </h3>
+          <p>“What surprises you in this story, and why?”<br />“Where do you see your community’s experience reflected or missing?”</p>
         </article>
       </div>
+    </section>
 
-      <div class="carousel-controls">
-        <button class="control-button" type="button" id="prev-slide" aria-label="Previous showcase item">
-          <span class="material-symbols-rounded">chevron_left</span>Previous
-        </button>
-        <div class="dots" role="tablist" aria-label="Showcase navigation">
-          <button class="carousel-dot active" aria-label="Go to item 1" role="tab" aria-selected="true" data-index="0"></button>
-          <button class="carousel-dot" aria-label="Go to item 2" role="tab" aria-selected="false" data-index="1"></button>
-          <button class="carousel-dot" aria-label="Go to item 3" role="tab" aria-selected="false" data-index="2"></button>
-          <button class="carousel-dot" aria-label="Go to item 4" role="tab" aria-selected="false" data-index="3"></button>
-          <button class="carousel-dot" aria-label="Go to item 5" role="tab" aria-selected="false" data-index="4"></button>
-          <button class="carousel-dot" aria-label="Go to item 6" role="tab" aria-selected="false" data-index="5"></button>
-          <button class="carousel-dot" aria-label="Go to item 7" role="tab" aria-selected="false" data-index="6"></button>
-          <button class="carousel-dot" aria-label="Go to item 8" role="tab" aria-selected="false" data-index="7"></button>
-          <button class="carousel-dot" aria-label="Go to item 9" role="tab" aria-selected="false" data-index="8"></button>
-          <button class="carousel-dot" aria-label="Go to item 10" role="tab" aria-selected="false" data-index="9"></button>
-          <button class="carousel-dot" aria-label="Go to item 11" role="tab" aria-selected="false" data-index="10"></button>
-          <button class="carousel-dot" aria-label="Go to item 12" role="tab" aria-selected="false" data-index="11"></button>
-          <button class="carousel-dot" aria-label="Go to item 13" role="tab" aria-selected="false" data-index="12"></button>
-          <button class="carousel-dot" aria-label="Go to item 14" role="tab" aria-selected="false" data-index="13"></button>
-          <button class="carousel-dot" aria-label="Go to item 15" role="tab" aria-selected="false" data-index="14"></button>
-        </div>
-        <button class="control-button" type="button" id="next-slide" aria-label="Next showcase item">
-          Next<span class="material-symbols-rounded">chevron_right</span>
-        </button>
+    <section class="section-card" aria-labelledby="students-heading">
+      <div class="section-header">
+        <div class="pill"><span class="material-symbols-rounded">school</span>For students</div>
+        <h2 id="students-heading">Self-paced learning and practice</h2>
       </div>
+      <div class="two-column">
+        <ul class="list" aria-label="Student resources">
+          <li class="list-item">
+            <span class="icon"><span class="material-symbols-rounded">insights</span></span>
+            <div>
+              <a href="https://najma-collective.github.io/Noor-Community-B2/exam.html" target="_blank" rel="noreferrer">B2 exam simulation</a>
+              <p>Modular mock exam combining receptive and productive skills with reflective checkpoints to reduce test anxiety.</p>
+            </div>
+          </li>
+          <li class="list-item">
+            <span class="icon"><span class="material-symbols-rounded">headphones</span></span>
+            <div>
+              <a href="assets/elt-showcase/advanced-listening.html">Asynchronous listening lab</a>
+              <p>Layered listening journey with reflective prompts learners can revisit independently.</p>
+            </div>
+          </li>
+        </ul>
+        <ul class="list" aria-label="Student slide decks">
+          <li class="list-item">
+            <span class="icon"><span class="material-symbols-rounded">slideshow</span></span>
+            <div>
+              <a href="assets/elt-showcase/multiple-choice-multi-screen.html">Interactive slide deck</a>
+              <p>Sequenced micro-questions that keep cognitive load low while sustaining flow.</p>
+            </div>
+          </li>
+          <li class="list-item">
+            <span class="icon"><span class="material-symbols-rounded">palette</span></span>
+            <div>
+              <a href="assets/elt-showcase/mosaic.html">Creative storytelling slides</a>
+              <p>Media prompts that invite synthesis of visual and audio cues while narrating community stories.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="coordinators-heading">
+      <div class="section-header">
+        <div class="pill"><span class="material-symbols-rounded">manage_accounts</span>For coordinators</div>
+        <h2 id="coordinators-heading">Programme oversight</h2>
+      </div>
+      <p>Coming soon: curated rollups of attendance data, wellbeing check-ins, and facilitation playbooks tailored for programme coordinators.</p>
     </section>
 
     <section class="cta" aria-labelledby="cta-title">
       <h2 id="cta-title">Want to create the next addition?</h2>
-      <p>We are actively inviting designers to contribute materials that embody our ethos. Share prototypes, co-design ideas, or request a walkthrough of any item in this carousel.</p>
+      <p>We are actively inviting designers to contribute materials that embody our ethos. Share prototypes, co-design ideas, or request a walkthrough of any item in this showcase.</p>
       <a class="button" href="elt-materials.html">Return to ELT Materials</a>
     </section>
   </div>
-
-  <script>
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-    const prevBtn = document.getElementById('prev-slide');
-    const nextBtn = document.getElementById('next-slide');
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      const total = slides.length;
-      slides[currentIndex].classList.remove('active');
-      dots[currentIndex].classList.remove('active');
-      dots[currentIndex].setAttribute('aria-selected', 'false');
-      currentIndex = (index + total) % total;
-      slides[currentIndex].classList.add('active');
-      dots[currentIndex].classList.add('active');
-      dots[currentIndex].setAttribute('aria-selected', 'true');
-      dots[currentIndex].focus({ preventScroll: true });
-    }
-
-    prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
-    nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
-
-    dots.forEach((dot) => {
-      dot.addEventListener('click', () => showSlide(Number(dot.dataset.index)));
-      dot.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          showSlide(Number(dot.dataset.index) + 1);
-        }
-        if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          showSlide(Number(dot.dataset.index) - 1);
-        }
-      });
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
-      if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
-    });
-  </script>
 </body>
 </html>
