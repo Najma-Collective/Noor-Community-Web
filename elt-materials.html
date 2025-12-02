@@ -384,6 +384,97 @@
       }
     }
 
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--sage-50) 0%, var(--neutral-50) 50%, #fef9ec 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    #loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .md-circular-progress {
+      width: 48px;
+      height: 48px;
+      margin-bottom: var(--space-6);
+      animation: md-circular-progress-rotate 1.568s linear infinite;
+    }
+
+    .md-circular-progress-circle {
+      fill: none;
+      stroke: var(--sage-600);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: md-circular-progress-dash 1.568s ease infinite;
+      transform-origin: center;
+    }
+
+    @keyframes md-circular-progress-rotate {
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes md-circular-progress-dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 100, 200;
+        stroke-dashoffset: -15;
+      }
+      100% {
+        stroke-dasharray: 100, 200;
+        stroke-dashoffset: -125;
+      }
+    }
+
+    .loader-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--sage-700);
+      letter-spacing: 0.03em;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: var(--space-8) var(--space-4);
+      background: linear-gradient(135deg, var(--sage-50), #fff);
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      margin-top: var(--space-12);
+    }
+
+    .footer p {
+      color: var(--neutral-700);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-3);
+    }
+
+    .footer a {
+      color: var(--sage-700);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 640px) {
       .hero-title {
         font-size: 2.25rem;
@@ -398,6 +489,13 @@
   </style>
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="loading-screen" role="progressbar" aria-label="Loading page content" aria-busy="true">
+    <svg class="md-circular-progress" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <circle class="md-circular-progress-circle" cx="24" cy="24" r="20"></circle>
+    </svg>
+    <p class="loader-text" aria-live="polite">Loading...</p>
+  </div>
   <nav class="navbar" aria-label="Primary">
     <div class="nav-content">
       <a href="ethos.html" class="nav-link">Ethos</a>
@@ -501,5 +599,39 @@
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <p>For inquiries, please contact us at <a href="mailto:almanar.noorcommunity@gmail.com">almanar.noorcommunity@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // Loading screen management
+    window.addEventListener('load', function() {
+      // Wait for fonts and icons to load
+      Promise.all([
+        document.fonts.ready,
+        // Wait a brief moment for Material Symbols to render
+        new Promise(resolve => setTimeout(resolve, 300))
+      ]).then(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.classList.add('hidden');
+        // Remove from DOM after transition
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 600);
+      });
+    });
+
+    // Fallback: hide loading screen after 5 seconds regardless
+    setTimeout(() => {
+      const loadingScreen = document.getElementById('loading-screen');
+      if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
+        loadingScreen.classList.add('hidden');
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 600);
+      }
+    }, 5000);
+  </script>
 </body>
 </html>

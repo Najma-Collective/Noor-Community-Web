@@ -593,6 +593,31 @@
         scroll-behavior: smooth;
       }
     }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: var(--space-8) var(--space-4);
+      background: linear-gradient(135deg, var(--sage-50), #fff);
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      margin-top: var(--space-12);
+    }
+
+    .footer p {
+      color: var(--neutral-700);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-3);
+    }
+
+    .footer a {
+      color: var(--sage-700);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -683,6 +708,10 @@
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <p>For inquiries, please contact us at <a href="mailto:almanar.noorcommunity@gmail.com">almanar.noorcommunity@gmail.com</a></p>
+  </footer>
 
   <script>
     // Loading screen management
