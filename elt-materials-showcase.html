@@ -108,11 +108,31 @@
 
     .section-card {
       background: #fff;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--neutral-200);
-      padding: var(--space-10) var(--space-6);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      padding: var(--space-10) var(--space-8);
       margin-bottom: var(--space-8);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--sage-600), var(--gold-500));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .section-card:hover::before {
+      transform: scaleX(1);
     }
 
     .section-header {
@@ -148,15 +168,40 @@
     }
 
     .item-card {
-      border: 1px solid var(--neutral-200);
-      border-radius: 14px;
-      padding: var(--space-5);
-      background: #fff;
-      box-shadow: 0 14px 28px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: 18px;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #fff, #fefefe);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
       display: flex;
       flex-direction: column;
-      gap: var(--space-3);
+      gap: var(--space-4);
       height: 100%;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .item-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sage-500), var(--gold-500));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .item-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .item-card:hover::after {
+      transform: scaleX(1);
     }
 
     .item-card h3 {
@@ -193,13 +238,20 @@
 
     .list-item {
       display: flex;
-      gap: var(--space-3);
+      gap: var(--space-4);
       align-items: flex-start;
-      padding: var(--space-4);
-      border: 1px solid var(--neutral-200);
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.04);
+      padding: var(--space-5);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff, #fefefe);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .list-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03);
     }
 
     .list-item .icon {
@@ -390,47 +442,47 @@
       <p style="margin-bottom: var(--space-6); color: var(--neutral-700); line-height: 1.7;">The Noor AI learning system integrates pedagogical theory with interactive technology to support trauma-aware, agency-building language instruction. Below are the key theoretical foundations and design features:</p>
 
       <div style="display: grid; gap: var(--space-5);">
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Task-Based Learning Framework</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system structures lessons according to a nine-stage TBL cycle aligned with Willis's (1996) framework: Lead-in, Pre-task A–D, Task Prep, Main Task, Reporting, and Feedback. A sidebar tracker displays progression states, providing metacognitive orientation regarding lesson position.</p>
         </details>
 
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Pre-Task Subdivision & Zone of Proximal Development</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The pre-task phase divides into four components: schema activation, model provision, language focus, and pronunciation work. This granular division reflects Long's (1985) interaction hypothesis. The system prompt explicitly references Vygotskian ZPD theory and instructs the AI to provide 'i+1' input—Krashen's (1985) input hypothesis applied within a scaffolding framework.</p>
         </details>
 
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Sentence Stems & Scaffolding</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">Sentence stems (e.g., 'In my opinion, ___ because ___') provide syntactic templates that reduce cognitive load while maintaining communicative authenticity. This corresponds with Gibbons's (2015) work on scaffolding academic language. Stems appear as selectable options, lowering production activation thresholds.</p>
         </details>
 
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Visual Highlighting System</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">A tripartite highlighting system uses CSS classes: 'hl-vocab' (amber), 'hl-grammar' (sage green), and 'hl-feedback' (rose). This colour-coding draws on dual-coding theory (Paivio, 1986)—information encoded through multiple channels enhances retention and retrieval. The visual distinction serves a sorting function: lexical items requiring memorisation, structural patterns requiring rule application, and errors requiring remediation.</p>
         </details>
 
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Error Correction & Feedback</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system prescribes varied error correction drawing on Lyster and Ranta's (1997) taxonomy: recasts, clarification requests, metalinguistic feedback, elicitation, and explicit correction. Less intrusive feedback types are prioritised, reserving explicit correction for persistent errors. Guidance to 'prioritise errors that impede communication or match lesson focus' operationalises Hendrickson's (1978) criteria.</p>
         </details>
 
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Metacognitive Support</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The 'think-prompt' class renders reflection prompts with distinctive visual styling, signalling that processing time and deliberate thought are valued. This corresponds to recommendations regarding explicit metacognitive prompting in language learning (Anderson, 2002). The 'self-check' component provides structure for confidence self-assessment following teaching moments.</p>
         </details>
 
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Vocabulary Tracking & Retrieval Practice</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The sidebar component implements real-time tracking of vocabulary items marked with 'hl-vocab'. Items are stored in a JavaScript Set (preventing duplicates) and limited to twenty items. The system instructs the AI to 'circle back to previous vocabulary/concepts without warning' and space repetitions across the session. This draws on robust findings regarding the testing effect and distributed practice (Roediger & Karpicke, 2006).</p>
         </details>
 
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Multimodal Learning</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The interface provides text input and speech recognition (Web Speech API) with text-to-speech output. This multimodality addresses different learner preferences and potentially supports development of both written and spoken skills. The avatar provides non-verbal feedback through animated states: idle, listening, thinking, and speaking.</p>
         </details>
 
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
           <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Socratic Questioning & Critical Thinking</summary>
           <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system specifies six question types: clarifying, assumption-probing, evidence-probing, viewpoint, implication, and meta-questions. This structured approach draws on Paul and Elder's (2006) framework for critical thinking instruction. The meta-question type ('Why do you think I asked that question?') attempts to make the pedagogical process itself an object of reflection.</p>
         </details>
@@ -441,8 +493,8 @@
         </details>
       </div>
 
-      <p style="margin-top: var(--space-6); padding: var(--space-5); background: var(--sage-100); border-radius: 12px; border-left: 4px solid var(--sage-600); font-style: italic; color: var(--neutral-800);">
-        <strong>Note:</strong> This system represents an integration of task-based language teaching, trauma-aware pedagogy, and AI-assisted learning. It embodies our commitment to creating learning experiences that are academically rigorous while remaining responsive to the cognitive and emotional needs of learners in contexts of continuous stress.
+      <p style="margin-top: var(--space-8); padding: var(--space-6); background: linear-gradient(135deg, var(--sage-100), var(--sage-50)); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); font-style: italic; color: var(--neutral-800); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);">
+        <strong style="color: var(--sage-800);">Note:</strong> This system represents an integration of task-based language teaching, trauma-aware pedagogy, and AI-assisted learning. It embodies our commitment to creating learning experiences that are academically rigorous while remaining responsive to the cognitive and emotional needs of learners in contexts of continuous stress.
       </p>
     </section>
 
