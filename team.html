@@ -37,11 +37,11 @@
   <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
-  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/main.min.js"></script>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -75,14 +75,14 @@
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
         <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -97,12 +97,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
         <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="assets/linkeidn.png" alt="LinkedIn" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -114,7 +114,7 @@
       </div>
     </section>
 
-    <section class="section page-surface material-surface team-showcase">
+    <md-elevated-card class="section page-surface material-surface team-showcase">
       <div class="section-header">
         <p class="chip">Complete Noor Team</p>
         <h2 class="section-title">Meet the Team</h2>
@@ -308,9 +308,9 @@
           </article>
         </div>
       </div>
-    </section>
+    </md-elevated-card>
 
-    <section class="section page-surface material-surface">
+    <md-elevated-card class="section page-surface material-surface">
       <div class="section-header">
         <h2 class="section-title">Our Educators</h2>
         <p class="section-subtitle">Our educators are certified professionals, researchers, and academics from around the world who contribute their expertise to our community of practice.</p>
@@ -318,14 +318,14 @@
       <div class="testimonial">
         “Noor is a professional home. In a field often marked by atomisation and alienation, it offers a space to reconnect with the craft of teaching in a purposeful context.” – Dr. Imani Osei, Noor Educator
       </div>
-    </section>
+    </md-elevated-card>
 
     <section class="section page-surface join-team-cta">
-      <div class="volunteer-cta material-surface">
+      <md-elevated-card class="volunteer-cta material-surface">
         <h2 class="section-title">Want to join this team?</h2>
         <p class="section-subtitle">Learn more about the volunteer opportunities that keep this community thriving.</p>
-        <a class="activity-btn volunteer-btn" href="join-volunteers.html">See Volunteer Openings</a>
-      </div>
+        <md-filled-button class="activity-btn volunteer-btn" href="join-volunteers.html">See Volunteer Openings</md-filled-button>
+      </md-elevated-card>
     </section>
   </main>
 

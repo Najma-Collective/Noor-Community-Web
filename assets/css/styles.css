@@ -454,38 +454,45 @@ h3 {
 /* -------------------------------
    Buttons — Premium Design
 ----------------------------------*/
-.activity-btn {
+md-filled-button.activity-btn,
+md-outlined-button.activity-btn,
+md-text-button.activity-btn {
   min-height: max(38px, calc(var(--target-min) - 6px));
-  padding: 0.35rem 1.2rem;
   border-radius: var(--radius-full);
-  border: none;
-  position: relative;
-  background: var(--golden-hour);
-  color: #fff;
-  font-weight: 700;
+  font-weight: 800;
   font-size: var(--step--1);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  cursor: pointer;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.2;
   gap: 0.35rem;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  user-select: none;
-  transition: all var(--transition-fast);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+md-filled-button.activity-btn::part(container),
+md-outlined-button.activity-btn::part(container),
+md-text-button.activity-btn::part(container) {
+  border-radius: inherit;
+  padding: 0.35rem 1.2rem;
+}
+
+md-filled-button.activity-btn {
+  color: #fff;
+  transition: transform var(--transition-fast);
   box-shadow:
     var(--shadow-2),
     var(--shadow-glow),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  overflow: hidden;
 }
 
-.activity-btn::before {
+md-filled-button.activity-btn::part(container) {
+  background: var(--golden-hour);
+}
+
+md-filled-button.activity-btn::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -494,7 +501,7 @@ h3 {
   transition: opacity var(--transition-fast);
 }
 
-.activity-btn::after {
+md-filled-button.activity-btn::after {
   content: "";
   position: absolute;
   inset: -50%;
@@ -503,7 +510,7 @@ h3 {
   transition: transform var(--transition-slow);
 }
 
-.activity-btn:hover {
+md-filled-button.activity-btn:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow:
     0 20px 40px rgba(36, 61, 22, 0.3),
@@ -511,86 +518,86 @@ h3 {
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-.activity-btn:hover::before {
+md-filled-button.activity-btn:hover::before {
   opacity: 1;
 }
 
-.activity-btn:hover::after {
+md-filled-button.activity-btn:hover::after {
   transform: translateX(100%);
 }
 
-.activity-btn:active {
+md-filled-button.activity-btn:active {
   transform: translateY(-1px) scale(0.99);
   box-shadow:
     var(--shadow-1),
     var(--shadow-glow);
 }
 
-.activity-btn:focus-visible {
+md-filled-button.activity-btn:focus-visible {
   outline: none;
   box-shadow: var(--ring-amber), var(--shadow-3), var(--shadow-glow);
   transform: translateY(-2px);
 }
 
-.activity-btn:disabled {
-  background: linear-gradient(135deg, var(--sage-300), var(--sage-400));
-  color: rgba(255, 255, 255, 0.7);
-  cursor: not-allowed;
-  opacity: 0.7;
-  transform: none;
-  box-shadow: var(--shadow-sm);
-}
-
-.activity-btn:disabled::before,
-.activity-btn:disabled::after {
+md-filled-button.activity-btn:disabled::before,
+md-filled-button.activity-btn:disabled::after {
   display: none;
 }
 
-/* Secondary Button */
-.activity-btn.secondary {
+md-outlined-button.activity-btn {
+  color: var(--sage-700);
+  transition: color var(--transition-fast);
+}
+
+md-outlined-button.activity-btn::part(container) {
   background: linear-gradient(135deg,
     color-mix(in srgb, var(--soft-white) 95%, var(--sage-100) 5%),
     color-mix(in srgb, var(--sage-50) 90%, var(--amber-50) 10%));
-  color: var(--sage-700);
-  border: 2px solid color-mix(in srgb, var(--sage-400) 40%, transparent);
   box-shadow:
     var(--shadow-1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-.activity-btn.secondary:hover {
+md-outlined-button.activity-btn::part(outline) {
+  border-width: 2px;
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--sage-400) 40%, transparent);
+}
+
+md-outlined-button.activity-btn:hover {
+  color: var(--deep-forest);
+}
+
+md-outlined-button.activity-btn:hover::part(container) {
   background: linear-gradient(135deg,
     color-mix(in srgb, var(--sage-100) 80%, var(--amber-100) 20%),
     color-mix(in srgb, var(--sage-50) 70%, var(--amber-100) 30%));
-  color: var(--deep-forest);
+}
+
+md-outlined-button.activity-btn:hover::part(outline) {
   border-color: var(--sage-500);
 }
 
-.activity-btn.secondary:focus-visible {
+md-outlined-button.activity-btn:focus-visible {
   box-shadow: var(--ring), var(--shadow-2);
 }
 
-.activity-btn.tertiary {
-  background: transparent;
-  border: none;
-  color: var(--sage-700);
-  padding-inline: 0;
-  font-weight: 600;
-  text-transform: none;
+md-text-button.activity-btn {
   letter-spacing: 0;
-  box-shadow: none;
+  text-transform: none;
+  font-weight: 600;
+  color: var(--sage-700);
 }
 
-.activity-btn.tertiary::before,
-.activity-btn.tertiary::after {
-  display: none;
+md-text-button.activity-btn::part(container) {
+  padding-inline: 0;
+  background: transparent;
 }
 
-.activity-btn.tertiary:hover,
-.activity-btn.tertiary:focus-visible {
+md-text-button.activity-btn:hover,
+md-text-button.activity-btn:focus-visible {
   color: var(--amber-500);
   text-decoration: underline;
-  box-shadow: none;
 }
 
 .controls {
@@ -1046,7 +1053,9 @@ body.site-shell {
   padding: clamp(0.75rem, 2vw, 1.75rem) clamp(0.75rem, 2.5vw, 2rem);
 }
 
+md-elevated-card.material-surface,
 .material-surface {
+  display: block;
   background:
     linear-gradient(135deg,
       color-mix(in srgb, var(--soft-white) 95%, var(--sage-50) 5%),
@@ -1056,9 +1065,15 @@ body.site-shell {
   box-shadow:
     var(--shadow-3),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  padding: clamp(1rem, 3vw, 2rem);
   position: relative;
   overflow: hidden;
+}
+
+md-elevated-card.material-surface::part(container) {
+  border-radius: inherit;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: transparent;
+  box-shadow: none;
 }
 
 .material-surface::before {
@@ -1104,16 +1119,36 @@ body.site-shell {
     var(--shadow-glow);
 }
 
-.navbar {
-  max-width: 1200px;
+md-toolbar,
+md-icon-button,
+md-filled-button,
+md-outlined-button,
+md-text-button,
+md-outlined-card,
+md-elevated-card {
+  font-family: var(--font-body);
+}
+
+.site-app-bar {
+  --md-toolbar-container-color: transparent;
+  --md-toolbar-container-height: var(--header-height);
+  --md-toolbar-title-text-color: var(--deep-forest);
+  width: min(1200px, 100%);
   margin: 0 auto;
+  padding: 0.85rem clamp(1rem, 4vw, 2.5rem);
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: var(--space-4);
   flex-wrap: nowrap;
-  padding: 0.85rem clamp(1rem, 4vw, 2.5rem);
   position: relative;
+  box-sizing: border-box;
+}
+
+.site-app-bar::part(container) {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .brand {
@@ -1158,7 +1193,7 @@ body.site-shell {
   transform: scale(1.08) rotate(-3deg);
 }
 
-.navbar nav {
+.site-app-bar nav {
   order: 3;
   flex: 1 0 auto;
 }
@@ -1297,31 +1332,30 @@ body.site-shell {
   opacity: 0;
 }
 
-.donate-btn {
+md-filled-button.donate-btn {
   border-radius: var(--radius-full);
-  border: none;
-  padding: 0.85rem 2rem;
   font-size: var(--step--1);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  gap: 0.5rem;
   color: #fff;
+  transition: transform var(--transition-fast);
+}
+
+md-filled-button.donate-btn::part(container) {
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
   box-shadow:
     var(--shadow-2),
     0 0 20px rgba(235, 160, 60, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-.donate-btn::before {
+md-filled-button.donate-btn::before {
   content: "";
   position: absolute;
   inset: -50%;
@@ -1330,7 +1364,7 @@ body.site-shell {
   transition: transform var(--transition-slow);
 }
 
-.donate-btn:hover {
+md-filled-button.donate-btn:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow:
     0 16px 40px rgba(235, 160, 60, 0.3),
@@ -1338,38 +1372,43 @@ body.site-shell {
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-.donate-btn:hover::before {
+md-filled-button.donate-btn:hover::before {
   transform: translateX(100%);
 }
 
-.nav-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 2px solid var(--sage-400);
-  font-size: 1.5rem;
-  color: var(--deep-forest);
-  padding: 0.35rem;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: all var(--transition-fast);
+md-icon-button.nav-toggle {
+  order: 2;
   width: var(--target-min);
   height: var(--target-min);
-  order: 2;
+  color: var(--deep-forest);
+  transition: color var(--transition-fast);
 }
 
-.nav-toggle .material-symbols-rounded {
+md-icon-button.nav-toggle::part(container) {
+  border-radius: var(--radius);
+  border: 2px solid var(--sage-400);
+  background: transparent;
+  transition: all var(--transition-std);
+}
+
+md-icon-button.nav-toggle .material-symbols-rounded {
   transition: transform var(--transition-std);
+  font-size: 1.5rem;
 }
 
-.nav-toggle[aria-expanded="true"] .material-symbols-rounded {
+md-icon-button.nav-toggle[aria-expanded="true"] .material-symbols-rounded {
   transform: rotate(90deg);
 }
 
-.nav-toggle:hover {
+md-icon-button.nav-toggle.is-active .material-symbols-rounded {
+  transform: rotate(180deg) scale(1.05);
+}
+
+md-icon-button.nav-toggle.is-active::part(container),
+md-icon-button.nav-toggle:hover::part(container) {
   background: var(--sage-100);
   border-color: var(--sage-500);
+  box-shadow: 0 10px 30px rgba(73, 88, 40, 0.2);
 }
 
 .nav-links.open {
@@ -1377,6 +1416,37 @@ body.site-shell {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+@media (min-width: 960px) {
+  md-icon-button.nav-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    flex-direction: row;
+    gap: clamp(1.25rem, 2vw, 1.75rem);
+    padding: 0;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    align-items: center;
+  }
+
+  .nav-links li {
+    width: auto;
+  }
+
+  .nav-links a {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+  }
 }
 
 /* -------------------------------
@@ -1459,8 +1529,9 @@ body.site-shell {
   gap: var(--space-4);
 }
 
-.hero-actions a,
-.hero-actions button {
+.hero-actions md-filled-button,
+.hero-actions md-outlined-button,
+.hero-actions md-text-button {
   text-decoration: none;
 }
 
@@ -2293,10 +2364,13 @@ body.site-shell {
   text-transform: none;
   letter-spacing: 0.02em;
   font-size: var(--step--1);
-  padding: 0.65rem 1.5rem;
-  border-radius: var(--radius-lg);
   min-width: 0;
   align-self: center;
+}
+
+md-filled-button.volunteer-btn::part(container) {
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-lg);
 }
 
 .partner-support {
@@ -2359,17 +2433,31 @@ body.site-shell {
 }
 
 .partner-cta {
-  padding: 0.45rem 1.75rem;
-  border-radius: var(--radius);
   font-size: var(--step-0);
   letter-spacing: 0.02em;
   text-transform: none;
   min-height: auto;
 }
 
+md-filled-button.partner-cta::part(container) {
+  padding: 0.45rem 1.75rem;
+  border-radius: var(--radius);
+}
+
 /* -------------------------------
    Cards — Premium Design
 ----------------------------------*/
+md-outlined-card.card {
+  display: block;
+}
+
+md-outlined-card.card::part(container) {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
 .card {
   padding: clamp(1.5rem, 4vw, 2.5rem);
   border-radius: var(--radius-xl);
@@ -3582,11 +3670,18 @@ form.material-form {
 ----------------------------------*/
 .activity-btn-primary {
   font-size: var(--step-1);
-  padding: 1rem 2.5rem;
 }
 
 .activity-btn-large {
   font-size: var(--step-1);
+}
+
+md-filled-button.activity-btn-primary::part(container) {
+  padding: 1rem 2.5rem;
+}
+
+md-filled-button.activity-btn-large::part(container),
+md-outlined-button.activity-btn-large::part(container) {
   padding: 1.1rem 2.8rem;
 }
 
@@ -3897,6 +3992,12 @@ form.material-form {
 
 .card-link:hover .material-symbols-rounded {
   transform: translateX(4px);
+}
+
+md-text-button.card-link::part(container),
+md-text-button.story-card-link::part(container) {
+  padding: 0;
+  background: transparent;
 }
 
 /* -------------------------------
@@ -4267,7 +4368,7 @@ form.material-form {
    Responsive Enhancements
 ----------------------------------*/
 @media (max-width: 768px) {
-  .navbar {
+  .site-app-bar {
     flex-wrap: wrap;
     justify-content: flex-start;
   }
@@ -4326,8 +4427,8 @@ form.material-form {
   }
   .site-header,
   .site-footer,
-  .nav-toggle,
-  .donate-btn {
+  md-icon-button.nav-toggle,
+  md-filled-button.donate-btn {
     display: none;
   }
   .card,

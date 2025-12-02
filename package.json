@@ -1,0 +1,22 @@
+{
+  "name": "noor-community-web",
+  "version": "1.0.0",
+  "description": "Build tooling for Noor Community static site",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "postcss assets/css/styles.css --no-map -u cssnano -o assets/css/styles.min.css",
+    "build:js": "terser assets/js/main.js -c -m -o assets/js/main.min.js",
+    "build": "npm run build:css && npm run build:js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cssnano": "^7.0.4",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "terser": "^5.44.1"
+  }
+}

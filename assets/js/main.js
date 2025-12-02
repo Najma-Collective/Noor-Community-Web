@@ -9,13 +9,21 @@ const initNavigation = () => {
   const nav = document.querySelector('[data-nav-links]');
   if (!toggle || !nav) return;
 
+  const desktopQuery = window.matchMedia('(min-width: 960px)');
+  const icon = toggle.querySelector('.material-symbols-rounded');
+
   const firstNavLink = () => nav.querySelector('a');
 
   const setMenuState = (isOpen, { focusTarget } = {}) => {
     nav.classList.toggle('open', isOpen);
+    toggle.classList.toggle('is-active', isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
     nav.setAttribute('aria-hidden', String(!isOpen));
+
+    if (icon) {
+      icon.textContent = isOpen ? 'close' : 'menu';
+    }
 
     if (focusTarget === 'menu' && isOpen) {
       firstNavLink()?.focus();
@@ -26,9 +34,27 @@ const initNavigation = () => {
     }
   };
 
-  setMenuState(false);
+  const syncForViewport = () => {
+    if (desktopQuery.matches) {
+      nav.classList.remove('open');
+      nav.setAttribute('aria-hidden', 'false');
+      toggle.classList.remove('is-active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
+      if (icon) {
+        icon.textContent = 'menu';
+      }
+    } else {
+      setMenuState(false);
+    }
+  };
+
+  syncForViewport();
+
+  desktopQuery.addEventListener('change', syncForViewport);
 
   toggle.addEventListener('click', () => {
+    if (desktopQuery.matches) return;
     const isOpen = nav.classList.contains('open');
     setMenuState(!isOpen, { focusTarget: isOpen ? 'toggle' : 'menu' });
   });
@@ -1013,7 +1039,6 @@ const init = () => {
   initFocusVisible();
   initSkipLink();
 
-  console.log('🌿 Noor Community — Premium UI initialized');
 };
 
 // Initialize when DOM is ready

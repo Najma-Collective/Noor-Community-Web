@@ -8,38 +8,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
-  <script defer src="../assets/js/main.js"></script>
+  <script defer src="../assets/js/main.min.js"></script>
 </head>
 <body class="site-shell">
   <header class="site-header">
-    <div class="navbar">
-      <a class="brand" href="../index.html">
+    <md-toolbar class="site-app-bar" role="navigation">
+      <a class="brand" href="index.html">
         <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../about.html">About Us</a></li>
-          <li><a href="../programmes.html">Our Programmes</a></li>
-          <li><a href="../impact.html">Our Impact</a></li>
-          <li><a href="../stories.html">Stories</a></li>
-          <li><a href="../partners.html">Our Partners</a></li>
-          <li><a href="../join-students.html">Join Us</a></li>
-          <li><a href="../faq.html">FAQ</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Meet the Teachers</a></li>
+          <li><a href="programmes.html">Our Programmes</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="partners.html">Al Manar Society</a></li>
+          <li><a href="join-students.html">Join Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="../donate.html">Donate</a>
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main>
@@ -53,7 +57,7 @@
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
+    <md-elevated-card class="section page-surface material-surface">
       <article class="story-article">
         <header class="story-article-header">
           <p class="story-article-subtitle">Our curriculum team has been prototyping "microcurricula": clusters of lessons that can be completed in 30 minutes, require minimal materials, and are easy to pass between learners. Here is what we have learned.</p>
@@ -100,7 +104,7 @@
           <p>We are releasing four new microcurricula this spring focused on algebraic thinking, civic design, and multilingual storytelling. Each will include facilitator audio guides and suggestions for adapting the lesson to offline or low-power settings. Educators can request the kits through our partner portal starting in May.</p>
         </div>
       </article>
-    </section>
+    </md-elevated-card>
   </main>
 
   <footer class="site-footer">

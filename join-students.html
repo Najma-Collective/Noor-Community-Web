@@ -39,11 +39,11 @@
   <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
-  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/main.min.js"></script>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -66,14 +66,14 @@
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
         <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -88,12 +88,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
         <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="assets/linkeidn.png" alt="LinkedIn" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -108,7 +108,7 @@
     </section>
 
     <section class="section page-surface">
-      <div class="material-surface" data-scroll-animate>
+      <md-elevated-card class="material-surface" data-scroll-animate>
         <div class="section-header section-header-centered">
           <div class="section-label section-label-centered">
             <span class="material-symbols-rounded">how_to_reg</span>
@@ -122,7 +122,7 @@
           <li><span class="material-symbols-rounded">check_circle</span>You are ready to participate in an active and collaborative learning community.</li>
           <li><span class="material-symbols-rounded">check_circle</span>You are committed to a model of mutual respect and shared learning.</li>
         </ul>
-      </div>
+      </md-elevated-card>
     </section>
 
     <section class="section page-surface">
@@ -134,39 +134,39 @@
         <h2 class="section-title section-title-xl">How We Learn <span class="text-highlight">Together</span></h2>
       </div>
       <div class="grid-2">
-        <article class="card card-premium" data-card-animate>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-icon">
             <span class="material-symbols-rounded">business_center</span>
           </div>
           <h3>Professional English Courses</h3>
           <p>Build practical skills for your career and professional development.</p>
-        </article>
-        <article class="card card-premium" data-card-animate>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-icon">
             <span class="material-symbols-rounded">menu_book</span>
           </div>
           <h3>Academic English Courses</h3>
           <p>Prepare for university success with critical thinking and academic skills.</p>
-        </article>
-        <article class="card card-premium" data-card-animate>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-icon">
             <span class="material-symbols-rounded">psychology</span>
           </div>
           <h3>Soft Skills Training</h3>
           <p>Develop leadership and communication skills for personal growth.</p>
-        </article>
-        <article class="card card-premium" data-card-animate>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-icon">
             <span class="material-symbols-rounded">public</span>
           </div>
           <h3>An International Network</h3>
           <p>Connect with teachers and peers from around the world.</p>
-        </article>
+        </md-outlined-card>
       </div>
     </section>
 
     <section class="section page-surface">
-      <div class="material-surface">
+      <md-elevated-card class="material-surface">
         <div class="section-header section-header-centered">
           <div class="section-label section-label-centered">
             <span class="material-symbols-rounded">map</span>
@@ -175,32 +175,32 @@
           <h2 class="section-title section-title-xl">Your Next <span class="text-highlight">Step</span></h2>
         </div>
         <div class="grid-3">
-          <article class="card card-premium" data-card-animate>
+          <md-outlined-card class="card card-premium" data-card-animate role="article">
             <div class="card-number">01</div>
             <h3>Step 1: Initial Application</h3>
             <p>Complete and submit the online application form with your personal details, academic history, and programme preference.</p>
-          </article>
-          <article class="card card-premium" data-card-animate>
+          </md-outlined-card>
+          <md-outlined-card class="card card-premium" data-card-animate role="article">
             <div class="card-number">02</div>
             <h3>Step 2: Placement Interview</h3>
             <p>If eligible, you will be invited to a 30-minute virtual interview with a programme coordinator to assess your goals and skill level for accurate placement.</p>
-          </article>
-          <article class="card card-premium" data-card-animate>
+          </md-outlined-card>
+          <md-outlined-card class="card card-premium" data-card-animate role="article">
             <div class="card-number">03</div>
             <h3>Step 3: Programme Onboarding</h3>
             <p>Successful applicants will receive an acceptance notification and be given access to our online learning platform and all course materials.</p>
-          </article>
+          </md-outlined-card>
         </div>
         <div class="hero-actions" style="margin-top: var(--space-6);">
-          <a class="activity-btn activity-btn-large" href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">
+          <md-filled-button class="activity-btn activity-btn-large" href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">
             <span>Apply to Our Programmes</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
+          </md-filled-button>
         </div>
-      </div>
+      </md-elevated-card>
     </section>
 
-    <section id="apply" class="section page-surface material-surface section-cta">
+    <md-elevated-card id="apply" class="section page-surface material-surface section-cta">
       <div class="section-cta-content">
         <div class="section-cta-badge">
           <span class="material-symbols-rounded">help</span>
@@ -221,17 +221,17 @@
           </div>
         </div>
         <div class="hero-actions" style="margin-top: var(--space-6);">
-          <a class="activity-btn activity-btn-large" href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">
+          <md-filled-button class="activity-btn activity-btn-large" href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">
             <span>Apply to Our Programmes</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
-          <a class="activity-btn secondary" href="faq.html">
+          </md-filled-button>
+          <md-outlined-button class="activity-btn secondary" href="faq.html">
             <span>See Full FAQ</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
+          </md-outlined-button>
         </div>
       </div>
-    </section>
+    </md-elevated-card>
   </main>
 
     <footer class="site-footer">

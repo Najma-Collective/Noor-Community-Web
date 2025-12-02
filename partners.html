@@ -39,11 +39,11 @@
   <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
-  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/main.min.js"></script>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -66,14 +66,14 @@
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
         <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -88,12 +88,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
         <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <img src="assets/linkeidn.png" alt="LinkedIn" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -108,7 +108,7 @@
     </section>
 
     <section class="section page-surface">
-      <div class="grid-2 material-surface card-premium" style="align-items: center; padding: clamp(2rem, 4vw, 3rem);" data-scroll-animate>
+      <md-elevated-card class="grid-2 material-surface card-premium" style="align-items: center; padding: clamp(2rem, 4vw, 3rem);" data-scroll-animate>
         <div>
           <div class="section-header">
             <div class="section-label">
@@ -123,10 +123,10 @@
         <div style="display: flex; align-items: center; justify-content: center; padding: var(--space-6);">
           <img src="https://najma-collective.github.io/Noor-Community-Web/assets/almanar-logo.png" alt="Al Manar Society logo" style="max-width: 280px; height: auto; filter: drop-shadow(0 4px 12px rgba(36, 61, 22, 0.2));" />
         </div>
-      </div>
+      </md-elevated-card>
     </section>
 
-    <section class="section page-surface material-surface">
+    <md-elevated-card class="section page-surface material-surface">
       <div class="section-header section-header-centered">
         <div class="section-label section-label-centered">
           <span class="material-symbols-rounded">lightbulb</span>
@@ -136,42 +136,42 @@
       </div>
 
       <div class="grid-2" style="gap: var(--space-6);">
-        <div class="material-surface card-premium" data-scroll-animate>
+        <md-elevated-card class="material-surface card-premium" data-scroll-animate>
           <div class="stat-icon" style="margin-bottom: var(--space-5);">
             <span class="material-symbols-rounded">school</span>
           </div>
           <h3>Educational Programs</h3>
           <p>Al Manar Society develops and delivers educational programs designed to empower Palestinian youth and adults with the knowledge and skills needed to pursue their goals and contribute to their communities.</p>
-        </div>
+        </md-elevated-card>
 
-        <div class="material-surface card-premium" data-scroll-animate>
+        <md-elevated-card class="material-surface card-premium" data-scroll-animate>
           <div class="stat-icon" style="margin-bottom: var(--space-5);">
             <span class="material-symbols-rounded">diversity_3</span>
           </div>
           <h3>Community Development</h3>
           <p>Through various social initiatives, Al Manar Society strengthens community bonds and creates supportive networks that help Palestinian families navigate challenges and access essential resources.</p>
-        </div>
+        </md-elevated-card>
 
-        <div class="material-surface card-premium" data-scroll-animate>
+        <md-elevated-card class="material-surface card-premium" data-scroll-animate>
           <div class="stat-icon" style="margin-bottom: var(--space-5);">
             <span class="material-symbols-rounded">palette</span>
           </div>
           <h3>Cultural Preservation</h3>
           <p>They champion Palestinian culture and heritage through programs that celebrate traditions, arts, and collective memory, ensuring that cultural identity remains strong across generations.</p>
-        </div>
+        </md-elevated-card>
 
-        <div class="material-surface card-premium" data-scroll-animate>
+        <md-elevated-card class="material-surface card-premium" data-scroll-animate>
           <div class="stat-icon" style="margin-bottom: var(--space-5);">
             <span class="material-symbols-rounded">volunteer_activism</span>
           </div>
           <h3>Advocacy & Support</h3>
           <p>Al Manar Society advocates for Palestinian rights and provides direct support to individuals and families, addressing immediate needs while working toward long-term systemic change.</p>
-        </div>
+        </md-elevated-card>
       </div>
-    </section>
+    </md-elevated-card>
 
     <section class="section page-surface">
-      <div class="material-surface card-premium" style="text-align: center; padding: clamp(2.5rem, 5vw, 4rem);" data-scroll-animate>
+      <md-elevated-card class="material-surface card-premium" style="text-align: center; padding: clamp(2.5rem, 5vw, 4rem);" data-scroll-animate>
         <div class="section-header section-header-centered">
           <div class="section-label section-label-centered">
             <span class="material-symbols-rounded">link</span>
@@ -182,31 +182,31 @@
         </div>
 
         <div class="hero-actions" style="margin-top: var(--space-7); gap: var(--space-4); flex-wrap: wrap; justify-content: center;">
-          <a class="activity-btn activity-btn-primary" href="https://almanar-society.org/" target="_blank" rel="noreferrer">
+          <md-filled-button class="activity-btn activity-btn-primary" href="https://almanar-society.org/" target="_blank" rel="noreferrer">
             <span class="material-symbols-rounded btn-icon">language</span>
             <span>Visit Website</span>
-          </a>
-          <a class="activity-btn secondary" href="https://www.facebook.com/almanarsociety" target="_blank" rel="noreferrer">
+          </md-filled-button>
+          <md-outlined-button class="activity-btn secondary" href="https://www.facebook.com/almanarsociety" target="_blank" rel="noreferrer">
             <img src="https://najma-collective.github.io/Noor-Community-Web/assets/Facebook_Logo_Primary.png" alt="Facebook" style="width: 20px; height: 20px; object-fit: contain;" />
             <span>Facebook</span>
-          </a>
-          <a class="activity-btn secondary" href="https://www.instagram.com/almanarsociety/" target="_blank" rel="noreferrer">
+          </md-outlined-button>
+          <md-outlined-button class="activity-btn secondary" href="https://www.instagram.com/almanarsociety/" target="_blank" rel="noreferrer">
             <img src="https://najma-collective.github.io/Noor-Community-Web/assets/Instagram_Glyph_Gradient.png" alt="Instagram" style="width: 20px; height: 20px; object-fit: contain;" />
             <span>Instagram</span>
-          </a>
+          </md-outlined-button>
         </div>
-      </div>
+      </md-elevated-card>
     </section>
 
     <section class="section page-surface">
-      <div class="material-surface partner-invite">
+      <md-elevated-card class="material-surface partner-invite">
         <h2 class="section-title">Become a Partner</h2>
         <p class="partner-invite-copy">
           Are you an organization, university, or company interested in collaborating? We welcome aligned partners to co-design
           programmes, share resources, and amplify opportunity for every learner.
         </p>
-        <a class="activity-btn partner-cta" href="contact.html">Get in Touch</a>
-      </div>
+        <md-filled-button class="activity-btn partner-cta" href="contact.html">Get in Touch</md-filled-button>
+      </md-elevated-card>
     </section>
   </main>
 
