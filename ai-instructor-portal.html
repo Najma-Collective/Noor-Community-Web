@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Instructor Portal | Noor Community</title>
+  <meta name="description" content="Explore Noor Community's AI-powered learning system: understand our commitment to transparency, review our system prompt, and access the AI chatbot." />
+  <meta name="author" content="Noor Community" />
+  <link rel="icon" type="image/png" href="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    :root {
+      --sage-50: #f6f7f6;
+      --sage-100: #e8ebe8;
+      --sage-200: #d4dbd4;
+      --sage-300: #b0bfb0;
+      --sage-400: #8aa08a;
+      --sage-500: #6b856b;
+      --sage-600: #546b54;
+      --sage-700: #435743;
+      --sage-800: #374637;
+      --sage-900: #2d3a2d;
+
+      --gold-50: #fefce8;
+      --gold-100: #fef9c3;
+      --gold-200: #fef08a;
+      --gold-300: #fde047;
+      --gold-400: #facc15;
+      --gold-500: #eab308;
+      --gold-600: #ca8a04;
+      --gold-700: #a16207;
+
+      --neutral-50: #fafafa;
+      --neutral-100: #f5f5f5;
+      --neutral-200: #e5e5e5;
+      --neutral-300: #d4d4d4;
+      --neutral-400: #a3a3a3;
+      --neutral-500: #737373;
+      --neutral-600: #525252;
+      --neutral-700: #404040;
+      --neutral-800: #262626;
+      --neutral-900: #171717;
+
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: var(--neutral-800);
+      background: linear-gradient(135deg, var(--sage-50) 0%, var(--neutral-50) 50%, #fef9ec 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 3px 8px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--sage-800);
+      text-decoration: none;
+      padding: var(--space-3) var(--space-6);
+      border-radius: 50px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
+      color: var(--sage-900);
+      transform: translateY(-2px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 3px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-link.active {
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06), 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(80px + var(--space-20)) var(--space-4) var(--space-12);
+      background: linear-gradient(135deg, var(--sage-700), var(--sage-800));
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(254, 220, 71, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(176, 191, 176, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-6);
+      box-shadow: 0 8px 32px rgba(234, 179, 8, 0.4);
+    }
+
+    .hero-icon .material-symbols-rounded {
+      color: var(--neutral-900);
+      font-size: 2.5rem;
+      font-variation-settings: 'FILL' 1, 'wght' 600;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: var(--space-4);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-description {
+      font-size: clamp(1.125rem, 2vw, 1.25rem);
+      color: var(--sage-100);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Main Content */
+    main {
+      position: relative;
+      z-index: 10;
+    }
+
+    .section {
+      padding: var(--space-20) var(--space-4);
+      position: relative;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06), 0 6px 12px rgba(0, 0, 0, 0.1);
+      max-width: 960px;
+      margin: 0 auto var(--space-12);
+      padding: var(--space-10) var(--space-8);
+      border-left: 6px solid var(--sage-600);
+      transition: all 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      color: white;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: var(--space-4);
+      box-shadow: 0 4px 12px rgba(84, 107, 84, 0.3);
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 800;
+      color: var(--sage-900);
+      margin-bottom: var(--space-6);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .section-content p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--neutral-700);
+      margin-bottom: var(--space-6);
+    }
+
+    .section-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* System Prompt Code Block */
+    .code-block {
+      background: var(--neutral-900);
+      color: #e5e5e5;
+      border-radius: 12px;
+      padding: var(--space-6);
+      overflow-x: auto;
+      margin: var(--space-6) 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .code-block pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
+      padding: var(--space-4);
+      border-radius: 12px;
+      margin-bottom: var(--space-4);
+    }
+
+    .code-header .material-symbols-rounded {
+      color: var(--sage-700);
+      font-size: 1.5rem;
+    }
+
+    .code-header-text {
+      font-weight: 700;
+      color: var(--sage-800);
+    }
+
+    /* Technical Details */
+    .details-grid {
+      display: grid;
+      gap: var(--space-5);
+      margin-top: var(--space-6);
+    }
+
+    details {
+      background: var(--sage-50);
+      padding: var(--space-5);
+      border-radius: 12px;
+      border: 1px solid var(--neutral-200);
+      transition: all 0.3s ease;
+    }
+
+    details:hover {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    summary {
+      font-weight: 800;
+      color: var(--sage-800);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    summary::marker {
+      color: var(--sage-600);
+    }
+
+    summary .material-symbols-rounded {
+      color: var(--sage-600);
+    }
+
+    details p {
+      margin-top: var(--space-3);
+      color: var(--neutral-700);
+      line-height: 1.7;
+    }
+
+    /* CTA Button */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-6) var(--space-12);
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      color: var(--neutral-900);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.12);
+      transition: all 0.3s ease;
+      margin-top: var(--space-8);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 16px 32px rgba(0, 0, 0, 0.16);
+    }
+
+    .cta-button .material-symbols-rounded {
+      font-size: 1.75rem;
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+
+    .button-group {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+      margin-top: var(--space-8);
+      justify-content: center;
+    }
+
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-8);
+      background: white;
+      color: var(--sage-700);
+      font-size: 1.125rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      border: 2px solid var(--sage-600);
+      transition: all 0.3s ease;
+    }
+
+    .secondary-button:hover {
+      background: var(--sage-600);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section-card {
+        padding: var(--space-8) var(--space-6);
+      }
+
+      .button-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta-button, .secondary-button {
+        justify-content: center;
+      }
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--sage-600);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="ethos.html" class="nav-link">Ethos</a>
+      <a href="almanar-society.html" class="nav-link">Al Manar Society</a>
+      <a href="vacancies.html" class="nav-link">Join Us</a>
+      <a href="elt-materials-showcase.html" class="nav-link active">ELT Materials</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-icon">
+        <span class="material-symbols-rounded">psychology</span>
+      </div>
+      <h1 class="hero-title">AI Instructor Portal</h1>
+      <p class="hero-description">Transparency in educational AI: Understand our system, review our approach, and access the learning platform.</p>
+    </div>
+  </section>
+
+  <main>
+    <!-- Section 1: AI Transparency -->
+    <section class="section">
+      <div class="section-card">
+        <div class="section-number">1</div>
+        <h2 class="section-title">The Imperative of Transparency in Educational AI</h2>
+        <div class="section-content">
+          <p>Transparency in educational AI systems is fundamental to fostering trust and ensuring ethical application in learning environments. By providing clarity on how these complex systems operate, the data they utilize, and their decision-making processes, we empower educators, students, and parents. This openness is crucial for identifying and mitigating algorithmic bias, ensuring equitable outcomes for all learners.</p>
+
+          <p>Moreover, transparency is a prerequisite for accountability. When AI is used for assessments or personalized learning paths, stakeholders must understand the rationale behind its outputs to verify their fairness and accuracy. An understandable AI allows educators to maintain control, using these tools to augment their professional judgment rather than being replaced by opaque "black box" systems.</p>
+
+          <p>Ultimately, a commitment to transparency builds a collaborative and informed community. It demystifies the technology, allowing for critical evaluation and continuous improvement to best serve the educational needs of every student. This approach ensures that AI serves as a responsible and effective tool for enhancing the educational experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: System Prompt -->
+    <section class="section" style="background: rgba(246, 247, 246, 0.5);">
+      <div class="section-card">
+        <div class="section-number">2</div>
+        <h2 class="section-title">Understanding Our AI System Prompt</h2>
+        <div class="section-content">
+          <p>A system prompt provides foundational instructions for an AI, defining its role, rules, and persona, such as an expert AI tutor. We use a structured format like XML instead of plain natural language to remove ambiguity. Tags like <code>&lt;instructions&gt;</code> clearly separate commands from the content to be analyzed, ensuring the AI tutor responds with precision and consistency.</p>
+
+          <p>This structured prompt is highly portable and can be loaded into various AI models. If you have an API key, you can use our system or contact us directly to arrange a demo.</p>
+
+          <div class="code-header">
+            <span class="material-symbols-rounded">code</span>
+            <span class="code-header-text">Noor AI Tutor System Prompt</span>
+          </div>
+
+          <div class="code-block">
+            <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;SystemPrompt&gt;
+&lt;Persona&gt;
+    &lt;Role&gt;Trauma-Informed EAP Tutor Chatbot ("Nour")&lt;/Role&gt;
+    &lt;CoreIdentity&gt;You are a patient, supportive, and culturally aware guide. Your name is Nour. Your primary goal is not to test the student, but to facilitate their learning, build their confidence, and ensure they feel psychologically safe. You are a partner in their learning journey.&lt;/CoreIdentity&gt;
+    &lt;LinguisticIdentity&gt;You are fully bilingual in English and Palestinian Arabic. You will primarily communicate in English, but you are designed to strategically use translanguaging (code-switching) to build rapport, explain complex ideas, or validate the student's contributions, as detailed in the Interaction Protocol.&lt;/LinguisticIdentity&gt;
+    &lt;Purpose&gt;To guide a single student through a pre-designed, lesson-specific Task-Based Learning (TBL) plan in a 1-on-1, text-based conversational format.&lt;/Purpose&gt;
+&lt;/Persona&gt;
+
+&lt;CoreMandate&gt;
+    &lt;Task&gt;Your sole function is to act as a 1-on-1 text-based tutor for a single, pre-defined lesson. You will receive one complete TBL lesson plan in Markdown format. You must internalize this lesson and guide a student through it from beginning to end, embodying the persona of Nour. You will manage the entire instructional sequence, including all activities, feedback, and role-playing scenarios.&lt;/Task&gt;
+    &lt;Method&gt;This system prompt is instantiated for a **single lesson**. You will deconstruct the provided lesson plan, inject its specific content into your operational logic, and then execute the lesson flow dynamically and collaboratively with the student. You will present all content, provide formative feedback, manage pacing, role-play characters, and produce a comprehensive summary at the end.&lt;/Method&gt;
+    &lt;TargetAudience&gt;Palestinian university students. All interactions must be grounded in this awareness.&lt;/TargetAudience&gt;
+&lt;/CoreMandate&gt;
+
+&lt;PedagogicalPrinciples&gt;
+    &lt;Principle name="Trauma-Informed Practice"&gt;
+        &lt;Detail&gt;Your primary responsibility is the student's psychological safety. This overrides all other instructional goals.&lt;/Detail&gt;
+        &lt;Detail&gt;Foster a sense of safety, choice, collaboration, trustworthiness, and empowerment in all interactions.&lt;/Detail&gt;
+        &lt;Detail&gt;Avoid evaluative or judgmental language (e.g., "That's wrong"). Instead, use observational and encouraging language (e.g., "That's a good start. Can we look at the verb tense here?").&lt;/Detail&gt;
+        &lt;Detail&gt;Always validate the student's effort and contributions, regardless of accuracy.&lt;/Detail&gt;
+    &lt;/Principle&gt;
+
+    &lt;Principle name="Data Privacy and Student Safety"&gt;
+        &lt;Detail&gt;ABSOLUTE PROHIBITION: You are strictly forbidden from asking for, storing, or working with any personally identifiable or sensitive student information. This includes, but is not limited to, full names, addresses, names of family members, specific personal histories, or any data that could compromise their privacy.&lt;/Detail&gt;
+        &lt;Detail&gt;ACTIVITY REDESIGN: If any part of the lesson plan appears to require personal sensitive information, you MUST redesign it on the spot. You will modify the scenario to use a fictional context, a hypothetical third-person example, or a general situation.&lt;/Detail&gt;
+        &lt;Detail&gt;RESPONSE TO VOLUNTEERED INFORMATION: If a student voluntarily offers sensitive personal information, you must gently and immediately interrupt. Remind the student of the privacy rule and redirect the conversation back to the learning activity.&lt;/Detail&gt;
+    &lt;/Principle&gt;
+
+    &lt;Principle name="Task-Based Learning (TBL) Methodology"&gt;
+        &lt;Detail&gt;The primary focus is on completing a meaningful `Task`. Language is a tool to achieve the task's goal.&lt;/Detail&gt;
+        &lt;Detail&gt;Pre-task activities are preparatory and should be selected based on the student's needs to ensure they are equipped for the `Task`.&lt;/Detail&gt;
+        &lt;Detail&gt;Focus on fluency and communication during the `Task` stage. Feedback on accuracy should primarily occur during the `Reporting` and `Reflect` stages, or by analyzing the language used in the `Task` after it is complete.&lt;/Detail&gt;
+    &lt;/Principle&gt;
+
+    &lt;Principle name="Translanguaging"&gt;
+        &lt;Detail&gt;Your primary language is English, but you will strategically use Palestinian Arabic to enhance learning and build rapport.&lt;/Detail&gt;
+        &lt;UseCases&gt;
+            *   **Clarification:** To explain a complex grammatical concept or a subtle vocabulary distinction.
+            *   **Rapport:** To offer encouragement or praise in a culturally resonant way (e.g., "ممتاز! Your progress is excellent.").
+            *   **Validation:** To acknowledge a student's contribution made in Arabic and help them bridge it to English.
+        &lt;/UseCases&gt;
+        &lt;Constraint&gt;Do not overuse Arabic. It is a scaffold, not a replacement for English instruction. The goal is to build English proficiency.&lt;/Constraint&gt;
+    &lt;/Principle&gt;
+&lt;/PedagogicalPrinciples&gt;
+&lt;/SystemPrompt&gt;</pre>
+          </div>
+
+          <p style="margin-top: var(--space-6); padding: var(--space-5); background: var(--sage-50); border-radius: 12px; border-left: 4px solid var(--sage-600);">
+            <strong>Note:</strong> This is an abbreviated version of the full system prompt. The complete prompt includes detailed operational logic, interaction protocols, and lesson-specific variables that guide the AI tutor through the entire learning session.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Technical Information -->
+    <section class="section">
+      <div class="section-card">
+        <div class="section-number">3</div>
+        <h2 class="section-title">About the AI Learning System</h2>
+        <div class="section-content">
+          <p>The Noor AI learning system integrates pedagogical theory with interactive technology to support trauma-aware, agency-building language instruction. Below are the key theoretical foundations and design features:</p>
+
+          <div class="details-grid">
+            <details>
+              <summary><span class="material-symbols-rounded">school</span> Task-Based Learning Framework</summary>
+              <p>The system structures lessons according to a nine-stage TBL cycle aligned with Willis's (1996) framework: Lead-in, Pre-task A–D, Task Prep, Main Task, Reporting, and Feedback. A sidebar tracker displays progression states, providing metacognitive orientation regarding lesson position.</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">psychology</span> Pre-Task Subdivision & Zone of Proximal Development</summary>
+              <p>The pre-task phase divides into four components: schema activation, model provision, language focus, and pronunciation work. This granular division reflects Long's (1985) interaction hypothesis. The system prompt explicitly references Vygotskian ZPD theory and instructs the AI to provide 'i+1' input—Krashen's (1985) input hypothesis applied within a scaffolding framework.</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">edit_note</span> Sentence Stems & Scaffolding</summary>
+              <p>Sentence stems (e.g., 'In my opinion, ___ because ___') provide syntactic templates that reduce cognitive load while maintaining communicative authenticity. This corresponds with Gibbons's (2015) work on scaffolding academic language. Stems appear as selectable options, lowering production activation thresholds.</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">palette</span> Visual Highlighting System</summary>
+              <p>A tripartite highlighting system uses CSS classes: 'hl-vocab' (amber), 'hl-grammar' (sage green), and 'hl-feedback' (rose). This colour-coding draws on dual-coding theory (Paivio, 1986)—information encoded through multiple channels enhances retention and retrieval. The visual distinction serves a sorting function: lexical items requiring memorisation, structural patterns requiring rule application, and errors requiring remediation.</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">check_circle</span> Error Correction & Feedback</summary>
+              <p>The system prescribes varied error correction drawing on Lyster and Ranta's (1997) taxonomy: recasts, clarification requests, metalinguistic feedback, elicitation, and explicit correction. Less intrusive feedback types are prioritised, reserving explicit correction for persistent errors. Guidance to 'prioritise errors that impede communication or match lesson focus' operationalises Hendrickson's (1978) criteria.</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">self_improvement</span> Metacognitive Support</summary>
+              <p>The 'think-prompt' class renders reflection prompts with distinctive visual styling, signalling that processing time and deliberate thought are valued. This corresponds to recommendations regarding explicit metacognitive prompting in language learning (Anderson, 2002). The 'self-check' component provides structure for confidence self-assessment following teaching moments.</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">book</span> Vocabulary Tracking & Retrieval Practice</summary>
+              <p>The sidebar component implements real-time tracking of vocabulary items marked with 'hl-vocab'. Items are stored in a JavaScript Set (preventing duplicates) and limited to twenty items. The system instructs the AI to 'circle back to previous vocabulary/concepts without warning' and space repetitions across the session. This draws on robust findings regarding the testing effect and distributed practice (Roediger & Karpicke, 2006).</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">mic</span> Multimodal Learning</summary>
+              <p>The interface provides text input and speech recognition (Web Speech API) with text-to-speech output. This multimodality addresses different learner preferences and potentially supports development of both written and spoken skills. The avatar provides non-verbal feedback through animated states: idle, listening, thinking, and speaking.</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">quiz</span> Socratic Questioning & Critical Thinking</summary>
+              <p>The system specifies six question types: clarifying, assumption-probing, evidence-probing, viewpoint, implication, and meta-questions. This structured approach draws on Paul and Elder's (2006) framework for critical thinking instruction. The meta-question type ('Why do you think I asked that question?') attempts to make the pedagogical process itself an object of reflection.</p>
+            </details>
+
+            <details>
+              <summary><span class="material-symbols-rounded">warning</span> System Limitations & Design Considerations</summary>
+              <p>Effectiveness depends substantially on the AI model's consistent adherence to system prompt instructions. The system lacks persistent learner modelling; each session begins without knowledge of prior interactions. The interface requires API key provision, creating financial and technical barriers. The Noor interface incorporates substantial pedagogical features grounded in SLA theory and cognitive learning science. The gap between designed affordances and enacted practice remains the central uncertainty—empirical evaluation would determine whether theoretical foundations translate into measurable outcomes.</p>
+            </details>
+          </div>
+
+          <p style="margin-top: var(--space-8); padding: var(--space-5); background: var(--sage-100); border-radius: 12px; border-left: 4px solid var(--sage-600); font-style: italic; color: var(--neutral-800);">
+            <strong>Note:</strong> This system represents an integration of task-based language teaching, trauma-aware pedagogy, and AI-assisted learning. It embodies our commitment to creating learning experiences that are academically rigorous while remaining responsive to the cognitive and emotional needs of learners in contexts of continuous stress.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Access the Chatbot -->
+    <section class="section" style="background: rgba(246, 247, 246, 0.5);">
+      <div class="section-card" style="text-align: center;">
+        <div class="section-number">4</div>
+        <h2 class="section-title">Access the AI Instructor</h2>
+        <div class="section-content">
+          <p>Now that you understand our commitment to transparency and how our AI learning system works, you can access the interactive AI instructor platform. The AI tutor, Nour, will guide you through personalized pre-class instruction with scaffolded support for language development.</p>
+
+          <p><strong>Important:</strong> The AI instructor requires an API key to function. If you're a registered student, you'll receive access credentials. If you're interested in exploring the system, please contact us to arrange a demonstration.</p>
+
+          <div class="button-group">
+            <a class="cta-button" href="https://najma-collective.github.io/NoorCommunityAI/" target="_blank" rel="noreferrer">
+              <span>Launch AI Instructor</span>
+              <span class="material-symbols-rounded">smart_toy</span>
+            </a>
+            <a class="secondary-button" href="elt-materials-showcase.html">
+              <span class="material-symbols-rounded">arrow_back</span>
+              <span>Return to Materials</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
