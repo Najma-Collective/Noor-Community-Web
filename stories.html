@@ -39,7 +39,7 @@
   <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
@@ -60,20 +60,33 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.noorcommunity.org/stories.html#webpage",
+    "name": "Student Voices | Noor Community",
+    "description": "Explore dispatches from Noor learners worldwide. Browse student voices, filter by categories, and discover rituals, experiments, and community care strategies students are inventing.",
+    "url": "https://www.noorcommunity.org/stories.html",
+    "isPartOf": {
+      "@id": "https://www.noorcommunity.org/#website"
+    }
+  }
+  </script>
 </head>
 <body class="site-shell">
   <!-- Skip to main content for accessibility -->
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" width="52" height="52" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -88,12 +101,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" width="40" height="40" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -107,7 +120,7 @@
       </div>
     </section>
 
-    <section class="section page-surface material-surface story-control-panel">
+    <md-elevated-card class="section page-surface material-surface story-control-panel">
       <div class="section-header">
         <div>
           <div class="section-label">
@@ -117,10 +130,10 @@
           <h2 class="section-title">Browse every student voice</h2>
           <p class="section-subtitle">Filter by hashtag categories that update automatically from the stories below or narrow the feed by publication date.</p>
         </div>
-        <a class="activity-btn" href="pedagogical-insights.html">
+        <md-filled-button class="activity-btn" href="pedagogical-insights.html">
           <span>Visit Pedagogical Insights</span>
           <span class="material-symbols-rounded btn-icon">arrow_outward</span>
-        </a>
+        </md-filled-button>
       </div>
       <div class="story-filter-bar">
         <div class="filter-group">
@@ -138,13 +151,13 @@
               <span>To</span>
               <input type="date" data-filter-end />
             </label>
-            <button type="button" class="activity-btn tertiary" data-clear-filters>
+            <md-text-button type="button" class="activity-btn tertiary" data-clear-filters>
               <span>Reset filters</span>
-            </button>
+            </md-text-button>
           </div>
         </div>
       </div>
-    </section>
+    </md-elevated-card>
 
     <section class="section page-surface story-feed" aria-label="Student Voices feed">
       <div class="story-feed-grid">
@@ -163,7 +176,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">May 12, 2024</span>
-              <a class="story-card-link" href="stories/story-student-nadia.html">Read Nadia's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-nadia.html">Read Nadia's story</md-text-button>
             </div>
           </div>
         </article>
@@ -183,7 +196,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">May 8, 2024</span>
-              <a class="story-card-link" href="stories/story-student-elias.html">Read Elias's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-elias.html">Read Elias's story</md-text-button>
             </div>
           </div>
         </article>
@@ -203,7 +216,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">May 3, 2024</span>
-              <a class="story-card-link" href="stories/story-student-layla.html">Read Layla's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-layla.html">Read Layla's story</md-text-button>
             </div>
           </div>
         </article>
@@ -223,7 +236,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 28, 2024</span>
-              <a class="story-card-link" href="stories/story-student-abdi.html">Read Abdi's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-abdi.html">Read Abdi's story</md-text-button>
             </div>
           </div>
         </article>
@@ -243,7 +256,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 24, 2024</span>
-              <a class="story-card-link" href="stories/story-student-rosario.html">Read Rosario's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-rosario.html">Read Rosario's story</md-text-button>
             </div>
           </div>
         </article>
@@ -263,7 +276,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 21, 2024</span>
-              <a class="story-card-link" href="stories/story-student-yara.html">Read Yara's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-yara.html">Read Yara's story</md-text-button>
             </div>
           </div>
         </article>
@@ -283,7 +296,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 18, 2024</span>
-              <a class="story-card-link" href="stories/story-student-iman.html">Read Iman's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-iman.html">Read Iman's story</md-text-button>
             </div>
           </div>
         </article>
@@ -303,7 +316,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 14, 2024</span>
-              <a class="story-card-link" href="stories/story-student-safiya.html">Read Safiya's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-safiya.html">Read Safiya's story</md-text-button>
             </div>
           </div>
         </article>
@@ -323,7 +336,7 @@
             </ul>
             <div class="story-feed-footer">
               <span class="story-card-date">April 10, 2024</span>
-              <a class="story-card-link" href="stories/story-student-hassan.html">Read Hassan's story</a>
+              <md-text-button class="story-card-link" href="stories/story-student-hassan.html">Read Hassan's story</md-text-button>
             </div>
           </div>
         </article>
@@ -350,7 +363,7 @@
       <div class="footer-column">
         <h4>Act</h4>
         <ul>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">Apply</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer noopener">Apply</a></li>
           <li><a href="join-volunteers.html">Volunteer</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>

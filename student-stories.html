@@ -39,7 +39,7 @@
   <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
@@ -60,20 +60,33 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.noorcommunity.org/student-stories.html#webpage",
+    "name": "Student Stories | Noor Community",
+    "description": "Read inspiring stories from Noor Community students like Fatima and Noor. Discover how education creates narrative control, professional skills, and cultural preservation.",
+    "url": "https://www.noorcommunity.org/student-stories.html",
+    "isPartOf": {
+      "@id": "https://www.noorcommunity.org/#website"
+    }
+  }
+  </script>
 </head>
 <body class="site-shell">
   <!-- Skip to main content for accessibility -->
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" width="52" height="52" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -88,12 +101,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" width="40" height="40" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -106,23 +119,23 @@
     </section>
 
     <section class="section page-surface">
-      <article class="material-surface">
+      <md-elevated-card class="material-surface" role="article">
         <h2 class="section-title">Fatima's Story: From Classroom Project to Real-World Grant</h2>
         <p>"Before taking the Business English course, I felt like my career dreams were always one step away. I understood the concepts of grant writing and strategic planning, but the language barrier (especially the professional tone and specific terminology) was a huge hurdle.</p>
         <p>Everything changed with the 'NGO in Nablus' project. The task was incredibly realistic: we had to act as a youth-led NGO, analyse two potential grant templates, and prepare a 2-minute justification for our choice. We practised English whilst learning to think like a professional in the NGO sector. We learned how to use the Second Conditional to explain the hypothetical advantages of choosing grants like the 'Al-Quds Innovation Fund' or the 'Digital Futures Foundation'.</p>
         <p>Working through the main task of choosing and justifying a grant proposal gave me the confidence I never had. We practised using precise terminology like 'funding stream' and 'measurable outcome'. The process of debating, analysing pros and cons, and presenting a formal justification completely transformed my approach.</p>
         <p>I'm now applying for a real international development grant for a local education initiative. The initial complexity feels manageable because the Business English course taught me how to strategise and articulate a winning proposal. I feel ready to secure funding and make a real difference in my community."</p>
-      </article>
+      </md-elevated-card>
     </section>
 
     <section class="section page-surface">
-      <article class="material-surface">
+      <md-elevated-card class="material-surface" role="article">
         <h2 class="section-title">Noor's Story: Education as an Act of Preservation</h2>
         <p>“My roots run through Gaza, from my grandmother's stories of displacement to my father's belief that daughters should be educated. Growing up, my passion for education became a bridge to the outside world. I studied English at Al-Azhar University in Gaza, graduating with a Bachelor's in English Language and Teaching Methods, and found fulfillment in teaching.</p>
         <p>When our peaceful life was shattered by conflict, we lost our home and sought refuge, struggling for basic necessities. Despite these challenges, we held on to our dreams and our culture, finding strength in our heritage and community.</p>
         <p>Joining the Noor Community was a vital step in reclaiming my professional identity. It was more than a class; it was a network of solidarity. The 'healing-centred' approach gave me a space to be an educator and a learner again, not just a survivor.</p>
         <p>Today, I teach Arabic and English, sharing my story and culture with students worldwide. My experience has reinforced my belief in education as an act of preservation and resilience. I hope to one day open a cultural learning center for displaced families. Noor Community helped me keep that dream alive, reminding me that even in exile, we carry our identity and our future with us.”</p>
-      </article>
+      </md-elevated-card>
     </section>
   </main>
 
@@ -144,7 +157,7 @@
       <div class="footer-column">
         <h4>Act</h4>
         <ul>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">Apply</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer noopener">Apply</a></li>
           <li><a href="join-volunteers.html">Volunteer</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>

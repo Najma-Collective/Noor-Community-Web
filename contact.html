@@ -32,7 +32,7 @@
   <link rel="dns-prefetch" href="https://unpkg.com" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
 
   <!-- Structured Data - ContactPoint -->
   <script type="application/ld+json">
@@ -58,20 +58,33 @@
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
   <script defer src="assets/js/main.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://najma-collective.github.io/Noor-Community-Web/contact.html#webpage",
+    "name": "Contact Us | Noor Community",
+    "description": "Get in touch with Noor Community to learn about our English language programmes, volunteer opportunities, and partnerships. Contact us via email or connect on LinkedIn.",
+    "url": "https://najma-collective.github.io/Noor-Community-Web/contact.html",
+    "isPartOf": {
+      "@id": "https://www.noorcommunity.org/#website"
+    }
+  }
+  </script>
 </head>
 <body class="site-shell layout-fill">
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" width="52" height="52" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -86,12 +99,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" width="40" height="40" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -107,7 +120,7 @@
 
     <section class="section page-surface">
       <div class="grid-2">
-        <div class="material-surface card-premium" data-scroll-animate>
+        <md-elevated-card class="material-surface card-premium" data-scroll-animate>
           <div class="section-header">
             <div class="section-label">
               <span class="material-symbols-rounded">mail</span>
@@ -127,12 +140,12 @@
               <span class="material-symbols-rounded">link</span>
               <div>
                 <h3>LinkedIn</h3>
-                <p><a href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">Noor Community on LinkedIn</a></p>
+                <p><a href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener">Noor Community on LinkedIn</a></p>
               </div>
             </div>
           </div>
-        </div>
-        <div class="material-surface card-premium" data-scroll-animate>
+        </md-elevated-card>
+        <md-elevated-card class="material-surface card-premium" data-scroll-animate>
           <div class="section-header">
             <div class="section-label">
               <span class="material-symbols-rounded">account_balance</span>
@@ -146,21 +159,21 @@
               <span class="material-symbols-rounded">language</span>
               <div>
                 <h3>Website</h3>
-                <p><a href="https://almanar-society.org/" target="_blank" rel="noreferrer">almanar-society.org</a></p>
+                <p><a href="https://almanar-society.org/" target="_blank" rel="noreferrer noopener">almanar-society.org</a></p>
               </div>
             </div>
           </div>
           <div class="hero-actions" style="margin-top: var(--space-6); gap: var(--space-4); flex-wrap: wrap;">
-            <a class="activity-btn secondary" href="https://www.facebook.com/almanarsociety" target="_blank" rel="noreferrer">
+            <md-outlined-button class="activity-btn secondary" href="https://www.facebook.com/almanarsociety" target="_blank" rel="noreferrer noopener">
               <img src="https://najma-collective.github.io/Noor-Community-Web/assets/Facebook_Logo_Primary.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;" />
               <span>Facebook</span>
-            </a>
-            <a class="activity-btn secondary" href="https://www.instagram.com/almanarsociety/" target="_blank" rel="noreferrer">
+            </md-outlined-button>
+            <md-outlined-button class="activity-btn secondary" href="https://www.instagram.com/almanarsociety/" target="_blank" rel="noreferrer noopener">
               <img src="https://najma-collective.github.io/Noor-Community-Web/assets/Instagram_Glyph_Gradient.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;" />
               <span>Instagram</span>
-            </a>
+            </md-outlined-button>
           </div>
-        </div>
+        </md-elevated-card>
       </div>
     </section>
   </main>
@@ -183,7 +196,7 @@
       <div class="footer-column">
         <h4>Act</h4>
         <ul>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">Apply</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer noopener">Apply</a></li>
           <li><a href="join-volunteers.html">Volunteer</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -193,7 +206,7 @@
         <ul>
           <li><a href="faq.html">FAQ</a></li>
           <li>
-            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">
+            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener">
               LinkedIn
             </a>
           </li>

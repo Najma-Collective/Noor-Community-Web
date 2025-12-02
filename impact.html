@@ -39,7 +39,7 @@
   <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
@@ -70,14 +70,14 @@
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" width="52" height="52" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -92,12 +92,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" width="40" height="40" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -111,7 +111,7 @@
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
+    <md-elevated-card class="section page-surface material-surface">
       <div class="section-header section-header-centered">
         <div class="section-label section-label-centered">
           <span class="material-symbols-rounded">analytics</span>
@@ -176,7 +176,7 @@
           <div class="stat-decoration"></div>
         </div>
       </div>
-    </section>
+    </md-elevated-card>
 
     <section class="section page-surface">
       <div class="section-header section-header-centered">
@@ -187,25 +187,25 @@
         <h2 class="section-title section-title-xl">How We Create <span class="text-highlight">Change</span></h2>
       </div>
       <div class="grid-3">
-        <article class="card card-premium" data-card-animate>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-number">01</div>
           <h3>Step 1: The Input (Your Support)</h3>
           <p>Your donation provides the material foundation: digital classrooms (Zoom, Moodle), fair pay for local managers, and a global platform.</p>
-        </article>
-        <article class="card card-premium" data-card-animate>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-number">02</div>
           <h3>Step 2: The Method (Our Pedagogy)</h3>
           <p>We provide rigorous, healing-centred education that builds skills and a resilient "community of practice".</p>
-        </article>
-        <article class="card card-premium" data-card-animate>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <div class="card-number">03</div>
           <h3>Step 3: The Impact (The Outcome)</h3>
           <p>Students gain "substantive freedoms," "narrative control," and the practical tools for career and academic progression. This is educational justice in action.</p>
-        </article>
+        </md-outlined-card>
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
+    <md-elevated-card class="section page-surface material-surface">
       <div class="section-header section-header-centered">
         <div class="section-label section-label-centered">
           <span class="material-symbols-rounded">auto_stories</span>
@@ -222,10 +222,10 @@
           <div class="post-card-content">
             <h3>Fatima's Story: From Classroom Project to Real-World Grant</h3>
             <p>"The course taught me how to strategize and articulate a winning proposal."</p>
-            <a class="activity-btn secondary" href="student-stories.html">
+            <md-outlined-button class="activity-btn secondary" href="student-stories.html">
               <span>Read Fatima's Story</span>
               <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-            </a>
+            </md-outlined-button>
           </div>
         </article>
         <article class="post-card" data-card-animate>
@@ -236,22 +236,22 @@
           <div class="post-card-content">
             <h3>Noor's Story: Education as an Act of Preservation</h3>
             <p>"Despite the challenges, we hold on to our dreams and our culture, finding strength in our heritage."</p>
-            <a class="activity-btn secondary" href="student-stories.html">
+            <md-outlined-button class="activity-btn secondary" href="student-stories.html">
               <span>Read Noor's Story</span>
               <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-            </a>
+            </md-outlined-button>
           </div>
         </article>
       </div>
       <div class="hero-actions" style="margin-top: var(--space-6);">
-        <a class="activity-btn activity-btn-large" href="student-stories.html">
+        <md-filled-button class="activity-btn activity-btn-large" href="student-stories.html">
           <span>Read All Student Stories</span>
           <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-        </a>
+        </md-filled-button>
       </div>
-    </section>
+    </md-elevated-card>
 
-    <section class="section page-surface material-surface section-cta">
+    <md-elevated-card class="section page-surface material-surface section-cta">
       <div class="section-cta-content">
         <div class="section-cta-badge">
           <span class="material-symbols-rounded">favorite</span>
@@ -259,13 +259,13 @@
         <h2 class="section-title section-title-xl">Invest in <span class="text-highlight">Educational Justice</span></h2>
         <p class="section-subtitle-large">Your financial contribution is an act of solidarity that directly enables this work.</p>
         <div class="hero-actions">
-          <a class="activity-btn activity-btn-large" href="donate.html">
+          <md-filled-button class="activity-btn activity-btn-large" href="donate.html">
             <span>Donate Now</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
+          </md-filled-button>
         </div>
       </div>
-    </section>
+    </md-elevated-card>
   </main>
 
     <footer class="site-footer">
@@ -286,7 +286,7 @@
       <div class="footer-column">
         <h4>Act</h4>
         <ul>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">Apply</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer noopener">Apply</a></li>
           <li><a href="join-volunteers.html">Volunteer</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>

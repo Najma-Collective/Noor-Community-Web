@@ -32,7 +32,7 @@
   <link rel="dns-prefetch" href="https://unpkg.com" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
 
   <!-- Structured Data - Course -->
   <script type="application/ld+json">
@@ -66,20 +66,33 @@
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
   <script defer src="assets/js/main.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://najma-collective.github.io/Noor-Community-Web/programme-general-business.html#webpage",
+    "name": "General & Business English | Noor Community",
+    "description": "Develop real-world English skills through Task-Based Language Teaching. Master professional writing, business communication, and problem-solving with project-based learning.",
+    "url": "https://najma-collective.github.io/Noor-Community-Web/programme-general-business.html",
+    "isPartOf": {
+      "@id": "https://www.noorcommunity.org/#website"
+    }
+  }
+  </script>
 </head>
 <body class="site-shell">
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" width="52" height="52" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -94,12 +107,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" width="40" height="40" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -116,55 +129,55 @@
         <h2 class="section-title">Our Learning Model</h2>
       </div>
       <div class="grid-3">
-        <article class="card">
+        <md-outlined-card class="card" role="article">
           <h3>Step 1: Pre-Class Scaffolding</h3>
           <p>We use robust out-of-class activities, including interactive micro-lessons, to prepare you for class, even with limited bandwidth.</p>
-        </article>
-        <article class="card">
+        </md-outlined-card>
+        <md-outlined-card class="card" role="article">
           <h3>Step 2: Dynamic Collaboration</h3>
           <p>Classroom time is dedicated to dynamic, collaborative engagement and problem-solving with your peers.</p>
-        </article>
-        <article class="card">
+        </md-outlined-card>
+        <md-outlined-card class="card" role="article">
           <h3>Step 3: Integrated Writing</h3>
           <p>You will learn to master professional genres (like CVs, business plans, and persuasive emails) by deconstructing and then constructing them.</p>
-        </article>
+        </md-outlined-card>
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
+    <md-elevated-card class="section page-surface material-surface">
       <div class="section-header">
         <h2 class="section-title">Rehearse Your Future</h2>
         <p class="section-subtitle">Our project-based modules are “worldbuilding” sessions.</p>
       </div>
-      <article class="card">
+      <md-outlined-card class="card" role="article">
         <h3>Featured Project: The NGO Funding Challenge</h3>
         <p><strong>Role:</strong> You are a Project Manager at a new, youth-led NGO in Nablus providing digital literacy training to graduates.</p>
         <p><strong>The Task:</strong> Your team must secure funding. You will analyse two real-world grant proposals: the "Al-Quds Innovation Fund" (fast, small, local) and the "Digital Futures Foundation" (large, slow, global).</p>
         <p><strong>The Outcome:</strong> You will practice using hypothetical language (the second conditional) to debate the pros and cons, and then present a formal justification for your choice to stakeholders. This single project teaches negotiation, strategic planning, and high-level justification skills.</p>
-      </article>
-    </section>
+      </md-outlined-card>
+    </md-elevated-card>
 
     <section class="section page-surface">
-      <div class="material-surface">
+      <md-elevated-card class="material-surface">
         <h2 class="section-title">Who Is This For?</h2>
         <ul class="checklist">
           <li><span class="material-symbols-rounded">check_circle</span>Use English to solve complex, real-world problems.</li>
           <li><span class="material-symbols-rounded">check_circle</span>Develop sophisticated professional writing and negotiation skills.</li>
           <li><span class="material-symbols-rounded">check_circle</span>Engage creatively with a global community.</li>
         </ul>
-      </div>
+      </md-elevated-card>
     </section>
 
     <section class="section page-surface">
-      <div class="grid-2 material-surface">
+      <md-elevated-card class="grid-2 material-surface">
         <div>
           <h2 class="section-title">Ready to Apply?</h2>
         </div>
         <div class="hero-actions">
-          <a class="activity-btn" href="join-students.html">Apply Now</a>
-          <a class="activity-btn secondary" href="programmes.html">See All Programmes</a>
+          <md-filled-button class="activity-btn" href="join-students.html">Apply Now</md-filled-button>
+          <md-outlined-button class="activity-btn secondary" href="programmes.html">See All Programmes</md-outlined-button>
         </div>
-      </div>
+      </md-elevated-card>
     </section>
   </main>
 
@@ -196,7 +209,7 @@
         <ul>
           <li><a href="faq.html">FAQ</a></li>
           <li>
-            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">
+            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener">
               LinkedIn
             </a>
           </li>

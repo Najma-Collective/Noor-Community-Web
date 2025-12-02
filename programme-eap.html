@@ -32,7 +32,7 @@
   <link rel="dns-prefetch" href="https://unpkg.com" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
 
   <!-- Structured Data - Course -->
   <script type="application/ld+json">
@@ -67,20 +67,33 @@
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
   <script defer src="assets/js/main.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://najma-collective.github.io/Noor-Community-Web/programme-eap.html#webpage",
+    "name": "English for Academic Purposes | Noor Community",
+    "description": "Master academic English with Noor Community's EAP programme. Develop critical thinking, academic argumentation, and scholarly writing skills using Oxford EAP curriculum.",
+    "url": "https://najma-collective.github.io/Noor-Community-Web/programme-eap.html",
+    "isPartOf": {
+      "@id": "https://www.noorcommunity.org/#website"
+    }
+  }
+  </script>
 </head>
 <body class="site-shell">
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" width="52" height="52" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -95,12 +108,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" width="40" height="40" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -118,25 +131,25 @@
         <p class="section-subtitle">Systematically structured around the renowned Oxford EAP series.</p>
       </div>
       <div class="grid-3">
-        <article class="card">
+        <md-outlined-card class="card" role="article">
           <h3>Critical Thinking</h3>
           <p>Analyzing and evaluating complex ideas.</p>
-        </article>
-        <article class="card">
+        </md-outlined-card>
+        <md-outlined-card class="card" role="article">
           <h3>Academic Argumentation</h3>
           <p>Building and defending a strong, evidence-based thesis.</p>
-        </article>
-        <article class="card">
+        </md-outlined-card>
+        <md-outlined-card class="card" role="article">
           <h3>Engaging with Sources</h3>
           <p>Mastering the ability to read, synthesize, and cite scholarly sources.</p>
-        </article>
+        </md-outlined-card>
       </div>
-      <div class="material-surface" style="margin-top: var(--space-6);">
+      <md-elevated-card class="material-surface" style="margin-top: var(--space-6);">
         <p>You won't just write essays. You will master the specific, high-stakes professional genres you need, such as writing a formal project update report to communicate progress and challenges to stakeholders.</p>
-      </div>
+      </md-elevated-card>
     </section>
 
-    <section class="section page-surface material-surface">
+    <md-elevated-card class="section page-surface material-surface">
       <div class="grid-2">
         <div>
           <h2 class="section-title">Proof of Progress, Not Pressure</h2>
@@ -146,18 +159,18 @@
           <img src="https://images.pexels.com/photos/7594420/pexels-photo-7594420.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Portfolio-based assessment" />
         </div>
       </div>
-    </section>
+    </md-elevated-card>
 
     <section class="section page-surface">
-      <div class="grid-2 material-surface">
+      <md-elevated-card class="grid-2 material-surface">
         <div>
           <h2 class="section-title">Ready to Apply?</h2>
         </div>
         <div class="hero-actions">
-          <a class="activity-btn" href="join-students.html">Apply to the EAP Programme</a>
-          <a class="activity-btn secondary" href="programmes.html">See All Programmes</a>
+          <md-filled-button class="activity-btn" href="join-students.html">Apply to the EAP Programme</md-filled-button>
+          <md-outlined-button class="activity-btn secondary" href="programmes.html">See All Programmes</md-outlined-button>
         </div>
-      </div>
+      </md-elevated-card>
     </section>
   </main>
 
@@ -189,7 +202,7 @@
         <ul>
           <li><a href="faq.html">FAQ</a></li>
           <li>
-            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">
+            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener">
               LinkedIn
             </a>
           </li>

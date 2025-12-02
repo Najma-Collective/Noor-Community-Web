@@ -32,26 +32,39 @@
   <link rel="dns-prefetch" href="https://unpkg.com" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
 
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
   <script defer src="assets/js/main.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://najma-collective.github.io/Noor-Community-Web/privacy.html#webpage",
+    "name": "Privacy Policy | Noor Community",
+    "description": "Noor Community privacy policy. We protect visitor, student, and volunteer privacy, collect only essential data, and maintain secure, transparent data practices.",
+    "url": "https://najma-collective.github.io/Noor-Community-Web/privacy.html",
+    "isPartOf": {
+      "@id": "https://www.noorcommunity.org/#website"
+    }
+  }
+  </script>
 </head>
 <body class="site-shell layout-fill">
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" width="52" height="52" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -66,12 +79,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" width="40" height="40" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -83,12 +96,12 @@
     </section>
 
     <section class="section page-surface">
-      <div class="material-surface">
+      <md-elevated-card class="material-surface">
         <h2 class="section-title">Our Commitment to Privacy</h2>
         <p class="lead-text">This website is committed to protecting the privacy of visitors, students, volunteers, and supporters.</p>
         <p>We collect only the information needed to operate our programmes and communications. Data is stored securely, not shared with third parties without explicit consent, and can be removed upon request.</p>
         <p>For any privacy-related questions, contact <a href="mailto:teacher@almanarsociety.org">teacher@almanarsociety.org</a>.</p>
-      </div>
+      </md-elevated-card>
     </section>
   </main>
 
@@ -110,7 +123,7 @@
       <div class="footer-column">
         <h4>Act</h4>
         <ul>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer">Apply</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCLAChYAYds-oJ2CJBpJSsr8K0ZWi7gCAYVPj629RyODvNQ/viewform?usp=header" target="_blank" rel="noreferrer noopener">Apply</a></li>
           <li><a href="join-volunteers.html">Volunteer</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -120,7 +133,7 @@
         <ul>
           <li><a href="faq.html">FAQ</a></li>
           <li>
-            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer">
+            <a class="social-link" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener">
               LinkedIn
             </a>
           </li>

@@ -37,25 +37,38 @@
   <!-- Fonts with font-display swap for better performance -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
   <script type="module">
     import 'https://unpkg.com/@material/web@latest/all.js';
   </script>
   <script defer src="assets/js/main.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.noorcommunity.org/programmes.html#webpage",
+    "name": "Programme Overview | Noor Community",
+    "description": "Explore Noor Community's educational programmes: General & Business English, English for Academic Purposes (EAP), and Skills & Exam Preparation for Palestinian learners.",
+    "url": "https://www.noorcommunity.org/programmes.html",
+    "isPartOf": {
+      "@id": "https://www.noorcommunity.org/#website"
+    }
+  }
+  </script>
 </head>
 <body class="site-shell">
   <!-- Skip to main content for accessibility -->
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="navbar">
+    <md-toolbar class="site-app-bar" role="navigation">
       <a class="brand" href="index.html">
-        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" width="52" height="52" />
         <span>Noor Community</span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <md-icon-button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-symbols-rounded">menu</span>
-      </button>
+      </md-icon-button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
           <li><a href="index.html">Home</a></li>
@@ -70,12 +83,12 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="donate-btn" href="donate.html">Donate</a>
-        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        <md-filled-button class="donate-btn" href="donate.html">Donate</md-filled-button>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" width="40" height="40" />
         </a>
       </div>
-    </div>
+    </md-toolbar>
   </header>
 
   <main id="main-content">
@@ -91,34 +104,34 @@
 
     <section class="section page-surface">
       <div class="grid-3">
-        <article class="card card-premium" data-card-animate>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <h3>General &amp; Business English</h3>
           <p>Learn practical, real-world English for your career. Our project-based courses teach you to solve problems, lead teams, and develop professional writing skills.</p>
-          <a class="activity-btn secondary" href="programme-general-business.html">
+          <md-outlined-button class="activity-btn secondary" href="programme-general-business.html">
             <span>Learn More</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-premium" data-card-animate>
+          </md-outlined-button>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <h3>English for Academic Purposes (EAP)</h3>
           <p>Prepare for success at university. Develop the critical thinking, academic argumentation, and scholarly reading skills you need to thrive in higher education.</p>
-          <a class="activity-btn secondary" href="programme-eap.html">
+          <md-outlined-button class="activity-btn secondary" href="programme-eap.html">
             <span>Learn More</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
-        </article>
-        <article class="card card-premium" data-card-animate>
+          </md-outlined-button>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <h3>Skills &amp; Exam Preparation</h3>
           <p>Develop crucial soft skills like leadership and communication through our partnership with ALanqa, or get targeted 1-1 support for language proficiency exams.</p>
-          <a class="activity-btn secondary" href="programme-skills-exam.html">
+          <md-outlined-button class="activity-btn secondary" href="programme-skills-exam.html">
             <span>Learn More</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
-        </article>
+          </md-outlined-button>
+        </md-outlined-card>
       </div>
     </section>
 
-    <section class="section page-surface material-surface">
+    <md-elevated-card class="section page-surface material-surface">
       <div class="section-header section-header-centered">
         <div class="section-label section-label-centered">
           <span class="material-symbols-rounded">school</span>
@@ -128,18 +141,18 @@
         <p class="section-subtitle">Our student experience model prioritizes collaboration and care.</p>
       </div>
       <div class="grid-3">
-        <article class="card card-premium" data-card-animate>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <h3>Collaborative Learning</h3>
           <p>We learn as partners in a horizontal community.</p>
-        </article>
-        <article class="card card-premium" data-card-animate>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <h3>Flexible Online Access</h3>
           <p>Our system is designed for a global, online network.</p>
-        </article>
-        <article class="card card-premium" data-card-animate>
+        </md-outlined-card>
+        <md-outlined-card class="card card-premium" data-card-animate role="article">
           <h3>A Supportive Network</h3>
           <p>Connect with teachers and peers from around the world.</p>
-        </article>
+        </md-outlined-card>
       </div>
       <blockquote class="testimonial testimonial-premium" data-scroll-animate style="margin-top: var(--space-6);">
         <div class="testimonial-icon">
@@ -147,9 +160,9 @@
         </div>
         <p class="testimonial-text">"Noor is more than a school; it is a horizontal learning community... a deeply humanizing and supportive space for everyone."</p>
       </blockquote>
-    </section>
+    </md-elevated-card>
 
-    <section class="section page-surface material-surface section-cta">
+    <md-elevated-card class="section page-surface material-surface section-cta">
       <div class="section-cta-content">
         <div class="section-cta-badge">
           <span class="material-symbols-rounded">rocket_launch</span>
@@ -157,13 +170,13 @@
         <h2 class="section-title section-title-xl">Ready to Begin <span class="text-highlight">Your Journey?</span></h2>
         <p class="section-subtitle-large">Join our learning community and start building your future today.</p>
         <div class="hero-actions">
-          <a class="activity-btn activity-btn-large" href="join-students.html">
+          <md-filled-button class="activity-btn activity-btn-large" href="join-students.html">
             <span>Apply to Our Programmes</span>
             <span class="material-symbols-rounded btn-icon">arrow_forward</span>
-          </a>
+          </md-filled-button>
         </div>
       </div>
-    </section>
+    </md-elevated-card>
   </main>
 
     <footer class="site-footer">
