@@ -19,709 +19,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <style>
-    :root {
-      --sage-50: #f6f7f6;
-      --sage-100: #e8ebe8;
-      --sage-200: #d4dbd4;
-      --sage-300: #b0bfb0;
-      --sage-400: #8aa08a;
-      --sage-500: #6b856b;
-      --sage-600: #546b54;
-      --sage-700: #435743;
-      --sage-800: #374637;
-      --sage-900: #2d3a2d;
-
-      --gold-50: #fefce8;
-      --gold-100: #fef9c3;
-      --gold-200: #fef08a;
-      --gold-300: #fde047;
-      --gold-400: #facc15;
-      --gold-500: #eab308;
-      --gold-600: #ca8a04;
-      --gold-700: #a16207;
-
-      --neutral-50: #fafafa;
-      --neutral-100: #f5f5f5;
-      --neutral-200: #e5e5e5;
-      --neutral-300: #d4d4d4;
-      --neutral-400: #a3a3a3;
-      --neutral-500: #737373;
-      --neutral-600: #525252;
-      --neutral-700: #404040;
-      --neutral-800: #262626;
-      --neutral-900: #171717;
-
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-5: 1.25rem;
-      --space-6: 1.5rem;
-      --space-7: 2rem;
-      --space-8: 2.5rem;
-      --space-10: 4rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-20: 5rem;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.7;
-      color: var(--neutral-800);
-      background: linear-gradient(135deg, var(--sage-50) 0%, var(--neutral-50) 50%, #fef9ec 100%);
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
-
-    /* Navigation Bar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--md-elevation-2);
-      z-index: 1000;
-      padding: var(--space-4) var(--space-6);
-      transition: box-shadow var(--md-motion-duration-short) var(--md-motion-easing-standard);
-    }
-
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: var(--space-8);
-      flex-wrap: wrap;
-    }
-
-    .nav-link {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--sage-800);
-      text-decoration: none;
-      padding: var(--space-3) var(--space-6);
-      border-radius: 50px;
-      transition: all var(--md-motion-duration-short) var(--md-motion-easing-standard);
-      position: relative;
-    }
-
-    .nav-link::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50px;
-      background: currentColor;
-      opacity: 0;
-      transition: opacity var(--md-motion-duration-short) var(--md-motion-easing-standard);
-    }
-
-    .nav-link:hover::before {
-      opacity: var(--md-state-hover-opacity);
-    }
-
-    .nav-link:focus-visible::before {
-      opacity: var(--md-state-focus-opacity);
-    }
-
-    .nav-link:hover {
-      background: linear-gradient(135deg, var(--sage-100), var(--sage-200));
-      color: var(--sage-900);
-      transform: translateY(-2px);
-      box-shadow: var(--md-elevation-2);
-    }
-
-    .nav-link.active {
-      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
-      color: white;
-      box-shadow: var(--md-elevation-3);
-    }
-
-    /* Hero Section */
-    .hero {
-      position: relative;
-      min-height: 75vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: calc(80px + var(--space-20)) var(--space-4) var(--space-20);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(67, 87, 67, 0.92) 0%,
-        rgba(107, 133, 107, 0.88) 40%,
-        rgba(138, 160, 138, 0.84) 70%,
-        rgba(176, 191, 176, 0.8) 100%
-      );
-      z-index: 1;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at 20% 50%,
-        rgba(254, 249, 195, 0.12) 0%,
-        transparent 50%
-      );
-      z-index: 2;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      max-width: 900px;
-      margin: 0 auto;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      color: white;
-      margin-bottom: var(--space-6);
-      line-height: 1.1;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      letter-spacing: -0.02em;
-    }
-
-    .hero-description {
-      font-size: clamp(1.125rem, 2vw, 1.375rem);
-      color: var(--sage-100);
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.8;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Main Content */
-    main {
-      position: relative;
-      z-index: 10;
-    }
-
-    .section {
-      padding: var(--space-20) var(--space-4);
-      position: relative;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: var(--space-12);
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: var(--sage-900);
-      margin-bottom: var(--space-6);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    .text-highlight {
-      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      display: inline-block;
-    }
-
-    .text-highlight::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold-400), var(--gold-500));
-      border-radius: 2px;
-      box-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
-    }
-
-    .section-subtitle {
-      font-size: 1.25rem;
-      color: var(--neutral-600);
-      max-width: 800px;
-      margin: 0 auto var(--space-8);
-      line-height: 1.8;
-    }
-
-    .material-surface {
-      background: white;
-      border-radius: 20px;
-      box-shadow: var(--md-elevation-2);
-      transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .material-surface::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--sage-300), transparent);
-      opacity: 0.5;
-    }
-
-    .material-surface:hover {
-      box-shadow: var(--md-elevation-4);
-      transform: translateY(-2px);
-    }
-
-    .content-wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: var(--space-8);
-    }
-
-    .content-wrapper p {
-      margin-bottom: var(--space-6);
-      font-size: 1.125rem;
-      line-height: 1.85;
-      color: var(--neutral-700);
-    }
-
-    /* Logo Section */
-    .logo-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-10);
-      background: linear-gradient(135deg, var(--sage-50), var(--sage-100));
-      border-radius: 20px;
-      margin-bottom: var(--space-8);
-    }
-
-    .logo-section img {
-      max-width: 320px;
-      height: auto;
-      filter: drop-shadow(0 6px 16px rgba(84, 107, 84, 0.25));
-    }
-
-    /* Grid Layout */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--space-6);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .feature-card {
-      background: white;
-      padding: var(--space-8);
-      border-radius: 16px;
-      box-shadow: var(--md-elevation-2);
-      transition: all var(--md-motion-duration-medium) var(--md-motion-easing-emphasized);
-      border-left: 4px solid var(--sage-500);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--md-elevation-6);
-      border-left-color: var(--sage-700);
-    }
-
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--sage-500), var(--sage-600));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--space-4);
-      box-shadow: 0 4px 12px rgba(84, 107, 84, 0.2);
-    }
-
-    .feature-icon .material-symbols-rounded {
-      color: white;
-      font-size: 2rem;
-      font-variation-settings: 'FILL' 1, 'wght' 600;
-    }
-
-    .feature-card h3 {
-      font-size: 1.375rem;
-      color: var(--sage-900);
-      margin-bottom: var(--space-3);
-      font-weight: 700;
-    }
-
-    .feature-card p {
-      font-size: 1.0625rem;
-      color: var(--neutral-700);
-      line-height: 1.7;
-    }
-
-    /* Links Section */
-    .links-section {
-      text-align: center;
-      padding: var(--space-10);
-      background: linear-gradient(135deg, var(--sage-700), var(--sage-800));
-      border-radius: 20px;
-      max-width: 900px;
-      margin: var(--space-12) auto;
-      color: white;
-    }
-
-    .links-section h2 {
-      color: white;
-      margin-bottom: var(--space-6);
-    }
-
-    .links-section p {
-      font-size: 1.125rem;
-      color: var(--sage-100);
-      margin-bottom: var(--space-8);
-    }
-
-    .links-grid {
-      display: flex;
-      gap: var(--space-4);
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .link-button {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-3);
-      padding: var(--space-4) var(--space-7);
-      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
-      color: var(--neutral-900);
-      font-size: 1.125rem;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: var(--md-elevation-3);
-      transition: all var(--md-motion-duration-medium) var(--md-motion-easing-emphasized);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .link-button::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.2);
-      opacity: 0;
-      transition: opacity var(--md-motion-duration-short) var(--md-motion-easing-standard);
-    }
-
-    .link-button:hover::before {
-      opacity: 1;
-    }
-
-    .link-button:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--md-elevation-6);
-    }
-
-    .link-button .material-symbols-rounded {
-      font-size: 1.5rem;
-    }
-
-    .link-button.secondary {
-      background: white;
-      color: var(--sage-800);
-      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
-    }
-
-    .link-button.secondary:hover {
-      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.5);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .navbar {
-        padding: var(--space-3) var(--space-4);
-      }
-
-      .nav-content {
-        gap: var(--space-3);
-      }
-
-      .nav-link {
-        font-size: 1rem;
-        padding: var(--space-2) var(--space-4);
-      }
-
-      .hero {
-        min-height: 60vh;
-        padding: calc(80px + var(--space-12)) var(--space-4) var(--space-12);
-      }
-
-      .section {
-        padding: var(--space-12) var(--space-4);
-      }
-
-      .logo-section img {
-        max-width: 240px;
-      }
-    }
-
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Selection */
-    ::selection {
-      background: var(--sage-600);
-      color: white;
-    }
-
-    /* Focus Styles for Accessibility */
-    a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid var(--gold-400);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    /* Page Transitions */
-    @media (prefers-reduced-motion: no-preference) {
-      * {
-        scroll-behavior: smooth;
-      }
-    }
-
-    /* Material Design 3 Motion Tokens */
-    :root {
-      --md-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
-      --md-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
-      --md-motion-easing-decelerate: cubic-bezier(0, 0, 0, 1);
-      --md-motion-easing-accelerate: cubic-bezier(0.3, 0, 1, 1);
-      --md-motion-duration-short: 200ms;
-      --md-motion-duration-medium: 400ms;
-      --md-motion-duration-long: 600ms;
-    }
-
-    /* Material Design 3 Elevation Tokens */
-    :root {
-      --md-elevation-0: none;
-      --md-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
-      --md-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.05), 0 3px 8px rgba(0, 0, 0, 0.08);
-      --md-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.06), 0 6px 12px rgba(0, 0, 0, 0.1);
-      --md-elevation-4: 0 6px 12px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.12);
-      --md-elevation-6: 0 10px 20px rgba(0, 0, 0, 0.1), 0 12px 24px rgba(0, 0, 0, 0.14);
-      --md-elevation-8: 0 12px 24px rgba(0, 0, 0, 0.12), 0 16px 32px rgba(0, 0, 0, 0.16);
-    }
-
-    /* Material Design 3 State Layer Tokens */
-    :root {
-      --md-state-hover-opacity: 0.08;
-      --md-state-focus-opacity: 0.12;
-      --md-state-pressed-opacity: 0.16;
-    }
-
-    /* Loading Screen with Material Design 3 */
-    #loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, var(--sage-50) 0%, var(--neutral-50) 50%, #fef9ec 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity var(--md-motion-duration-long) var(--md-motion-easing-emphasized),
-                  visibility var(--md-motion-duration-long) var(--md-motion-easing-emphasized);
-    }
-
-    #loading-screen.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    /* Material Design 3 Circular Progress Indicator */
-    .md-circular-progress {
-      width: 48px;
-      height: 48px;
-      margin-bottom: var(--space-6);
-      animation: md-circular-progress-rotate 1.568s linear infinite;
-    }
-
-    .md-circular-progress-circle {
-      fill: none;
-      stroke: var(--sage-600);
-      stroke-width: 4;
-      stroke-linecap: round;
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
-      animation: md-circular-progress-dash 1.568s var(--md-motion-easing-emphasized) infinite;
-      transform-origin: center;
-    }
-
-    @keyframes md-circular-progress-rotate {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes md-circular-progress-dash {
-      0% {
-        stroke-dasharray: 1, 200;
-        stroke-dashoffset: 0;
-      }
-      50% {
-        stroke-dasharray: 100, 200;
-        stroke-dashoffset: -15;
-      }
-      100% {
-        stroke-dasharray: 100, 200;
-        stroke-dashoffset: -125;
-      }
-    }
-
-    .loader-text {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--sage-700);
-      letter-spacing: 0.03em;
-      font-family: 'Nunito', sans-serif;
-    }
-
-    /* Enhanced aesthetics */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -50%;
-      right: -50%;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(254, 220, 71, 0.03) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-      animation: ambientFloat 20s ease-in-out infinite;
-    }
-
-    @keyframes ambientFloat {
-      0%, 100% {
-        transform: translate(0, 0) scale(1);
-      }
-      50% {
-        transform: translate(-20px, 20px) scale(1.1);
-      }
-    }
-
-    .material-surface::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(
-        circle at center,
-        rgba(254, 220, 71, 0.04) 0%,
-        transparent 70%
-      );
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-
-    .material-surface:hover::after {
-      opacity: 1;
-    }
-
-    .feature-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(
-        circle at center,
-        rgba(107, 133, 107, 0.05) 0%,
-        transparent 70%
-      );
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .feature-card:hover::before {
-      opacity: 1;
-      transform: translate(-10%, -10%);
-    }
-  </style>
+  <!-- Unified Design System -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="module">import 'https://unpkg.com/@material/web@latest/all.js';</script>
+  <script defer src="assets/js/main.js"></script>
 </head>
-<body>
-  <!-- Loading Screen with Material Design 3 -->
-  <div id="loading-screen" role="progressbar" aria-label="Loading page content" aria-busy="true">
-    <svg class="md-circular-progress" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <circle class="md-circular-progress-circle" cx="24" cy="24" r="20"></circle>
-    </svg>
-    <p class="loader-text" aria-live="polite">Loading...</p>
-  </div>
+<body class="site-shell">
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="ethos.html" class="nav-link">Ethos</a>
-      <a href="almanar-society.html" class="nav-link active">Al Manar Society</a>
-      <a href="vacancies.html" class="nav-link">Join Us</a>
-      <a href="elt-materials.html" class="nav-link">ELT Materials</a>
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <span>Noor Community</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+      <nav>
+        <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ethos.html">Ethos</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="almanar-society.html" aria-current="page">Al Manar Society</a></li>
+          <li><a href="vacancies.html">Vacancies</a></li>
+          <li><a href="elt-materials.html">ELT Materials</a></li>
+          <li><a href="join-students.html">Join Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="donate-btn" href="donate.html">Donate</a>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        </a>
+      </div>
     </div>
-  </nav>
+  </header>
 
   <main id="main-content">
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/23496638/pexels-photo-23496638.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Hero section">
+    <section class="hero hero-enhanced" style="background-image: url('https://images.pexels.com/photos/23496638/pexels-photo-23496638.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Hero section">
       <div class="hero-content">
         <h1 class="hero-title">Al Manar Society</h1>
         <p class="hero-description">Noor Community is the English department of Al Manar Society, a pioneering organisation dedicated to empowering Palestinian communities through education, culture, and social development.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="material-surface content-wrapper">
+    <section class="section page-surface">
+      <div class="content-wrapper">
         <div class="logo-section">
           <img src="https://najma-collective.github.io/Noor-Community-Web/assets/almanar-logo.png" alt="Al Manar Society logo" />
         </div>
@@ -742,7 +87,7 @@
       </div>
 
       <div class="features-grid">
-        <div class="feature-card">
+        <div class="card-premium">
           <div class="feature-icon">
             <span class="material-symbols-rounded">school</span>
           </div>
@@ -750,7 +95,7 @@
           <p>Al Manar Society develops and delivers educational programmes designed to empower Palestinian youth and adults with the knowledge and skills needed to pursue their goals and contribute to their communities.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="card-premium">
           <div class="feature-icon">
             <span class="material-symbols-rounded">diversity_3</span>
           </div>
@@ -758,7 +103,7 @@
           <p>Through various social initiatives, Al Manar Society strengthens community bonds and creates supportive networks that help Palestinian families navigate challenges and access essential resources.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="card-premium">
           <div class="feature-icon">
             <span class="material-symbols-rounded">palette</span>
           </div>
@@ -766,7 +111,7 @@
           <p>They champion Palestinian culture and heritage through programmes that celebrate traditions, arts, and collective memory, ensuring that cultural identity remains strong across generations.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="card-premium">
           <div class="feature-icon">
             <span class="material-symbols-rounded">volunteer_activism</span>
           </div>
@@ -796,34 +141,54 @@
     </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Mission</h4>
+        <p>Noor Community: Education and Liberation. A global network creating pathways to self-determination through rigorous, compassionate education.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ethos.html">Ethos</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="almanar-society.html">Al Manar Society</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Act</h4>
+        <ul>
+          <li><a href="join-students.html">Join as Student</a></li>
+          <li><a href="vacancies.html">Volunteer</a></li>
+          <li><a href="elt-materials.html">ELT Materials</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Trust & Connect</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+        <div class="social-links-footer" style="margin-top: var(--space-4); display: flex; gap: var(--space-3);">
+          <a href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" class="social-icon-link">
+            <img src="assets/linkeidn.png" alt="" class="social-icon" width="24" height="24" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sub-footer">
+      <p>&copy; <span id="year"></span> Noor Community. All rights reserved. | Education as a Practice of Freedom</p>
+      <div class="sub-footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true">•</span>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
   <script>
-    // Loading screen management
-    window.addEventListener('load', function() {
-      // Wait for fonts and icons to load
-      Promise.all([
-        document.fonts.ready,
-        // Wait a brief moment for Material Symbols to render
-        new Promise(resolve => setTimeout(resolve, 300))
-      ]).then(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.classList.add('hidden');
-        // Remove from DOM after transition
-        setTimeout(() => {
-          loadingScreen.style.display = 'none';
-        }, 600);
-      });
-    });
-
-    // Fallback: hide loading screen after 5 seconds regardless
-    setTimeout(() => {
-      const loadingScreen = document.getElementById('loading-screen');
-      if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
-        loadingScreen.classList.add('hidden');
-        setTimeout(() => {
-          loadingScreen.style.display = 'none';
-        }, 600);
-      }
-    }, 5000);
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
