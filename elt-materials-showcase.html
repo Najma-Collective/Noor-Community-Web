@@ -13,496 +13,255 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <style>
-    :root {
-      --sage-50: #f6f7f6;
-      --sage-100: #e8ebe8;
-      --sage-200: #d4dbd4;
-      --sage-500: #6b856b;
-      --sage-600: #546b54;
-      --sage-700: #435743;
-      --sage-800: #374637;
-      --gold-400: #facc15;
-      --gold-500: #eab308;
-      --gold-600: #ca8a04;
-      --neutral-100: #f5f5f5;
-      --neutral-200: #e5e5e5;
-      --neutral-700: #404040;
-      --neutral-800: #262626;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-5: 1.25rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --space-10: 2.5rem;
-      --space-12: 3rem;
-      --radius-lg: 18px;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.08);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      color: var(--neutral-800);
-      background: linear-gradient(135deg, var(--sage-50), #fff, #fef9ec);
-      min-height: 100vh;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      z-index: 1000;
-      padding: var(--space-4) var(--space-6);
-    }
-
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: var(--space-8);
-      flex-wrap: wrap;
-    }
-
-    .nav-link {
-      font-weight: 800;
-      color: var(--sage-700);
-      text-decoration: none;
-      padding: var(--space-3) var(--space-5);
-      border-radius: 50px;
-      transition: all 0.2s ease;
-    }
-
-    .nav-link:hover {
-      background: var(--sage-100);
-      color: var(--sage-800);
-    }
-
-    .nav-link.active {
-      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(67, 87, 67, 0.25);
-    }
-
-    header {
-      padding: calc(90px + var(--space-12)) var(--space-4) var(--space-12);
-      text-align: center;
-      background: radial-gradient(circle at 20% 30%, rgba(234, 179, 8, 0.15), transparent 40%),
-                  radial-gradient(circle at 80% 20%, rgba(107, 133, 107, 0.15), transparent 40%),
-                  linear-gradient(135deg, rgba(84, 107, 84, 0.08), rgba(255,255,255,0.85));
-    }
-
-    header h1 { font-size: clamp(2.3rem, 5vw, 3.5rem); color: var(--sage-800); margin-bottom: var(--space-4); }
-    header p { max-width: 850px; margin: 0 auto; font-size: 1.1rem; color: var(--neutral-700); line-height: 1.75; }
-
-    .main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 var(--space-4) var(--space-12);
-    }
-
-    .section-card {
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 12px rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      padding: var(--space-10) var(--space-8);
-      margin-bottom: var(--space-8);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--sage-600), var(--gold-500));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .section-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      margin-bottom: var(--space-5);
-      flex-wrap: wrap;
-    }
-
-    .section-header h2 {
-      font-size: 1.6rem;
-      color: var(--sage-800);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 0.95rem;
-      background: var(--sage-100);
-      color: var(--sage-700);
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: var(--space-6);
-      align-items: stretch;
-    }
-
-    .item-card {
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      border-radius: 18px;
-      padding: var(--space-6);
-      background: linear-gradient(135deg, #fff, #fefefe);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-      height: 100%;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .item-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--sage-500), var(--gold-500));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .item-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03);
-    }
-
-    .item-card:hover::after {
-      transform: scaleX(1);
-    }
-
-    .item-card h3 {
-      font-size: 1.25rem;
-      color: var(--sage-800);
-    }
-
-    .item-card p { color: var(--neutral-700); line-height: 1.6; }
-
-    .item-card a {
-      margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.75rem 1.15rem;
-      background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
-      color: #1a1a1a;
-      border-radius: 12px;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 12px 30px rgba(202, 138, 4, 0.26);
-    }
-
-    .item-card a:hover { transform: translateY(-1px); }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--space-6);
-      align-items: start;
-    }
-
-    .list { list-style: none; display: grid; gap: var(--space-4); }
-
-    .list-item {
-      display: flex;
-      gap: var(--space-4);
-      align-items: flex-start;
-      padding: var(--space-5);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      border-radius: 16px;
-      background: linear-gradient(135deg, #fff, #fefefe);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-
-    .list-item:hover {
-      transform: translateX(4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03);
-    }
-
-    .list-item .icon {
-      width: 42px;
-      height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: var(--sage-100);
-      color: var(--sage-700);
-      flex-shrink: 0;
-    }
-
-    .list-item a { color: var(--sage-700); font-weight: 800; text-decoration: none; }
-    .list-item a:hover { text-decoration: underline; }
-    .list-item p { color: var(--neutral-700); line-height: 1.6; }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.9rem;
-      background: rgba(250, 204, 21, 0.15);
-      color: var(--gold-600);
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.95rem;
-    }
-
-    .tooltip {
-      position: relative;
-      cursor: help;
-      color: var(--sage-700);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-weight: 700;
-    }
-
-    .tooltip-text {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      left: 0;
-      bottom: 125%;
-      background: #1f2937;
-      color: #fff;
-      padding: 0.65rem 0.75rem;
-      border-radius: 10px;
-      width: 260px;
-      font-size: 0.95rem;
-      line-height: 1.45;
-      box-shadow: 0 14px 28px rgba(0,0,0,0.18);
-      transition: opacity 0.2s ease;
-      z-index: 5;
-    }
-
-    .tooltip:hover .tooltip-text,
-    .tooltip:focus-within .tooltip-text { visibility: visible; opacity: 1; }
-
-    .cta {
-      margin-top: var(--space-12);
-      background: linear-gradient(135deg, var(--sage-700), var(--sage-600));
-      color: #fff;
-      border-radius: var(--radius-lg);
-      padding: var(--space-10) var(--space-6);
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(67,87,67,0.35);
-    }
-
-    .cta h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: var(--space-3); }
-    .cta p { color: #e5efe5; margin-bottom: var(--space-5); }
-
-    .cta .button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.4rem; border-radius: 999px; background: #fff; color: var(--sage-700); text-decoration: none; font-weight: 800; box-shadow: 0 10px 24px rgba(255,255,255,0.2); }
-
-    .cta .button:hover { transform: translateY(-2px); }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 720px) {
-      header { padding-top: calc(90px + var(--space-8)); }
-      .section-card { padding: var(--space-8) var(--space-4); }
-      .tooltip-text { width: 240px; }
-    }
-  </style>
+  <!-- Unified Design System -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="module">import 'https://unpkg.com/@material/web@latest/all.js';</script>
+  <script defer src="assets/js/main.js"></script>
 </head>
-<body>
-  <nav class="navbar" aria-label="Primary">
-    <div class="nav-content">
-      <a href="ethos.html" class="nav-link">Ethos</a>
-      <a href="almanar-society.html" class="nav-link">Al Manar Society</a>
-      <a href="vacancies.html" class="nav-link">Join Us</a>
-      <a href="elt-materials.html" class="nav-link active" aria-current="page">ELT Materials</a>
-    </div>
-  </nav>
+<body class="site-shell">
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-  <header>
-    <h1>ELT Materials Showcase</h1>
-    <p>Choose your role to explore materials and resources designed for agency-building language education grounded in safety, choice, and mutual respect.</p>
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <span>Noor Community</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+      <nav>
+        <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ethos.html">Ethos</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="almanar-society.html">Al Manar Society</a></li>
+          <li><a href="vacancies.html">Vacancies</a></li>
+          <li><a href="elt-materials.html" aria-current="page">ELT Materials</a></li>
+          <li><a href="join-students.html">Join Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="donate-btn" href="donate.html">Donate</a>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        </a>
+      </div>
+    </div>
   </header>
 
-  <div class="main">
-    <section class="section-card" aria-labelledby="teachers-heading">
-      <div class="section-header">
-        <div class="pill"><span class="material-symbols-rounded">school</span>1</div>
-        <h2 id="teachers-heading">For Teachers</h2>
-      </div>
-      <div class="grid">
-        <article class="item-card">
-          <span class="badge"><span class="material-symbols-rounded">favorite</span>Safety-Centred Teaching</span>
-          <h3>Creating Safe Learning Environments</h3>
-          <p>Comprehensive training module for educators on teaching practices grounded in safety, choice, and empowerment—creating predictable, supportive learning environments where all students can thrive.</p>
-          <a href="https://sites.google.com/najmacollective.org/9999/trauma-awareness" target="_blank" rel="noreferrer">Access Training<span class="material-symbols-rounded">north_east</span></a>
-        </article>
+  <main id="main-content">
+    <section class="hero hero-enhanced" aria-label="Hero section">
+      <div class="hero-content">
+        <span class="chip chip-accent">Explore Our Materials</span>
+        <h1 class="hero-title">ELT Materials Showcase</h1>
+        <p class="hero-description">Choose your role to explore materials and resources designed for agency-building language education grounded in safety, choice, and mutual respect.</p>
       </div>
     </section>
 
-    <section class="section-card" aria-labelledby="students-heading">
-      <div class="section-header">
-        <div class="pill"><span class="material-symbols-rounded">person</span>2</div>
-        <h2 id="students-heading">For Students</h2>
-      </div>
-      <div class="grid">
-        <article class="item-card">
-          <span class="badge"><span class="material-symbols-rounded">quiz</span>A</span>
-          <h3>Exams</h3>
-          <p>B2 level examination module with comprehensive assessment tasks designed to evaluate language proficiency across all skills.</p>
-          <a href="https://najma-collective.github.io/Noor-Community-/B2/exam.html" target="_blank" rel="noreferrer">Start Exam<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-        <article class="item-card">
-          <span class="badge"><span class="material-symbols-rounded">self_improvement</span>B</span>
-          <h3>Asynchronous Learning</h3>
-          <p>B1 level self-paced learning activities that allow students to work through materials at their own pace with structured pre-task activities.</p>
-          <a href="https://najma-collective.github.io/Noor-Community-/B1/1/B1-1-1/B1-1-1-b-pre.html" target="_blank" rel="noreferrer">Begin Learning<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-        <article class="item-card">
-          <span class="badge"><span class="material-symbols-rounded">smart_toy</span>C</span>
-          <h3>AI Instructor Pre-Class</h3>
-          <p>Interactive AI-powered learning system that provides personalized pre-class instruction and scaffolded support for language development.</p>
-          <a href="ai-instructor-portal.html">AI Instructor<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-        <article class="item-card">
-          <span class="badge"><span class="material-symbols-rounded">slideshow</span>D</span>
-          <h3>Lesson Slide Deck</h3>
-          <p>Comprehensive presentation materials for structured lessons with visual supports and interactive components for classroom engagement.</p>
-          <a href="https://najma-collective.github.io/Noor-Community-/B2/1/B2-1-1/Strategic-Planning-In-The-NGO-Sector.html" target="_blank" rel="noreferrer">View Slides<span class="material-symbols-rounded">north_east</span></a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-card" aria-labelledby="coordinators-heading">
-      <div class="section-header">
-        <div class="pill"><span class="material-symbols-rounded">manage_accounts</span>3</div>
-        <h2 id="coordinators-heading">For Coordinators</h2>
-      </div>
-      <p><strong>Coming Soon:</strong> Comprehensive coordinator tools including:</p>
-      <ul class="list" style="margin-top: var(--space-4);">
-        <li class="list-item">
-          <span class="icon"><span class="material-symbols-rounded">analytics</span></span>
-          <div>
-            <strong>Heat Map Dashboard</strong>
-            <p>Visual analytics showing student peak attendance times to optimize scheduling and resource allocation.</p>
+    <section class="section page-surface">
+      <div class="content-wrapper">
+        <article class="section-card" aria-labelledby="teachers-heading">
+          <div class="section-header">
+            <div class="pill"><span class="material-symbols-rounded">school</span>1</div>
+            <h2 id="teachers-heading">For Teachers</h2>
           </div>
-        </li>
-        <li class="list-item">
-          <span class="icon"><span class="material-symbols-rounded">folder</span></span>
-          <div>
-            <strong>Content Library</strong>
-            <p>Centralized repository of all teaching materials, assessments, and resources with search and filtering capabilities.</p>
+          <div class="grid">
+            <div class="item-card">
+              <span class="badge"><span class="material-symbols-rounded">favorite</span>Safety-Centred Teaching</span>
+              <h3>Creating Safe Learning Environments</h3>
+              <p>Comprehensive training module for educators on teaching practices grounded in safety, choice, and empowerment—creating predictable, supportive learning environments where all students can thrive.</p>
+              <a href="https://sites.google.com/najmacollective.org/9999/trauma-awareness" target="_blank" rel="noreferrer">Access Training<span class="material-symbols-rounded">north_east</span></a>
+            </div>
           </div>
-        </li>
-        <li class="list-item">
-          <span class="icon"><span class="material-symbols-rounded">calendar_month</span></span>
-          <div>
-            <strong>Student Timetable Interface</strong>
-            <p>Spreadsheet front-end for managing student schedules, tracking progress, and coordinating session logistics.</p>
+        </article>
+
+        <article class="section-card" aria-labelledby="students-heading">
+          <div class="section-header">
+            <div class="pill"><span class="material-symbols-rounded">person</span>2</div>
+            <h2 id="students-heading">For Students</h2>
           </div>
-        </li>
-      </ul>
-    </section>
+          <div class="grid">
+            <div class="item-card">
+              <span class="badge"><span class="material-symbols-rounded">quiz</span>A</span>
+              <h3>Exams</h3>
+              <p>B2 level examination module with comprehensive assessment tasks designed to evaluate language proficiency across all skills.</p>
+              <a href="https://najma-collective.github.io/Noor-Community-/B2/exam.html" target="_blank" rel="noreferrer">Start Exam<span class="material-symbols-rounded">north_east</span></a>
+            </div>
+            <div class="item-card">
+              <span class="badge"><span class="material-symbols-rounded">self_improvement</span>B</span>
+              <h3>Asynchronous Learning</h3>
+              <p>B1 level self-paced learning activities that allow students to work through materials at their own pace with structured pre-task activities.</p>
+              <a href="https://najma-collective.github.io/Noor-Community-/B1/1/B1-1-1/B1-1-1-b-pre.html" target="_blank" rel="noreferrer">Begin Learning<span class="material-symbols-rounded">north_east</span></a>
+            </div>
+            <div class="item-card">
+              <span class="badge"><span class="material-symbols-rounded">smart_toy</span>C</span>
+              <h3>AI Instructor Pre-Class</h3>
+              <p>Interactive AI-powered learning system that provides personalized pre-class instruction and scaffolded support for language development.</p>
+              <a href="ai-instructor-portal.html">AI Instructor<span class="material-symbols-rounded">north_east</span></a>
+            </div>
+            <div class="item-card">
+              <span class="badge"><span class="material-symbols-rounded">slideshow</span>D</span>
+              <h3>Lesson Slide Deck</h3>
+              <p>Comprehensive presentation materials for structured lessons with visual supports and interactive components for classroom engagement.</p>
+              <a href="https://najma-collective.github.io/Noor-Community-/B2/1/B2-1-1/Strategic-Planning-In-The-NGO-Sector.html" target="_blank" rel="noreferrer">View Slides<span class="material-symbols-rounded">north_east</span></a>
+            </div>
+          </div>
+        </article>
 
-    <section class="section-card" aria-labelledby="ai-system-heading" style="background: linear-gradient(135deg, var(--sage-50), #fff);">
-      <div class="section-header">
-        <div class="pill"><span class="material-symbols-rounded">psychology</span>Technical Details</div>
-        <h2 id="ai-system-heading">About the AI Learning System</h2>
+        <article class="section-card" aria-labelledby="coordinators-heading">
+          <div class="section-header">
+            <div class="pill"><span class="material-symbols-rounded">manage_accounts</span>3</div>
+            <h2 id="coordinators-heading">For Coordinators</h2>
+          </div>
+          <p><strong>Coming Soon:</strong> Comprehensive coordinator tools including:</p>
+          <ul class="list" style="margin-top: var(--space-4);">
+            <li class="list-item">
+              <span class="icon"><span class="material-symbols-rounded">analytics</span></span>
+              <div>
+                <strong>Heat Map Dashboard</strong>
+                <p>Visual analytics showing student peak attendance times to optimize scheduling and resource allocation.</p>
+              </div>
+            </li>
+            <li class="list-item">
+              <span class="icon"><span class="material-symbols-rounded">folder</span></span>
+              <div>
+                <strong>Content Library</strong>
+                <p>Centralized repository of all teaching materials, assessments, and resources with search and filtering capabilities.</p>
+              </div>
+            </li>
+            <li class="list-item">
+              <span class="icon"><span class="material-symbols-rounded">calendar_month</span></span>
+              <div>
+                <strong>Student Timetable Interface</strong>
+                <p>Spreadsheet front-end for managing student schedules, tracking progress, and coordinating session logistics.</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article class="section-card" aria-labelledby="ai-system-heading" style="background: linear-gradient(135deg, var(--sage-50), #fff);">
+          <div class="section-header">
+            <div class="pill"><span class="material-symbols-rounded">psychology</span>Technical Details</div>
+            <h2 id="ai-system-heading">About the AI Learning System</h2>
+          </div>
+          <p style="margin-bottom: var(--space-6); color: var(--neutral-700); line-height: 1.7;">The Noor AI learning system integrates pedagogical theory with interactive technology to support agency-building language instruction grounded in safety, predictability, and choice. Below are the key theoretical foundations and design features:</p>
+
+          <div style="display: grid; gap: var(--space-5);">
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Task-Based Learning Framework</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system structures lessons according to a nine-stage TBL cycle aligned with Willis's (1996) framework: Lead-in, Pre-task A–D, Task Prep, Main Task, Reporting, and Feedback. A sidebar tracker displays progression states, providing metacognitive orientation regarding lesson position.</p>
+            </details>
+
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Pre-Task Subdivision & Zone of Proximal Development</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The pre-task phase divides into four components: schema activation, model provision, language focus, and pronunciation work. This granular division reflects Long's (1985) interaction hypothesis. The system prompt explicitly references Vygotskian ZPD theory and instructs the AI to provide 'i+1' input—Krashen's (1985) input hypothesis applied within a scaffolding framework.</p>
+            </details>
+
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Sentence Stems & Scaffolding</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">Sentence stems (e.g., 'In my opinion, ___ because ___') provide syntactic templates that reduce cognitive load while maintaining communicative authenticity. This corresponds with Gibbons's (2015) work on scaffolding academic language. Stems appear as selectable options, lowering production activation thresholds.</p>
+            </details>
+
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Visual Highlighting System</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">A tripartite highlighting system uses CSS classes: 'hl-vocab' (amber), 'hl-grammar' (sage green), and 'hl-feedback' (rose). This colour-coding draws on dual-coding theory (Paivio, 1986)—information encoded through multiple channels enhances retention and retrieval. The visual distinction serves a sorting function: lexical items requiring memorisation, structural patterns requiring rule application, and errors requiring remediation.</p>
+            </details>
+
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Error Correction & Feedback</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system prescribes varied error correction drawing on Lyster and Ranta's (1997) taxonomy: recasts, clarification requests, metalinguistic feedback, elicitation, and explicit correction. Less intrusive feedback types are prioritised, reserving explicit correction for persistent errors. Guidance to 'prioritise errors that impede communication or match lesson focus' operationalises Hendrickson's (1978) criteria.</p>
+            </details>
+
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Metacognitive Support</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The 'think-prompt' class renders reflection prompts with distinctive visual styling, signalling that processing time and deliberate thought are valued. This corresponds to recommendations regarding explicit metacognitive prompting in language learning (Anderson, 2002). The 'self-check' component provides structure for confidence self-assessment following teaching moments.</p>
+            </details>
+
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Vocabulary Tracking & Retrieval Practice</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The sidebar component implements real-time tracking of vocabulary items marked with 'hl-vocab'. Items are stored in a JavaScript Set (preventing duplicates) and limited to twenty items. The system instructs the AI to 'circle back to previous vocabulary/concepts without warning' and space repetitions across the session. This draws on robust findings regarding the testing effect and distributed practice (Roediger & Karpicke, 2006).</p>
+            </details>
+
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Multimodal Learning</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The interface provides text input and speech recognition (Web Speech API) with text-to-speech output. This multimodality addresses different learner preferences and potentially supports development of both written and spoken skills. The avatar provides non-verbal feedback through animated states: idle, listening, thinking, and speaking.</p>
+            </details>
+
+            <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Socratic Questioning & Critical Thinking</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system specifies six question types: clarifying, assumption-probing, evidence-probing, viewpoint, implication, and meta-questions. This structured approach draws on Paul and Elder's (2006) framework for critical thinking instruction. The meta-question type ('Why do you think I asked that question?') attempts to make the pedagogical process itself an object of reflection.</p>
+            </details>
+
+            <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
+              <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">System Limitations & Design Considerations</summary>
+              <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">Effectiveness depends substantially on the AI model's consistent adherence to system prompt instructions. The system lacks persistent learner modelling; each session begins without knowledge of prior interactions. The interface requires API key provision, creating financial and technical barriers. The Nour interface incorporates substantial pedagogical features grounded in SLA theory and cognitive learning science. The gap between designed affordances and enacted practice remains the central uncertainty—empirical evaluation would determine whether theoretical foundations translate into measurable outcomes.</p>
+            </details>
+          </div>
+
+          <p style="margin-top: var(--space-8); padding: var(--space-6); background: linear-gradient(135deg, var(--sage-100), var(--sage-50)); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); font-style: italic; color: var(--neutral-800); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);">
+            <strong style="color: var(--sage-800);">Note:</strong> This system represents an integration of task-based language teaching and AI-assisted learning. It embodies our commitment to creating learning experiences that are academically rigorous while building environments grounded in safety, choice, and mutual respect. Many learners join us from contexts of occupation, displacement, and ongoing challenge—our pedagogy centres on predictability, empowerment, and support.
+          </p>
+        </article>
+
+        <article class="cta" aria-labelledby="cta-title">
+          <h2 id="cta-title">Want to create the next addition?</h2>
+          <p>We are actively inviting designers to contribute materials that embody our ethos. Share prototypes, co-design ideas, or request a walkthrough of any item in this showcase.</p>
+          <a class="button" href="elt-materials.html">Return to ELT Materials</a>
+        </article>
       </div>
-      <p style="margin-bottom: var(--space-6); color: var(--neutral-700); line-height: 1.7;">The Noor AI learning system integrates pedagogical theory with interactive technology to support agency-building language instruction grounded in safety, predictability, and choice. Below are the key theoretical foundations and design features:</p>
+    </section>
+  </main>
 
-      <div style="display: grid; gap: var(--space-5);">
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Task-Based Learning Framework</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system structures lessons according to a nine-stage TBL cycle aligned with Willis's (1996) framework: Lead-in, Pre-task A–D, Task Prep, Main Task, Reporting, and Feedback. A sidebar tracker displays progression states, providing metacognitive orientation regarding lesson position.</p>
-        </details>
-
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Pre-Task Subdivision & Zone of Proximal Development</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The pre-task phase divides into four components: schema activation, model provision, language focus, and pronunciation work. This granular division reflects Long's (1985) interaction hypothesis. The system prompt explicitly references Vygotskian ZPD theory and instructs the AI to provide 'i+1' input—Krashen's (1985) input hypothesis applied within a scaffolding framework.</p>
-        </details>
-
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Sentence Stems & Scaffolding</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">Sentence stems (e.g., 'In my opinion, ___ because ___') provide syntactic templates that reduce cognitive load while maintaining communicative authenticity. This corresponds with Gibbons's (2015) work on scaffolding academic language. Stems appear as selectable options, lowering production activation thresholds.</p>
-        </details>
-
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Visual Highlighting System</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">A tripartite highlighting system uses CSS classes: 'hl-vocab' (amber), 'hl-grammar' (sage green), and 'hl-feedback' (rose). This colour-coding draws on dual-coding theory (Paivio, 1986)—information encoded through multiple channels enhances retention and retrieval. The visual distinction serves a sorting function: lexical items requiring memorisation, structural patterns requiring rule application, and errors requiring remediation.</p>
-        </details>
-
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Error Correction & Feedback</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system prescribes varied error correction drawing on Lyster and Ranta's (1997) taxonomy: recasts, clarification requests, metalinguistic feedback, elicitation, and explicit correction. Less intrusive feedback types are prioritised, reserving explicit correction for persistent errors. Guidance to 'prioritise errors that impede communication or match lesson focus' operationalises Hendrickson's (1978) criteria.</p>
-        </details>
-
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Metacognitive Support</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The 'think-prompt' class renders reflection prompts with distinctive visual styling, signalling that processing time and deliberate thought are valued. This corresponds to recommendations regarding explicit metacognitive prompting in language learning (Anderson, 2002). The 'self-check' component provides structure for confidence self-assessment following teaching moments.</p>
-        </details>
-
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Vocabulary Tracking & Retrieval Practice</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The sidebar component implements real-time tracking of vocabulary items marked with 'hl-vocab'. Items are stored in a JavaScript Set (preventing duplicates) and limited to twenty items. The system instructs the AI to 'circle back to previous vocabulary/concepts without warning' and space repetitions across the session. This draws on robust findings regarding the testing effect and distributed practice (Roediger & Karpicke, 2006).</p>
-        </details>
-
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Multimodal Learning</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The interface provides text input and speech recognition (Web Speech API) with text-to-speech output. This multimodality addresses different learner preferences and potentially supports development of both written and spoken skills. The avatar provides non-verbal feedback through animated states: idle, listening, thinking, and speaking.</p>
-        </details>
-
-        <details style="background: linear-gradient(135deg, #fff, var(--sage-50)); padding: var(--space-6); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); transition: all 0.3s ease;">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">Socratic Questioning & Critical Thinking</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">The system specifies six question types: clarifying, assumption-probing, evidence-probing, viewpoint, implication, and meta-questions. This structured approach draws on Paul and Elder's (2006) framework for critical thinking instruction. The meta-question type ('Why do you think I asked that question?') attempts to make the pedagogical process itself an object of reflection.</p>
-        </details>
-
-        <details style="background: #fff; padding: var(--space-5); border-radius: 12px; border: 1px solid var(--neutral-200);">
-          <summary style="font-weight: 800; color: var(--sage-800); cursor: pointer; font-size: 1.1rem;">System Limitations & Design Considerations</summary>
-          <p style="margin-top: var(--space-3); color: var(--neutral-700); line-height: 1.7;">Effectiveness depends substantially on the AI model's consistent adherence to system prompt instructions. The system lacks persistent learner modelling; each session begins without knowledge of prior interactions. The interface requires API key provision, creating financial and technical barriers. The Nour interface incorporates substantial pedagogical features grounded in SLA theory and cognitive learning science. The gap between designed affordances and enacted practice remains the central uncertainty—empirical evaluation would determine whether theoretical foundations translate into measurable outcomes.</p>
-        </details>
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Mission</h4>
+        <p>Noor Community: Education and Liberation. A global network creating pathways to self-determination through rigorous, compassionate education.</p>
       </div>
-
-      <p style="margin-top: var(--space-8); padding: var(--space-6); background: linear-gradient(135deg, var(--sage-100), var(--sage-50)); border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.04); font-style: italic; color: var(--neutral-800); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);">
-        <strong style="color: var(--sage-800);">Note:</strong> This system represents an integration of task-based language teaching and AI-assisted learning. It embodies our commitment to creating learning experiences that are academically rigorous while building environments grounded in safety, choice, and mutual respect. Many learners join us from contexts of occupation, displacement, and ongoing challenge—our pedagogy centres on predictability, empowerment, and support.
-      </p>
-    </section>
-
-    <section class="cta" aria-labelledby="cta-title">
-      <h2 id="cta-title">Want to create the next addition?</h2>
-      <p>We are actively inviting designers to contribute materials that embody our ethos. Share prototypes, co-design ideas, or request a walkthrough of any item in this showcase.</p>
-      <a class="button" href="elt-materials.html">Return to ELT Materials</a>
-    </section>
-  </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ethos.html">Ethos</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="almanar-society.html">Al Manar Society</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Act</h4>
+        <ul>
+          <li><a href="join-students.html">Join as Student</a></li>
+          <li><a href="vacancies.html">Volunteer</a></li>
+          <li><a href="elt-materials.html">ELT Materials</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Trust & Connect</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+        <div class="social-links-footer" style="margin-top: var(--space-4); display: flex; gap: var(--space-3);">
+          <a href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" class="social-icon-link">
+            <img src="assets/linkeidn.png" alt="" class="social-icon" width="24" height="24" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sub-footer">
+      <p>&copy; <span id="year"></span> Noor Community. All rights reserved. | Education as a Practice of Freedom</p>
+      <div class="sub-footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true">•</span>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
