@@ -804,7 +804,7 @@
 
   <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1600');" aria-label="Hero section">
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/7582585/pexels-photo-7582585.jpeg?auto=compress&cs=tinysrgb&w=1920');" aria-label="Hero section">
       <div class="hero-content">
         <p class="hero-label">Welcome Students</p>
         <h1 class="hero-title">Your Learning Journey Starts Here</h1>
@@ -813,26 +813,197 @@
     </section>
 
     <!-- Word of the Week Section -->
-    <section class="section" id="word-of-week">
-      <div class="material-surface content-wrapper">
-        <h2 class="section-heading">Word of the Week</h2>
+    <section class="section" id="word-of-week" style="padding: 0; margin: var(--space-8) 0;">
+      <div class="word-video-container">
+        <video autoplay muted loop playsinline class="word-video-bg">
+          <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=4c91a7f0c4b27f84e0e0e4b4e4e9e4b4&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+        </video>
+        <div class="word-video-overlay"></div>
+        <div class="word-content-wrapper">
+          <h2 class="word-section-title">Word of the Week</h2>
 
-        <div class="word-of-week-card">
-          <h3 class="word-title">Resilience</h3>
-          <p class="word-pronunciation">/rɪˈzɪliəns/</p>
-          <span class="word-type">noun</span>
-          <p class="word-definition">
-            The capacity to withstand or to recover quickly from difficulties; toughness. The ability of a substance or object to spring back into shape; elasticity.
-          </p>
-          <div class="word-example">
-            <strong>Example:</strong> "The resilience of the Palestinian people in the face of adversity continues to inspire communities worldwide."
+          <div class="word-showcase-card">
+            <h3 class="word-main-title">Resilience</h3>
+            <p class="word-pronunciation">/rɪˈzɪliəns/</p>
+            <span class="word-type-badge">noun</span>
+
+            <div class="word-definition-box">
+              <p class="word-definition-text">
+                The capacity to withstand or to recover quickly from difficulties; toughness. The ability of a substance or object to spring back into shape; elasticity.
+              </p>
+            </div>
+
+            <div class="word-example-box">
+              <span class="example-label">Example</span>
+              <p class="word-example-text">
+                "The resilience of the Palestinian people in the face of adversity continues to inspire communities worldwide."
+              </p>
+            </div>
           </div>
-        </div>
 
-        <p style="text-align: center; color: var(--neutral-600); font-size: 0.9375rem; margin-top: var(--space-6);">
-          Check back every week for a new word to expand your vocabulary and deepen your understanding of English.
-        </p>
+          <p class="word-footer-note">
+            Check back every week for a new word to expand your vocabulary and deepen your understanding of English.
+          </p>
+        </div>
       </div>
+
+      <style>
+        .word-video-container {
+          position: relative;
+          width: 100vw;
+          margin-left: calc(50% - 50vw);
+          margin-right: calc(50% - 50vw);
+          min-height: 600px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .word-video-bg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          transform: translate(-50%, -50%);
+          z-index: 0;
+          object-fit: cover;
+        }
+
+        .word-video-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(54, 107, 84, 0.92) 0%,
+            rgba(74, 89, 42, 0.88) 50%,
+            rgba(122, 138, 104, 0.85) 100%
+          );
+          z-index: 1;
+        }
+
+        .word-content-wrapper {
+          position: relative;
+          z-index: 2;
+          max-width: 900px;
+          padding: var(--space-10) var(--space-6);
+          text-align: center;
+        }
+
+        .word-section-title {
+          font-size: clamp(1.5rem, 3vw, 2rem);
+          font-weight: 800;
+          color: var(--gold-400);
+          margin-bottom: var(--space-8);
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .word-showcase-card {
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-radius: 24px;
+          padding: var(--space-10) var(--space-8);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          margin-bottom: var(--space-6);
+        }
+
+        .word-main-title {
+          font-size: clamp(3rem, 6vw, 4.5rem);
+          font-weight: 800;
+          color: var(--sage-900);
+          margin-bottom: var(--space-3);
+          line-height: 1.1;
+        }
+
+        .word-pronunciation {
+          font-size: 1.5rem;
+          color: var(--sage-700);
+          font-style: italic;
+          margin-bottom: var(--space-4);
+          display: block;
+        }
+
+        .word-type-badge {
+          display: inline-block;
+          padding: var(--space-2) var(--space-5);
+          background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+          color: var(--neutral-900);
+          font-weight: 800;
+          font-size: 0.95rem;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          border-radius: 50px;
+          margin-bottom: var(--space-6);
+          box-shadow: 0 4px 20px rgba(234, 179, 8, 0.3);
+        }
+
+        .word-definition-box {
+          background: linear-gradient(135deg, var(--sage-50), var(--sage-100));
+          border-radius: 16px;
+          padding: var(--space-6);
+          margin-bottom: var(--space-5);
+          border-left: 5px solid var(--sage-600);
+        }
+
+        .word-definition-text {
+          font-size: 1.25rem;
+          color: var(--neutral-800);
+          line-height: 1.8;
+          margin: 0;
+        }
+
+        .word-example-box {
+          background: white;
+          border-radius: 16px;
+          padding: var(--space-6);
+          border-left: 5px solid var(--gold-500);
+          text-align: left;
+        }
+
+        .example-label {
+          display: block;
+          font-weight: 800;
+          color: var(--gold-700);
+          font-size: 0.95rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          margin-bottom: var(--space-3);
+        }
+
+        .word-example-text {
+          font-size: 1.125rem;
+          color: var(--neutral-700);
+          line-height: 1.8;
+          margin: 0;
+          font-style: italic;
+        }
+
+        .word-footer-note {
+          color: rgba(255, 255, 255, 0.95);
+          font-size: 1rem;
+          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+          font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+          .word-video-container {
+            min-height: 500px;
+          }
+
+          .word-main-title {
+            font-size: 2.5rem;
+          }
+
+          .word-showcase-card {
+            padding: var(--space-8) var(--space-6);
+          }
+        }
+      </style>
     </section>
 
     <!-- Student Study Techniques Section -->
@@ -840,67 +1011,177 @@
       <div class="material-surface content-wrapper">
         <h2 class="section-heading">Student Study Techniques</h2>
 
-        <div class="techniques-grid">
-          <div class="technique-card">
-            <div class="technique-icon">
-              <span class="material-symbols-rounded">schedule</span>
+        <div class="study-slideshow" id="study-slideshow">
+          <div class="slideshow-container">
+            <div class="technique-slide active">
+              <div class="technique-icon">
+                <span class="material-symbols-rounded">schedule</span>
+              </div>
+              <h3 class="technique-title">Spaced Repetition</h3>
+              <p class="technique-description">
+                Review material at increasing intervals to strengthen long-term memory. Use flashcards and revisit vocabulary regularly for optimal retention.
+              </p>
             </div>
-            <h3 class="technique-title">Spaced Repetition</h3>
-            <p class="technique-description">
-              Review material at increasing intervals to strengthen long-term memory. Use flashcards and revisit vocabulary regularly for optimal retention.
-            </p>
+
+            <div class="technique-slide">
+              <div class="technique-icon">
+                <span class="material-symbols-rounded">groups</span>
+              </div>
+              <h3 class="technique-title">Active Practice</h3>
+              <p class="technique-description">
+                Engage with the language through speaking, writing, and real conversations. Practice with peers and participate actively in class discussions.
+              </p>
+            </div>
+
+            <div class="technique-slide">
+              <div class="technique-icon">
+                <span class="material-symbols-rounded">target</span>
+              </div>
+              <h3 class="technique-title">Goal Setting</h3>
+              <p class="technique-description">
+                Set clear, achievable goals for each study session. Break larger objectives into smaller milestones to track your progress effectively.
+              </p>
+            </div>
+
+            <div class="technique-slide">
+              <div class="technique-icon">
+                <span class="material-symbols-rounded">psychology</span>
+              </div>
+              <h3 class="technique-title">Metacognition</h3>
+              <p class="technique-description">
+                Reflect on your learning process. Identify what strategies work best for you and adjust your approach based on self-assessment.
+              </p>
+            </div>
+
+            <div class="technique-slide">
+              <div class="technique-icon">
+                <span class="material-symbols-rounded">book</span>
+              </div>
+              <h3 class="technique-title">Contextual Learning</h3>
+              <p class="technique-description">
+                Learn new words and grammar in context through reading, listening, and authentic materials. Connect language to real-world situations.
+              </p>
+            </div>
+
+            <div class="technique-slide">
+              <div class="technique-icon">
+                <span class="material-symbols-rounded">self_improvement</span>
+              </div>
+              <h3 class="technique-title">Self-Care & Balance</h3>
+              <p class="technique-description">
+                Maintain a balanced study routine with regular breaks. Prioritize rest, nutrition, and well-being to support effective learning.
+              </p>
+            </div>
           </div>
 
-          <div class="technique-card">
-            <div class="technique-icon">
-              <span class="material-symbols-rounded">groups</span>
-            </div>
-            <h3 class="technique-title">Active Practice</h3>
-            <p class="technique-description">
-              Engage with the language through speaking, writing, and real conversations. Practice with peers and participate actively in class discussions.
-            </p>
-          </div>
-
-          <div class="technique-card">
-            <div class="technique-icon">
-              <span class="material-symbols-rounded">target</span>
-            </div>
-            <h3 class="technique-title">Goal Setting</h3>
-            <p class="technique-description">
-              Set clear, achievable goals for each study session. Break larger objectives into smaller milestones to track your progress effectively.
-            </p>
-          </div>
-
-          <div class="technique-card">
-            <div class="technique-icon">
-              <span class="material-symbols-rounded">psychology</span>
-            </div>
-            <h3 class="technique-title">Metacognition</h3>
-            <p class="technique-description">
-              Reflect on your learning process. Identify what strategies work best for you and adjust your approach based on self-assessment.
-            </p>
-          </div>
-
-          <div class="technique-card">
-            <div class="technique-icon">
-              <span class="material-symbols-rounded">book</span>
-            </div>
-            <h3 class="technique-title">Contextual Learning</h3>
-            <p class="technique-description">
-              Learn new words and grammar in context through reading, listening, and authentic materials. Connect language to real-world situations.
-            </p>
-          </div>
-
-          <div class="technique-card">
-            <div class="technique-icon">
-              <span class="material-symbols-rounded">self_improvement</span>
-            </div>
-            <h3 class="technique-title">Self-Care & Balance</h3>
-            <p class="technique-description">
-              Maintain a balanced study routine with regular breaks. Prioritize rest, nutrition, and well-being to support effective learning.
-            </p>
-          </div>
+          <div class="slideshow-dots"></div>
         </div>
+
+        <style>
+          .study-slideshow {
+            position: relative;
+            max-width: 800px;
+            margin: var(--space-8) auto 0;
+            padding: var(--space-8);
+          }
+
+          .slideshow-container {
+            position: relative;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .technique-slide {
+            display: none;
+            text-align: center;
+            animation: slideIn 0.6s ease-in-out;
+            padding: var(--space-6);
+            background: linear-gradient(135deg, var(--sage-50), white);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--sage-600);
+          }
+
+          .technique-slide.active {
+            display: block;
+          }
+
+          @keyframes slideIn {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .technique-icon {
+            font-size: 4rem;
+            color: var(--sage-600);
+            margin-bottom: var(--space-5);
+            display: flex;
+            justify-content: center;
+          }
+
+          .technique-icon .material-symbols-rounded {
+            font-size: 4rem;
+          }
+
+          .technique-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--sage-900);
+            margin-bottom: var(--space-4);
+          }
+
+          .technique-description {
+            font-size: 1.125rem;
+            color: var(--neutral-700);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+          }
+
+          .slideshow-dots {
+            text-align: center;
+            margin-top: var(--space-6);
+            display: flex;
+            justify-content: center;
+            gap: var(--space-3);
+            flex-wrap: wrap;
+          }
+
+          .dot {
+            height: 12px;
+            width: 12px;
+            background-color: var(--sage-300);
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+          }
+
+          .dot:hover {
+            background-color: var(--sage-500);
+            transform: scale(1.2);
+          }
+
+          .dot.active {
+            background-color: var(--sage-700);
+            width: 32px;
+            border-radius: 6px;
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .technique-slide {
+              animation: none;
+            }
+          }
+        </style>
       </div>
     </section>
 
@@ -1024,7 +1305,7 @@
         </div>
 
         <div class="cta-container" style="margin-top: var(--space-10);">
-          <a href="contact.html" class="cta-button">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdi5WF_StjcsYsimrAV-qb_4FrW0Prt4NyHmW5rRxNnTswAPw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="cta-button">
             <span class="material-symbols-rounded">edit_note</span>
             Register Now
           </a>
@@ -1071,9 +1352,9 @@
         </div>
 
         <div class="cta-container" style="margin-top: var(--space-10);">
-          <a href="contact.html" class="cta-button">
-            <span class="material-symbols-rounded">contact_support</span>
-            Get in Touch
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdi5WF_StjcsYsimrAV-qb_4FrW0Prt4NyHmW5rRxNnTswAPw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="cta-button">
+            <span class="material-symbols-rounded">how_to_reg</span>
+            Register as Student
           </a>
         </div>
       </div>
@@ -1130,6 +1411,78 @@
   <script>
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Study Techniques Slideshow
+    (function() {
+      const slides = document.querySelectorAll('.technique-slide');
+      const dotsContainer = document.querySelector('.slideshow-dots');
+      let currentSlide = 0;
+      let slideInterval;
+
+      // Create dots
+      slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot' + (index === 0 ? ' active' : '');
+        dot.addEventListener('click', () => {
+          goToSlide(index);
+          resetTimer();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = document.querySelectorAll('.dot');
+
+      function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        if (n >= slides.length) {
+          currentSlide = 0;
+        } else if (n < 0) {
+          currentSlide = slides.length - 1;
+        } else {
+          currentSlide = n;
+        }
+
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function goToSlide(n) {
+        showSlide(n);
+      }
+
+      function startSlideshow() {
+        slideInterval = setInterval(nextSlide, 4000); // 4 seconds per slide
+      }
+
+      function resetTimer() {
+        clearInterval(slideInterval);
+        startSlideshow();
+      }
+
+      // Start the slideshow
+      startSlideshow();
+
+      // Pause on hover
+      const slideshowContainer = document.querySelector('.study-slideshow');
+      slideshowContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+      });
+
+      slideshowContainer.addEventListener('mouseleave', () => {
+        startSlideshow();
+      });
+
+      // Respect prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        clearInterval(slideInterval);
+      }
+    })();
   </script>
 </body>
 </html>

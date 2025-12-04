@@ -464,27 +464,89 @@
         <h2 class="section-title" id="context-title">Context and Pedagogical Vision</h2>
         <p class="section-subtitle">Your work will be grounded in the same ethos that guides our community: education as liberation, language as capability, and learning environments grounded in safety, choice, and deep respect for students' lived experience.</p>
         <div class="principles" role="list">
-          <article class="principle" role="listitem">
+          <article class="principle principle-enhanced" role="listitem">
+            <div class="principle-icon">
+              <span class="material-symbols-rounded">shield</span>
+            </div>
             <h4>Creating Safety and Predictability</h4>
             <p>Design experiences that create predictable, low-stress pathways for learning, intentionally managing cognitive load to foster psychological safety.</p>
           </article>
-          <article class="principle" role="listitem">
+          <article class="principle principle-enhanced" role="listitem">
+            <div class="principle-icon">
+              <span class="material-symbols-rounded">groups</span>
+            </div>
             <h4>Centering Identity and Representation</h4>
             <p>Craft narratives that reflect Palestinian learners as innovators and cultural producers, moving past stereotype to affirm capability.</p>
           </article>
-          <article class="principle" role="listitem">
+          <article class="principle principle-enhanced" role="listitem">
+            <div class="principle-icon">
+              <span class="material-symbols-rounded">language</span>
+            </div>
             <h4>Language as Global Engagement</h4>
             <p>Position learners as competent interlocutors, using English to articulate perspective and join global communities of practice.</p>
           </article>
-          <article class="principle" role="listitem">
+          <article class="principle principle-enhanced" role="listitem">
+            <div class="principle-icon">
+              <span class="material-symbols-rounded">palette</span>
+            </div>
             <h4>Arts-Based &amp; Critical Pedagogies</h4>
             <p>Integrate media-rich, arts-based tasks that invite identity work, meaning-making, and critical perspectives in every unit.</p>
           </article>
-          <article class="principle" role="listitem">
+          <article class="principle principle-enhanced" role="listitem">
+            <div class="principle-icon">
+              <span class="material-symbols-rounded">trending_up</span>
+            </div>
             <h4>A Focus on Human Capability</h4>
             <p>Prioritise materials that expand real-world options for learners, equipping them to pursue opportunities they value with confidence.</p>
           </article>
         </div>
+
+        <style>
+          .principle-enhanced {
+            background: linear-gradient(135deg, white, var(--sage-50));
+            border-radius: 20px;
+            padding: var(--space-8);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--sage-200);
+            border-top: 4px solid var(--sage-600);
+            transition: all 0.3s ease;
+          }
+
+          .principle-enhanced:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+            border-top-color: var(--gold-500);
+          }
+
+          .principle-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-5);
+            box-shadow: 0 8px 20px rgba(84, 107, 84, 0.25);
+          }
+
+          .principle-icon .material-symbols-rounded {
+            font-size: 2.5rem;
+            color: white;
+          }
+
+          .principle-enhanced h4 {
+            color: var(--sage-900);
+            font-size: 1.375rem;
+            font-weight: 800;
+            margin-bottom: var(--space-4);
+          }
+
+          .principle-enhanced p {
+            color: var(--neutral-700);
+            line-height: 1.7;
+          }
+        </style>
       </div>
     </section>
 
