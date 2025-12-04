@@ -235,8 +235,64 @@ const initScrollAnimations = () => {
     rootMargin: '0px 0px -50px 0px'
   };
 
+  const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const prefersReducedMotion = prefersReducedMotionQuery.matches;
+
+  const heroOrnaments = Array.from(document.querySelectorAll('.hero-ornament'));
+  const ctaGroups = Array.from(document.querySelectorAll('.section-cta .hero-actions'));
+  const ornamentSet = new Set(heroOrnaments);
+  const ctaGroupSet = new Set(ctaGroups);
+  const activeParallax = new Set();
+  let parallaxTicking = false;
+
+  const updateParallaxOffsets = () => {
+    activeParallax.forEach((ornament) => {
+      const rect = ornament.getBoundingClientRect();
+      const depth = parseFloat(ornament.dataset.parallaxDepth || '0.35');
+      const centerY = rect.top + rect.height / 2 - window.innerHeight / 2;
+      const centerX = rect.left + rect.width / 2 - window.innerWidth / 2;
+      ornament.style.setProperty('--parallax-shift-y', `${-centerY * 0.08 * depth}px`);
+      ornament.style.setProperty('--parallax-shift-x', `${-centerX * 0.04 * depth}px`);
+      ornament.classList.add('parallax-shift');
+    });
+    parallaxTicking = false;
+  };
+
+  const requestParallaxTick = () => {
+    if (!parallaxTicking) {
+      requestAnimationFrame(updateParallaxOffsets);
+      parallaxTicking = true;
+    }
+  };
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      if (ornamentSet.has(entry.target)) {
+        if (entry.isIntersecting) {
+          activeParallax.add(entry.target);
+          requestParallaxTick();
+        } else {
+          activeParallax.delete(entry.target);
+          entry.target.classList.remove('parallax-shift');
+          entry.target.style.removeProperty('--parallax-shift-x');
+          entry.target.style.removeProperty('--parallax-shift-y');
+        }
+        return;
+      }
+
+      if (ctaGroupSet.has(entry.target)) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('cta-stagger-ready');
+          Array.from(entry.target.children).forEach((child, index) => {
+            if (child instanceof HTMLElement) {
+              child.style.setProperty('--cta-stagger-index', index);
+            }
+          });
+          observer.unobserve(entry.target);
+        }
+        return;
+      }
+
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
 
@@ -256,19 +312,30 @@ const initScrollAnimations = () => {
     '.fade-in, .scale-in, .slide-in-left, .slide-in-right, .stagger-children, [data-scroll-animate], [data-card-animate]'
   );
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  animatedElements.forEach((el) => {
-    if (prefersReducedMotion) {
-      // Ensure content remains visible when reduced motion is requested
+  if (prefersReducedMotion) {
+    animatedElements.forEach((el) => {
       el.classList.add('is-visible');
       el.style.removeProperty('opacity');
       el.style.removeProperty('transform');
-      return;
-    }
+    });
 
-    observer.observe(el);
+    heroOrnaments.forEach((ornament) => ornament.classList.add('parallax-disabled'));
+    ctaGroups.forEach((group) => group.classList.add('cta-stagger-ready'));
+    return;
+  }
+
+  animatedElements.forEach((el) => observer.observe(el));
+  heroOrnaments.forEach((ornament) => observer.observe(ornament));
+  ctaGroups.forEach((group) => {
+    group.classList.add('cta-stagger');
+    observer.observe(group);
   });
+
+  if (heroOrnaments.length) {
+    window.addEventListener('scroll', requestParallaxTick, { passive: true });
+    window.addEventListener('resize', requestParallaxTick);
+    requestParallaxTick();
+  }
 };
 
 // Smooth scroll for anchor links
