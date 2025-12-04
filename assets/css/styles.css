@@ -1223,7 +1223,6 @@ body.site-shell {
 }
 
 .nav-links {
-  --nav-panel-gap: clamp(1rem, 4vw, 2.75rem);
   list-style: none;
   margin: 0;
   padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem);
@@ -1231,18 +1230,22 @@ body.site-shell {
   flex-direction: column;
   gap: var(--space-3);
   position: fixed;
-  top: calc(var(--header-height) + var(--nav-panel-gap));
-  left: var(--nav-panel-gap);
+  top: var(--header-height);
+  left: 0;
   width: min(90vw, 340px);
-  max-height: none;
+  max-height: calc(100vh - var(--header-height));
+  overflow-y: auto;
   background: color-mix(in srgb, var(--soft-white) 96%, rgba(255, 255, 255, 0.9));
   backdrop-filter: blur(24px) saturate(1.1);
   box-shadow:
     var(--shadow-3),
     0 20px 60px rgba(36, 61, 22, 0.25);
   border: 1px solid color-mix(in srgb, var(--sage-300) 35%, transparent);
-  border-radius: var(--radius-xl);
-  transform: translateX(calc(-100% - var(--nav-panel-gap) - 1rem));
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: var(--radius-xl);
+  border-bottom-right-radius: var(--radius-xl);
+  transform: translateX(-100%);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -1411,7 +1414,6 @@ body.site-shell {
 ----------------------------------*/
 .hero {
   position: relative;
-  border-radius: var(--radius-2xl);
   overflow: hidden;
   padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 3vw, 2.5rem);
   color: #fff;
@@ -1420,9 +1422,9 @@ body.site-shell {
   display: grid;
   gap: var(--space-4);
   backdrop-filter: blur(3px);
-  box-shadow:
-    var(--shadow-4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 .hero::after {
