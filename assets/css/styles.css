@@ -130,12 +130,25 @@
   --transition-slow: 500ms var(--ease-in-out);
   --transition-spring: 400ms var(--ease-spring);
 
+  /* Motion Style Guide — durations & distances */
+  --motion-duration-hover: 260ms;
+  --motion-duration-reveal: 720ms;
+  --motion-duration-sheen: 900ms;
+  --motion-distance-cta: 16px;
+  --motion-distance-icon: 6px;
+
   /* Layout */
   --target-min: 44px;
   --container-max: clamp(320px, 92vw, 940px);
   --container-padding: clamp(1.25rem, 5vw, 3rem);
   --header-height: 84px;
 }
+
+/* Motion Style Guide
+   - Hover responses: use --motion-duration-hover with --ease-out or --ease-in-out for tactile feedback.
+   - Reveal/stagger: pair --motion-duration-reveal with translateY values up to var(--motion-distance-cta).
+   - Parallax accents: subtle offsets (<= 18px) driven by scroll position and eased with --transition-slow.
+   - Icon micro-movements: limit travel to var(--motion-distance-icon) to keep labels stable. */
 
 /* -------------------------------
    Global Reset & Base Styles
@@ -504,7 +517,7 @@ h3 {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   user-select: none;
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast);
   box-shadow:
     var(--shadow-2),
     var(--shadow-glow),
@@ -512,11 +525,28 @@ h3 {
   overflow: hidden;
 }
 
+.activity-btn::before,
+.activity-btn::after {
+  pointer-events: none;
+}
+
+@keyframes sheen-glide {
+  0% { transform: translateX(-120%); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+
+@keyframes icon-slide {
+  0% { transform: translateX(0); }
+  40% { transform: translateX(var(--motion-distance-icon)); }
+  100% { transform: translateX(0); }
+}
+
 .activity-btn::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent, rgba(0,0,0,0.1));
+  background: linear-gradient(135deg, rgba(255,255,255,0.32), transparent, rgba(0,0,0,0.12));
   opacity: 0;
   transition: opacity var(--transition-fast);
 }
@@ -524,10 +554,10 @@ h3 {
 .activity-btn::after {
   content: "";
   position: absolute;
-  inset: -50%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  transform: translateX(-100%);
-  transition: transform var(--transition-slow);
+  inset: -55%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent 65%);
+  transform: translateX(-120%);
+  opacity: 0;
 }
 
 .activity-btn:hover {
@@ -542,8 +572,10 @@ h3 {
   opacity: 1;
 }
 
-.activity-btn:hover::after {
-  transform: translateX(100%);
+.activity-btn:hover::after,
+.activity-btn:focus-visible::after {
+  animation: sheen-glide var(--motion-duration-sheen) var(--ease-in-out);
+  opacity: 1;
 }
 
 .activity-btn:active {
@@ -554,7 +586,8 @@ h3 {
 }
 
 .activity-btn:focus-visible {
-  outline: none;
+  outline: 3px solid color-mix(in srgb, var(--amber-400) 55%, #fff 45%);
+  outline-offset: 2px;
   box-shadow: var(--ring-amber), var(--shadow-3), var(--shadow-glow);
   transform: translateY(-2px);
 }
@@ -3496,6 +3529,11 @@ form.material-form {
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
+  --parallax-shift-x: 0px;
+  --parallax-shift-y: 0px;
+  transform: translate3d(var(--parallax-shift-x), var(--parallax-shift-y), 0);
+  transition: transform var(--transition-slow);
+  will-change: transform;
 }
 
 .hero-ornament-left {
@@ -3512,6 +3550,15 @@ form.material-form {
   background: radial-gradient(circle, rgba(122, 138, 104, 0.15), transparent 70%);
   filter: blur(60px);
   animation: float 25s ease-in-out infinite reverse;
+}
+
+.hero-ornament.parallax-shift {
+  animation-play-state: paused;
+}
+
+.hero-ornament.parallax-disabled {
+  animation: none;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes float {
@@ -3631,15 +3678,15 @@ form.material-form {
 
 .btn-icon {
   font-size: 1.25em;
+  display: inline-flex;
   transition: transform var(--transition-fast);
 }
 
-.activity-btn:hover .btn-icon {
-  transform: translateX(4px);
-}
-
-.activity-btn.secondary:hover .btn-icon {
-  transform: translateX(4px);
+.activity-btn:hover .btn-icon,
+.activity-btn:focus-visible .btn-icon,
+.activity-btn.secondary:hover .btn-icon,
+.activity-btn.secondary:focus-visible .btn-icon {
+  animation: icon-slide var(--motion-duration-hover) var(--ease-out);
 }
 
 /* -------------------------------
@@ -4240,6 +4287,21 @@ form.material-form {
   flex-direction: column;
   margin-top: 0;
   gap: var(--space-3);
+}
+
+.section-cta .hero-actions.cta-stagger > * {
+  opacity: 0;
+  transform: translateY(var(--motion-distance-cta));
+}
+
+.section-cta .hero-actions.cta-stagger-ready > * {
+  animation: cta-stagger-in var(--motion-duration-reveal) var(--ease-out) forwards;
+  animation-delay: calc(var(--cta-stagger-index, 0) * 90ms);
+}
+
+@keyframes cta-stagger-in {
+  0% { opacity: 0; transform: translateY(var(--motion-distance-cta)); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .section-cta .hero-actions .activity-btn {
