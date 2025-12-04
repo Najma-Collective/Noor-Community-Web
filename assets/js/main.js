@@ -970,6 +970,31 @@ const initSkipLink = () => {
   }
 };
 
+// Loading screen functionality
+const initLoadingScreen = () => {
+  const loadingScreen = document.getElementById('loading-screen');
+  if (!loadingScreen) return;
+
+  const hideLoadingScreen = () => {
+    loadingScreen.classList.add('hidden');
+
+    // Remove from DOM after animation completes
+    setTimeout(() => {
+      loadingScreen.remove();
+    }, 700);
+  };
+
+  // Hide loading screen when page is fully loaded
+  if (document.readyState === 'complete') {
+    hideLoadingScreen();
+  } else {
+    window.addEventListener('load', hideLoadingScreen);
+  }
+
+  // Fallback: hide after 5 seconds even if load event hasn't fired
+  setTimeout(hideLoadingScreen, 5000);
+};
+
 // Reduced motion preference
 const respectReducedMotion = () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -984,6 +1009,9 @@ const respectReducedMotion = () => {
 
 // Initialize all features
 const init = () => {
+  // Initialize loading screen
+  initLoadingScreen();
+
   // Respect user preferences first
   respectReducedMotion();
 
