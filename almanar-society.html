@@ -167,7 +167,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: calc(80px + var(--space-20)) var(--space-4) var(--space-20);
+      padding: calc(80px + var(--space-20)) 0 var(--space-20);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -293,28 +293,17 @@
     }
 
     .material-surface {
-      background: white;
-      border-radius: 20px;
-      box-shadow: var(--md-elevation-2);
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
       transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
       position: relative;
-      overflow: hidden;
-    }
-
-    .material-surface::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--sage-300), transparent);
-      opacity: 0.5;
+      overflow: visible;
     }
 
     .material-surface:hover {
-      box-shadow: var(--md-elevation-4);
-      transform: translateY(-2px);
+      box-shadow: none;
+      transform: none;
     }
 
     .content-wrapper {
@@ -735,7 +724,7 @@
           <li><a href="ethos.html">Ethos</a></li>
           <li><a href="almanar-society.html" aria-current="page">Al Manar Society</a></li>
           <li><a href="elt-materials.html">ELT Materials</a></li>
-          <li><a href="join-students.html">Join Students</a></li>
+          <li><a href="join-students.html">Study with us</a></li>
           <li><a href="vacancies.html">Vacancies</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -851,7 +840,7 @@
       <div class="footer-column">
         <h4>Get Involved</h4>
         <ul>
-          <li><a href="join-students.html">Join as Student</a></li>
+          <li><a href="join-students.html">Study with us</a></li>
           <li><a href="vacancies.html">Vacancies</a></li>
           <li><a href="donate.html">Donate</a></li>
         </ul>
