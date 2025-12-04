@@ -1178,17 +1178,445 @@
     <section class="section-compact" id="worksheets">
       <div class="material-surface content-wrapper">
         <h2 class="section-heading">Interactive Worksheets</h2>
-        <div style="text-align: center;">
-          <span class="coming-soon">Coming Soon</span>
-        </div>
 
-        <p style="text-align: center; color: var(--neutral-700); font-size: 1.125rem; line-height: 1.8; max-width: 700px; margin: var(--space-6) auto 0;">
-          We're developing interactive HTML/CSS/JavaScript revision worksheets for levels A1 through C1. These engaging exercises will help you practice grammar, vocabulary, reading, writing, and listening skills at your own pace.
+        <p style="text-align: center; color: var(--neutral-700); font-size: 1.125rem; line-height: 1.8; max-width: 700px; margin: 0 auto var(--space-8);">
+          Explore our collection of interactive worksheets covering various CEFR levels, themes, and grammar topics. Practice at your own pace with engaging Palestinian-focused content.
         </p>
 
-        <div style="text-align: center; margin-top: var(--space-8);">
-          <p style="color: var(--sage-700); font-weight: 600;">Stay tuned for updates!</p>
+        <!-- Filter Controls -->
+        <div class="worksheet-filters">
+          <div class="filter-group">
+            <label for="cefr-filter" class="filter-label">
+              <span class="material-symbols-rounded">school</span>
+              CEFR Level
+            </label>
+            <select id="cefr-filter" class="filter-select">
+              <option value="all">All Levels</option>
+              <option value="A1">A1</option>
+              <option value="A2">A2</option>
+              <option value="B1">B1</option>
+              <option value="B2">B2</option>
+              <option value="C1">C1</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="theme-filter" class="filter-label">
+              <span class="material-symbols-rounded">category</span>
+              Theme
+            </label>
+            <select id="theme-filter" class="filter-select">
+              <option value="all">All Themes</option>
+              <option value="culture">Palestinian Culture</option>
+              <option value="environment">Environment</option>
+              <option value="technology">Technology & Economy</option>
+              <option value="personal">Personal Development</option>
+              <option value="literature">Literature & Identity</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="search-worksheets" class="filter-label">
+              <span class="material-symbols-rounded">search</span>
+              Search
+            </label>
+            <input type="text" id="search-worksheets" class="filter-input" placeholder="Search worksheets...">
+          </div>
         </div>
+
+        <!-- Worksheets Grid -->
+        <div class="worksheets-grid" id="worksheets-grid">
+          <!-- A1-2: Exploring Jericho -->
+          <a href="https://najma-collective.github.io/Noor-Community-/web/A1-2-exploring-jericho.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="worksheet-card"
+             data-cefr="A1"
+             data-theme="culture"
+             data-keywords="jericho geography palestine culture">
+            <div class="worksheet-level-badge level-a1">A1</div>
+            <div class="worksheet-icon">
+              <span class="material-symbols-rounded">explore</span>
+            </div>
+            <h3 class="worksheet-title">Exploring Jericho</h3>
+            <p class="worksheet-description">Discover the ancient city of Jericho through engaging exercises on Palestinian geography and culture.</p>
+            <div class="worksheet-meta">
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">location_on</span>
+                Palestinian Culture
+              </span>
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">map</span>
+                Geography
+              </span>
+            </div>
+          </a>
+
+          <!-- A2-1: Soap Makers of Nablus -->
+          <a href="https://najma-collective.github.io/Noor-Community-/web/A2-1-soap-makers-nablus.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="worksheet-card"
+             data-cefr="A2"
+             data-theme="culture"
+             data-keywords="nablus soap crafts tradition culture">
+            <div class="worksheet-level-badge level-a2">A2</div>
+            <div class="worksheet-icon">
+              <span class="material-symbols-rounded">spa</span>
+            </div>
+            <h3 class="worksheet-title">Soap Makers of Nablus</h3>
+            <p class="worksheet-description">Learn about the traditional craft of soap-making in Nablus and its cultural significance.</p>
+            <div class="worksheet-meta">
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">handyman</span>
+                Traditional Crafts
+              </span>
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">history_edu</span>
+                Heritage
+              </span>
+            </div>
+          </a>
+
+          <!-- B1-2: Future Aspirations -->
+          <a href="https://najma-collective.github.io/Noor-Community-/web/B1-2-future-aspirations.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="worksheet-card"
+             data-cefr="B1"
+             data-theme="personal"
+             data-keywords="future goals aspirations plans personal development">
+            <div class="worksheet-level-badge level-b1">B1</div>
+            <div class="worksheet-icon">
+              <span class="material-symbols-rounded">rocket_launch</span>
+            </div>
+            <h3 class="worksheet-title">Future Aspirations</h3>
+            <p class="worksheet-description">Express your dreams and goals for the future while practicing future tenses and goal-setting vocabulary.</p>
+            <div class="worksheet-meta">
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">emoji_events</span>
+                Goals & Dreams
+              </span>
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">psychology</span>
+                Self-Reflection
+              </span>
+            </div>
+          </a>
+
+          <!-- B2-1: Tatreez -->
+          <a href="https://najma-collective.github.io/Noor-Community-/web/B2-1-tatreez.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="worksheet-card"
+             data-cefr="B2"
+             data-theme="culture"
+             data-keywords="tatreez embroidery palestinian art culture heritage">
+            <div class="worksheet-level-badge level-b2">B2</div>
+            <div class="worksheet-icon">
+              <span class="material-symbols-rounded">palette</span>
+            </div>
+            <h3 class="worksheet-title">Tatreez: Palestinian Embroidery</h3>
+            <p class="worksheet-description">Explore the rich tradition of Palestinian embroidery and its cultural and historical significance.</p>
+            <div class="worksheet-meta">
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">brush</span>
+                Traditional Art
+              </span>
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">sentiment_satisfied</span>
+                Cultural Identity
+              </span>
+            </div>
+          </a>
+
+          <!-- B2-2: Digital Economy -->
+          <a href="https://najma-collective.github.io/Noor-Community-/web/B2-2-digital-economy.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="worksheet-card"
+             data-cefr="B2"
+             data-theme="technology"
+             data-keywords="digital economy technology business innovation">
+            <div class="worksheet-level-badge level-b2">B2</div>
+            <div class="worksheet-icon">
+              <span class="material-symbols-rounded">computer</span>
+            </div>
+            <h3 class="worksheet-title">The Digital Economy</h3>
+            <p class="worksheet-description">Understand the impact of digital transformation on global and local economies.</p>
+            <div class="worksheet-meta">
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">trending_up</span>
+                Economics
+              </span>
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">devices</span>
+                Technology
+              </span>
+            </div>
+          </a>
+
+          <!-- C1-1: Water Scarcity -->
+          <a href="https://najma-collective.github.io/Noor-Community-/web/C1-1-water-scarcity.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="worksheet-card"
+             data-cefr="C1"
+             data-theme="environment"
+             data-keywords="water scarcity environment sustainability climate palestine">
+            <div class="worksheet-level-badge level-c1">C1</div>
+            <div class="worksheet-icon">
+              <span class="material-symbols-rounded">water_drop</span>
+            </div>
+            <h3 class="worksheet-title">Water Scarcity in Palestine</h3>
+            <p class="worksheet-description">Examine the complex issues surrounding water access and environmental challenges in Palestine.</p>
+            <div class="worksheet-meta">
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">water</span>
+                Environment
+              </span>
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">gavel</span>
+                Social Justice
+              </span>
+            </div>
+          </a>
+
+          <!-- C1-2: Literary Identity -->
+          <a href="https://najma-collective.github.io/Noor-Community-/web/C1-2-literary-identity.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="worksheet-card"
+             data-cefr="C1"
+             data-theme="literature"
+             data-keywords="literature identity culture writing poetry narrative">
+            <div class="worksheet-level-badge level-c1">C1</div>
+            <div class="worksheet-icon">
+              <span class="material-symbols-rounded">auto_stories</span>
+            </div>
+            <h3 class="worksheet-title">Literary Identity & Narrative</h3>
+            <p class="worksheet-description">Explore how literature shapes and reflects cultural and personal identity through critical analysis.</p>
+            <div class="worksheet-meta">
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">menu_book</span>
+                Literature
+              </span>
+              <span class="worksheet-tag">
+                <span class="material-symbols-rounded">person</span>
+                Identity
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="no-results" style="display: none;">
+          <span class="material-symbols-rounded" style="font-size: 4rem; color: var(--sage-400);">search_off</span>
+          <p>No worksheets found matching your criteria.</p>
+          <p style="font-size: 0.95rem; color: var(--neutral-600);">Try adjusting your filters or search terms.</p>
+        </div>
+
+        <style>
+          /* Worksheet Filters */
+          .worksheet-filters {
+            display: flex;
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: var(--space-6);
+            background: linear-gradient(135deg, var(--sage-50), white);
+            border-radius: 16px;
+            box-shadow: var(--md-elevation-2);
+          }
+
+          .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            min-width: 200px;
+            flex: 1;
+          }
+
+          .filter-label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-weight: 700;
+            color: var(--sage-800);
+            font-size: 0.95rem;
+          }
+
+          .filter-label .material-symbols-rounded {
+            font-size: 1.25rem;
+          }
+
+          .filter-select,
+          .filter-input {
+            padding: var(--space-3) var(--space-4);
+            border: 2px solid var(--sage-300);
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            background: white;
+            color: var(--neutral-800);
+            transition: all var(--md-motion-duration-short) var(--md-motion-easing-standard);
+          }
+
+          .filter-select:focus,
+          .filter-input:focus {
+            outline: none;
+            border-color: var(--sage-600);
+            box-shadow: 0 0 0 3px rgba(107, 133, 107, 0.1);
+          }
+
+          /* Worksheets Grid */
+          .worksheets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+          }
+
+          .worksheet-card {
+            background: white;
+            border-radius: 16px;
+            padding: var(--space-6);
+            box-shadow: var(--md-elevation-2);
+            transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
+            border-top: 4px solid var(--sage-600);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .worksheet-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at top right, rgba(234, 179, 8, 0.1), transparent);
+            pointer-events: none;
+          }
+
+          .worksheet-card:hover {
+            box-shadow: var(--md-elevation-6);
+            transform: translateY(-6px);
+            border-top-color: var(--gold-500);
+          }
+
+          .worksheet-card:hover .worksheet-icon {
+            transform: scale(1.1) rotate(5deg);
+          }
+
+          .worksheet-level-badge {
+            position: absolute;
+            top: var(--space-4);
+            right: var(--space-4);
+            padding: var(--space-2) var(--space-4);
+            font-weight: 800;
+            font-size: 0.875rem;
+            border-radius: 50px;
+            color: white;
+            z-index: 1;
+          }
+
+          .level-a1 { background: linear-gradient(135deg, #10b981, #059669); }
+          .level-a2 { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+          .level-b1 { background: linear-gradient(135deg, #f59e0b, #d97706); }
+          .level-b2 { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+          .level-c1 { background: linear-gradient(135deg, #ef4444, #dc2626); }
+
+          .worksheet-icon {
+            font-size: 3.5rem;
+            color: var(--sage-600);
+            margin-bottom: var(--space-4);
+            transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
+            display: flex;
+            justify-content: flex-start;
+          }
+
+          .worksheet-icon .material-symbols-rounded {
+            font-size: 3.5rem;
+          }
+
+          .worksheet-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sage-900);
+            margin-bottom: var(--space-3);
+            line-height: 1.3;
+          }
+
+          .worksheet-description {
+            font-size: 1rem;
+            color: var(--neutral-700);
+            line-height: 1.7;
+            margin-bottom: var(--space-4);
+            flex-grow: 1;
+          }
+
+          .worksheet-meta {
+            display: flex;
+            gap: var(--space-3);
+            flex-wrap: wrap;
+            margin-top: auto;
+          }
+
+          .worksheet-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            background: var(--sage-100);
+            color: var(--sage-800);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+          }
+
+          .worksheet-tag .material-symbols-rounded {
+            font-size: 1rem;
+          }
+
+          /* No Results */
+          .no-results {
+            text-align: center;
+            padding: var(--space-10);
+            color: var(--neutral-600);
+          }
+
+          .no-results p {
+            margin: var(--space-3) 0;
+            font-size: 1.125rem;
+            font-weight: 600;
+          }
+
+          /* Hidden class for filtering */
+          .worksheet-card.hidden {
+            display: none;
+          }
+
+          /* Responsive */
+          @media (max-width: 768px) {
+            .worksheet-filters {
+              flex-direction: column;
+            }
+
+            .filter-group {
+              min-width: 100%;
+            }
+
+            .worksheets-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
       </div>
     </section>
 
@@ -1471,6 +1899,63 @@
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         clearInterval(slideInterval);
       }
+    })();
+
+    // Worksheet Filtering
+    (function() {
+      const cefrFilter = document.getElementById('cefr-filter');
+      const themeFilter = document.getElementById('theme-filter');
+      const searchInput = document.getElementById('search-worksheets');
+      const worksheetCards = document.querySelectorAll('.worksheet-card');
+      const noResults = document.getElementById('no-results');
+
+      function filterWorksheets() {
+        const cefrValue = cefrFilter.value.toLowerCase();
+        const themeValue = themeFilter.value.toLowerCase();
+        const searchValue = searchInput.value.toLowerCase();
+
+        let visibleCount = 0;
+
+        worksheetCards.forEach(card => {
+          const cardCefr = card.getAttribute('data-cefr').toLowerCase();
+          const cardTheme = card.getAttribute('data-theme').toLowerCase();
+          const cardKeywords = card.getAttribute('data-keywords').toLowerCase();
+          const cardTitle = card.querySelector('.worksheet-title').textContent.toLowerCase();
+          const cardDescription = card.querySelector('.worksheet-description').textContent.toLowerCase();
+
+          // Check CEFR filter
+          const cefrMatch = cefrValue === 'all' || cardCefr === cefrValue;
+
+          // Check theme filter
+          const themeMatch = themeValue === 'all' || cardTheme === themeValue;
+
+          // Check search filter
+          const searchMatch = searchValue === '' ||
+                             cardTitle.includes(searchValue) ||
+                             cardDescription.includes(searchValue) ||
+                             cardKeywords.includes(searchValue);
+
+          // Show or hide card based on all filters
+          if (cefrMatch && themeMatch && searchMatch) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults.style.display = 'block';
+        } else {
+          noResults.style.display = 'none';
+        }
+      }
+
+      // Add event listeners
+      cefrFilter.addEventListener('change', filterWorksheets);
+      themeFilter.addEventListener('change', filterWorksheets);
+      searchInput.addEventListener('input', filterWorksheets);
     })();
   </script>
 </body>
