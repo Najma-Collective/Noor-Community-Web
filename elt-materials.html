@@ -15,6 +15,11 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Questrial&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="module">
+    import 'https://unpkg.com/@material/web@latest/all.js';
+  </script>
+  <script defer src="assets/js/main.js"></script>
 
   <style>
     :root {
@@ -397,17 +402,39 @@
     }
   </style>
 </head>
-<body>
-  <nav class="navbar" aria-label="Primary">
-    <div class="nav-content">
-      <a href="ethos.html" class="nav-link">Ethos</a>
-      <a href="almanar-society.html" class="nav-link">Al Manar Society</a>
-      <a href="vacancies.html" class="nav-link">Join Us</a>
-      <a href="elt-materials.html" class="nav-link active" aria-current="page">ELT Materials</a>
-    </div>
-  </nav>
+<body class="site-shell">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-  <main>
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="ethos.html">
+        <img src="https://najma-collective.github.io/Noor-Community-Web/assets/nlg.png" alt="Noor Community logo" />
+        <span>Noor Community</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+      <nav>
+        <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
+          <li><a href="ethos.html">Ethos</a></li>
+          <li><a href="almanar-society.html">Al Manar Society</a></li>
+          <li><a href="elt-materials.html" aria-current="page">ELT Materials</a></li>
+          <li><a href="join-students.html">Join Students</a></li>
+          <li><a href="vacancies.html">Vacancies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="donate-btn" href="donate.html">Donate</a>
+        <a class="linkedin-icon-nav" href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <img src="assets/linkeidn.png" alt="LinkedIn" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
         <p class="hero-label">Design for Agency</p>
@@ -415,7 +442,7 @@
         <p class="hero-description">Help us build culturally sustaining English language materials that expand human capability and voice through compassionate, rigorous pedagogy.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="elt-materials-showcase.html">View Showcase</a>
-          <a class="button button-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSeLDysPYrJVDWICAu3UDeQZCzgy_I57LtTAzoL4PZS5g7LooA/viewform?usp=header" target="_blank" rel="noreferrer">Apply to Collaborate</a>
+          <a class="button button-secondary" href="https://docs.google.com/forms/d/1V3SOfTQqxecDD3J_j9GEks-ikwDvyKnZ9pD2QTa4iMU/edit" target="_blank" rel="noreferrer">Apply to Collaborate</a>
         </div>
       </div>
     </section>
@@ -495,11 +522,63 @@
           <p>Share your portfolio, a brief statement on how you align with our ethos, and links to materials you have authored. We prioritise work that embodies care, representation, and critical engagement.</p>
           <div class="hero-actions" style="justify-content: center; margin-top: var(--space-4);">
             <a class="button button-primary" href="elt-materials-showcase.html">Explore Showcase</a>
-            <a class="button button-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSeLDysPYrJVDWICAu3UDeQZCzgy_I57LtTAzoL4PZS5g7LooA/viewform?usp=header" target="_blank" rel="noreferrer">Submit Application</a>
+            <a class="button button-secondary" href="https://docs.google.com/forms/d/1V3SOfTQqxecDD3J_j9GEks-ikwDvyKnZ9pD2QTa4iMU/edit" target="_blank" rel="noreferrer">Submit Application</a>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Mission</h4>
+        <p>Noor Community: Education and Liberation. A global network creating pathways to self-determination through rigorous, compassionate education.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="ethos.html">Our Ethos</a></li>
+          <li><a href="almanar-society.html">Al Manar Society</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="join-students.html">Join as Student</a></li>
+          <li><a href="vacancies.html">Vacancies</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="elt-materials.html">ELT Materials</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="ai-instructor-portal.html">AI Instructor Portal</a></li>
+        </ul>
+        <div class="social-links-footer" style="margin-top: var(--space-4); display: flex; gap: var(--space-3);">
+          <a href="https://uk.linkedin.com/company/noor-community" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" class="social-icon-link">
+            <img src="assets/linkeidn.png" alt="" class="social-icon" width="24" height="24" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sub-footer">
+      <p>&copy; <span id="year"></span> Noor Community. All rights reserved. | Education as a Practice of Freedom</p>
+      <div class="sub-footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true">•</span>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
