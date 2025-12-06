@@ -393,6 +393,197 @@
       line-height: 1.4;
     }
 
+    /* Word of the Day Section */
+    .word-of-day-section {
+      padding: var(--space-20) var(--space-6);
+      background: linear-gradient(135deg, var(--sage-50), var(--neutral-50));
+      position: relative;
+    }
+
+    .word-of-day-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .word-of-day-card {
+      background: white;
+      border-radius: 24px;
+      padding: var(--space-12);
+      box-shadow: var(--md-elevation-6);
+      border-left: 8px solid var(--gold-500);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .word-of-day-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(234, 179, 8, 0.08), transparent);
+      pointer-events: none;
+    }
+
+    .word-badge {
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      color: var(--neutral-900);
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      margin-bottom: var(--space-6);
+    }
+
+    .word-main {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .word-arabic {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800;
+      color: var(--sage-900);
+      line-height: 1;
+    }
+
+    .word-transliteration {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-style: italic;
+      color: var(--sage-600);
+      font-weight: 600;
+    }
+
+    .word-translation {
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      color: var(--gold-600);
+      font-weight: 700;
+      margin-bottom: var(--space-6);
+    }
+
+    .word-definition {
+      font-size: 1.25rem;
+      color: var(--neutral-700);
+      line-height: 1.8;
+      margin-bottom: var(--space-6);
+    }
+
+    .word-example {
+      padding: var(--space-6);
+      background: var(--sage-50);
+      border-left: 4px solid var(--sage-600);
+      border-radius: 12px;
+      font-size: 1.125rem;
+      font-style: italic;
+      color: var(--neutral-800);
+      margin-bottom: var(--space-6);
+    }
+
+    .word-etymology,
+    .word-category {
+      font-size: 1rem;
+      color: var(--neutral-600);
+      margin-top: var(--space-4);
+    }
+
+    .word-category {
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      background: var(--sage-100);
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: var(--space-6);
+    }
+
+    /* Library Highlights Section */
+    .library-section {
+      padding: var(--space-20) var(--space-6);
+      background: white;
+      position: relative;
+    }
+
+    .library-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .library-card {
+      background: linear-gradient(135deg, var(--sage-50), white);
+      border-radius: 20px;
+      padding: var(--space-8);
+      box-shadow: var(--md-elevation-3);
+      transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
+      border-top: 4px solid var(--sage-600);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .library-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--md-elevation-8);
+      border-top-color: var(--gold-500);
+    }
+
+    .library-card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+    }
+
+    .library-card-icon .material-symbols-rounded {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .library-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--sage-900);
+      margin-bottom: var(--space-3);
+      line-height: 1.3;
+    }
+
+    .library-card-description {
+      font-size: 1rem;
+      color: var(--neutral-700);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
+    }
+
+    .library-card-meta {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+
+    .library-card-badge {
+      display: inline-block;
+      padding: var(--space-2) var(--space-3);
+      background: var(--sage-100);
+      color: var(--sage-800);
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 50px;
+    }
+
     /* Features Section */
     .section {
       padding: var(--space-20) var(--space-6);
@@ -714,6 +905,86 @@
           <div class="stat-number">Global</div>
           <div class="stat-label">Community Network</div>
         </div>
+      </div>
+    </section>
+
+    <!-- Word of the Day Section -->
+    <section class="word-of-day-section" aria-labelledby="word-of-day-heading">
+      <div class="word-of-day-container">
+        <h2 class="section-heading" id="word-of-day-heading" style="margin-bottom: var(--space-12);">Word of the Day</h2>
+        <div class="word-of-day-card" id="word-of-day-card">
+          <span class="word-badge">Daily Learning</span>
+          <div class="word-main">
+            <div class="word-arabic" id="word-arabic">نُور</div>
+            <div class="word-transliteration" id="word-transliteration">nūr</div>
+          </div>
+          <div class="word-translation" id="word-translation">light</div>
+          <div class="word-definition" id="word-definition">The natural agent that stimulates sight and makes things visible; enlightenment, illumination.</div>
+          <div class="word-example" id="word-example">
+            <strong>Example:</strong> <span id="word-example-text">Nūr symbolizes the illumination that education brings to our lives.</span>
+          </div>
+          <div class="word-etymology" id="word-etymology">
+            <strong>Etymology:</strong> <span id="word-etymology-text">From Arabic root ن-و-ر (n-w-r) meaning 'to illuminate'</span>
+          </div>
+          <span class="word-category" id="word-category">Values</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Library Highlights Section -->
+    <section class="library-section" aria-labelledby="library-heading">
+      <h2 class="section-heading" id="library-heading">From Our Library</h2>
+      <p class="section-subtitle">
+        Explore culturally sustaining, interactive learning materials that center Palestinian voices and expand human capability.
+      </p>
+      <div class="library-grid">
+        <a href="assets/Interactive/A1-Palestinian Hospitality and Daily Routine.html" class="library-card">
+          <div class="library-card-icon">
+            <span class="material-symbols-rounded">menu_book</span>
+          </div>
+          <h3 class="library-card-title">Palestinian Hospitality & Daily Routine</h3>
+          <p class="library-card-description">
+            Explore Palestinian culture through language learning, focusing on hospitality traditions and everyday life.
+          </p>
+          <div class="library-card-meta">
+            <span class="library-card-badge">A1 Level</span>
+            <span class="library-card-badge">Interactive</span>
+          </div>
+        </a>
+
+        <a href="assets/Interactive/Exploring Jericho - The Lowest City.html" class="library-card">
+          <div class="library-card-icon">
+            <span class="material-symbols-rounded">landscape</span>
+          </div>
+          <h3 class="library-card-title">Exploring Jericho - The Lowest City</h3>
+          <p class="library-card-description">
+            Discover Jericho's rich history and geography through engaging language exercises and cultural insights.
+          </p>
+          <div class="library-card-meta">
+            <span class="library-card-badge">Geography</span>
+            <span class="library-card-badge">Interactive</span>
+          </div>
+        </a>
+
+        <a href="elt-materials-showcase.html" class="library-card">
+          <div class="library-card-icon">
+            <span class="material-symbols-rounded">widgets</span>
+          </div>
+          <h3 class="library-card-title">ELT Activity Showcase</h3>
+          <p class="library-card-description">
+            Browse our collection of interactive activity templates including multiple choice, listening exercises, and more.
+          </p>
+          <div class="library-card-meta">
+            <span class="library-card-badge">12 Activities</span>
+            <span class="library-card-badge">All Levels</span>
+          </div>
+        </a>
+      </div>
+      <div style="text-align: center; margin-top: var(--space-12);">
+        <a href="elt-materials.html" class="cta-button cta-primary">
+          <span class="material-symbols-rounded">explore</span>
+          Explore All Materials
+        </a>
       </div>
     </section>
 
