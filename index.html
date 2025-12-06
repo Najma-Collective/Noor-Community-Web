@@ -91,9 +91,12 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--md-elevation-2);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(67, 87, 67, 0.08);
       z-index: 1000;
       padding: var(--space-4) var(--space-6);
       transition: all var(--md-motion-duration-short) var(--md-motion-easing-standard);
@@ -193,7 +196,7 @@
     .hero-content {
       position: relative;
       z-index: 3;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       animation: fadeInUp 1.2s ease-out;
     }
@@ -350,14 +353,21 @@
       border-radius: 24px;
       padding: var(--space-8);
       text-align: center;
-      box-shadow: var(--md-elevation-6);
+      box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 10px 25px rgba(67, 87, 67, 0.12),
+        0 0 0 1px rgba(67, 87, 67, 0.06);
       transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
       border-top: 5px solid var(--sage-600);
+      position: relative;
     }
 
     .stat-card:hover {
       transform: translateY(-8px);
-      box-shadow: var(--md-elevation-8);
+      box-shadow:
+        0 8px 12px rgba(0, 0, 0, 0.08),
+        0 20px 40px rgba(67, 87, 67, 0.18),
+        0 0 0 1px rgba(234, 179, 8, 0.3);
       border-top-color: var(--gold-500);
     }
 
@@ -401,7 +411,7 @@
     }
 
     .word-of-day-container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -409,10 +419,14 @@
       background: white;
       border-radius: 24px;
       padding: var(--space-12);
-      box-shadow: var(--md-elevation-6);
+      box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 10px 25px rgba(67, 87, 67, 0.12),
+        0 0 0 1px rgba(234, 179, 8, 0.1);
       border-left: 8px solid var(--gold-500);
       position: relative;
       overflow: hidden;
+      transition: all 0.3s ease;
     }
 
     .word-of-day-card::before {
@@ -424,6 +438,14 @@
       height: 300px;
       background: radial-gradient(circle, rgba(234, 179, 8, 0.08), transparent);
       pointer-events: none;
+    }
+
+    .word-of-day-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 8px 12px rgba(0, 0, 0, 0.08),
+        0 20px 40px rgba(67, 87, 67, 0.15),
+        0 0 0 1px rgba(234, 179, 8, 0.2);
     }
 
     .word-badge {
@@ -521,7 +543,10 @@
       background: linear-gradient(135deg, var(--sage-50), white);
       border-radius: 20px;
       padding: var(--space-8);
-      box-shadow: var(--md-elevation-3);
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.04),
+        0 8px 16px rgba(67, 87, 67, 0.08),
+        0 0 0 1px rgba(67, 87, 67, 0.05);
       transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
       border-top: 4px solid var(--sage-600);
       cursor: pointer;
@@ -532,7 +557,10 @@
 
     .library-card:hover {
       transform: translateY(-6px);
-      box-shadow: var(--md-elevation-8);
+      box-shadow:
+        0 6px 10px rgba(0, 0, 0, 0.06),
+        0 16px 32px rgba(67, 87, 67, 0.15),
+        0 0 0 1px rgba(234, 179, 8, 0.25);
       border-top-color: var(--gold-500);
     }
 
@@ -621,7 +649,10 @@
       background: white;
       border-radius: 24px;
       padding: var(--space-10);
-      box-shadow: var(--md-elevation-3);
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.04),
+        0 8px 16px rgba(67, 87, 67, 0.08),
+        0 0 0 1px rgba(67, 87, 67, 0.05);
       transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
       border-top: 5px solid var(--sage-600);
       position: relative;
@@ -641,7 +672,10 @@
 
     .feature-card:hover {
       transform: translateY(-8px);
-      box-shadow: var(--md-elevation-8);
+      box-shadow:
+        0 6px 10px rgba(0, 0, 0, 0.06),
+        0 16px 32px rgba(67, 87, 67, 0.15),
+        0 0 0 1px rgba(234, 179, 8, 0.25);
       border-top-color: var(--gold-500);
     }
 
@@ -841,6 +875,7 @@
       </button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
+          <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="ethos.html">Ethos</a></li>
           <li><a href="almanar-society.html">Al Manar Society</a></li>
           <li><a href="elt-materials.html">ELT Materials</a></li>

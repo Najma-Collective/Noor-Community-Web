@@ -91,9 +91,12 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--md-elevation-2);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(67, 87, 67, 0.08);
       z-index: 1000;
       padding: var(--space-4) var(--space-6);
       transition: box-shadow var(--md-motion-duration-short) var(--md-motion-easing-standard);
@@ -200,7 +203,7 @@
     .hero-content {
       position: relative;
       z-index: 3;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       animation: fadeInUp 1s ease-out;
     }
@@ -616,6 +619,7 @@
       </button>
       <nav>
         <ul class="nav-links" data-nav-links id="primary-navigation" aria-hidden="true">
+          <li><a href="index.html">Home</a></li>
           <li><a href="ethos.html" aria-current="page">Ethos</a></li>
           <li><a href="almanar-society.html">Al Manar Society</a></li>
           <li><a href="elt-materials.html">ELT Materials</a></li>
