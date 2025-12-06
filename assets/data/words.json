@@ -1,0 +1,281 @@
+[
+  {
+    "word": "تَعَاوُن",
+    "transliteration": "ta'āwun",
+    "translation": "cooperation",
+    "definition": "The act of working together towards a common goal, mutual assistance.",
+    "example": "Through ta'āwun, our community achieves greater things together.",
+    "etymology": "From Arabic root ع-و-ن (ʿ-w-n) meaning 'to help, to assist'",
+    "category": "Community Values"
+  },
+  {
+    "word": "حُرِّيَّة",
+    "transliteration": "ḥurriyya",
+    "translation": "freedom",
+    "definition": "The state of being free; liberty, independence from oppression or constraint.",
+    "example": "Education is a pathway to ḥurriyya for all learners.",
+    "etymology": "From Arabic root ح-ر-ر (ḥ-r-r) meaning 'to be free'",
+    "category": "Liberation"
+  },
+  {
+    "word": "تَضَامُن",
+    "transliteration": "taḍāmun",
+    "translation": "solidarity",
+    "definition": "Unity or agreement of feeling or action, especially among individuals with a common interest; mutual support.",
+    "example": "Our pedagogy is grounded in taḍāmun with learners worldwide.",
+    "etymology": "From Arabic root ض-م-ن (ḍ-m-n) meaning 'to guarantee, to ensure'",
+    "category": "Community Values"
+  },
+  {
+    "word": "عِلْم",
+    "transliteration": "'ilm",
+    "translation": "knowledge",
+    "definition": "Facts, information, and skills acquired through experience or education; the theoretical or practical understanding of a subject.",
+    "example": "We seek 'ilm that liberates and empowers.",
+    "etymology": "From Arabic root ع-ل-م (ʿ-l-m) meaning 'to know'",
+    "category": "Education"
+  },
+  {
+    "word": "تَعَلُّم",
+    "transliteration": "ta'allum",
+    "translation": "learning",
+    "definition": "The acquisition of knowledge or skills through study, experience, or being taught.",
+    "example": "Ta'allum is a lifelong journey of growth and discovery.",
+    "etymology": "From Arabic root ع-ل-م (ʿ-l-m) meaning 'to know'",
+    "category": "Education"
+  },
+  {
+    "word": "أَمَل",
+    "transliteration": "amal",
+    "translation": "hope",
+    "definition": "A feeling of expectation and desire for a certain thing to happen; optimism about the future.",
+    "example": "Amal drives our vision for educational liberation.",
+    "etymology": "From Arabic root أ-م-ل (ʾ-m-l) meaning 'to hope'",
+    "category": "Values"
+  },
+  {
+    "word": "صُمُود",
+    "transliteration": "ṣumūd",
+    "translation": "steadfastness",
+    "definition": "Steadfast perseverance; the Palestinian concept of remaining firmly in place and resisting displacement.",
+    "example": "Ṣumūd represents our commitment to education despite challenges.",
+    "etymology": "From Arabic root ص-م-د (ṣ-m-d) meaning 'to stand firm, to resist'",
+    "category": "Resilience"
+  },
+  {
+    "word": "عَدَالَة",
+    "transliteration": "'adāla",
+    "translation": "justice",
+    "definition": "Just behavior or treatment; fairness in the way people are dealt with.",
+    "example": "Our mission centers 'adāla in all educational practices.",
+    "etymology": "From Arabic root ع-د-ل (ʿ-d-l) meaning 'to be just, to be fair'",
+    "category": "Liberation"
+  },
+  {
+    "word": "إِبْدَاع",
+    "transliteration": "ibdā'",
+    "translation": "creativity",
+    "definition": "The use of imagination or original ideas to create something; inventiveness.",
+    "example": "We encourage ibdā' in language learning approaches.",
+    "etymology": "From Arabic root ب-د-ع (b-d-ʿ) meaning 'to create, to innovate'",
+    "category": "Education"
+  },
+  {
+    "word": "كَرَامَة",
+    "transliteration": "karāma",
+    "translation": "dignity",
+    "definition": "The state or quality of being worthy of honor or respect; self-worth.",
+    "example": "Every learner deserves to be treated with karāma.",
+    "etymology": "From Arabic root ك-ر-م (k-r-m) meaning 'to be noble, generous'",
+    "category": "Values"
+  },
+  {
+    "word": "مُجْتَمَع",
+    "transliteration": "mujtama'",
+    "translation": "community",
+    "definition": "A group of people living in the same place or having a particular characteristic in common; fellowship.",
+    "example": "Noor is a global mujtama' dedicated to education.",
+    "etymology": "From Arabic root ج-م-ع (j-m-ʿ) meaning 'to gather, to bring together'",
+    "category": "Community Values"
+  },
+  {
+    "word": "مُثَابَرَة",
+    "transliteration": "muthābara",
+    "translation": "perseverance",
+    "definition": "Persistence in doing something despite difficulty or delay in achieving success.",
+    "example": "Muthābara is essential in mastering a new language.",
+    "etymology": "From Arabic root ث-ب-ر (th-b-r) meaning 'to persist, to endure'",
+    "category": "Resilience"
+  },
+  {
+    "word": "تَمْكِين",
+    "transliteration": "tamkīn",
+    "translation": "empowerment",
+    "definition": "The process of becoming stronger and more confident, especially in controlling one's life and claiming one's rights.",
+    "example": "Our courses focus on learner tamkīn through language skills.",
+    "etymology": "From Arabic root م-ك-ن (m-k-n) meaning 'to enable, to empower'",
+    "category": "Liberation"
+  },
+  {
+    "word": "حِكْمَة",
+    "transliteration": "ḥikma",
+    "translation": "wisdom",
+    "definition": "The quality of having experience, knowledge, and good judgment; the quality of being wise.",
+    "example": "We seek ḥikma in our pedagogical approaches.",
+    "etymology": "From Arabic root ح-ك-م (ḥ-k-m) meaning 'to judge wisely'",
+    "category": "Education"
+  },
+  {
+    "word": "اِحْتِرَام",
+    "transliteration": "iḥtirām",
+    "translation": "respect",
+    "definition": "A feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements.",
+    "example": "Iḥtirām for diverse cultures enriches our learning community.",
+    "etymology": "From Arabic root ح-ر-م (ḥ-r-m) meaning 'to honor, to respect'",
+    "category": "Values"
+  },
+  {
+    "word": "تَنَوُّع",
+    "transliteration": "tanawwu'",
+    "translation": "diversity",
+    "definition": "The practice or quality of including people from a range of different backgrounds; variety.",
+    "example": "Tanawwu' in our community strengthens our collective learning.",
+    "etymology": "From Arabic root ن-و-ع (n-w-ʿ) meaning 'to vary, to diversify'",
+    "category": "Community Values"
+  },
+  {
+    "word": "نُور",
+    "transliteration": "nūr",
+    "translation": "light",
+    "definition": "The natural agent that stimulates sight and makes things visible; enlightenment, illumination.",
+    "example": "Nūr symbolizes the illumination that education brings to our lives.",
+    "etymology": "From Arabic root ن-و-ر (n-w-r) meaning 'to illuminate'",
+    "category": "Values"
+  },
+  {
+    "word": "حَقّ",
+    "transliteration": "ḥaqq",
+    "translation": "right",
+    "definition": "A moral or legal entitlement to have or do something; truth, what is just.",
+    "example": "Education is a fundamental ḥaqq for all people.",
+    "etymology": "From Arabic root ح-ق-ق (ḥ-q-q) meaning 'to be true, to be just'",
+    "category": "Liberation"
+  },
+  {
+    "word": "رَحْمَة",
+    "transliteration": "raḥma",
+    "translation": "compassion",
+    "definition": "Sympathetic pity and concern for the sufferings or misfortunes of others; mercy.",
+    "example": "Our pedagogy is guided by raḥma for every learner's journey.",
+    "etymology": "From Arabic root ر-ح-م (r-ḥ-m) meaning 'to have mercy, to be compassionate'",
+    "category": "Values"
+  },
+  {
+    "word": "نَهْضَة",
+    "transliteration": "nahḍa",
+    "translation": "renaissance",
+    "definition": "A revival of or renewed interest in something; awakening, uprising.",
+    "example": "We work towards an educational nahḍa rooted in liberation.",
+    "etymology": "From Arabic root ن-ه-ض (n-h-ḍ) meaning 'to rise, to awaken'",
+    "category": "Liberation"
+  },
+  {
+    "word": "تَفَاهُم",
+    "transliteration": "tafāhum",
+    "translation": "understanding",
+    "definition": "The ability to understand something; sympathetic awareness or tolerance; mutual comprehension.",
+    "example": "Tafāhum bridges cultures in our multilingual community.",
+    "etymology": "From Arabic root ف-ه-م (f-h-m) meaning 'to understand, to comprehend'",
+    "category": "Community Values"
+  },
+  {
+    "word": "إِخْلَاص",
+    "transliteration": "ikhlāṣ",
+    "translation": "sincerity",
+    "definition": "The quality of being free from pretense, deceit, or hypocrisy; genuine commitment.",
+    "example": "We approach our mission with ikhlāṣ and dedication.",
+    "etymology": "From Arabic root خ-ل-ص (kh-l-ṣ) meaning 'to be pure, sincere'",
+    "category": "Values"
+  },
+  {
+    "word": "تَقَدُّم",
+    "transliteration": "taqaddum",
+    "translation": "progress",
+    "definition": "Forward or onward movement toward a destination or goal; development toward an improved state.",
+    "example": "Every step in learning represents taqaddum toward fluency.",
+    "etymology": "From Arabic root ق-د-م (q-d-m) meaning 'to advance, to move forward'",
+    "category": "Education"
+  },
+  {
+    "word": "إِلْهَام",
+    "transliteration": "ilhām",
+    "translation": "inspiration",
+    "definition": "The process of being mentally stimulated to do or feel something creative; divine guidance.",
+    "example": "Our students' achievements provide ilhām for our continued work.",
+    "etymology": "From Arabic root ل-ه-م (l-h-m) meaning 'to inspire'",
+    "category": "Values"
+  },
+  {
+    "word": "مُسَاوَاة",
+    "transliteration": "musāwāt",
+    "translation": "equality",
+    "definition": "The state of being equal, especially in status, rights, and opportunities.",
+    "example": "We strive for musāwāt in access to quality education.",
+    "etymology": "From Arabic root س-و-ي (s-w-y) meaning 'to be equal'",
+    "category": "Liberation"
+  },
+  {
+    "word": "جَمَال",
+    "transliteration": "jamāl",
+    "translation": "beauty",
+    "definition": "A combination of qualities that pleases the aesthetic senses, especially sight; elegance.",
+    "example": "We find jamāl in linguistic diversity and cultural expression.",
+    "etymology": "From Arabic root ج-م-ل (j-m-l) meaning 'to be beautiful'",
+    "category": "Values"
+  },
+  {
+    "word": "صَبْر",
+    "transliteration": "ṣabr",
+    "translation": "patience",
+    "definition": "The capacity to accept or tolerate delay, trouble, or suffering without getting angry or upset; endurance.",
+    "example": "Ṣabr is a virtue in the language learning journey.",
+    "etymology": "From Arabic root ص-ب-ر (ṣ-b-r) meaning 'to be patient, to endure'",
+    "category": "Resilience"
+  },
+  {
+    "word": "شَجَاعَة",
+    "transliteration": "shajā'a",
+    "translation": "courage",
+    "definition": "The ability to do something that frightens one; strength in the face of pain or grief; bravery.",
+    "example": "It takes shajā'a to learn a new language and speak with confidence.",
+    "etymology": "From Arabic root ش-ج-ع (sh-j-ʿ) meaning 'to be brave'",
+    "category": "Resilience"
+  },
+  {
+    "word": "سَلَام",
+    "transliteration": "salām",
+    "translation": "peace",
+    "definition": "Freedom from disturbance; tranquility, harmony between people or groups.",
+    "example": "We greet each other with salām, fostering a peaceful learning environment.",
+    "etymology": "From Arabic root س-ل-م (s-l-m) meaning 'to be safe, peaceful'",
+    "category": "Values"
+  },
+  {
+    "word": "أَصَالَة",
+    "transliteration": "aṣāla",
+    "translation": "authenticity",
+    "definition": "The quality of being authentic; genuineness, rootedness in one's culture and values.",
+    "example": "Our materials reflect aṣāla by centering Palestinian voices.",
+    "etymology": "From Arabic root أ-ص-ل (ʾ-ṣ-l) meaning 'to be rooted, original'",
+    "category": "Values"
+  },
+  {
+    "word": "وَعْي",
+    "transliteration": "wa'y",
+    "translation": "consciousness",
+    "definition": "The state of being aware of and responsive to one's surroundings; critical awareness.",
+    "example": "We develop wa'y through critical pedagogy and dialogue.",
+    "etymology": "From Arabic root و-ع-ي (w-ʿ-y) meaning 'to be aware, conscious'",
+    "category": "Education"
+  }
+]

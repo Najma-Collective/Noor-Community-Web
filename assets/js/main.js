@@ -1062,6 +1062,48 @@ const initLoadingScreen = () => {
   setTimeout(hideLoadingScreen, 5000);
 };
 
+// Word of the Day functionality
+const initWordOfDay = async () => {
+  const wordCard = document.getElementById('word-of-day-card');
+  if (!wordCard) return;
+
+  try {
+    // Fetch words data
+    const response = await fetch('assets/data/words.json');
+    const words = await response.json();
+
+    // Get day of year to ensure same word shows all day
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const diff = now - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+
+    // Select word based on day of year (cycles through all words)
+    const wordIndex = dayOfYear % words.length;
+    const word = words[wordIndex];
+
+    // Update DOM with word data
+    document.getElementById('word-arabic').textContent = word.word;
+    document.getElementById('word-transliteration').textContent = word.transliteration;
+    document.getElementById('word-translation').textContent = word.translation;
+    document.getElementById('word-definition').textContent = word.definition;
+    document.getElementById('word-example-text').textContent = word.example;
+    document.getElementById('word-etymology-text').textContent = word.etymology;
+    document.getElementById('word-category').textContent = word.category;
+
+    // Add fade-in animation
+    wordCard.style.opacity = '0';
+    requestAnimationFrame(() => {
+      wordCard.style.transition = 'opacity 0.6s ease-in';
+      wordCard.style.opacity = '1';
+    });
+  } catch (error) {
+    console.error('Error loading word of the day:', error);
+    // Keep default word in HTML if fetch fails
+  }
+};
+
 // Reduced motion preference
 const respectReducedMotion = () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -1107,6 +1149,9 @@ const init = () => {
   // Accessibility
   initFocusVisible();
   initSkipLink();
+
+  // Dynamic content
+  initWordOfDay();
 
   console.log('🌿 Noor Community — Premium UI initialized');
 };
